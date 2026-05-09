@@ -14,3 +14,12 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 新增 `wiki/ai-agent/` — AI Agent 开发（LangChain/CrewAI/MCP/多 Agent 协作）
 - 从 ai-ml 中拆分 AI Agent 为独立领域，保持 ai-ml 聚焦模型与推理基础
 - 更新 wiki-purpose、wiki-schema、homepage 的领域范围与标签体系
+
+## 2026-05-09 ingest | 清华大学 OpenClaw 与数字员工研究报告
+- 创建 `ai-agent/openclaw.md` — OpenClaw 架构、执行层、四层差距、五种原创概念
+- 来源文件：sources/2026/05/09/清华大学2026年OpenClaw与数字员工研究报告47页.pdf
+
+## 2026-05-09 ingest | 清华大学 Token 消费学研究报告
+- 创建 `ai-ml/token-consumption-economics.md` — Token 冗余、预算治理、可控放量（扫描件，内容待补）
+- 来源文件：sources/2026/05/09/清华大学：Token消费学研究报告.pdf（扫描件，文本提取受限）
+- 迁移 sources 目录结构：YYYY-MM-DD → YYYY/MM/DD

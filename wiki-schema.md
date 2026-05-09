@@ -56,7 +56,7 @@ title: 页面标题（中文）
 description: 一句话摘要
 aliases: [别名1, 别名2, 英文原名]
 tags: [领域标签, 子标签]
-sources: [YYYY-MM-DD/源文件名.md]
+sources: [YYYY/MM/DD/源文件名.md]
 status: open | resolved | wontfix  # 议题/问题页必需
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -64,7 +64,7 @@ updated: YYYY-MM-DD
 ```
 
 - `aliases` 必填：包含英文原名、常见缩写、中文译名
-- `sources` 必填：标注来源路径，相对 `sources/` 目录
+- `sources` 必填：标注来源路径（`YYYY/MM/DD/文件名`），相对 `sources/` 目录
 - `tags` 必填：使用下方标签体系中的标签
 
 ## 标签体系
