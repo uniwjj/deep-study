@@ -42,7 +42,25 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 ## 2026-05-09 ingest | Claude Code 87个隐藏功能
 - 创建 `ai-agent/claude-code-hidden-features.md` — Kairos主动助手、Coordinator编排、Teleport跨设备、Voice语音、六大进化路线
 
-## 2026-05-09 ingest | 04/03-04/27 批量摄入（续）
+## 2026-05-09 ingest | Knowledge 专题（6个文件）
+- 创建 `ai-agent/llm-wiki-six-layer.md` — 六层架构改造
+- 创建 `ai-agent/open-design.md` — Open Design 开源设计工具
+- 创建 `ai-ml/rag-query-optimization.md` — RAG query 改写五策略
+- 更新 `ai-agent/rag-vs-llm-wiki.md` — 五代方案演进对比
+- 其余文件合并到已有 llm-wiki 相关页面
+- 创建 `ai-agent/agent-harness-overview.md` — Harness 六承重层、七步循环
+- 创建 `ai-agent/architect-in-agent-era.md` — Agent 时代架构师七项系统能力
+- 创建 `ai-agent/sub-agent-vs-team.md` — Sub-Agent vs Team + 三框架对比
+- 创建 `ai-agent/manus-context-engineering.md` — Manus 六条上下文工程原则
+- 创建 `ai-agent/harness-build-to-delete.md` — Build to delete 演进
+- 创建 `ai-agent/ai-career-trends.md` — Dario 职业趋势判断
+- 创建 `ai-agent/harness-design-long-running.md` — GAN 启发的三 Agent 架构
+- 创建 `ai-agent/harness-engineering-practice.md` — Human-first → Agent-aware
+- 创建 `ai-agent/agent-vs-framework-vs-harness.md` — 三层概念区别
+- 创建 `ai-agent/deerflow.md` — 字节跳动 DeerFlow 2.0
+- 创建 `big-data/openai-data-agent.md` — OpenAI 内部 Data Agent
+- 创建 `ai-agent/harness-as-backend.md` — Harness 作为新后端
+- 其余 22 个文件（新闻/趋势/Claude源码）合并到已有页面
 - 创建 `ai-agent/claude-code-vs-opencode.md` — CC vs OpenCode 四维度对比（上下文/Prompt/Agent/工具）
 - 创建 `ai-agent/openspec-sdd-practice.md` — OpenSpec 七步工作流实战复盘
 - 创建 `ai-agent/sdd-openspec-superpowers.md` — SDD 双框架对比
