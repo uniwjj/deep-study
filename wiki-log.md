@@ -23,3 +23,35 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 创建 `ai-ml/token-consumption-economics.md` — Token 冗余、预算治理、可控放量（扫描件，内容待补）
 - 来源文件：sources/2026/05/09/清华大学：Token消费学研究报告.pdf（扫描件，文本提取受限）
 - 迁移 sources 目录结构：YYYY-MM-DD → YYYY/MM/DD
+
+## 2026-05-09 ingest | Obsidian + Claudian：AI知识库终极方案
+- 创建 `ai-agent/obsidian-claudian.md` — Obsidian + Claude Code + Claudian 插件架构、Skills 三级进化、部署指南
+
+## 2026-05-09 ingest | Obsidian打造个人第二大脑
+- 创建 `ai-agent/obsidian-second-brain.md` — Obsidian 四大核心优势、推荐插件栈、快速上手指南
+
+## 2026-05-09 ingest | Claude Code Auto Dream 记忆整合机制
+- 创建 `ai-agent/claude-code-auto-dream.md` — 四阶段整合流程、触发条件、四种记忆机制全景
+
+## 2026-05-09 ingest | Claude Code sourcemap 逆向还原
+- 创建 `ai-agent/claude-code-sourcemap-reverse.md` — 1,884 文件还原、七类问题、三层降级策略
+
+## 2026-05-09 ingest | Claude Code 源码架构解析
+- 创建 `ai-agent/claude-code-architecture.md` — 启动入口、Prompt装配层、工具契约、权限管道、长任务续航五层主线
+
+## 2026-05-09 ingest | Claude Code 87个隐藏功能
+- 创建 `ai-agent/claude-code-hidden-features.md` — Kairos主动助手、Coordinator编排、Teleport跨设备、Voice语音、六大进化路线
+
+## 2026-05-09 ingest | 04/03-04/27 批量摄入（续）
+- 创建 `ai-agent/claude-code-vs-opencode.md` — CC vs OpenCode 四维度对比（上下文/Prompt/Agent/工具）
+- 创建 `ai-agent/openspec-sdd-practice.md` — OpenSpec 七步工作流实战复盘
+- 创建 `ai-agent/sdd-openspec-superpowers.md` — SDD 双框架对比
+- 创建 `ai-agent/hermes-agent.md` — Hermes 自进化 Agent 框架
+- 创建 `big-data/data-dev-skills-automation.md` — 数仓开发 Skills 自动化
+- 创建 `ai-agent/claude-managed-agents.md` — CMA 脑手分离架构
+- 创建 `ai-agent/google-scion.md` — Google 多 Agent 沙箱
+- 创建 `ai-agent/meta-jit-testing.md` — Meta JiT 测试（bug检出+4倍）
+- 创建 `ai-agent/claude-md-best-practices.md` — CLAUDE.md 最佳实践与陷阱
+- 创建 `big-data/maxcompute-data-ai.md` — MaxCompute Data+AI 演进
+- 创建 `ai-agent/ai-agent-ecommerce-content.md` — 淘工厂电商内容 Agent
+- 更新多个新闻类文章 frontmatter 指向已有 wiki 页面（Hermes/OpenClaw/CMA）
