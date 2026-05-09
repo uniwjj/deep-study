@@ -2,7 +2,7 @@
 
 This workspace is an LLM Wiki vault. Use the `llm-wiki` skill for all wiki
 operations. The full skill (operation steps, schemas, examples) lives at
-`.agents/skills/llm-wiki.md` and is loaded on demand by Codex.
+`.agents/skills/llm-wiki/SKILL.md` and is loaded on demand by Codex.
 
 ## Agent Identity
 
