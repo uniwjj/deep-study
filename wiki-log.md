@@ -42,7 +42,10 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 ## 2026-05-09 ingest | Claude Code 87个隐藏功能
 - 创建 `ai-agent/claude-code-hidden-features.md` — Kairos主动助手、Coordinator编排、Teleport跨设备、Voice语音、六大进化路线
 
-## 2026-05-09 ingest | Knowledge 专题（6个文件）
+## 2026-05-09 ingest | Memory/SDD/Spec 专题
+- Memory: OpenClaw Memory Wiki 合并到 [[openclaw]]
+- SDD (3个): 合并到 sdd-openspec-superpowers / superpowers-framework
+- Spec (2个): 合并到 sdd-openspec-superpowers / superpowers-framework
 - 创建 `ai-agent/llm-wiki-six-layer.md` — 六层架构改造
 - 创建 `ai-agent/open-design.md` — Open Design 开源设计工具
 - 创建 `ai-ml/rag-query-optimization.md` — RAG query 改写五策略
