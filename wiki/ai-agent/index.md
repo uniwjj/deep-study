@@ -95,6 +95,7 @@ Agent 开发领域的技术积累索引。
 
 ## 上下文工程与记忆
 
+- [[google-context-engineering]] — Google 上下文工程白皮书
 - [[manus-context-engineering]] — Manus 上下文工程
 - [[agent-memory-system]] — 长短记忆系统
 - [[claude-md-best-practices]] — CLAUDE.md 最佳实践

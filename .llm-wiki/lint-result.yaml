@@ -1,29 +1,21 @@
 date: 2026-05-10
 summary:
-  pages: 75
-  sources: 97
+  pages: 101
+  sources: 106
   issues:
-    critical: 38
-    warning: 23
-    info: 0
+    critical: 0
+    warning: 19
+    info: 2
 issues:
-  - type: broken_link
-    severity: critical
-    count: 38
-    detail: "38 wikilinks point to non-existent pages, including 15 intentional wanted-pages from homepage and 23 naming mismatches"
-    examples:
-      - "[[agent-architecture-patterns]] linked from multiple pages"
-      - "[[claude-code]] linked from multiple pages"
-      - "中文领域名 (大数据技术 etc.) linked from homepage only"
   - type: orphan_page
     severity: warning
-    count: 22
-    detail: "22 pages have no incoming links from other pages"
-    examples:
-      - "homepage — wiki index page"
-      - "agent-memory-system — no cross-references from related pages"
-      - "anthropic-cookbook — standalone tool page"
-  - type: missing_sources
-    severity: warning
     count: 1
-    detail: "homepage.md missing sources frontmatter field"
+    detail: "google-context-engineering — new page, needs more cross-links (added to ai-agent/index)"
+  - type: broken_link
+    severity: warning
+    count: 18
+    detail: "18 wanted pages/stubs not yet created (agent-autonomous-planning, prompt-engineering, etc.)"
+  - type: info
+    severity: info
+    count: 1
+    detail: "product/index.md — slug collision with other index.md files (non-critical in Obsidian)"
