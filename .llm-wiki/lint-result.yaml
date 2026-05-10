@@ -1,0 +1,29 @@
+date: 2026-05-10
+summary:
+  pages: 75
+  sources: 97
+  issues:
+    critical: 38
+    warning: 23
+    info: 0
+issues:
+  - type: broken_link
+    severity: critical
+    count: 38
+    detail: "38 wikilinks point to non-existent pages, including 15 intentional wanted-pages from homepage and 23 naming mismatches"
+    examples:
+      - "[[agent-architecture-patterns]] linked from multiple pages"
+      - "[[claude-code]] linked from multiple pages"
+      - "中文领域名 (大数据技术 etc.) linked from homepage only"
+  - type: orphan_page
+    severity: warning
+    count: 22
+    detail: "22 pages have no incoming links from other pages"
+    examples:
+      - "homepage — wiki index page"
+      - "agent-memory-system — no cross-references from related pages"
+      - "anthropic-cookbook — standalone tool page"
+  - type: missing_sources
+    severity: warning
+    count: 1
+    detail: "homepage.md missing sources frontmatter field"

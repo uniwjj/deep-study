@@ -114,4 +114,11 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 更新 `ai-agent/claude-code-subagent.md` — 新增10步决策树/15步runAgent生命周期/5维度设计语言
 - 更新 `ai-agent/claude-code-fork-subagent.md` — 新增三层冻结/递归防护/Sync-to-Async转换
 - 更新 `ai-agent/claude-code-extensibility.md` — 新增Skills两阶段加载/Hooks快照安全/退出码语义
+
+## 2026-05-10 lint | 健康检查 + auto-fix
+- 创建 8 个领域 index 页面（ai-agent/big-data/ai-ml/distributed/fullstack/backend/platform/architecture）
+- 创建 8 个 stub 页面修复高频断裂链接（agent-architecture-patterns, agent-skills-system, agent-tdd-workflow, agent-multi-agent-collaboration, agent-harness, agent-mcp-protocol, claude-code, llm-wiki）
+- 创建 [[tech-radar]] + [[learning-path]] stub 页面
+- 修复 homepage.md — 中文领域链接指向各目录 index + 补 sources + 更新待创建链接
+- 更新 ai-agent/index.md — 补入 3 个孤立页面的入链（open-design, anthropic-cookbook, ai-agent-ecommerce-content）
 - 存档至 `sources/2026-05-10/Claude Code from Source.md`
