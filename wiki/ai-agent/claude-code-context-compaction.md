@@ -3,7 +3,7 @@ title: Claude Code 上下文压缩
 description: Claude Code 的5层渐进压缩管道——预算削减、裁剪、微压缩、上下文折叠、自动压缩，以及 CLAUDE.md 四级记忆体系
 aliases: [上下文压缩, context compaction, compaction pipeline]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Dive into Claude Code.txt]
+sources: [2026/05/10/Dive into Claude Code.txt, 2026-05-10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---
@@ -85,6 +85,66 @@ updated: 2026-05-10
 - 预算削减将长输出替换为引用
 - 上下文折叠在无用户可见输出的情况下操作
 - 微压缩的缓存感知行为增加了不透明度
+
+## 9 段式结构化压缩模板
+
+| # | 段 | 内容 | 优先级 |
+|---|----|------|--------|
+| 1 | Primary Request and Intent | 用户所有明确请求和意图 | 最高 |
+| 2 | Key Technical Concepts | 讨论的技术、框架 | 高 |
+| 3 | Files and Code Sections | 文件名、代码片段、修改记录 | 高 |
+| 4 | Errors and Fixes | 错误及修复 | 中高 |
+| 5 | Problem Solving | 问题解决过程 | 中 |
+| 6 | **All User Messages** | 所有非工具结果的用户消息 | **最高** |
+| 7 | Pending Tasks | 明确要求但未完成的任务 | 高 |
+| 8 | **Current Work** | 压缩前进行中的工作（需逐字引用） | **最高** |
+| 9 | Optional Next Step | 下一步建议 | 中 |
+
+**第 6 段是关键设计决策**：列出所有非工具结果的用户消息。用户消息同时编码信息和约束——丢失一句"别用 var"就会导致回退。
+
+## Full vs Partial Compact
+
+| 维度 | Full | Partial |
+|------|------|---------|
+| 范围 | 全部对话历史 | 仅部分，其余保留原文 |
+| 触发 | autoCompact、手动 /compact | 智能分割点选择 |
+| Prompt cache | 完全失效 | `direction='from'` 保留前半缓存 |
+| 信息丢失 | 较大 | 较小 |
+
+两种方向：
+- `direction='from'`：保留旧消息原文，压缩新消息。旧缓存完全命中
+- `direction='up_to'`：压缩旧消息，保留新消息原文。缓存失效但新上下文完整
+
+## 两阶段压缩
+
+**Phase 1 (analysis)**：模型在 `<analysis>` 标签中自由思考确保全面覆盖，不计入最终输出。
+
+**Phase 2 (summary)**：基于分析输出 9 段式结构化摘要，成为下一轮对话的初始上下文。直接要求结构化输出会导致遗漏细节。
+
+## 防漂移设计：逐字引用
+
+第 8-9 段要求**精确逐字引用**最新对话内容——不是摘要，不是描述：
+> "This should be verbatim to ensure there's no drift in task interpretation."
+
+每次压缩都是长对话→短摘要的"翻译"，翻译会丢失语义细节。"Make the button smaller" 压缩为 "adjust button styling" 会导致模型还改颜色。逐字引用将模型锚定到原始用户意图，防止多次压缩累积偏移。
+
+## Sonnet 4.6 压缩失败率
+
+- Sonnet 4.6：**2.79%** 失败率
+- Sonnet 4.5：**0.01%** 失败率
+- 失败模式：模型在压缩期间尝试工具调用（尽管有 "no tools" 指令）。maxTurns: 1 下，工具调用被拒绝 = 无文本输出 = 压缩失败
+- 缓解：添加激进的 "no-tools" 前置声明。模型版本变化可破坏现有 prompt 策略
+
+## 信息丢失风险矩阵
+
+| 信息类型 | 丢失风险 | 原因 |
+|---------|---------|------|
+| 隐式偏好 | **高** | "别用 var" 等一句话极易被压缩掉 |
+| 试过但失败的方法 | **高** | 错误保留但方法细节易丢失 |
+| 中间讨论 | **高** | 讨论 A,B,C 选 B → 压缩为 "chose B" |
+| 早期代码修改 | **中** | 长会话中早期修改被后续覆盖 |
+| 用户直接请求 | **低** | Section 6 要求完整保留 |
+| 当前进行中工作 | **低** | Section 8 要求逐字引用 |
 
 ## 相关页面
 

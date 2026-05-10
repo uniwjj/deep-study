@@ -3,7 +3,7 @@ title: Claude Code 工具系统
 description: Claude Code 的工具系统——40+ 工具实现、14步执行管道、7模式权限解析器、fail-closed默认值、per-invocation并发安全分类
 aliases: [Tool System, 工具执行, buildTool, tool pipeline]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026-05-10/Claude Code from Source.md, 2026-05-10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---
@@ -148,3 +148,33 @@ type ToolResult<T> = {
 - [[claude-code-concurrent-tools]] — 并发工具执行
 - [[claude-code-permission-system]] — 权限系统详解
 - [[claude-code-mcp]] — MCP 工具集成
+- [[claude-code-search-strategy]] — 搜索工具组合策略（Grep/Glob/Read）
+
+## 4 能力原语
+
+所有工具归于 4 个能力维度：
+
+| 原语 | 动作 | 代表工具 |
+|------|------|---------|
+| **Read** | 读取信息 | FileRead, Grep, Glob, WebFetch, WebSearch |
+| **Write** | 创建或修改 | FileWrite, FileEdit, NotebookEdit |
+| **Execute** | 运行命令 | Bash, PowerShell, REPL |
+| **Connect** | 连接外部系统 | MCP tools, Agent, SendMessage, TeamCreate |
+
+权限分级：Read = 低风险，Write/Execute = 中高风险，Connect = 外部交互风险。
+
+## Deferred Tools & ToolSearch
+
+系统初始仅告知模型工具**名称**（不含完整参数定义）。模型需要时先调 `ToolSearch` 获取完整定义。MCP 工具定义占 ~4000-6000 token——延迟加载省大量上下文。
+
+匹配算法：
+- **Exact select**：`select:Read,Edit,Grep` 精确选择
+- **Keyword search**：驼峰分词（`FileEditTool` → `['file','edit','tool']`），MCP 名解析（`mcp__slack__send_message` → `['slack','send','message']`）
+- 支持 `+` 前缀强制关键词
+- 最终分数结合：工具名匹配 + 描述关键词匹配 + `searchHint`
+
+## Bash 安全分析引擎
+
+两层安全分析：
+1. `commandSemantics.ts`：语义分类——分类管道中的每个命令（search: find/grep/rg；read: cat/head/tail/jq；list: ls/tree；neutral: echo/printf）。仅当所有部分都是 search/read 时管道才被分类为只读
+2. `bashSecurity.ts`：AST 级解析——检测输出重定向、命令替换和隐藏的危险模式

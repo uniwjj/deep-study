@@ -2,6 +2,9 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## 2026-05-10 ingest | Claude Code 搜索策略——为什么 grep 打败了 RAG
+- 创建 `ai-agent/claude-code-search-strategy` — 从《Claude Code 源码解析》第8章提取：4个不使用RAG的理由、GrepTool三种output_mode、head_limit=250、Glob按mtime排序、Read多模态+FILE_UNCHANGED_STUB、512K行代码零向量数据库的实证数据
+
 ## 2026-05-09 init | Deep Study 知识库初始化
 - 定义 wiki-purpose — 知识库定位、范围与目标（6大技术领域）
 - 定义 wiki-agent — Agent 身份、职责与摄入规则
@@ -121,4 +124,16 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 创建 [[tech-radar]] + [[learning-path]] stub 页面
 - 修复 homepage.md — 中文领域链接指向各目录 index + 补 sources + 更新待创建链接
 - 更新 ai-agent/index.md — 补入 3 个孤立页面的入链（open-design, anthropic-cookbook, ai-agent-ecommerce-content）
+
+## 2026-05-10 ingest | Claude Code 源码解析橙皮书（花叔·12章80页）
+- 创建 `ai-agent/claude-code-search-strategy.md` — 4理由解释零向量数据库/grep vs RAG/GrepTool 3种output_mode
+- 创建 `ai-agent/claude-code-internal-mechanisms.md` — Undercover Mode/反蒸馏防御/Regex情绪检测/Verification Agent
+- 更新 `ai-agent/claude-code-api-layer.md` — System Prompt 5级覆盖/3种运行模式/Capybara v8幻觉率29-30%/v2.1.76 cache回归bug
+- 更新 `ai-agent/claude-code-permission-system.md` — YOLO两阶段64→4096/熔断机制/Auto模式危险权限剥夺/Zig层DRM/风险评估器
+- 更新 `ai-agent/claude-code-context-compaction.md` — 9段式压缩模板/Full vs Partial Compact/两阶段/防漂移逐字引用/Sonnet 4.6失败率2.79%
+- 更新 `ai-agent/claude-code-tool-system.md` — 4能力原语/Deferred Tools & ToolSearch/Bash两层安全分析
+- 更新 `ai-agent/claude-code-memory-system.md` — 双向互斥/重叠请求Stash/Cache共享/记录成功不只记录失败/时间规范化
+- 更新 `ai-agent/claude-code-swarm.md` — Team销毁顺序/Continue vs Spawn决策/权限同步文件锁/.worktreeinclude
+- 更新 `ai-agent/claude-code-hidden-features.md` — GrowthBook基础设施/Dead Code Elimination/BUDDY实现细节/44个tengu_flags
+- 存档 PDF + txt 至 `sources/2026-05-10/Claude-Code-Source-Analysis.*`
 - 存档至 `sources/2026-05-10/Claude Code from Source.md`

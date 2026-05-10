@@ -3,9 +3,9 @@ title: Claude Code 隐藏功能
 description: Claude Code 源码泄露的 87 个 feature flag 揭示的进化路线——从工具到常驻助手到多 Agent 协作到跨设备
 aliases: [Claude Code feature flags, Claude Code未发布功能, Kairos, Daemon, Teleport]
 tags: [ai-agent, tool, concept]
-sources: [2026/04/01/Claude Code 87个未发布功能.md]
+sources: [2026/04/01/Claude Code 87个未发布功能.md, 2026-05-10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-10
 ---
 
 # Claude Code 隐藏功能（87 个 Feature Flags）
@@ -76,3 +76,36 @@ updated: 2026-05-09
 - [[claude-code-auto-dream]] — Auto Dream 记忆机制
 - [[agent-multi-agent-collaboration]] — 多 Agent 协作模式
 - [[openclaw]] — OpenClaw 数字员工对比
+- [[claude-code-internal-mechanisms]] — 内部机制（Undercover Mode/反蒸馏/情绪检测/对抗性验证）
+
+## GrowthBook Feature Flag 基础设施
+
+- **remoteEval**：flag 值由 GrowthBook 服务端预计算，非客户端规则评估
+- **磁盘缓存**：flag 值写入 `~/.claude.json`——GrowthBook 不可达时仍能工作
+- **多层覆写**：环境变量 > 本地配置覆写 > 远程值。内部员工可通过 `CLAUDE_INTERNAL_FC_OVERRIDES` 强制任何 flag
+- **曝光追踪**：每次 flag 访问记录一次曝光事件，同 session 内自动去重
+- 所有 flag 前缀为 `tengu_`（Tengu = Claude Code 内部项目代号）
+
+## Dead Code Elimination 机制
+
+`process.env.USER_TYPE === 'ant'` 是**编译时常量**（构建 `--define`）。打包器做常量折叠：`false ? require('./internal') : null` → 整个 `require` 模块被 tree-shake。外部构建**物理上不含**任何内部代码。
+
+## BUDDY 实现细节
+
+- **PRNG**：Mulberry32 算法
+- **Seed**：`hash(userID) + salt 'friend-2026-401'`
+- **18 物种**，五档稀有度（Common 60% → Legendary 1%）：duck, goose, blob, cat, dragon, octopus, owl, penguin, turtle, snail, ghost, axolotl, capybara, cactus, robot, rabbit, mushroom, chonk
+- **5 属性**：DEBUGGING, PATIENCE, CHAOS, WISDOM, SNARK
+- **反作弊**：骨骼数据（稀有度、物种）从不持久化——每次从 userID 重新计算。灵魂数据（名字、性格）可存储
+- 物种名使用 `String.fromCharCode` 十六进制编码绕过构建时的敏感字符串扫描
+
+## 44 个 tengu_ 前缀 Flag
+
+| Flag | 功能 |
+|------|------|
+| `tengu_amber_flint` | Swarm/Team 能力开关 |
+| `tengu_scratch` | 共享 scratch 目录（agent 间文件共享） |
+| `tengu_hive_evidence` | Verification Agent（完成后对抗性验证） |
+| `tengu_penguins_off` | Penguin Mode（动态速度质量权衡） |
+| KAIROS（~150 次代码引用） | 常驻助手，只追加日志，15s 阻塞预算，定时任务 |
+| ULTRAPLAN | 远程规划（CCR 中 Opus 4.6），30 分钟思考，浏览器审批 |

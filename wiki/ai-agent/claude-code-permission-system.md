@@ -3,7 +3,7 @@ title: Claude Code 权限系统
 description: Claude Code 的7种权限模式、拒绝优先规则引擎、ML自动分类器和Shell沙箱的详细分析
 aliases: [权限系统, permission system, deny-first]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Dive into Claude Code.txt]
+sources: [2026/05/10/Dive into Claude Code.txt, 2026-05-10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---
@@ -73,6 +73,63 @@ ML 分类器（`yoloClassifier.ts`）在启用时参与权限决定：
 ## 初始化时序安全漏洞
 
 独立安全研究（Check Point Research）发现：**扩展加载 → 信任对话框 → 权限执行** 的初始化顺序在权限管道完全激活前创造了一个**预信任执行窗口**（CVE-2025-59536 CVSS 8.7, CVE-2026-21852 CVSS 5.3）。
+
+## YOLO 分类器：两阶段判断（64→4096 token）
+
+**Stage 1**：64 token 预算，输出 `<block>yes/no</block>` ——明显安全操作的快速通道。
+
+**Stage 2**：4096 token 预算，输出 `<block>yes/no</block><reason>...</reason>` ——仅 Stage 1 标记为潜在危险时触发。
+
+- 两阶段均 temperature=0，保证确定性安全判断
+- CLAUDE.md 注入分类器上下文——用户规则同时影响主 AI 和安全分类器
+- 内外部使用不同权限模板（`permissions_external.txt` vs `permissions_anthropic.txt`）
+
+## 熔断机制
+
+```js
+DENIAL_LIMITS = { maxConsecutive: 3, maxTotal: 20 }
+```
+
+- **3 次连续拒绝**或**20 次累计拒绝** → Auto 模式自动降级为手动确认
+- 成功操作重置连续计数器（不重置累计计数器）
+
+## 危险权限剥夺（Auto 模式）
+
+进入 Auto 模式时**自动剥离**宽泛权限规则（`Bash(*)`、`Bash(python:*)`、`Bash(node:*)`），退出时 `restoreDangerousPermissions()` 恢复。
+
+原因：Auto 模式的 Rule Matching（Layer 1）绕过 ML Classifier（Layer 4）。宽泛规则在 Auto 模式下 = 分类器绕过。
+
+## Zig 层 DRM
+
+API 请求中 `cch=00000` 占位符。请求离开进程前，Zig 代码（编译进 Bun runtime）将 5 个零替换为加密哈希。服务端验证此哈希确认请求来自真实 Claude Code 二进制。
+
+**为什么是 Zig 而非 JS**：JavaScript 可在运行时 monkey-patch；编译进 Bun 的 Zig 代码无法在不重新编译整个 runtime 的情况下修改。
+
+## Bash 23 项安全检查
+
+`bashSecurity.ts` 包含 23 项编号检查：
+- Zsh 等号展开防御（`=curl` 在 Zsh 中执行 curl）
+- Unicode 零宽空格注入
+- IFS 空字节注入
+- 18 个被阻止的 Zsh 内建命令
+- HackerOne 审查中发现的畸形 token 绕过
+
+## 风险评估器结构化输出
+
+```json
+{
+  "explanation": "What this command does (1-2 sentences)",
+  "reasoning": "Why YOU are running this. Start with 'I'",
+  "risk": "What could go wrong, under 15 words",
+  "riskLevel": "LOW | MEDIUM | HIGH"
+}
+```
+
+- `reasoning` 强制第一人称（"I"）
+- `risk` 上限 15 词，强制简洁
+- 上下文注入：最近 3 条 AI 消息（max 1000 chars）
+- 可通过 `permissionExplainerEnabled` 配置禁用
+- 工具定义使用 `tool_choice` 强制执行结构化输出
 
 ## 相关页面
 

@@ -110,8 +110,8 @@
     },
     "wiki/ai-agent/claude-code-api-layer.md": {
       "path": "wiki/ai-agent/claude-code-api-layer.md",
-      "mtime": 1778393385950.7368,
-      "contentHash": "f09a33ce4bb81ab0",
+      "mtime": 1778397921958.8965,
+      "contentHash": "c9ae979809a94ac4",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-architecture.md": {
@@ -140,8 +140,8 @@
     },
     "wiki/ai-agent/claude-code-context-compaction.md": {
       "path": "wiki/ai-agent/claude-code-context-compaction.md",
-      "mtime": 1778387553691.9092,
-      "contentHash": "342e93f72ebc678b",
+      "mtime": 1778398026406.5574,
+      "contentHash": "594303fa486dfff8",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-coordinator-mode.md": {
@@ -170,14 +170,20 @@
     },
     "wiki/ai-agent/claude-code-hidden-features.md": {
       "path": "wiki/ai-agent/claude-code-hidden-features.md",
-      "mtime": 1778316386792.2124,
-      "contentHash": "ae8bf99d8a2359fb",
+      "mtime": 1778398181758.8262,
+      "contentHash": "8b8f792702cff7f8",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-input-system.md": {
       "path": "wiki/ai-agent/claude-code-input-system.md",
       "mtime": 1778393908397.122,
       "contentHash": "86600e658ba368b0",
+      "lastSynced": "2026-05-10"
+    },
+    "wiki/ai-agent/claude-code-internal-mechanisms.md": {
+      "path": "wiki/ai-agent/claude-code-internal-mechanisms.md",
+      "mtime": 1778397842847.3853,
+      "contentHash": "81caa32e0fb646ef",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-mcp.md": {
@@ -188,8 +194,8 @@
     },
     "wiki/ai-agent/claude-code-memory-system.md": {
       "path": "wiki/ai-agent/claude-code-memory-system.md",
-      "mtime": 1778393846161.5066,
-      "contentHash": "0ab60d41aedd8184",
+      "mtime": 1778398097875.1145,
+      "contentHash": "77b44c43f8490f32",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-multi-agent-mechanism.md": {
@@ -206,14 +212,20 @@
     },
     "wiki/ai-agent/claude-code-permission-system.md": {
       "path": "wiki/ai-agent/claude-code-permission-system.md",
-      "mtime": 1778387508762.4336,
-      "contentHash": "e4b42f7bb09c2475",
+      "mtime": 1778397975918.2961,
+      "contentHash": "6669d6d7220da64d",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-remote-execution.md": {
       "path": "wiki/ai-agent/claude-code-remote-execution.md",
       "mtime": 1778393984294.2393,
       "contentHash": "c4ec8959806e1177",
+      "lastSynced": "2026-05-10"
+    },
+    "wiki/ai-agent/claude-code-search-strategy.md": {
+      "path": "wiki/ai-agent/claude-code-search-strategy.md",
+      "mtime": 1778397804860.6848,
+      "contentHash": "1138456cbb1ba234",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-session-persistence.md": {
@@ -242,8 +254,8 @@
     },
     "wiki/ai-agent/claude-code-swarm.md": {
       "path": "wiki/ai-agent/claude-code-swarm.md",
-      "mtime": 1778393659030.2405,
-      "contentHash": "eada2779ef9ccde9",
+      "mtime": 1778398133542.09,
+      "contentHash": "dbfcafe52e02c8b4",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-terminal-ui.md": {
@@ -254,8 +266,8 @@
     },
     "wiki/ai-agent/claude-code-tool-system.md": {
       "path": "wiki/ai-agent/claude-code-tool-system.md",
-      "mtime": 1778393496353.3318,
-      "contentHash": "9642182357f4c6b7",
+      "mtime": 1778398059061.3787,
+      "contentHash": "5b613334e775a85f",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-vs-opencode.md": {
