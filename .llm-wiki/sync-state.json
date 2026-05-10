@@ -24,6 +24,12 @@
       "contentHash": "4401578d29a787f9",
       "lastSynced": "2026-05-10"
     },
+    "wiki/ai-agent/agent-design-paradigms.md": {
+      "path": "wiki/ai-agent/agent-design-paradigms.md",
+      "mtime": 1778399186154.9434,
+      "contentHash": "ef821e3b805a3177",
+      "lastSynced": "2026-05-10"
+    },
     "wiki/ai-agent/agent-harness-overview.md": {
       "path": "wiki/ai-agent/agent-harness-overview.md",
       "mtime": 1778316386790.0522,
@@ -116,8 +122,8 @@
     },
     "wiki/ai-agent/claude-code-architecture.md": {
       "path": "wiki/ai-agent/claude-code-architecture.md",
-      "mtime": 1778393614672.1836,
-      "contentHash": "a5b3a114ae6ad781",
+      "mtime": 1778399912460.846,
+      "contentHash": "d19ed0862d473665",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-auto-dream.md": {
@@ -130,6 +136,12 @@
       "path": "wiki/ai-agent/claude-code-bootstrap-pipeline.md",
       "mtime": 1778393300979.6511,
       "contentHash": "517523d3610aeae7",
+      "lastSynced": "2026-05-10"
+    },
+    "wiki/ai-agent/claude-code-builtin-agents.md": {
+      "path": "wiki/ai-agent/claude-code-builtin-agents.md",
+      "mtime": 1778399832026.7336,
+      "contentHash": "2652c56910af77d8",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-concurrent-tools.md": {
@@ -568,6 +580,12 @@
       "path": "wiki/platform/index.md",
       "mtime": 1778395411065.6128,
       "contentHash": "25a2e64598216335",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026-05-10/Agent范式.md": {
+      "path": "sources/2026-05-10/Agent范式.md",
+      "mtime": 1778399198231.5442,
+      "contentHash": "779449f213dfb084",
       "lastSynced": "2026-05-10"
     },
     "sources/2026-05-10/Claude Code from Source.md": {

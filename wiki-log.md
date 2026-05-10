@@ -136,4 +136,13 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 更新 `ai-agent/claude-code-swarm.md` — Team销毁顺序/Continue vs Spawn决策/权限同步文件锁/.worktreeinclude
 - 更新 `ai-agent/claude-code-hidden-features.md` — GrowthBook基础设施/Dead Code Elimination/BUDDY实现细节/44个tengu_flags
 - 存档 PDF + txt 至 `sources/2026-05-10/Claude-Code-Source-Analysis.*`
+
+## 2026-05-10 ingest | Agent 设计范式（ReAct/Plan-and-Execute/Reflection）
+- 创建 `ai-agent/agent-design-paradigms.md` — 三种范式核心区别/实现原理/优劣势/选型口诀
+- 关联 Claude Code 实现：ReAct→agent-loop, Plan-and-Execute→coordinator-mode, Reflection→verification-agent
+
+## 2026-05-10 ingest | Claude Code 技术解析报告（HTML·~46K字·10节）
+- 创建 `ai-agent/claude-code-builtin-agents.md` — 5个内置Agent完整system prompt+设计哲学+对比总览
+- 更新 `ai-agent/claude-code-architecture.md` — 10大设计模式实现级分析（PROBLEM→SOLUTION→ADVICE）+ 12核心源文件快速参考
+- 更新 `ai-agent/claude-code-subagent.md` — 补充内置Agent交叉引用
 - 存档至 `sources/2026-05-10/Claude Code from Source.md`
