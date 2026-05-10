@@ -146,3 +146,13 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 更新 `ai-agent/claude-code-architecture.md` — 10大设计模式实现级分析（PROBLEM→SOLUTION→ADVICE）+ 12核心源文件快速参考
 - 更新 `ai-agent/claude-code-subagent.md` — 补充内置Agent交叉引用
 - 存档至 `sources/2026-05-10/Claude Code from Source.md`
+
+## 2026-05-10 ingest | 2025数据智能体实践指南（火山引擎·中国信通院·中国联通·中国移动）
+- 创建 `big-data/data-agent-practice-guide.md` — 认知重构/六维能力/DAMM L1-L4/双核心架构/四大场景/四阶段实施/产业展望
+- 存档 PDF + txt 至 `sources/2026/05/10/`
+
+## 2026-05-10 ingest | 硅谷顶级PM的方法论（Lenny's Newsletter提炼）
+- 新增领域：产品与技术管理（更新 wiki-purpose.md、wiki-schema.md、homepage.md）
+- 创建 `product/silicon-valley-pm-methodology.md` — 客户痴迷/战略金字塔/MLP/赛车增长/北极星指标/LNO框架
+- 创建 `product/index.md` — 产品与技术管理索引入口
+- 存档 PDF 至 `sources/2026/05/10/`

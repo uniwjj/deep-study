@@ -24,6 +24,7 @@ updated: 2026-05-10
 | [[backend/index\|后端工程]] | `backend/` | Go/Java, 数据库, API 设计, 系统设计 |
 | [[platform/index\|平台工程]] | `platform/` | DevOps, 可观测性, Kubernetes, CI/CD |
 | [[architecture/index\|架构与设计]] | `architecture/` | 架构模式, DDD, 事件驱动, CQRS |
+| [[product/index\|产品与技术管理]] | `product/` | 产品方法论, 技术战略, 工程管理, 增长框架 |
 
 ## 快速入口
 

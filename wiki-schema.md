@@ -26,6 +26,7 @@ wiki/
 ├── backend/            # 后端工程
 ├── platform/           # 平台工程
 ├── architecture/       # 架构与设计
+├── product/            # 产品与技术管理
 └── homepage.md         # 知识库首页
 ```
 
@@ -97,6 +98,7 @@ updated: YYYY-MM-DD
 | `backend` | 后端工程 |
 | `platform` | 平台工程 |
 | `architecture` | 架构与设计 |
+| `product` | 产品与技术管理 |
 | `meta` | 知识库本身的元信息 |
 
 ### 内容类型标签

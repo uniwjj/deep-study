@@ -3,7 +3,7 @@ title: Wiki Purpose
 description: 知识库定位、范围与目标
 tags: [meta]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-10
 ---
 
 # Deep Study 知识库
@@ -29,6 +29,7 @@ updated: 2026-05-09
 | **后端工程** | Go/Java, 数据库 (MySQL/PostgreSQL/NoSQL), API 设计, 系统设计, 性能优化 |
 | **平台工程** | DevOps, 可观测性 (OpenTelemetry), CI/CD, SRE, IaC (Terraform), 容器编排 (K8s) |
 | **架构与设计** | 架构模式, DDD, 事件驱动, CQRS, 微服务, 系统演进, 技术选型 |
+| **产品与技术管理** | 产品方法论 (PMF/JTBD), 技术战略, 工程管理, 增长框架, 优先级排序 |
 
 ## 目标
 

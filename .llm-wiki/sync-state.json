@@ -2,8 +2,8 @@
   "entries": {
     "wiki/homepage.md": {
       "path": "wiki/homepage.md",
-      "mtime": 1778395582605.267,
-      "contentHash": "a1420285d5703e48",
+      "mtime": 1778402031129.5906,
+      "contentHash": "08ca9aacf23295db",
       "lastSynced": "2026-05-10"
     },
     "wiki/learning-path.md": {
@@ -540,6 +540,12 @@
       "contentHash": "67cbe11c8c85d6f6",
       "lastSynced": "2026-05-10"
     },
+    "wiki/big-data/data-agent-practice-guide.md": {
+      "path": "wiki/big-data/data-agent-practice-guide.md",
+      "mtime": 1778401602047.535,
+      "contentHash": "90a3b1a3081031cb",
+      "lastSynced": "2026-05-10"
+    },
     "wiki/big-data/data-dev-skills-automation.md": {
       "path": "wiki/big-data/data-dev-skills-automation.md",
       "mtime": 1778316386799.9255,
@@ -580,6 +586,18 @@
       "path": "wiki/platform/index.md",
       "mtime": 1778395411065.6128,
       "contentHash": "25a2e64598216335",
+      "lastSynced": "2026-05-10"
+    },
+    "wiki/product/index.md": {
+      "path": "wiki/product/index.md",
+      "mtime": 1778402017943.3916,
+      "contentHash": "a90f509a8e68cfac",
+      "lastSynced": "2026-05-10"
+    },
+    "wiki/product/silicon-valley-pm-methodology.md": {
+      "path": "wiki/product/silicon-valley-pm-methodology.md",
+      "mtime": 1778402004588.9036,
+      "contentHash": "1e3b9e97dfff1239",
       "lastSynced": "2026-05-10"
     },
     "sources/2026/02/26/Obsidian + Claudian真香警告：AI知识库终极方案.md": {
