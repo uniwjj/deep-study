@@ -12,7 +12,7 @@ You are a wiki management agent. Your operation target is an LLM Wiki vault — 
 
 ## Operations
 
-- **`/ingest <path>`** — read a source, extract entities and relationships, create or update wiki pages with `[[wikilinks]]`, and copy the source into `sources/YYYY-MM-DD/`.
+- **`/ingest <path>`** — read a source, extract entities and relationships, create or update wiki pages with `[[wikilinks]]`, and copy the source into `sources/YYYY/MM/DD/`.
 - **`/query <question>`** — search the wiki, synthesize an answer, and write back any non-trivial new insights so knowledge compounds.
 - **`/lint`** — run a health sweep (broken links, orphans, stale content, frontmatter drift, contradictions) and auto-fix anything safe.
 - **`/research <topic>`** — go beyond the wiki: web search → save sources → ingest → synthesize a report.
@@ -46,11 +46,12 @@ Process new source material into the wiki.
    - Cover at least directory structure, whether to use subdirectories, wiki language, and filename format.
    - After agreement, write those rules into `wiki-schema.md` before ingesting content.
 7. Copy the raw source into `sources/` using date-based storage rules:
-   - A single file goes to `sources/YYYY-MM-DD/<original-filename>`
-   - A directory goes to `sources/YYYY-MM-DD/<original-directory>/`
+   - A single file goes to `sources/YYYY/MM/DD/<original-filename>`
+   - A directory goes to `sources/YYYY/MM/DD/<original-directory>/`
    - Preserve the original file or directory name whenever possible.
    - If a name already exists inside that date folder, rename with a version suffix.
    - **Split large sources by topic or date** — do not store one monolithic file. For example, split chat logs by day (`chat-2026-04-17.md`, `chat-2026-04-18.md`) or by topic (`browser-timeout-discussion.md`). This enables granular incremental re-ingestion.
+   - **Non-text sources MUST be stored in original format** — e.g. PDF files must be saved as `.pdf`, not only converted to `.txt`. Store both the original binary and the extracted text for reference. Raw sources are immutable artifacts; the extracted text is a derivative convenience copy.
 8. Run `llm-wiki search` or scan `wiki/` to see existing wiki pages.
 9. Analyze the source content and decide:
    - Which new wiki pages to create
@@ -64,7 +65,7 @@ Process new source material into the wiki.
    description: One-line summary
    aliases: [alternate names, abbreviations, translations]
    tags: [domain-specific tags from wiki-schema.md]
-   sources: [YYYY-MM-DD/source-filename.md]
+   sources: [YYYY/MM/DD/source-filename.md]
    status: open | resolved | wontfix  # required for issue/bug pages
    created: YYYY-MM-DD
    updated: YYYY-MM-DD
@@ -210,7 +211,7 @@ Variants: `/lint <page>` — Lint a specific page. `/lint --fix` — Auto-fix sa
    ### Info
    - **Shallow**: [[page-g]] — 2 sentences, consider expanding
    - **Wanted**: [[unwritten-page]] — linked from 3 pages
-   - **Uningested**: sources/YYYY-MM-DD/new-article.md
+   - **Uningested**: sources/YYYY/MM/DD/new-article.md
    ```
 
 6. If `--fix` is requested, apply safe fixes:
@@ -268,7 +269,7 @@ Deep-dive investigation that goes beyond existing wiki content.
    - Primary sources (official docs, papers, original announcements)
    - Authoritative secondary sources (well-known publications, expert blogs)
    - Recency — prefer recent sources for fast-moving topics
-6. For each source found, save to `sources/YYYY-MM-DD/` with frontmatter:
+6. For each source found, save to `sources/YYYY/MM/DD/` with frontmatter:
    ```yaml
    ---
    title: Source Title
@@ -295,7 +296,7 @@ Deep-dive investigation that goes beyond existing wiki content.
    [Synthesized answer based on all sources]
 
    ### Sources Added
-   - sources/YYYY-MM-DD/source-1.md — what it contributed
+   - sources/YYYY/MM/DD/source-1.md — what it contributed
 
    ### Wiki Pages Created/Updated
    - [[page-1]] — what was added
