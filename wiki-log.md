@@ -76,3 +76,42 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 创建 `big-data/maxcompute-data-ai.md` — MaxCompute Data+AI 演进
 - 创建 `ai-agent/ai-agent-ecommerce-content.md` — 淘工厂电商内容 Agent
 - 更新多个新闻类文章 frontmatter 指向已有 wiki 页面（Hermes/OpenClaw/CMA）
+
+## 2026-05-10 ingest | Dive into Claude Code 论文
+- 创建 `ai-agent/dive-into-claude-code.md` — MBZUAI 学术论文笔记：5价值观+13原则+7组件架构
+- 创建 `ai-agent/claude-code-permission-system.md` — 7种权限模式、拒绝优先规则引擎、ML分类器
+- 创建 `ai-agent/claude-code-context-compaction.md` — 5层渐进压缩管道、CLAUDE.md四级记忆
+- 创建 `ai-agent/claude-code-extensibility.md` — MCP/Plugins/Skills/Hooks四种扩展机制
+- 创建 `ai-agent/claude-code-subagent.md` — AgentTool委托架构、Worktree隔离、侧链转录
+- 创建 `ai-agent/claude-code-session-persistence.md` — 只追加JSONL转录、Resume/Fork机制
+- 更新 `ai-agent/claude-code-architecture.md` — 增加新页面交叉引用
+- 更新 `ai-agent/claude-code-harness.md` — 增加新页面交叉引用
+
+## 2026-05-10 ingest | Claude Code 多Agent实现机制
+- 创建 `ai-agent/claude-code-multi-agent-mechanism.md` — 三种机制总览：常规Subagent/Fork/Coordinator + 5条设计原则
+- 创建 `ai-agent/claude-code-fork-subagent.md` — Fork Subagent字节级缓存复用机制
+- 创建 `ai-agent/claude-code-coordinator-mode.md` — Coordinator主从型并行协作模式
+- 更新 `ai-agent/claude-code-subagent.md` — 增加多Agent机制交叉引用
+
+## 2026-05-10 ingest | Agent 的长短期记忆系统
+- 创建 `ai-agent/agent-memory-system.md` — 短期记忆(context window) + 长期记忆(向量数据库+Embedding)，粒度设计，两层配合流程
+
+## 2026-05-10 ingest | Claude Code from Source 技术书籍（18章）
+- 创建 `ai-agent/claude-code-bootstrap-pipeline.md` — 5阶段启动管道/300ms预算/I/O并行
+- 创建 `ai-agent/claude-code-state-architecture.md` — 两层状态/粘性锁存器/5个Sticky Latch
+- 创建 `ai-agent/claude-code-api-layer.md` — 多云提供商/prompt cache三级/输出槽位预留
+- 创建 `ai-agent/claude-code-agent-loop.md` — 1730行async generator / 10终止+7继续状态 / 4层压缩
+- 创建 `ai-agent/claude-code-tool-system.md` — 40+工具 / 14步执行管道 / fail-closed默认值
+- 创建 `ai-agent/claude-code-concurrent-tools.md` — 按安全分区并发 / 推测执行 / 顺序保持
+- 创建 `ai-agent/claude-code-memory-system.md` — 4类型/可推导性标准/Sonnet侧查询/背景提取Agent
+- 创建 `ai-agent/claude-code-swarm.md` — Swarm多Agent协作/Teammate/Mailbox/Auto-Resume
+- 创建 `ai-agent/claude-code-terminal-ui.md` — 自定义DOM/7阶段渲染/驻留池/双缓冲
+- 创建 `ai-agent/claude-code-input-system.md` — 5种键盘协议/Chord和弦/Vim 12状态机
+- 创建 `ai-agent/claude-code-mcp.md` — 8种传输/7个配置来源/4阶段工具包装
+- 创建 `ai-agent/claude-code-remote-execution.md` — Bridge v1/v2/FlushGate/非对称读写
+- 创建 `ai-agent/claude-code-performance.md` — 位图预过滤器/槽位预留/启动I/O并行
+- 更新 `ai-agent/claude-code-architecture.md` — 新增六抽象模型/10大设计模式/可迁移原则
+- 更新 `ai-agent/claude-code-subagent.md` — 新增10步决策树/15步runAgent生命周期/5维度设计语言
+- 更新 `ai-agent/claude-code-fork-subagent.md` — 新增三层冻结/递归防护/Sync-to-Async转换
+- 更新 `ai-agent/claude-code-extensibility.md` — 新增Skills两阶段加载/Hooks快照安全/退出码语义
+- 存档至 `sources/2026-05-10/Claude Code from Source.md`
