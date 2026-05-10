@@ -3,7 +3,7 @@ title: Harness Build to Delete
 description: Anthropic Harness 第二阶段——从"补"到"删"，模型升级后做 dead weight inventory，三招：用通用工具、还控制权给模型、保留承重边界
 aliases: [Build to delete, Harness演进]
 tags: [ai-agent, concept]
-sources: [2026/Harness/Harness三招从补转删.md]
+sources: [2026/05/09/Harness三招从补转删.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

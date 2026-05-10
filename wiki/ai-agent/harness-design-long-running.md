@@ -3,7 +3,7 @@ title: 长任务 Harness 设计（GAN 启发的三 Agent 架构）
 description: Anthropic 官方 Harness 设计——受 GAN 启发的 Planner/Generator/Evaluator 三 Agent 架构，解决上下文漂移与自我评估偏差
 aliases: [GAN Harness, 3-Agent Architecture, 长任务Harness]
 tags: [ai-agent, architecture, concept]
-sources: [2026/Harness/harness-design-long-running.md]
+sources: [2026/05/09/harness-design-long-running.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

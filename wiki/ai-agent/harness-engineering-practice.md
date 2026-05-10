@@ -3,7 +3,7 @@ title: Harness Engineering 实践
 description: Human-first → Agent-aware 工程系统转型——三层能力（系统可读性/防御机制/自动化反馈），Stripe 实践案例
 aliases: [Harness实践, Agent-aware系统]
 tags: [ai-agent, practice, concept]
-sources: [2026/Harness/Harness工程实践.md]
+sources: [2026/05/09/Harness工程实践.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

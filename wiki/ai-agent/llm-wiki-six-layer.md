@@ -3,7 +3,7 @@ title: LLM Wiki 六层架构
 description: Karpathy 原架构改造——六层（raw/wiki/index/memory/people/caogao），解决规模崩溃、Token成本、读写分离三大痛点
 aliases: [六层架构, LLM Wiki改造]
 tags: [ai-agent, practice]
-sources: [2026/Knowledge/六层架构.md]
+sources: [2026/05/09/六层架构.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

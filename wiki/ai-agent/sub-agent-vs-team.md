@@ -3,7 +3,7 @@ title: Sub-Agent vs Agent Team
 description: 多 Agent 两种核心协作模式对比——Sub-Agent 隔离执行 vs Agent Team 实时协作，选型铁律：独立用 Sub-Agent，依赖用 Team
 aliases: [多Agent架构, Sub-Agent, Agent Team]
 tags: [ai-agent, concept, architecture]
-sources: [2026/Harness/Sub-Agent vs Team.md]
+sources: [2026/05/09/Sub-Agent vs Team.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

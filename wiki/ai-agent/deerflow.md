@@ -3,7 +3,7 @@ title: DeerFlow 2.0
 description: 字节跳动开源 Super Agent Harness——组装厂模式（LangGraph 编排+Claude Code 推理+强制沙箱），支持多模型，可组合架构
 aliases: [DeerFlow, 字节跳动Agent]
 tags: [ai-agent, tool]
-sources: [2026/Harness/DeerFlow.md]
+sources: [2026/05/09/DeerFlow.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

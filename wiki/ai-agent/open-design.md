@@ -3,7 +3,7 @@ title: Open Design
 description: Claude Design 开源平替——本地 Agent 生成网页/PPT/移动端/海报，Skills 文件化，DESIGN.md 固化设计系统，不绑模型
 aliases: [Open Design, 开源设计工具, AI设计Agent]
 tags: [ai-agent, tool]
-sources: [2026/Knowledge/Open Design.md]
+sources: [2026/05/09/Open Design.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

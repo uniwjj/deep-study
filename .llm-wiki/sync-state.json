@@ -32,8 +32,8 @@
     },
     "wiki/ai-agent/agent-harness-overview.md": {
       "path": "wiki/ai-agent/agent-harness-overview.md",
-      "mtime": 1778316386790.0522,
-      "contentHash": "127451a0077022e1",
+      "mtime": 1778400938000.753,
+      "contentHash": "b77984100b29f04f",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/agent-harness.md": {
@@ -80,8 +80,8 @@
     },
     "wiki/ai-agent/agent-vs-framework-vs-harness.md": {
       "path": "wiki/ai-agent/agent-vs-framework-vs-harness.md",
-      "mtime": 1778316386790.4893,
-      "contentHash": "b60d59f2b49ca1db",
+      "mtime": 1778400941841.2354,
+      "contentHash": "53d2598181ac2998",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/ai-agent-ecommerce-content.md": {
@@ -92,8 +92,8 @@
     },
     "wiki/ai-agent/ai-career-trends.md": {
       "path": "wiki/ai-agent/ai-career-trends.md",
-      "mtime": 1778316386790.9128,
-      "contentHash": "1cfd23b592d2dc88",
+      "mtime": 1778400945500.5603,
+      "contentHash": "d5753119261cf799",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/anthropic-cookbook.md": {
@@ -104,8 +104,8 @@
     },
     "wiki/ai-agent/architect-in-agent-era.md": {
       "path": "wiki/ai-agent/architect-in-agent-era.md",
-      "mtime": 1778316386791.4636,
-      "contentHash": "3142b5da6295a5b3",
+      "mtime": 1778400949291.9546,
+      "contentHash": "481aa691eea0b97d",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/claude-code-agent-loop.md": {
@@ -314,8 +314,8 @@
     },
     "wiki/ai-agent/deerflow.md": {
       "path": "wiki/ai-agent/deerflow.md",
-      "mtime": 1778316386793.2815,
-      "contentHash": "cf826636c4a01135",
+      "mtime": 1778400952908.837,
+      "contentHash": "83e46e1129b44ddc",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/dive-into-claude-code.md": {
@@ -344,26 +344,26 @@
     },
     "wiki/ai-agent/harness-as-backend.md": {
       "path": "wiki/ai-agent/harness-as-backend.md",
-      "mtime": 1778316386794.0342,
-      "contentHash": "349b1b87a74aee81",
+      "mtime": 1778400956812.0369,
+      "contentHash": "d575c4c4a34db4da",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/harness-build-to-delete.md": {
       "path": "wiki/ai-agent/harness-build-to-delete.md",
-      "mtime": 1778316386794.2358,
-      "contentHash": "e1cf8767193062e0",
+      "mtime": 1778400960706.79,
+      "contentHash": "cf1d1d7fea7b2e3e",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/harness-design-long-running.md": {
       "path": "wiki/ai-agent/harness-design-long-running.md",
-      "mtime": 1778316386794.4282,
-      "contentHash": "31674bfa8368a476",
+      "mtime": 1778400964527.9695,
+      "contentHash": "e0461957ae82e93b",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/harness-engineering-practice.md": {
       "path": "wiki/ai-agent/harness-engineering-practice.md",
-      "mtime": 1778316386794.602,
-      "contentHash": "1c16050d0490f5ac",
+      "mtime": 1778400968301.234,
+      "contentHash": "0cb27154516c0860",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/hermes-agent.md": {
@@ -416,8 +416,8 @@
     },
     "wiki/ai-agent/llm-wiki-six-layer.md": {
       "path": "wiki/ai-agent/llm-wiki-six-layer.md",
-      "mtime": 1778316386796.0378,
-      "contentHash": "f746670c07052636",
+      "mtime": 1778400971944.9028,
+      "contentHash": "8424f85e92547e1e",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/llm-wiki.md": {
@@ -434,8 +434,8 @@
     },
     "wiki/ai-agent/manus-context-engineering.md": {
       "path": "wiki/ai-agent/manus-context-engineering.md",
-      "mtime": 1778316386796.4583,
-      "contentHash": "831ff0071f39dc70",
+      "mtime": 1778400975663.061,
+      "contentHash": "036c50904ca7d359",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/meta-jit-testing.md": {
@@ -458,8 +458,8 @@
     },
     "wiki/ai-agent/open-design.md": {
       "path": "wiki/ai-agent/open-design.md",
-      "mtime": 1778316386797.6511,
-      "contentHash": "890dd623add05279",
+      "mtime": 1778400979078.3347,
+      "contentHash": "d5da4a58de5eaa8f",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/openclaw.md": {
@@ -494,8 +494,8 @@
     },
     "wiki/ai-agent/sub-agent-vs-team.md": {
       "path": "wiki/ai-agent/sub-agent-vs-team.md",
-      "mtime": 1778316386798.9104,
-      "contentHash": "ef0247b8e5e2638b",
+      "mtime": 1778400982863.123,
+      "contentHash": "95d012810b75d8a8",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-agent/superpowers-framework.md": {
@@ -518,8 +518,8 @@
     },
     "wiki/ai-ml/rag-query-optimization.md": {
       "path": "wiki/ai-ml/rag-query-optimization.md",
-      "mtime": 1778316386799.5037,
-      "contentHash": "c59e043e819ef4bd",
+      "mtime": 1778400986512.8728,
+      "contentHash": "df1153b2b66640be",
       "lastSynced": "2026-05-10"
     },
     "wiki/ai-ml/token-consumption-economics.md": {
@@ -560,8 +560,8 @@
     },
     "wiki/big-data/openai-data-agent.md": {
       "path": "wiki/big-data/openai-data-agent.md",
-      "mtime": 1778316386800.262,
-      "contentHash": "3e2638019c664b9b",
+      "mtime": 1778400990174.5947,
+      "contentHash": "6ec48c618ae78153",
       "lastSynced": "2026-05-10"
     },
     "wiki/distributed/index.md": {
@@ -580,222 +580,6 @@
       "path": "wiki/platform/index.md",
       "mtime": 1778395411065.6128,
       "contentHash": "25a2e64598216335",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/AI Agent进阶：Sub-Agents vs Agent Teams.md": {
-      "path": "sources/2026/Harness/AI Agent进阶：Sub-Agents vs Agent Teams.md",
-      "mtime": 1778316386775.7893,
-      "contentHash": "25f9701f081de259",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/AI-Agent架构设计四-多Agent协作.md": {
-      "path": "sources/2026/Harness/AI-Agent架构设计四-多Agent协作.md",
-      "mtime": 1778316386776.4985,
-      "contentHash": "976f2b4ecda3bfed",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/AI代理的上下文工程：构建Manus的经验教训.md": {
-      "path": "sources/2026/Harness/AI代理的上下文工程：构建Manus的经验教训.md",
-      "mtime": 1778316386777.8193,
-      "contentHash": "8f64fa5506641528",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Agent-Harness综述同一模型体感差异在哪.md": {
-      "path": "sources/2026/Harness/Agent-Harness综述同一模型体感差异在哪.md",
-      "mtime": 1778316386778.0474,
-      "contentHash": "17f1ab86de66e773",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Agent时代架构师到底应该学什么.md": {
-      "path": "sources/2026/Harness/Agent时代架构师到底应该学什么.md",
-      "mtime": 1778316386778.422,
-      "contentHash": "49e80f1cdf8f8a74",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Anthropic 的 Harness，已经进入新阶段：只用三招，开始从\"补\"转向\"删\".md": {
-      "path": "sources/2026/Harness/Anthropic 的 Harness，已经进入新阶段：只用三招，开始从\"补\"转向\"删\".md",
-      "mtime": 1778316386778.738,
-      "contentHash": "090d2badadee86ed",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Anthropic-CEO警告程序员淘汰三种铁饭碗.md": {
-      "path": "sources/2026/Harness/Anthropic-CEO警告程序员淘汰三种铁饭碗.md",
-      "mtime": 1778316386778.903,
-      "contentHash": "4a2e09d1931a5f96",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Anthropic说：不要在等下一代模型了，立刻马上做Harness.md": {
-      "path": "sources/2026/Harness/Anthropic说：不要在等下一代模型了，立刻马上做Harness.md",
-      "mtime": 1778316386779.1958,
-      "contentHash": "efdddf268fcb2286",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude-Code产品负责人-AI时代PM核心能力.md": {
-      "path": "sources/2026/Harness/Claude-Code产品负责人-AI时代PM核心能力.md",
-      "mtime": 1778316386779.3762,
-      "contentHash": "e69f2213a6dbd441",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Coding-Agent-Harness六组件协作系统.md": {
-      "path": "sources/2026/Harness/Coding-Agent-Harness六组件协作系统.md",
-      "mtime": 1778316386782.2341,
-      "contentHash": "c09ef2846a4a8330",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Cursor复盘Harness模型决定能力上限Harness决定生产下限.md": {
-      "path": "sources/2026/Harness/Cursor复盘Harness模型决定能力上限Harness决定生产下限.md",
-      "mtime": 1778316386782.4443,
-      "contentHash": "a46ed4ebd7335fe2",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/DeerFlow 2.0：字节跳动开源的 Super Agent Harness 到底强在哪.md": {
-      "path": "sources/2026/Harness/DeerFlow 2.0：字节跳动开源的 Super Agent Harness 到底强在哪.md",
-      "mtime": 1778316386782.6484,
-      "contentHash": "8ae070f61b2f415e",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Harness Engineering-AI编程进入AI治理和大规模工程化阶段.md": {
-      "path": "sources/2026/Harness/Harness Engineering-AI编程进入AI治理和大规模工程化阶段.md",
-      "mtime": 1778316386782.824,
-      "contentHash": "715c56ece80a5007",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Harness Engineering：为 Coding Agent 构建可控工程系统的实践总结.md": {
-      "path": "sources/2026/Harness/Harness Engineering：为 Coding Agent 构建可控工程系统的实践总结.md",
-      "mtime": 1778316386783.0525,
-      "contentHash": "65ae48b9902b9426",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Harness 设计：构建长时间运行的应用开发.md": {
-      "path": "sources/2026/Harness/Harness 设计：构建长时间运行的应用开发.md",
-      "mtime": 1778316386783.2444,
-      "contentHash": "f4fbde21b8f363da",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Harness正在成为新后端.md": {
-      "path": "sources/2026/Harness/Harness正在成为新后端.md",
-      "mtime": 1778316386783.4507,
-      "contentHash": "46c2829c0ce837a2",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/OpenAI 内部 Data Agent 的构建原理分析.md": {
-      "path": "sources/2026/Harness/OpenAI 内部 Data Agent 的构建原理分析.md",
-      "mtime": 1778316386783.6782,
-      "contentHash": "ecfe997f2599735d",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Sub-Agent VS Agent Team：多智能体架构和上下文边界.md": {
-      "path": "sources/2026/Harness/Sub-Agent VS Agent Team：多智能体架构和上下文边界.md",
-      "mtime": 1778316386783.8816,
-      "contentHash": "51f85b7c819980c5",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/The Anatomy of an Agent Harness.md": {
-      "path": "sources/2026/Harness/The Anatomy of an Agent Harness.md",
-      "mtime": 1778316386784.1582,
-      "contentHash": "134fe1d461639ed3",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/The Anatomy of an Agent Harness原文.md": {
-      "path": "sources/2026/Harness/The Anatomy of an Agent Harness原文.md",
-      "mtime": 1778316386784.4348,
-      "contentHash": "852d4a65b516ae8d",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/anthropic-harness-design-long-running-apps.md": {
-      "path": "sources/2026/Harness/anthropic-harness-design-long-running-apps.md",
-      "mtime": 1778316386784.7346,
-      "contentHash": "c059db9cdaea2f21",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/一文彻底讲清：Agent、Agent Framework、Agent Harness 的本质区别.md": {
-      "path": "sources/2026/Harness/一文彻底讲清：Agent、Agent Framework、Agent Harness 的本质区别.md",
-      "mtime": 1778316386785.0564,
-      "contentHash": "1bfffa65c89394eb",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/一文看懂 Harness Engineering：智能体时代的 AI 编程驾驭之道.md": {
-      "path": "sources/2026/Harness/一文看懂 Harness Engineering：智能体时代的 AI 编程驾驭之道.md",
-      "mtime": 1778316386785.241,
-      "contentHash": "3d7063e0ec443614",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/我把Anthropic的Harness理念Skill化了.md": {
-      "path": "sources/2026/Harness/我把Anthropic的Harness理念Skill化了.md",
-      "mtime": 1778316386785.5417,
-      "contentHash": "e3a0ceca343093c2",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Knowledge/Karpathy 开源了 Agent + Obsidian 个人知识库，超级有启发.md": {
-      "path": "sources/2026/Knowledge/Karpathy 开源了 Agent + Obsidian 个人知识库，超级有启发.md",
-      "mtime": 1778316386785.9863,
-      "contentHash": "6042f6a64fd0ecca",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Knowledge/Karpathy-LLM-Wiki改造六层架构.md": {
-      "path": "sources/2026/Knowledge/Karpathy-LLM-Wiki改造六层架构.md",
-      "mtime": 1778316386786.1943,
-      "contentHash": "1cd9cfd336de89b3",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Knowledge/LLM-Wiki让AI把你的文档自动长成知识库.md": {
-      "path": "sources/2026/Knowledge/LLM-Wiki让AI把你的文档自动长成知识库.md",
-      "mtime": 1778316386786.3706,
-      "contentHash": "8cd63fa38475d8bb",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Knowledge/Open-Design开源平替Claude-Design.md": {
-      "path": "sources/2026/Knowledge/Open-Design开源平替Claude-Design.md",
-      "mtime": 1778316386786.5532,
-      "contentHash": "f77dcbcf79acae6b",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Knowledge/Rag-vs-GraphRag-vs-LLM-Wiki方案对比与选型.md": {
-      "path": "sources/2026/Knowledge/Rag-vs-GraphRag-vs-LLM-Wiki方案对比与选型.md",
-      "mtime": 1778316386786.7307,
-      "contentHash": "eb4ecc077e36217f",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Knowledge/封神级RAG优化实战query改写加prompt构建.md": {
-      "path": "sources/2026/Knowledge/封神级RAG优化实战query改写加prompt构建.md",
-      "mtime": 1778316386786.985,
-      "contentHash": "04ae3b5bfb911e96",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Memory/谈OpenClaw刚刚更新的Memory Wiki技术.md": {
-      "path": "sources/2026/Memory/谈OpenClaw刚刚更新的Memory Wiki技术.md",
-      "mtime": 1778316386787.288,
-      "contentHash": "603408e41ef8607d",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/SDD/OpenSpec vs Superpowers：2 套 AI 编码工作流，3 个场景怎么选.md": {
-      "path": "sources/2026/SDD/OpenSpec vs Superpowers：2 套 AI 编码工作流，3 个场景怎么选.md",
-      "mtime": 1778316386787.6963,
-      "contentHash": "bb539f171c24971c",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/SDD/SDD 规范驱动：OpenSpec+SuperPowers 双框架.md": {
-      "path": "sources/2026/SDD/SDD 规范驱动：OpenSpec+SuperPowers 双框架.md",
-      "mtime": 1778316386788.2393,
-      "contentHash": "5366955bdc91f77a",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/SDD/一个被严重低估的 Skills——Superpowers.md": {
-      "path": "sources/2026/SDD/一个被严重低估的 Skills——Superpowers.md",
-      "mtime": 1778316386788.485,
-      "contentHash": "f877d67cd0babdc8",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Spec/OpenSpec vs Superpowers：2 套 AI 编码工作流，3 个场景怎么选.md": {
-      "path": "sources/2026/Spec/OpenSpec vs Superpowers：2 套 AI 编码工作流，3 个场景怎么选.md",
-      "mtime": 1778316386788.7915,
-      "contentHash": "0374a9c4c26ebfa9",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Spec/Superpowers：145k Star的AI编码框架，到底是什么来头.md": {
-      "path": "sources/2026/Spec/Superpowers：145k Star的AI编码框架，到底是什么来头.md",
-      "mtime": 1778316386788.9778,
-      "contentHash": "86f16374543f90c0",
       "lastSynced": "2026-05-10"
     },
     "sources/2026/02/26/Obsidian + Claudian真香警告：AI知识库终极方案.md": {
@@ -1062,6 +846,276 @@
       "contentHash": "ad27111a0289435e",
       "lastSynced": "2026-05-10"
     },
+    "sources/2026/05/09/7张图搞懂Claude Code的Harness架构设计总结.md": {
+      "path": "sources/2026/05/09/7张图搞懂Claude Code的Harness架构设计总结.md",
+      "mtime": 1778400791103.3562,
+      "contentHash": "9665c631f41cedfa",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/AI Agent进阶：Sub-Agents vs Agent Teams.md": {
+      "path": "sources/2026/05/09/AI Agent进阶：Sub-Agents vs Agent Teams.md",
+      "mtime": 1778400790925.856,
+      "contentHash": "25f9701f081de259",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/AI-Agent架构设计四-多Agent协作.md": {
+      "path": "sources/2026/05/09/AI-Agent架构设计四-多Agent协作.md",
+      "mtime": 1778400790934.1367,
+      "contentHash": "976f2b4ecda3bfed",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/AI代理的上下文工程：构建Manus的经验教训.md": {
+      "path": "sources/2026/05/09/AI代理的上下文工程：构建Manus的经验教训.md",
+      "mtime": 1778400790941.893,
+      "contentHash": "8f64fa5506641528",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Agent-Harness综述同一模型体感差异在哪.md": {
+      "path": "sources/2026/05/09/Agent-Harness综述同一模型体感差异在哪.md",
+      "mtime": 1778400790909.0198,
+      "contentHash": "17f1ab86de66e773",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Agent时代架构师到底应该学什么.md": {
+      "path": "sources/2026/05/09/Agent时代架构师到底应该学什么.md",
+      "mtime": 1778400790916.5793,
+      "contentHash": "49e80f1cdf8f8a74",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Anthropic 的 Harness，已经进入新阶段：只用三招，开始从\"补\"转向\"删\".md": {
+      "path": "sources/2026/05/09/Anthropic 的 Harness，已经进入新阶段：只用三招，开始从\"补\"转向\"删\".md",
+      "mtime": 1778400790949.7014,
+      "contentHash": "090d2badadee86ed",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Anthropic-CEO警告程序员淘汰三种铁饭碗.md": {
+      "path": "sources/2026/05/09/Anthropic-CEO警告程序员淘汰三种铁饭碗.md",
+      "mtime": 1778400790956.6233,
+      "contentHash": "4a2e09d1931a5f96",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Anthropic说：不要在等下一代模型了，立刻马上做Harness.md": {
+      "path": "sources/2026/05/09/Anthropic说：不要在等下一代模型了，立刻马上做Harness.md",
+      "mtime": 1778400790971.7156,
+      "contentHash": "efdddf268fcb2286",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Building agents that reach production systems with MCP.md": {
+      "path": "sources/2026/05/09/Building agents that reach production systems with MCP.md",
+      "mtime": 1778400791120.834,
+      "contentHash": "ac96f8a8d28e8a4a",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Claude Code v2.1.88 架构分析.md": {
+      "path": "sources/2026/05/09/Claude Code v2.1.88 架构分析.md",
+      "mtime": 1778400791140.475,
+      "contentHash": "0d3dc848257543be",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Claude Code 源码泄漏：拆解工业级 AI Coding Agent.md": {
+      "path": "sources/2026/05/09/Claude Code 源码泄漏：拆解工业级 AI Coding Agent.md",
+      "mtime": 1778400791186.1213,
+      "contentHash": "ca230243f63b20c0",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Claude Code 源码深度解析.md": {
+      "path": "sources/2026/05/09/Claude Code 源码深度解析.md",
+      "mtime": 1778400791156.7625,
+      "contentHash": "b0d94627e1cfc00f",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Claude Code 源码深度解析：一个工业级 AI Agent 的实现之道.md": {
+      "path": "sources/2026/05/09/Claude Code 源码深度解析：一个工业级 AI Agent 的实现之道.md",
+      "mtime": 1778400791174.3706,
+      "contentHash": "ea1f12bb6a69492a",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Claude Code 源码蒸馏 - Harness Engineering 实践记录.md": {
+      "path": "sources/2026/05/09/Claude Code 源码蒸馏 - Harness Engineering 实践记录.md",
+      "mtime": 1778400791195.42,
+      "contentHash": "daa26335ef9a5784",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Claude-Code-技术解析.md": {
+      "path": "sources/2026/05/09/Claude-Code-技术解析.md",
+      "mtime": 1778400791206.0872,
+      "contentHash": "6396c0e647035ad6",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Claude-Code产品负责人-AI时代PM核心能力.md": {
+      "path": "sources/2026/05/09/Claude-Code产品负责人-AI时代PM核心能力.md",
+      "mtime": 1778400790980.5525,
+      "contentHash": "e69f2213a6dbd441",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Coding-Agent-Harness六组件协作系统.md": {
+      "path": "sources/2026/05/09/Coding-Agent-Harness六组件协作系统.md",
+      "mtime": 1778400790988.7249,
+      "contentHash": "c09ef2846a4a8330",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Cursor复盘Harness模型决定能力上限Harness决定生产下限.md": {
+      "path": "sources/2026/05/09/Cursor复盘Harness模型决定能力上限Harness决定生产下限.md",
+      "mtime": 1778400790996.3977,
+      "contentHash": "a46ed4ebd7335fe2",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/DeerFlow 2.0：字节跳动开源的 Super Agent Harness 到底强在哪.md": {
+      "path": "sources/2026/05/09/DeerFlow 2.0：字节跳动开源的 Super Agent Harness 到底强在哪.md",
+      "mtime": 1778400791004.267,
+      "contentHash": "8ae070f61b2f415e",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Harness Engineering-AI编程进入AI治理和大规模工程化阶段.md": {
+      "path": "sources/2026/05/09/Harness Engineering-AI编程进入AI治理和大规模工程化阶段.md",
+      "mtime": 1778400791012.8562,
+      "contentHash": "715c56ece80a5007",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Harness Engineering：为 Coding Agent 构建可控工程系统的实践总结.md": {
+      "path": "sources/2026/05/09/Harness Engineering：为 Coding Agent 构建可控工程系统的实践总结.md",
+      "mtime": 1778400791020.7502,
+      "contentHash": "65ae48b9902b9426",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Harness 设计：构建长时间运行的应用开发.md": {
+      "path": "sources/2026/05/09/Harness 设计：构建长时间运行的应用开发.md",
+      "mtime": 1778400791028.4297,
+      "contentHash": "f4fbde21b8f363da",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Harness正在成为新后端.md": {
+      "path": "sources/2026/05/09/Harness正在成为新后端.md",
+      "mtime": 1778400791035.5876,
+      "contentHash": "46c2829c0ce837a2",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Karpathy 开源了 Agent + Obsidian 个人知识库，超级有启发.md": {
+      "path": "sources/2026/05/09/Karpathy 开源了 Agent + Obsidian 个人知识库，超级有启发.md",
+      "mtime": 1778400791232.328,
+      "contentHash": "6042f6a64fd0ecca",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Karpathy-LLM-Wiki改造六层架构.md": {
+      "path": "sources/2026/05/09/Karpathy-LLM-Wiki改造六层架构.md",
+      "mtime": 1778400791242.2783,
+      "contentHash": "1cd9cfd336de89b3",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/LLM-Wiki让AI把你的文档自动长成知识库.md": {
+      "path": "sources/2026/05/09/LLM-Wiki让AI把你的文档自动长成知识库.md",
+      "mtime": 1778400791250.6025,
+      "contentHash": "8cd63fa38475d8bb",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Open-Design开源平替Claude-Design.md": {
+      "path": "sources/2026/05/09/Open-Design开源平替Claude-Design.md",
+      "mtime": 1778400791260.3516,
+      "contentHash": "f77dcbcf79acae6b",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/OpenAI 内部 Data Agent 的构建原理分析.md": {
+      "path": "sources/2026/05/09/OpenAI 内部 Data Agent 的构建原理分析.md",
+      "mtime": 1778400791044.1003,
+      "contentHash": "ecfe997f2599735d",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/OpenSpec vs Superpowers：2 套 AI 编码工作流，3 个场景怎么选.md": {
+      "path": "sources/2026/05/09/OpenSpec vs Superpowers：2 套 AI 编码工作流，3 个场景怎么选.md",
+      "mtime": 1778400791321.757,
+      "contentHash": "0374a9c4c26ebfa9",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Rag-vs-GraphRag-vs-LLM-Wiki方案对比与选型.md": {
+      "path": "sources/2026/05/09/Rag-vs-GraphRag-vs-LLM-Wiki方案对比与选型.md",
+      "mtime": 1778400791268.8667,
+      "contentHash": "eb4ecc077e36217f",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/SDD 规范驱动：OpenSpec+SuperPowers 双框架.md": {
+      "path": "sources/2026/05/09/SDD 规范驱动：OpenSpec+SuperPowers 双框架.md",
+      "mtime": 1778400791303.957,
+      "contentHash": "5366955bdc91f77a",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Sub-Agent VS Agent Team：多智能体架构和上下文边界.md": {
+      "path": "sources/2026/05/09/Sub-Agent VS Agent Team：多智能体架构和上下文边界.md",
+      "mtime": 1778400791052.882,
+      "contentHash": "51f85b7c819980c5",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Superpowers：145k Star的AI编码框架，到底是什么来头.md": {
+      "path": "sources/2026/05/09/Superpowers：145k Star的AI编码框架，到底是什么来头.md",
+      "mtime": 1778400791330.4504,
+      "contentHash": "86f16374543f90c0",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/The Anatomy of an Agent Harness.md": {
+      "path": "sources/2026/05/09/The Anatomy of an Agent Harness.md",
+      "mtime": 1778400791059.7864,
+      "contentHash": "134fe1d461639ed3",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/The Anatomy of an Agent Harness原文.md": {
+      "path": "sources/2026/05/09/The Anatomy of an Agent Harness原文.md",
+      "mtime": 1778400791069.4683,
+      "contentHash": "852d4a65b516ae8d",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/Using Claude Code - session management and 1M context.md": {
+      "path": "sources/2026/05/09/Using Claude Code - session management and 1M context.md",
+      "mtime": 1778400791214.9353,
+      "contentHash": "edc315bcb7e4fdf3",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/anthropic-harness-design-long-running-apps.md": {
+      "path": "sources/2026/05/09/anthropic-harness-design-long-running-apps.md",
+      "mtime": 1778400790964.3818,
+      "contentHash": "c059db9cdaea2f21",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/一个被严重低估的 Skills——Superpowers.md": {
+      "path": "sources/2026/05/09/一个被严重低估的 Skills——Superpowers.md",
+      "mtime": 1778400791312.6208,
+      "contentHash": "f877d67cd0babdc8",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/一文彻底讲清：Agent、Agent Framework、Agent Harness 的本质区别.md": {
+      "path": "sources/2026/05/09/一文彻底讲清：Agent、Agent Framework、Agent Harness 的本质区别.md",
+      "mtime": 1778400791086.3706,
+      "contentHash": "1bfffa65c89394eb",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/一文看懂 Harness Engineering：智能体时代的 AI 编程驾驭之道.md": {
+      "path": "sources/2026/05/09/一文看懂 Harness Engineering：智能体时代的 AI 编程驾驭之道.md",
+      "mtime": 1778400791093.756,
+      "contentHash": "3d7063e0ec443614",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/封神级RAG优化实战query改写加prompt构建.md": {
+      "path": "sources/2026/05/09/封神级RAG优化实战query改写加prompt构建.md",
+      "mtime": 1778400791277.6738,
+      "contentHash": "04ae3b5bfb911e96",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/开源Agent架构的设计与实现之：OpenCode.md": {
+      "path": "sources/2026/05/09/开源Agent架构的设计与实现之：OpenCode.md",
+      "mtime": 1778400791223.989,
+      "contentHash": "afcf8eb7f3b43354",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/我把Anthropic的Harness理念Skill化了.md": {
+      "path": "sources/2026/05/09/我把Anthropic的Harness理念Skill化了.md",
+      "mtime": 1778400791076.62,
+      "contentHash": "e3a0ceca343093c2",
+      "lastSynced": "2026-05-10"
+    },
+    "sources/2026/05/09/谈OpenClaw刚刚更新的Memory Wiki技术.md": {
+      "path": "sources/2026/05/09/谈OpenClaw刚刚更新的Memory Wiki技术.md",
+      "mtime": 1778400791286.6294,
+      "contentHash": "603408e41ef8607d",
+      "lastSynced": "2026-05-10"
+    },
     "sources/2026/05/10/Agent 的长短期记忆系统.md": {
       "path": "sources/2026/05/10/Agent 的长短期记忆系统.md",
       "mtime": 1778388149802.8901,
@@ -1084,66 +1138,6 @@
       "path": "sources/2026/05/10/Claude Code 多Agent实现机制.md",
       "mtime": 1778388040186.0168,
       "contentHash": "fc1c80679168ba76",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/7张图搞懂Claude Code的Harness架构设计总结.md": {
-      "path": "sources/2026/Harness/Claude/7张图搞懂Claude Code的Harness架构设计总结.md",
-      "mtime": 1778316386779.6316,
-      "contentHash": "9665c631f41cedfa",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Building agents that reach production systems with MCP.md": {
-      "path": "sources/2026/Harness/Claude/Building agents that reach production systems with MCP.md",
-      "mtime": 1778316386779.8342,
-      "contentHash": "ac96f8a8d28e8a4a",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Claude Code v2.1.88 架构分析.md": {
-      "path": "sources/2026/Harness/Claude/Claude Code v2.1.88 架构分析.md",
-      "mtime": 1778316386779.986,
-      "contentHash": "0d3dc848257543be",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Claude Code 源码泄漏：拆解工业级 AI Coding Agent.md": {
-      "path": "sources/2026/Harness/Claude/Claude Code 源码泄漏：拆解工业级 AI Coding Agent.md",
-      "mtime": 1778316386780.3184,
-      "contentHash": "ca230243f63b20c0",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Claude Code 源码深度解析.md": {
-      "path": "sources/2026/Harness/Claude/Claude Code 源码深度解析.md",
-      "mtime": 1778316386780.6633,
-      "contentHash": "b0d94627e1cfc00f",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Claude Code 源码深度解析：一个工业级 AI Agent 的实现之道.md": {
-      "path": "sources/2026/Harness/Claude/Claude Code 源码深度解析：一个工业级 AI Agent 的实现之道.md",
-      "mtime": 1778316386780.8884,
-      "contentHash": "ea1f12bb6a69492a",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Claude Code 源码蒸馏 - Harness Engineering 实践记录.md": {
-      "path": "sources/2026/Harness/Claude/Claude Code 源码蒸馏 - Harness Engineering 实践记录.md",
-      "mtime": 1778316386781.0745,
-      "contentHash": "daa26335ef9a5784",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Claude-Code-技术解析.md": {
-      "path": "sources/2026/Harness/Claude/Claude-Code-技术解析.md",
-      "mtime": 1778316386781.3555,
-      "contentHash": "6396c0e647035ad6",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/Using Claude Code - session management and 1M context.md": {
-      "path": "sources/2026/Harness/Claude/Using Claude Code - session management and 1M context.md",
-      "mtime": 1778316386781.6196,
-      "contentHash": "edc315bcb7e4fdf3",
-      "lastSynced": "2026-05-10"
-    },
-    "sources/2026/Harness/Claude/开源Agent架构的设计与实现之：OpenCode.md": {
-      "path": "sources/2026/Harness/Claude/开源Agent架构的设计与实现之：OpenCode.md",
-      "mtime": 1778316386781.941,
-      "contentHash": "afcf8eb7f3b43354",
       "lastSynced": "2026-05-10"
     }
   },

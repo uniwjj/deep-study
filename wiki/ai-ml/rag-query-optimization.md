@@ -3,7 +3,7 @@ title: RAG Query 优化实战
 description: RAG 系统 query 改写 + prompt 构建完整攻略——五种改写策略（指代消解/分解/多角度/HyDE/Step-back）+ 分级路由+兜底降级
 aliases: [RAG优化, Query改写, Prompt构建]
 tags: [ai-ml, practice]
-sources: [2026/Knowledge/RAG优化实战.md]
+sources: [2026/05/09/RAG优化实战.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

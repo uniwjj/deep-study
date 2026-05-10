@@ -3,7 +3,7 @@ title: Agent 时代架构师的核心能力
 description: 七项不可绕过的系统能力——上下文管理、工具设计、评估体系、状态持久化、Harness 底座、权限沙箱、多 Agent 边界。分清半衰期长的能力 vs 半衰期短的工具
 aliases: [Agent架构师, 架构师能力, Harness半衰期]
 tags: [ai-agent, concept, architecture]
-sources: [2026/Harness/架构师应该学什么.md]
+sources: [2026/05/09/架构师应该学什么.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

@@ -3,7 +3,7 @@ title: Agent Harness 综述
 description: Agent Harness 六承重层（主循环/工具/记忆/状态/权限/验证）拆解——同一模型只换 Harness 结果可差一个量级
 aliases: [Harness综述, Agent Harness, The Anatomy of an Agent Harness]
 tags: [ai-agent, concept, architecture]
-sources: [2026/Harness/Agent-Harness综述.md]
+sources: [2026/05/09/Agent-Harness综述.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

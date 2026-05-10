@@ -3,7 +3,7 @@ title: Manus 上下文工程
 description: Manus 团队六条上下文工程实践——KV 缓存优先、logit masking、文件系统为无限上下文、todo 注意力操控、保留错误历史、行动序列多样性
 aliases: [Manus, 上下文工程, Context Engineering]
 tags: [ai-agent, concept, practice]
-sources: [2026/Harness/Manus上下文工程.md]
+sources: [2026/05/09/Manus上下文工程.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

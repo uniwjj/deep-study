@@ -3,7 +3,7 @@ title: Harness 作为新后端
 description: Agent 系统 Harness 承担后端职责——Worker/Function/Trigger 三概念重译，四项落地动作（能力目录化/上下线/事件触发/trace设计）
 aliases: [Harness Backend, Agent后端]
 tags: [ai-agent, concept, architecture]
-sources: [2026/Harness/Harness新后端.md]
+sources: [2026/05/09/Harness新后端.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

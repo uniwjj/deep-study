@@ -3,7 +3,7 @@ title: OpenAI Data Agent
 description: OpenAI 内部 Data Agent——六层上下文体系解决语义正确性问题，服务 4000+ 员工/600PB/7万数据集，准确率 80%+、一致性 70%+
 aliases: [OpenAI Data Agent, Text-to-SQL优化]
 tags: [big-data, ai-agent, practice]
-sources: [2026/Harness/OpenAI Data Agent.md]
+sources: [2026/05/09/OpenAI Data Agent.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

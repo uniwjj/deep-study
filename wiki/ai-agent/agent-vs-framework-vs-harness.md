@@ -3,7 +3,7 @@ title: Agent vs Framework vs Harness
 description: 三层概念区别——Agent 干活的智能体、Framework 造智能体的零件库、Harness 管理智能体的操作系统，2026 瓶颈从智能转向可靠性
 aliases: [Agent三者区别, 智能体概念层级]
 tags: [ai-agent, concept]
-sources: [2026/Harness/Agent三层区别.md]
+sources: [2026/05/09/Agent三层区别.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---

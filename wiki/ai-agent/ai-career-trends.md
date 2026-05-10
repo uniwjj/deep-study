@@ -3,7 +3,7 @@ title: AI 职业趋势
 description: Anthropic CEO Dario Amodei 判断：编程最早消失，三类安全职业（人际/物理世界/硬件）和"比较优势"理念
 aliases: [Dario Amodei, AI职业影响]
 tags: [ai-agent, concept]
-sources: [2026/Harness/CEO警告程序员.md]
+sources: [2026/05/09/CEO警告程序员.md]
 created: 2026-05-09
 updated: 2026-05-09
 ---
