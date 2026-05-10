@@ -156,3 +156,8 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 创建 `product/silicon-valley-pm-methodology.md` — 客户痴迷/战略金字塔/MLP/赛车增长/北极星指标/LNO框架
 - 创建 `product/index.md` — 产品与技术管理索引入口
 - 存档 PDF 至 `sources/2026/05/10/`
+
+## 2026-05-10 ingest | Google 上下文工程白皮书
+- 创建 `ai-agent/google-context-engineering.md` — Context vs Prompt工程/会话架构(ADK vs LangChain)/记忆种类+范围+存储+信任/多Agent会话共享/生产架构
+- 对比 Claude Code 记忆系统
+- 存档 PDF + txt 至 `sources/2026/05/10/`
