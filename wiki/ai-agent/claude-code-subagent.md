@@ -3,7 +3,7 @@ title: Claude Code 子代理委托
 description: Claude Code 的子代理委托架构——AgentTool 10步决策树、runAgent() 15步生命周期、4层权限隔离、3种Abort行为
 aliases: [子代理, subagent, AgentTool, 多代理]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Dive into Claude Code.txt, 2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Dive into Claude Code.txt, 2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

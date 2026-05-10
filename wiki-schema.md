@@ -3,7 +3,7 @@ title: Wiki Schema
 description: 知识库的组织规则、页面类型、命名约定与标签体系
 tags: [meta]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-10
 ---
 
 # Schema
@@ -30,6 +30,22 @@ wiki/
 ```
 
 按领域分子目录，每篇页面归属唯一目录。
+
+## 存档目录（sources/）
+
+**不可修改**的原始来源文档。按日期嵌套存放：
+
+```
+sources/
+└── YYYY/
+    └── MM/
+        └── DD/
+            └── 原始文件名.md
+```
+
+- `sources/` 下的文件**只追加，永不修改**（ingested 后视为不可变）
+- 源文件名保留原始名称（含中文）
+- 主题分类目录（如 `sources/2026/Harness/`）可并存于年份目录下
 
 ## 文件名格式
 

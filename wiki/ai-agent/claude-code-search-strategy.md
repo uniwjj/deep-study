@@ -3,7 +3,7 @@ title: Claude Code 搜索策略
 description: Claude Code 的搜索与检索策略——为什么 51 万行代码中零向量数据库，grep 为何打败 RAG，GrepTool/Glob/Read 的实现细节
 aliases: [Search Strategy, grep vs RAG, 搜索策略, 检索策略]
 tags: [ai-agent, architecture, concept]
-sources: [2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---

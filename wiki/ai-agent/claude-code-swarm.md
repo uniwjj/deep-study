@@ -3,7 +3,7 @@ title: Claude Code Swarm 多Agent协作
 description: Claude Code Swarm 系统——对等 Teammate 协作、Mailbox 文件级通信、Auto-Resume、Coordinator 模式扩展细节
 aliases: [Swarm, Teammate, Mailbox, 多Agent团队, 对等协作]
 tags: [ai-agent, architecture, concept]
-sources: [2026-05-10/Claude Code from Source.md, 2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Claude Code from Source.md, 2026/05/10/Claude-Code-Source-Analysis.pdf]
 
 ---
 - [[claude-code-remote-execution]] — 远程执行（Bridge 消息路由）

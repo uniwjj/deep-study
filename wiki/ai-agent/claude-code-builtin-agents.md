@@ -3,7 +3,7 @@ title: Claude Code 内置 Agent 详解
 description: Claude Code 5 个内置 Agent 的完整系统提示词与设计哲学——Explore/Plan/Verification/General Purpose/Guide
 aliases: [Builtin Agents, 内置Agent, Explore Agent, Plan Agent, Verification Agent, Guide Agent]
 tags: [ai-agent, architecture, concept]
-sources: [2026-05-10/Claude Code 技术解析.html]
+sources: [2026/05/10/Claude Code 技术解析.html]
 created: 2026-05-10
 updated: 2026-05-10
 ---

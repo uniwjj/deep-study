@@ -3,7 +3,7 @@ title: Claude Code 工具系统
 description: Claude Code 的工具系统——40+ 工具实现、14步执行管道、7模式权限解析器、fail-closed默认值、per-invocation并发安全分类
 aliases: [Tool System, 工具执行, buildTool, tool pipeline]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md, 2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Claude Code from Source.md, 2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---

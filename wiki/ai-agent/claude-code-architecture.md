@@ -3,7 +3,7 @@ title: Claude Code 源码架构
 description: Claude Code 架构全景——六抽象模型、黄金路径、10大设计模式、14+可迁移架构原则
 aliases: [Claude Code架构, Claude Code源码解析, six abstractions]
 tags: [ai-agent, tool, architecture]
-sources: [2026/04/01/Claude Code 源码架构解析.md, 2026-05-10/Claude Code from Source.md, 2026-05-10/Claude Code 技术解析.html]
+sources: [2026/04/01/Claude Code 源码架构解析.md, 2026/05/10/Claude Code from Source.md, 2026/05/10/Claude Code 技术解析.html]
 created: 2026-05-09
 updated: 2026-05-10
 ---

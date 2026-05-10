@@ -3,7 +3,7 @@ title: Claude Code 内部机制
 description: Claude Code 源码中的内部机制——Undercover Mode 泄露防护、反蒸馏防御、Regex 情绪检测、Verification Agent 对抗性验证
 aliases: [Internal Mechanisms, 内部机制, Undercover Mode, 反蒸馏, Sentiment Detection]
 tags: [ai-agent, architecture, concept]
-sources: [2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---

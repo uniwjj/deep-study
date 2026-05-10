@@ -3,7 +3,7 @@ title: Claude Code 性能优化
 description: Claude Code 的性能优化体系——启动I/O并行化、输出槽位预留、令牌效率、位图预过滤器、推测工具执行、渲染自适应节流
 aliases: [Performance, 性能优化, 令牌效率, 位图预过滤]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

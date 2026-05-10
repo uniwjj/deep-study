@@ -3,7 +3,7 @@ title: Claude Code 记忆系统
 description: Claude Code 的文件级记忆系统——四类型分类法、可推导性标准、Sonnet 侧查询召回、双层级架构、过期系统、背景提取 Agent
 aliases: [Memory System, 记忆系统, MEMORY.md, Sonnet side-query]
 tags: [ai-agent, architecture, concept]
-sources: [2026-05-10/Claude Code from Source.md, 2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Claude Code from Source.md, 2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---

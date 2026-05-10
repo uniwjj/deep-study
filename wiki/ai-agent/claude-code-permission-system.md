@@ -3,7 +3,7 @@ title: Claude Code 权限系统
 description: Claude Code 的7种权限模式、拒绝优先规则引擎、ML自动分类器和Shell沙箱的详细分析
 aliases: [权限系统, permission system, deny-first]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Dive into Claude Code.txt, 2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Dive into Claude Code.txt, 2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---

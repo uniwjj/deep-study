@@ -3,7 +3,7 @@ title: Claude Code 远程执行
 description: Claude Code 的远程控制与云端执行系统——Bridge v1/v2、Direct Connect、上游代理凭证注入、非对称读写通道、FlushGate排序
 aliases: [Remote Execution, 远程执行, Bridge, CCR]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

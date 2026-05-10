@@ -3,7 +3,7 @@ title: Claude Code 两层状态架构
 description: Claude Code 使用双轨状态——可变进程单例（基础设施状态）和最小化响应式 store（UI 状态），通过集中式副作用系统 onChangeAppState 连接
 aliases: [Two-Tier State, 状态架构, AppState, bootstrap state]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

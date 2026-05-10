@@ -3,7 +3,7 @@ title: Claude Code 终端 UI
 description: Claude Code 的自定义终端渲染引擎——7元素DOM、7阶段渲染管线、驻留池内存管理、双缓冲、流式Markdown优化
 aliases: [Terminal UI, 终端UI, 渲染架构, Ink fork]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

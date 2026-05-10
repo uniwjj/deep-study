@@ -3,7 +3,7 @@ title: Claude Code 上下文压缩
 description: Claude Code 的5层渐进压缩管道——预算削减、裁剪、微压缩、上下文折叠、自动压缩，以及 CLAUDE.md 四级记忆体系
 aliases: [上下文压缩, context compaction, compaction pipeline]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Dive into Claude Code.txt, 2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Dive into Claude Code.txt, 2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---

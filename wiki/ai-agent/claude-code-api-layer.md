@@ -3,7 +3,7 @@ title: Claude Code API 层
 description: Claude Code 的 API 通信层——四云提供商透明路由、字节级 prompt cache 感知系统提示构建、流式处理和错误恢复
 aliases: [API Layer, 模型调用, queryModel, prompt cache, BetaMessageStream]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md, 2026-05-10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Claude Code from Source.md, 2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-10
 updated: 2026-05-10
 ---

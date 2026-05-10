@@ -3,7 +3,7 @@ title: Claude Code 启动管道
 description: Claude Code 的5阶段启动管道——300ms预算下通过模块级I/O并行、快速路径分发、信任边界隔离实现瞬时启动
 aliases: [Bootstrap Pipeline, 启动流程, bootstrap pipeline]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

@@ -3,7 +3,7 @@ title: Claude Code 并发工具执行
 description: Claude Code 的并发工具执行机制——按安全性分区的两阶段系统、流式推测执行、结果顺序保持、最多10个并行工具的批量管理
 aliases: [Concurrent Tool Execution, 工具并发, StreamingToolExecutor, partitionToolCalls]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

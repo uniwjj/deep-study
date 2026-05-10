@@ -3,7 +3,7 @@ title: Claude Code Agent 循环
 description: Claude Code 唯一的 1730 行 async generator 查询循环——10 个终止状态、7 个继续状态、4 层压缩管道、不可变状态转换模式
 aliases: [Agent Loop, query loop, 查询循环, query.ts]
 tags: [ai-agent, architecture, concept]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

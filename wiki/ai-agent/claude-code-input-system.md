@@ -3,7 +3,7 @@ title: Claude Code 输入系统
 description: Claude Code 的输入与交互系统——5种键盘协议、Chord和弦状态机、Vim 模式12变体区分联合类型、虚拟消息列表
 aliases: [Input System, 输入系统, 键盘协议, Vim mode]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

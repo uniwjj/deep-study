@@ -3,7 +3,7 @@ title: Claude Code 可扩展性
 description: Claude Code 的四种扩展机制——MCP服务器、插件、Skills和Hooks——按上下文成本分层，Skills两阶段加载，Hook快照安全模型，27个生命周期事件
 aliases: [可扩展性, extensibility, MCP, skills, hooks, plugins]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Dive into Claude Code.txt, 2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Dive into Claude Code.txt, 2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

@@ -3,7 +3,7 @@ title: Agent 设计范式
 description: ReAct、Plan-and-Execute、Reflection 三种 Agent 设计范式的核心区别、实现原理、优劣势与选型指南
 aliases: [Agent Paradigms, Agent范式, ReAct, Plan-and-Execute, Reflection, 设计范式]
 tags: [ai-agent, concept, comparison]
-sources: [2026-05-10/Agent范式.md]
+sources: [2026/05/10/Agent范式.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

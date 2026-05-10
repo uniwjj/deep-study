@@ -3,7 +3,7 @@ title: Claude Code MCP 协议实现
 description: Claude Code 的 MCP 协议实现——8种传输、7个配置来源、4阶段工具包装、OAuth发现链、进程内传输、分层超时架构
 aliases: [MCP, Model Context Protocol, MCP协议]
 tags: [ai-agent, architecture, practice]
-sources: [2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

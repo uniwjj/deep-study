@@ -3,7 +3,7 @@ title: Claude Code Fork Subagent
 description: Fork Subagent 机制——三层冻结确保字节级缓存复用、递归 fork 双重防护、sync-to-async 转换、4 样继承与 10% 成本
 aliases: [Fork Subagent, 缓存复用, prompt cache, CacheSafeParams]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Claude Code 多Agent实现机制.md, 2026-05-10/Claude Code from Source.md]
+sources: [2026/05/10/Claude Code 多Agent实现机制.md, 2026/05/10/Claude Code from Source.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---
