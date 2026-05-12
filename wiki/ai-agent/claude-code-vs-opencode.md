@@ -1,7 +1,7 @@
 ---
 title: Claude Code vs OpenCode
 description: 同模型不同 Agent 框架效果差异根源——上下文管理（三层压缩 vs 单层）、Prompt 工程、Agent 通信（SubAgent/Fork/Teammate）、工具编排四维度对比
-aliases: [OpenCode, Claude Code对比]
+aliases: [OpenCode, Claude Code对比, CC, Claude CLI]
 tags: [ai-agent, comparison, tool]
 sources: [2026/04/08/从源码角度聊聊 Claude Code 和 OpenCode 的效果区别.md]
 created: 2026-05-09

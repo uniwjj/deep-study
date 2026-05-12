@@ -1,7 +1,7 @@
 ---
 title: Claude Code 隐藏功能
 description: Claude Code 源码泄露的 87 个 feature flag 揭示的进化路线——从工具到常驻助手到多 Agent 协作到跨设备
-aliases: [Claude Code feature flags, Claude Code未发布功能, Kairos, Daemon, Teleport]
+aliases: [Claude Code feature flags, Claude Code未发布功能, Kairos, Daemon, Teleport, CC, Claude CLI]
 tags: [ai-agent, tool, concept]
 sources: [2026/04/01/Claude Code 87个未发布功能.md, 2026/05/10/Claude-Code-Source-Analysis.pdf]
 created: 2026-05-09

@@ -1,7 +1,7 @@
 ---
 title: Claude Code Sourcemap 逆向还原
 description: 通过 npm 包 sourcemap 还原 Claude Code 1,884 个 TypeScript 源文件——七类核心问题、三层降级策略、缺失模块分析
-aliases: [Claude Code源码, sourcemap逆向, Claude Code逆向工程]
+aliases: [Claude Code源码, sourcemap逆向, Claude Code逆向工程, CC, Claude CLI]
 tags: [ai-agent, tool, practice]
 sources: [2026/03/31/Claude Code sourcemap还原实战.md]
 created: 2026-05-09

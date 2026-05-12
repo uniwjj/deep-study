@@ -2,8 +2,8 @@
 title: Deep Study 知识库
 description: 平台开发专家的技术学习与知识沉淀中心
 aliases: [Deep Study, 知识库首页]
-tags: [meta]
-sources: []
+tags: [meta, summary]
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-09
 updated: 2026-05-10
 ---

@@ -2,7 +2,7 @@
 title: Flink Skills
 description: 阿里云实时计算 Flink 的 Agent Skills 体系——四层能力（Manage/Console Ops/Knowledge/Diagnose）、三层安全防护、多 Skill 协同编排，自然语言驱动从实例创建到实时数仓搭建
 aliases: [Flink Skills, Flink Agent, 实时计算Skills]
-tags: [big-data, ai-agent, platform]
+tags: [big-data, ai-agent, platform, tool]
 sources: [2026/05/12/05. Flink Skills—重塑实时计算开发与运维体验.pdf, 2026/05/12/DataWorks DataAgent分享录音.md]
 created: 2026-05-12
 updated: 2026-05-12

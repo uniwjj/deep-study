@@ -2,7 +2,7 @@
 title: MaxCompute Skills
 description: MaxCompute 通过 MCMCP 服务 + Information Schema 语义包 + MaxFrame Coding Skill 构建的 Agent 可调用能力层——覆盖数仓运维、多模态开发、数据分析全场景
 aliases: [MaxCompute Skills, MCMCP, MC Skills]
-tags: [big-data, ai-agent, platform]
+tags: [big-data, ai-agent, platform, tool]
 sources: [2026/05/12/03. 基于 MaxCompute Skills 简化数仓运维加速多模态开发.pdf, 2026/05/12/DataWorks DataAgent分享录音.md]
 created: 2026-05-12
 updated: 2026-05-12

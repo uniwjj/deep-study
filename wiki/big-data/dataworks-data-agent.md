@@ -2,7 +2,7 @@
 title: DataWorks Data Agent
 description: 阿里云 DataWorks 双引擎驱动的全托管数据智能体——代码 Agent + 运维 Agent 共享统一数据语义与上下文，MCP 协议开放 Skill 生态，覆盖数据开发、治理、分析与引擎管控运维
 aliases: [DataWorks Data Agent, 数据智能体, DataAgent]
-tags: [big-data, ai-agent, platform]
+tags: [big-data, ai-agent, platform, tool]
 sources: [2026/05/12/01. DataWorks Data Agent.pdf, 2026/05/12/DataWorks DataAgent分享录音.md]
 created: 2026-05-12
 updated: 2026-05-12

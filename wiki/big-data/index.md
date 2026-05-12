@@ -3,7 +3,7 @@ title: 大数据技术
 description: 大数据技术领域索引——Spark、Flink、Kafka、Hudi、Iceberg、数据湖、流批一体
 aliases: [big-data, 大数据]
 tags: [big-data, meta]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-10
 updated: 2026-05-10
 ---

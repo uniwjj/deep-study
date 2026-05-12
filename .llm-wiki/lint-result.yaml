@@ -1,40 +1,14 @@
 date: 2026-05-12
 summary:
   pages: 108
-  sources: 98
-  issues: {critical: 0, warning: 4, info: 56}
+  sources: 95
+  issues: {critical: 0, warning: 0, info: 10}
 issues:
-  - type: orphan_wikilink
-    severity: info
-    page: wiki/ai-agent/claude-code-swarm.md
-    detail: "孤立 wikilink 已移入 ## 相关页面 章节"
-  - type: uningested_source
-    severity: warning
-    page: sources/2026/05/12/DataWorks DataAgent分享录音.md
-    detail: "已补充 ingested: 2026-05-12"
-  - type: uningested_source
-    severity: warning
-    page: sources/2026/05/09/OpenClaw与数字员工研究报告.txt
-    detail: "已补充 ingested: 2026-05-09"
-  - type: source_drift
-    severity: info
-    detail: "45 个 2026/05/09 目录源文件 mtime 晚于 ingested 日期（批量 frontmatter 操作导致，非内容漂移）"
-  - type: shallow_page
-    severity: info
-    count: 44
-    detail: "44 个页面行数 < 30（含 7 个空领域索引页 + 11 个 draft stub 桥接页，属合理设计）"
-  - type: missing_sources
-    severity: info
-    count: 20
-    detail: "20 个页面 sources 为空（均为 draft stub/索引页，属合理设计）"
   - type: wanted_page
     severity: info
     count: 8
-    detail: "8 个待创建页面链接保留（glm5-model, agent-autonomous-planning, ai-governance, digital-employee, ai-agent-security, llm-cost-optimization, prompt-engineering, ai-knowledge-base）"
-  - type: root_level_link
+    detail: "8 个待创建页面的超前引用（glm5-model, agent-autonomous-planning, ai-governance, digital-employee, ai-agent-security, llm-cost-optimization, prompt-engineering, ai-knowledge-base），属于 Obsidian 正常行为"
+  - type: wanted_page
     severity: info
-    count: 4
+    count: 2
     detail: "wiki-purpose/wiki-schema 为 vault 根目录文件，在 Obsidian 中可正常解析"
-  - type: junk_files
-    severity: info
-    detail: "已清理 sources/ 目录下 3 个 .DS_Store 文件"

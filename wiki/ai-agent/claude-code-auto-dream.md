@@ -1,7 +1,7 @@
 ---
 title: Claude Code 自动梦境（Auto Dream）
 description: Claude Code 记忆整合机制——四阶段流程解决 AI Agent 记忆衰减，类比人类 REM 睡眠的自动记忆维护
-aliases: [Auto Dream, 自动梦境, Claude Code记忆机制, REM睡眠记忆]
+aliases: [Auto Dream, 自动梦境, Claude Code记忆机制, REM睡眠记忆, CC, Claude CLI]
 tags: [ai-agent, tool, concept]
 sources: [2026/03/29/claude-code-auto-dream-guide.md]
 created: 2026-05-09

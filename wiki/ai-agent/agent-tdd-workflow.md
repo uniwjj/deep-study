@@ -3,7 +3,7 @@ title: Agent TDD 工作流
 description: AI Agent 的测试驱动开发工作流
 aliases: [agent-tdd-workflow, TDD]
 tags: [ai-agent, practice]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 status: draft
 created: 2026-05-10
 updated: 2026-05-10

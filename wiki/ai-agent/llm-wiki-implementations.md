@@ -1,7 +1,7 @@
 ---
 title: LLM Wiki 开源实现
 description: Karpathy LLM Wiki 的三大开源实现对比——sage-wiki（Go编译器）、llm-wiki（Python CLI分离）、Thinking-Space（Electron桌面）
-aliases: [LLM Wiki开源, sage-wiki, llm-wiki实现]
+aliases: [LLM Wiki开源, sage-wiki, llm-wiki实现, LLM Wiki]
 tags: [ai-agent, tool, comparison]
 sources: [2026/04/06/LLM Wiki开源仓库.md]
 created: 2026-05-09

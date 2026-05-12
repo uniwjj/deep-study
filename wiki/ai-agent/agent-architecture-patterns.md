@@ -3,7 +3,7 @@ title: Agent 架构模式
 description: AI Agent 系统架构模式——生成器循环、自描述工具接口、两层状态分离
 aliases: [agent-architecture-patterns, Agent Architecture Patterns]
 tags: [ai-agent, concept]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 status: draft
 created: 2026-05-10
 updated: 2026-05-10

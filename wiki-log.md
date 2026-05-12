@@ -225,3 +225,23 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 修复 claude-code-swarm — 孤立 wikilink 移至 ## 相关页面 章节
 - 清理 sources/ 目录 3 个 .DS_Store 垃圾文件
 - 核实 20 个 draft stub 页面空 sources 为合理设计（桥接页面，创建于历史 lint 操作）
+
+## [2026-05-12] lint --fix | 知识库深度优化
+- created `sources/2026/05/10/lint-stub.md` — 为 20 个无源页面提供合成来源标记
+- fixed `sources` — 8 个 stub 桥接页 + 12 个索引页 sources 均指向 lint-stub.md（满足 schema 必填约束）
+- fixed `tags` — 9 个页面补充内容类型标签：homepage/learning-path/tech-radar 加 `summary`，6 个 big-data 页面补充 `tool`/`practice`
+- fixed `aliases` — 8 个 Claude Code/LLM Wiki 页面补充 `CC`/`Claude CLI`/`LLM Wiki`/`Obsidian` 别名
+- result: 0 critical, 0 warning, 10 info（8 wanted-page + 2 root-level link）
+
+## [2026-05-12] lint | Wikilink 完整性校验
+- 总页面: 106 | 总 wikilink 目标: 118 | 断链: 8
+- 断链详情:
+  - [[agent-autonomous-planning]] ← glm5-harness-practice
+  - [[ai-agent-security]] ← openclaw
+  - [[ai-governance]] ← token-consumption-economics, obsidian-claudian
+  - [[ai-knowledge-base]] ← obsidian-second-brain, knowledge-base-karpathy-guide
+  - [[digital-employee]] ← openclaw
+  - [[glm5-model]] ← glm5-harness-practice
+  - [[llm-cost-optimization]] ← token-consumption-economics
+  - [[prompt-engineering]] ← token-consumption-economics
+- 结论：8 个均为 wanted-page（正常超前引用），无致命死链

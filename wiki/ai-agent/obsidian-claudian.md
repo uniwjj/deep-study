@@ -1,7 +1,7 @@
 ---
 title: Obsidian + Claudian
 description: Obsidian 本地知识库 + Claude Code + Claudian 插件的 AI 第二大脑方案，从 Prompt → Agent → Skill 的三级进化
-aliases: [Claudian, Obsidian AI知识库, AI第二大脑]
+aliases: [Claudian, Obsidian AI知识库, AI第二大脑, Obsidian]
 tags: [ai-agent, tool, practice]
 sources: [2026/02/26/Obsidian + Claudian真香警告：AI知识库终极方案.md]
 created: 2026-05-09

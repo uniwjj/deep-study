@@ -2,7 +2,7 @@
 title: MaxCompute Data+AI
 description: 阿里云 MaxCompute AI 化演进——存储层 BLOB+Object Table 多模态统一管理，计算层 SQL AI Function + MaxFrame(Pandas兼容分布式框架)，PB 级数据预处理性能提升 50%+
 aliases: [MaxCompute AI, 大数据AI化]
-tags: [big-data, ai-ml, platform]
+tags: [big-data, ai-ml, platform, practice]
 sources: [2026/04/27/MaxCompute Data+AI.md]
 created: 2026-05-09
 updated: 2026-05-09

@@ -2,7 +2,7 @@
 title: EMR Skills
 description: 阿里云 EMR AI Native 平台——数据处理/实时分析/系统运维三大 Skill 类、Spark Skills 驱动智驾图片标注、多模态 AI Function、全栈 Serverless 免运维
 aliases: [EMR Skills, EMR AI Native, EMR Agent]
-tags: [big-data, ai-agent, platform]
+tags: [big-data, ai-agent, platform, tool]
 sources: [2026/05/12/06. 基于 EMR Skills 实现智驾场景的自动化数据标注.pdf, 2026/05/12/DataWorks DataAgent分享录音.md]
 created: 2026-05-12
 updated: 2026-05-12

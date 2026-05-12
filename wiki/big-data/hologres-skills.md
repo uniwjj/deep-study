@@ -2,7 +2,7 @@
 title: Hologres Skills
 description: Hologres 多模融合一站式 AI 数据检索分析平台——AI Function 一键调用百炼模型、CLI 与 Skills 体系、Mem0 长记忆方案，实现广告素材智能生成与投放分析
 aliases: [Hologres Skills, Hologres AI Function]
-tags: [big-data, ai-agent, platform]
+tags: [big-data, ai-agent, platform, tool]
 sources: [2026/05/12/04. 基于 Hologres Skills 完成广告素材智能生成与投放效果分析.pdf, 2026/05/12/DataWorks DataAgent分享录音.md]
 created: 2026-05-12
 updated: 2026-05-12

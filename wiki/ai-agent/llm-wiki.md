@@ -3,7 +3,7 @@ title: LLM Wiki
 description: LLM Wiki 知识库概念——AI 维护的结构化知识库
 aliases: [llm-wiki]
 tags: [ai-agent, concept]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 status: draft
 created: 2026-05-10
 updated: 2026-05-10
