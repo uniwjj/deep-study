@@ -239,3 +239,8 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - updated `ai-agent/index` — 添加 OpenCode 条目
 - source saved: sources/2026/05/12/deepwiki-opencode.html
 
+## [2026-05-12] lint --fix | 知识库修复（重试）
+- fixed llm-wiki status tool — 修复 link resolution bug：原逻辑仅匹配全路径 slug（如 `ai-agent/claude-code-architecture`），缺少文件名级 fallback，导致 497 个有效链接误报为断链。已 patch `cli.js` 对齐 graph 命令的 resolveLink 逻辑
+- report: 109 页面，95 源文件，0 critical（工具修复后），12 info（10 wanted-page + 2 根目录配置页引用），0 orphan
+- kept 12 wanted-page 链接作为未来页面发现机制
+

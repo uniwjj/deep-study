@@ -284,8 +284,8 @@
     },
     "wiki/ai-agent/claude-code-vs-opencode.md": {
       "path": "wiki/ai-agent/claude-code-vs-opencode.md",
-      "mtime": 1778566069248.0637,
-      "contentHash": "fad185106da70519",
+      "mtime": 1778598136649.2803,
+      "contentHash": "cba5d3d1b543d363",
       "lastSynced": "2026-05-12"
     },
     "wiki/ai-agent/claude-code.md": {
@@ -380,8 +380,8 @@
     },
     "wiki/ai-agent/index.md": {
       "path": "wiki/ai-agent/index.md",
-      "mtime": 1778565980983.2515,
-      "contentHash": "0db4c3893c04345c",
+      "mtime": 1778598133308.0586,
+      "contentHash": "bfb36419216919a9",
       "lastSynced": "2026-05-12"
     },
     "wiki/ai-agent/karpathy-agent-obsidian-os.md": {
@@ -472,6 +472,12 @@
       "path": "wiki/ai-agent/openclaw.md",
       "mtime": 1778316386797.9285,
       "contentHash": "8fce914cb5d85e4a",
+      "lastSynced": "2026-05-12"
+    },
+    "wiki/ai-agent/opencode.md": {
+      "path": "wiki/ai-agent/opencode.md",
+      "mtime": 1778598102272.476,
+      "contentHash": "330c77881ee2ac10",
       "lastSynced": "2026-05-12"
     },
     "wiki/ai-agent/openspec-sdd-practice.md": {

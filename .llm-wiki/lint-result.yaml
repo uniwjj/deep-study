@@ -1,14 +1,18 @@
 date: 2026-05-12
 summary:
-  pages: 108
+  pages: 109
   sources: 95
-  issues: {critical: 0, warning: 0, info: 10}
+  issues: {critical: 0, warning: 1, info: 12}
 issues:
-  - type: wanted_page
+  - type: broken_wikilinks
     severity: info
-    count: 8
-    detail: "8 个待创建页面的超前引用（glm5-model, agent-autonomous-planning, ai-governance, digital-employee, ai-agent-security, llm-cost-optimization, prompt-engineering, ai-knowledge-base），属于 Obsidian 正常行为"
-  - type: wanted_page
-    severity: info
-    count: 2
-    detail: "wiki-purpose/wiki-schema 为 vault 根目录文件，在 Obsidian 中可正常解析"
+    count: 12
+    detail: "12 个 wikilink 指向不存在的页面——其中 2 个指向根目录配置页（[[wiki-purpose]]、[[wiki-schema]]，在 Obsidian 中可正常解析），10 个为 wanted-page 超前引用（glm5-model, agent-autonomous-planning, ai-governance, digital-employee, ai-agent-security, llm-cost-optimization, prompt-engineering, ai-knowledge-base），保留作为未来页面发现机制"
+  - type: broken_wikilinks
+    severity: warning
+    count: 1
+    detail: "ai-agent/obsidian-claudian.md:66 中 [[ai-governance]] 为重复引用（token-consumption-economics 中已有），建议去重但非紧急"
+  - type: tool_fix
+    severity: critical
+    count: 1
+    detail: "修复 llm-wiki status 断链计数 bug——原逻辑仅用全路径 slugSet 匹配，未做文件名级 fallback 解析，导致将 497 个有效链接误报为断链。已 patch cli.js 中 status command 的 link resolution 逻辑，与 graph 保持一致"
