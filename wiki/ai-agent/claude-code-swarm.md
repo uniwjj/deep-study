@@ -7,10 +7,8 @@ sources: [2026/05/10/Claude Code from Source.md, 2026/05/10/Claude-Code-Source-A
 created: 2026-05-10
 updated: 2026-05-10
 ---
-- [[claude-code-remote-execution]] — 远程执行（Bridge 消息路由）
 
 ## Team 销毁顺序
-
 ```
 1. Kill Panes → 2. Destroy Worktrees → 3. Delete Team Dir → 4. Cleanup Tasks Dir
 ```
@@ -57,3 +55,9 @@ Coordinator prompt 明确禁止：
 > "Never write 'based on your findings' or 'based on the research.' These phrases delegate understanding to the worker instead of doing it yourself."
 
 验证标准："Verification means proving the code works, not confirming it exists"——必须跑测试、检查类型错误、测边界情况，不能扫一眼代码说"看起来没问题"。
+
+## 相关页面
+
+- [[claude-code-remote-execution]] — 远程执行（Bridge 消息路由）
+- [[claude-code-multi-agent-mechanism]] — 多 Agent 实现机制
+- [[claude-code-coordinator-mode]] — Coordinator 模式

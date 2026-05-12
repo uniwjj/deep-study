@@ -1,3 +1,8 @@
+---
+ingested: 2026-05-09
+wiki_pages: [openclaw]
+---
+
 chat apps
 
 self-hosted

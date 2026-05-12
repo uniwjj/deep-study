@@ -1,3 +1,8 @@
+---
+ingested: 2026-05-12
+wiki_pages: [dataworks-data-agent, superetl, hologres-skills, flink-skills, emr-skills, maxcompute-skills, dataworks-stock-case]
+---
+
 DataWorks 2025年04月29日，瞎聊日分享录音。分享包括下面内容：
 
 1. DataWorks Data Agent发布:双引擎驱动的全托管数据智能体

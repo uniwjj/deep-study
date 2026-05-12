@@ -218,3 +218,10 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - removed 无意义占位链接 — easydata, spark-ai-integration, claude-code-claudemd, topic-name, 笔记名, wikilinks, obsidian-para
 - kept 10 个 wanted-page 链接（作为未来可创建页面的发现机制）
 - 结论：108 页面，0 可修复死链，12 个 wanted-page 链接为正常现象
+
+## [2026-05-12] lint --fix | 知识库优化修正
+- 断链审查：8 个 wanted-page 保留（glm5-model/agent-autonomous-planning/ai-governance/digital-employee/ai-agent-security/llm-cost-optimization/prompt-engineering/ai-knowledge-base），wiki-purpose/wiki-schema 为根目录合法引用
+- 补源文件 ingested frontmatter：DataWorks DataAgent分享录音.md、OpenClaw与数字员工研究报告.txt
+- 修复 claude-code-swarm — 孤立 wikilink 移至 ## 相关页面 章节
+- 清理 sources/ 目录 3 个 .DS_Store 垃圾文件
+- 核实 20 个 draft stub 页面空 sources 为合理设计（桥接页面，创建于历史 lint 操作）
