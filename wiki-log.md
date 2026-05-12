@@ -161,3 +161,17 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - 创建 `ai-agent/google-context-engineering.md` — Context vs Prompt工程/会话架构(ADK vs LangChain)/记忆种类+范围+存储+信任/多Agent会话共享/生产架构
 - 对比 Claude Code 记忆系统
 - 存档 PDF + txt 至 `sources/2026/05/10/`
+
+## 2026-05-11 22:15 | ingest | claude-code-principles.html V3 Round 2 fixes
+- Applied 10 fix categories (F1-F10) to claude-code-principles.html
+- F1: Added 4 inline SVG diagrams (architecture overview, Agent Loop cycle, 14-step pipeline, 5-layer compaction)
+- F2: All code blocks converted to styled format with syntax highlighting and line numbers
+- F3: Expanded Chapter 9 from 3/14 to all 14 prompt segments with real text
+- F4: Added 8 inter-chapter transition sentences
+- F5: Added pain-point statements to chapters 2, 4, 6, 7, 8
+- F6: Added "why" inline annotations to key code blocks (state, SAFE_DEFAULTS, compaction, partition, fork)
+- F7: Added source evidence annotations for key numbers (1730行, AUTOCOMPACT_BUFFER_TOKENS, 3400万次/周, 914行, 70%)
+- F8: Added alternative comparison notes (fail-closed vs whitelist, segment registry vs monolithic)
+- F9: Defined key terms on first use (YOLO分类器, Teammate/Mailbox, Auto Dream, Context Collapse, BOUNDARY)
+- F10: Added back-to-top button with CSS + JS scroll detection
+- File: 1008 → 1449 lines
