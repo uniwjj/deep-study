@@ -140,3 +140,6 @@ updated: 2026-05-10
 - [[maxcompute-data-ai]] — MaxCompute Data+AI 演进
 - [[data-dev-skills-automation]] — 数开 Skills 自动化
 - [[agent-design-paradigms]] — Agent 设计范式（ReAct/Plan-and-Execute/Reflection）
+- [[dataworks-data-agent]] — DataWorks Data Agent 产品架构
+- [[superetl]] — 菜鸟 SuperETL 实践
+- [[flink-skills]] — Flink Agent Skills

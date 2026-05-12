@@ -175,3 +175,31 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - F9: Defined key terms on first use (YOLO分类器, Teammate/Mailbox, Auto Dream, Context Collapse, BOUNDARY)
 - F10: Added back-to-top button with CSS + JS scroll detection
 - File: 1008 → 1449 lines
+
+## [2026-05-12] ingest | DataWorks Data Agent 及产品生态系列（7篇）
+- created `dataworks-data-agent` — DataWorks Data Agent 核心产品架构
+- created `superetl` — 菜鸟基于 Data Agent 的物流 SuperETL 体系
+- created `maxcompute-skills` — MaxCompute MCMCP 服务与 Skills 语义包
+- created `hologres-skills` — Hologres AI Function/CLI/Skills/Mem0
+- created `flink-skills` — Flink Agent Skills 四层能力体系
+- created `emr-skills` — EMR AI Native 三大子产品 Skills
+- created `dataworks-stock-case` — 个人投资者量化行情分析实践
+- updated `big-data/index` — 新增 Data Agent 生态和实践案例链接
+- updated `data-agent-practice-guide` — 添加跨页面引用
+- updated `data-dev-skills-automation` — 添加各产品 Skills 引用
+- updated `maxcompute-data-ai` — 添加 MaxCompute Skills 引用
+- updated `agent-skills-system` — 添加大数据平台 Skills 实践案例
+
+## [2026-05-12] ingest | DataWorks DataAgent 分享录音
+- updated `dataworks-data-agent` — 补充五阶段演进、ACP 网关路由、CLI/Claw 模式对比
+- updated `superetl` — 补充 9 技能拆分原理、Hook 四触发点、发布阻断机制、6 大类知识组装、变与不变框架
+- updated `hologres-skills` — 补充广告生成完整流程细节
+- updated `flink-skills` — 补充来源录音
+- updated `emr-skills` — 补充 read_file 表函数、Agent 时代三大新要求
+- updated `maxcompute-skills` — 补充来源录音
+- updated `dataworks-stock-case` — 补充数据量、做饭比喻、逆风局概念、"经验 Skill 化"结论
+- source saved: sources/2026/05/12/DataWorks DataAgent分享录音.md
+
+## [2026-05-12] ingest | 虾聊日 PPT 配图（6张PNG）
+- `dataworks-data-agent` — 新增架构图、Core 架构图、CLI演示图
+- `superetl` — 新增数仓开发耗时分布图、CLI演示图、AI时代数据网格图
