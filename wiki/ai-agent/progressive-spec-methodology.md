@@ -87,6 +87,6 @@ agents/     — 不同角色 Prompt 配置
 ## 相关页面
 
 - [[superpowers-framework]] — Superpowers 工程纪律框架
-- [[sdd-openspec]] — SDD 规范驱动开发
+- [[sdd-openspec-superpowers]] — SDD 规范驱动开发
 - [[agent-tdd-workflow]] — Agent TDD 流程
 - [[agent-skills-system]] — Agent Skills 体系

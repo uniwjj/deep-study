@@ -1,21 +1,46 @@
-date: 2026-05-10
+date: 2026-05-12
 summary:
-  pages: 101
-  sources: 106
-  issues:
-    critical: 0
-    warning: 19
-    info: 2
+  pages: 108
+  sources: 120+
+  issues: {critical: 12, warning: 136, info: 5}
 issues:
-  - type: orphan_page
-    severity: warning
-    count: 1
-    detail: "google-context-engineering — new page, needs more cross-links (added to ai-agent/index)"
   - type: broken_link
-    severity: warning
-    count: 18
-    detail: "18 wanted pages/stubs not yet created (agent-autonomous-planning, prompt-engineering, etc.)"
-  - type: info
+    severity: critical
+    page: wiki/homepage.md
+    detail: "links to [[wiki-schema]], [[wiki-purpose]] — root-level config files, acceptable cross-vault refs"
+  - type: wanted_page
     severity: info
-    count: 1
-    detail: "product/index.md — slug collision with other index.md files (non-critical in Obsidian)"
+    page: wiki/ai-ml/token-consumption-economics.md
+    detail: "wanted pages: prompt-engineering, ai-governance, llm-cost-optimization"
+  - type: wanted_page
+    severity: info
+    page: wiki/ai-agent/obsidian-claudian.md
+    detail: "wanted page: ai-governance"
+  - type: wanted_page
+    severity: info
+    page: wiki/ai-agent/openclaw.md
+    detail: "wanted pages: ai-agent-security, digital-employee"
+  - type: wanted_page
+    severity: info
+    page: wiki/ai-agent/glm5-harness-practice.md
+    detail: "wanted pages: agent-autonomous-planning, glm5-model"
+  - type: wanted_page
+    severity: info
+    page: wiki/ai-agent/knowledge-base-karpathy-guide.md
+    detail: "wanted page: ai-knowledge-base"
+  - type: wanted_page
+    severity: info
+    page: wiki/ai-agent/obsidian-second-brain.md
+    detail: "wanted page: ai-knowledge-base"
+  - type: orphan_pages
+    severity: info
+    count: 91
+    detail: "Most content pages have no incoming links from other content pages. Expected for index-driven wiki where homepage is primary entry. big-data pages cross-reference each other well."
+  - type: unsourced_stubs
+    severity: info
+    count: 20
+    detail: "Index pages and draft/stub pages legitimately have empty sources. Expected for meta pages."
+  - type: shallow_pages
+    severity: info
+    count: 5
+    detail: "distributed/index, platform/index, backend/index, architecture/index, fullstack/index — all domain index pages with ~4 lines, expand as content grows."

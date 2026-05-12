@@ -57,4 +57,4 @@ updated: 2026-05-09
 
 - [[llm-wiki-concept]] — LLM Wiki 核心概念
 - [[bookrag]] — BookRAG
-- [[rag-vs-wiki]] — RAG vs Wiki 对比
+- [[rag-vs-llm-wiki]] — RAG vs Wiki 对比

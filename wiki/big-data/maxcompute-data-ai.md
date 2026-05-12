@@ -42,5 +42,5 @@ SQL 直接调用大模型离线推理，分析师零门槛。
 ## 相关页面
 
 - [[data-dev-skills-automation]] — 数仓开发 Skills
-- [[spark-ai-integration]] — Spark AI 集成
+- spark-ai-integration — Spark AI 集成
 - [[maxcompute-skills]] — MaxCompute MCMCP 与 Skills 体系

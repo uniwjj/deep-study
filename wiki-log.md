@@ -200,6 +200,21 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - updated `dataworks-stock-case` — 补充数据量、做饭比喻、逆风局概念、"经验 Skill 化"结论
 - source saved: sources/2026/05/12/DataWorks DataAgent分享录音.md
 
+## [2026-05-12] update | 修复 17 处断链
+- `rag-vs-wiki` → `rag-vs-llm-wiki` (3 files)
+- `context-engineering` → `google-context-engineering` (2 files)
+- `agent-memory-systems` → `agent-memory-system` (2 files)
+- `sdd-openspec` → `sdd-openspec-superpowers` (2 files)
+- 去除无对应页面的 [[]]: `easydata`, `spark-ai-integration`, `claude-code-claudemd`, `topic-name`, `笔记名`, `wikilinks`, `obsidian-para`
+
 ## [2026-05-12] ingest | 虾聊日 PPT 配图（6张PNG）
 - `dataworks-data-agent` — 新增架构图、Core 架构图、CLI演示图
 - `superetl` — 新增数仓开发耗时分布图、CLI演示图、AI时代数据网格图
+
+## [2026-05-12] lint | 知识库健康检查及优化修正
+- fixed `homepage` — 修复 9 个领域索引 `[[link\|text]]` 转义导致的死链
+- fixed 跨页死链 — `rag-vs-wiki`→`rag-vs-llm-wiki`, `context-engineering`→`google-context-engineering`, `agent-memory-systems`→`agent-memory-system`, `sdd-openspec`→`sdd-openspec-superpowers`
+- fixed `claude-code-swarm` — 补充缺失 `created`/`updated` frontmatter
+- removed 无意义占位链接 — easydata, spark-ai-integration, claude-code-claudemd, topic-name, 笔记名, wikilinks, obsidian-para
+- kept 10 个 wanted-page 链接（作为未来可创建页面的发现机制）
+- 结论：108 页面，0 可修复死链，12 个 wanted-page 链接为正常现象

@@ -56,5 +56,5 @@ updated: 2026-05-09
 ## 相关页面
 
 - [[llm-wiki-concept]] — LLM Wiki 编译式知识库
-- [[rag-vs-wiki]] — RAG vs Wiki 对比
+- [[rag-vs-llm-wiki]] — RAG vs Wiki 对比
 - [[llm-wiki-implementations]] — 开源实现

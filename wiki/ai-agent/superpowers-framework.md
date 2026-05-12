@@ -72,6 +72,6 @@ RED-GREEN-REFACTOR 是工作流的一部分而非建议：
 ## 相关页面
 
 - [[agent-tdd-workflow]] — Agent TDD 开发流程
-- [[sdd-openspec]] — SDD 规范驱动开发
+- [[sdd-openspec-superpowers]] — SDD 规范驱动开发
 - [[agent-skills-system]] — Agent Skills 能力体系
 - [[claude-code]] — Claude Code 开发工具

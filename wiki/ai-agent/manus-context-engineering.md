@@ -44,4 +44,4 @@ updated: 2026-05-09
 
 - [[agent-harness-overview]] — Harness 综述
 - [[claude-code-auto-dream]] — 记忆整合
-- [[context-engineering]] — 上下文工程
+- [[google-context-engineering]] — 上下文工程

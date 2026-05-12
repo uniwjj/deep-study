@@ -34,7 +34,7 @@ my-knowledge-base/
 ## CLAUDE.md 核心要素
 
 - 文件夹分工说明
-- Wiki 规则：每主题一个 .md、`[[topic-name]]` 链接、维护 INDEX.md
+- Wiki 规则：每主题一个 .md、`topic-name` 链接、维护 INDEX.md
 - 个人兴趣点列表
 
 ## 为什么有效

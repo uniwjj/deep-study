@@ -40,7 +40,7 @@ Prompt（自己干活+AI加速） → Agent（代理执行） → Skill（雇人
 - Obsidian 文档库窗口比命令行对非开发者更友好
 
 ### 4. Obsidian 知识图谱
-- 标签 + [[wikilinks]] 双向链接自动形成知识图谱
+- 标签 + wikilinks 双向链接自动形成知识图谱
 - AI 自动整理比手动快 100 倍
 - 能高效找回丢失的记忆（如 AI 回忆特定经历），生成不雷同的文章
 
@@ -61,6 +61,6 @@ Prompt（自己干活+AI加速） → Agent（代理执行） → Skill（雇人
 ## 相关页面
 
 - [[llm-wiki]] — LLM Wiki 知识库理念（Karpathy）
-- [[obsidian-para]] — PARA 文件夹分类架构
+- obsidian-para — PARA 文件夹分类架构
 - [[agent-skills-system]] — Agent Skills 能力体系
 - [[ai-governance]] — 跨模型记忆与数据主权

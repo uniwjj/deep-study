@@ -74,4 +74,4 @@ Anthropic 发布 npm 包时意外携带 `cli.js.map`，通过 Node.js source-map
 - [[claude-code]] — Claude Code 开发工具
 - [[claude-code-architecture]] — Claude Code 源码架构
 - [[claude-code-auto-dream]] — 自动梦境记忆机制
-- [[claude-code-claudemd]] — CLAUDE.md 配置
+- claude-code-claudemd — CLAUDE.md 配置

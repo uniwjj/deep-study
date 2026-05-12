@@ -94,6 +94,6 @@ Auto Memory 在 20+ 会话后出现记忆衰减：
 ## 相关页面
 
 - [[claude-code]] — Claude Code 开发工具
-- [[agent-memory-systems]] — Agent 记忆系统设计
-- [[claude-code-claudemd]] — CLAUDE.md 配置最佳实践
-- [[context-engineering]] — 上下文工程
+- [[agent-memory-system]] — Agent 记忆系统设计
+- claude-code-claudemd — CLAUDE.md 配置最佳实践
+- [[google-context-engineering]] — 上下文工程
