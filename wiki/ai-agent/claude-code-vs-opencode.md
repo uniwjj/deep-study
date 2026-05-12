@@ -5,7 +5,7 @@ aliases: [OpenCode, Claude Code对比, CC, Claude CLI]
 tags: [ai-agent, comparison, tool]
 sources: [2026/04/08/从源码角度聊聊 Claude Code 和 OpenCode 的效果区别.md]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-12
 ---
 
 # Claude Code vs OpenCode
@@ -56,4 +56,5 @@ updated: 2026-05-09
 
 - [[claude-code-architecture]] — Claude Code 源码架构
 - [[claude-code-harness]] — Harness 架构
+- [[opencode]] — OpenCode 完整源码架构
 - [[agent-architecture-patterns]] — Agent 架构模式

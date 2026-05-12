@@ -233,15 +233,9 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - fixed `aliases` — 8 个 Claude Code/LLM Wiki 页面补充 `CC`/`Claude CLI`/`LLM Wiki`/`Obsidian` 别名
 - result: 0 critical, 0 warning, 10 info（8 wanted-page + 2 root-level link）
 
-## [2026-05-12] lint | Wikilink 完整性校验
-- 总页面: 106 | 总 wikilink 目标: 118 | 断链: 8
-- 断链详情:
-  - [[agent-autonomous-planning]] ← glm5-harness-practice
-  - [[ai-agent-security]] ← openclaw
-  - [[ai-governance]] ← token-consumption-economics, obsidian-claudian
-  - [[ai-knowledge-base]] ← obsidian-second-brain, knowledge-base-karpathy-guide
-  - [[digital-employee]] ← openclaw
-  - [[glm5-model]] ← glm5-harness-practice
-  - [[llm-cost-optimization]] ← token-consumption-economics
-  - [[prompt-engineering]] ← token-consumption-economics
-- 结论：8 个均为 wanted-page（正常超前引用），无致命死链
+## [2026-05-12] ingest | OpenCode DeepWiki 全架构分析
+- created `ai-agent/opencode` — 开源 AI 编程智能体全架构：monorepo 结构、Client-Server 分层、12 子系统详解（CLI/配置/会话/Provider/工具/HTTP/事件/LSP/插件/MCP/Skills/ACP/LLM Core）
+- updated `ai-agent/claude-code-vs-opencode` — 添加 [[opencode]] 交叉引用
+- updated `ai-agent/index` — 添加 OpenCode 条目
+- source saved: sources/2026/05/12/deepwiki-opencode.html
+

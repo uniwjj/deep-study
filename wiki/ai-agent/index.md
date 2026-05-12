@@ -5,7 +5,7 @@ aliases: [ai-agent, Agent 开发]
 tags: [ai-agent, meta]
 sources: [2026/05/10/lint-stub.md]
 created: 2026-05-10
-updated: 2026-05-10
+updated: 2026-05-12
 ---
 
 # AI Agent 开发
@@ -39,6 +39,7 @@ Agent 开发领域的技术积累索引。
 - [[dive-into-claude-code]] — 学术论文分析
 - [[claude-code-hidden-features]] — 隐藏功能
 - [[claude-code-sourcemap-reverse]] — Sourcemap 逆向
+- [[opencode]] — OpenCode 完整源码架构
 - [[claude-code-vs-opencode]] — vs OpenCode 对比
 - [[claude-code-harness]] — Harness 编排系统
 - [[claude-code-auto-dream]] — 自动梦境记忆
