@@ -2,7 +2,7 @@
 title: AI Agent 开发
 description: AI Agent 开发领域索引——Agent 框架、工具调用、MCP、多 Agent 协作、Agentic Workflow
 aliases: [ai-agent, Agent 开发]
-tags: [ai-agent, meta]
+tags: [ai-agent, meta, summary]
 sources: [2026/05/10/lint-stub.md]
 created: 2026-05-10
 updated: 2026-05-12

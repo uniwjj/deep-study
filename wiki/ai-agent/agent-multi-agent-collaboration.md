@@ -2,9 +2,8 @@
 title: 多 Agent 协作
 description: 多 Agent 系统的协作模式——Sub-Agent vs Agent Team、Coordinator、Swarm
 aliases: [agent-multi-agent-collaboration, Multi-Agent, 多Agent]
-tags: [ai-agent, concept]
+tags: [ai-agent, concept, draft]
 sources: [2026/05/10/lint-stub.md]
-status: draft
 created: 2026-05-10
 updated: 2026-05-10
 ---

@@ -2,9 +2,8 @@
 title: Agent Harness
 description: Agent Harness 编排系统——六组件协作、Planner/Generator/Evaluator 三Agent架构
 aliases: [agent-harness, Harness]
-tags: [ai-agent, concept]
+tags: [ai-agent, concept, draft]
 sources: [2026/05/10/lint-stub.md]
-status: draft
 created: 2026-05-10
 updated: 2026-05-10
 ---

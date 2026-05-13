@@ -2,9 +2,8 @@
 title: 学习路线
 description: 阶段式技术学习计划
 aliases: [learning-path, 学习计划]
-tags: [meta, summary]
+tags: [meta, summary, draft]
 sources: [2026/05/10/lint-stub.md]
-status: draft
 created: 2026-05-10
 updated: 2026-05-10
 ---

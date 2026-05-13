@@ -2,6 +2,14 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-05-13] lint --fix | 知识库深度检查与优化
+- fixed 11 页面 status: draft → tags draft（agent-architecture-patterns/agent-harness/agent-mcp-protocol/agent-multi-agent-collaboration/agent-skills-system/agent-tdd-workflow/claude-code/llm-wiki/token-consumption-economics/learning-path/tech-radar）
+- fixed 9 索引页补 content-type tag: summary（ai-agent/ai-ml/architecture/backend/big-data/distributed/fullstack/platform/product index）
+- fixed 1 HTML 源文件补 ingested frontmatter（sources/2026/05/10/Claude Code 技术解析.html）
+- verified 10 wanted-page + 2 根目录引用为正常断链（保留作为发现机制）
+- verified 15 二进制源文件摄入可追溯（PDF/PNG 通过 wiki-log 和 wiki 页面 sources frontmatter）
+- 结论：109 页面，0 critical，0 warning，12 info
+
 ## 2026-05-10 ingest | Claude Code 搜索策略——为什么 grep 打败了 RAG
 - 创建 `ai-agent/claude-code-search-strategy` — 从《Claude Code 源码解析》第8章提取：4个不使用RAG的理由、GrepTool三种output_mode、head_limit=250、Glob按mtime排序、Read多模态+FILE_UNCHANGED_STUB、512K行代码零向量数据库的实证数据
 

@@ -2,9 +2,8 @@
 title: 技术雷达
 description: 当前关注的技术趋势与方向
 aliases: [tech-radar, 技术趋势]
-tags: [meta, summary]
+tags: [meta, summary, draft]
 sources: [2026/05/10/lint-stub.md]
-status: draft
 created: 2026-05-10
 updated: 2026-05-10
 ---

@@ -2,9 +2,8 @@
 title: Agent Skills 系统
 description: AI Agent 的 Skills 扩展机制——两阶段加载、7来源优先级、MCP安全边界
 aliases: [agent-skills-system, Skills 系统]
-tags: [ai-agent, concept]
+tags: [ai-agent, concept, draft]
 sources: [2026/05/10/lint-stub.md]
-status: draft
 created: 2026-05-10
 updated: 2026-05-10
 ---

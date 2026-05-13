@@ -1,18 +1,26 @@
-date: 2026-05-12
+date: 2026-05-13
 summary:
   pages: 109
   sources: 95
-  issues: {critical: 0, warning: 1, info: 12}
+  issues: {critical: 0, warning: 0, info: 12}
 issues:
   - type: broken_wikilinks
     severity: info
+    count: 10
+    detail: "10 个 wanted-page 超前引用（glm5-model, agent-autonomous-planning, ai-governance, digital-employee, ai-agent-security, llm-cost-optimization, prompt-engineering, ai-knowledge-base），保留作为未来页面发现机制"
+  - type: root_config_links
+    severity: info
+    count: 2
+    detail: "[[wiki-purpose]] 和 [[wiki-schema]] 指向根目录配置页，在 Obsidian 中可正常解析，不算断链"
+  - type: shallow_pages
+    severity: info
     count: 12
-    detail: "12 个 wikilink 指向不存在的页面——其中 2 个指向根目录配置页（[[wiki-purpose]]、[[wiki-schema]]，在 Obsidian 中可正常解析），10 个为 wanted-page 超前引用（glm5-model, agent-autonomous-planning, ai-governance, digital-employee, ai-agent-security, llm-cost-optimization, prompt-engineering, ai-knowledge-base），保留作为未来页面发现机制"
-  - type: broken_wikilinks
-    severity: warning
-    count: 1
-    detail: "ai-agent/obsidian-claudian.md:66 中 [[ai-governance]] 为重复引用（token-consumption-economics 中已有），建议去重但非紧急"
-  - type: tool_fix
-    severity: critical
-    count: 1
-    detail: "修复 llm-wiki status 断链计数 bug——原逻辑仅用全路径 slugSet 匹配，未做文件名级 fallback 解析，导致将 497 个有效链接误报为断链。已 patch cli.js 中 status command 的 link resolution 逻辑，与 graph 保持一致"
+    detail: "12 个 stub/索引页面内容较少（< 5行），是结构性占位页面，需在后续摄入中逐步填充"
+  - type: binary_sources
+    severity: info
+    count: 15
+    detail: "9 个 PDF + 6 个 PNG 二进制源文件无法添加 YAML frontmatter，摄入记录已通过 wiki-log 和 wiki 页面 sources frontmatter 可追溯"
+fixes:
+  - "11 页面修复 invalid status: draft — 移除 status 字段，将 draft 加入 tags"
+  - "9 index 页面补 content-type tag: summary"
+  - "1 HTML 源文件补 ingested frontmatter"

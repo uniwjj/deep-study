@@ -2,11 +2,10 @@
 title: Token 消费经济学
 description: 清华大学 Token 消费学研究报告——LLM Token 冗余、预算治理与可控放量
 aliases: [Token Consumption Economics, Token治理, Token预算]
-tags: [ai-ml, concept, paper]
+tags: [ai-ml, concept, paper, draft]
 sources: [2026/05/09/清华大学：Token消费学研究报告.pdf]
 created: 2026-05-09
 updated: 2026-05-09
-status: draft
 ---
 
 # Token 消费经济学

@@ -2,9 +2,8 @@
 title: Claude Code
 description: Anthropic 的 AI Coding Agent——架构全景与核心机制
 aliases: [claude-code, CC, Claude CLI]
-tags: [ai-agent, tool]
+tags: [ai-agent, tool, draft]
 sources: [2026/05/10/lint-stub.md]
-status: draft
 created: 2026-05-10
 updated: 2026-05-10
 ---

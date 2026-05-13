@@ -2,9 +2,8 @@
 title: Agent MCP 协议
 description: Model Context Protocol 在 Agent 系统中的实现
 aliases: [agent-mcp-protocol, MCP]
-tags: [ai-agent, concept]
+tags: [ai-agent, concept, draft]
 sources: [2026/05/10/lint-stub.md]
-status: draft
 created: 2026-05-10
 updated: 2026-05-10
 ---
