@@ -252,3 +252,7 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - report: 109 页面，95 源文件，0 critical（工具修复后），12 info（10 wanted-page + 2 根目录配置页引用），0 orphan
 - kept 12 wanted-page 链接作为未来页面发现机制
 
+## [2026-05-14] ingest | 网易人才观 & 面试方法
+- created `product/netease-tasted-model` — 网易 TASTED 六力模型（审美/洞察/标准/结构/判断/自驱）
+- created `product/netease-tasted-interview` — SBO 行为面试法的六力追问实战手册
+
