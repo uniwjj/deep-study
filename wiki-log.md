@@ -256,3 +256,7 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - created `product/netease-tasted-model` — 网易 TASTED 六力模型（审美/洞察/标准/结构/判断/自驱）
 - created `product/netease-tasted-interview` — SBO 行为面试法的六力追问实战手册
 
+## [2026-05-14] lint | 知识库整理——修复 12 断链 + 消除孤立簇
+- created 10 stub pages — 补全断链目标页（`wiki-purpose`, `wiki-schema`, `agent-autonomous-planning`, `ai-agent-security`, `digital-employee`, `glm5-model`, `ai-governance`, `ai-knowledge-base`, `llm-cost-optimization`, `prompt-engineering`）
+- updated `product/index` — 链入 `netease-tasted-model` 和 `netease-tasted-interview`，消除孤立簇
+

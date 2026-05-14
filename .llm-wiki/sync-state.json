@@ -24,6 +24,12 @@
       "contentHash": "db1111996aa56537",
       "lastSynced": "2026-05-14"
     },
+    "wiki/ai-agent/agent-autonomous-planning.md": {
+      "path": "wiki/ai-agent/agent-autonomous-planning.md",
+      "mtime": 1778743190369.948,
+      "contentHash": "f56e8508ade9fa0b",
+      "lastSynced": "2026-05-14"
+    },
     "wiki/ai-agent/agent-design-paradigms.md": {
       "path": "wiki/ai-agent/agent-design-paradigms.md",
       "mtime": 1778400337587.9465,
@@ -90,10 +96,28 @@
       "contentHash": "0607d4038ae6671b",
       "lastSynced": "2026-05-14"
     },
+    "wiki/ai-agent/ai-agent-security.md": {
+      "path": "wiki/ai-agent/ai-agent-security.md",
+      "mtime": 1778743200312.597,
+      "contentHash": "7ab6257471916fd4",
+      "lastSynced": "2026-05-14"
+    },
     "wiki/ai-agent/ai-career-trends.md": {
       "path": "wiki/ai-agent/ai-career-trends.md",
       "mtime": 1778400945500.5603,
       "contentHash": "d5753119261cf799",
+      "lastSynced": "2026-05-14"
+    },
+    "wiki/ai-agent/ai-governance.md": {
+      "path": "wiki/ai-agent/ai-governance.md",
+      "mtime": 1778743218038.512,
+      "contentHash": "4ae1bc526171d937",
+      "lastSynced": "2026-05-14"
+    },
+    "wiki/ai-agent/ai-knowledge-base.md": {
+      "path": "wiki/ai-agent/ai-knowledge-base.md",
+      "mtime": 1778743230186.211,
+      "contentHash": "01179818d0ad5067",
       "lastSynced": "2026-05-14"
     },
     "wiki/ai-agent/anthropic-cookbook.md": {
@@ -318,6 +342,12 @@
       "contentHash": "83e46e1129b44ddc",
       "lastSynced": "2026-05-14"
     },
+    "wiki/ai-agent/digital-employee.md": {
+      "path": "wiki/ai-agent/digital-employee.md",
+      "mtime": 1778743209410.9106,
+      "contentHash": "bb9e2b31f492e70d",
+      "lastSynced": "2026-05-14"
+    },
     "wiki/ai-agent/dive-into-claude-code.md": {
       "path": "wiki/ai-agent/dive-into-claude-code.md",
       "mtime": 1778387465977.4077,
@@ -522,10 +552,28 @@
       "contentHash": "7afa74eaec74fd66",
       "lastSynced": "2026-05-14"
     },
+    "wiki/ai-ml/glm5-model.md": {
+      "path": "wiki/ai-ml/glm5-model.md",
+      "mtime": 1778743238928.4468,
+      "contentHash": "080a0041b1bedb47",
+      "lastSynced": "2026-05-14"
+    },
     "wiki/ai-ml/index.md": {
       "path": "wiki/ai-ml/index.md",
       "mtime": 1778652889797.3184,
       "contentHash": "ece2e7257933402d",
+      "lastSynced": "2026-05-14"
+    },
+    "wiki/ai-ml/llm-cost-optimization.md": {
+      "path": "wiki/ai-ml/llm-cost-optimization.md",
+      "mtime": 1778743247527.2258,
+      "contentHash": "b5a9c1e3fe051ff7",
+      "lastSynced": "2026-05-14"
+    },
+    "wiki/ai-ml/prompt-engineering.md": {
+      "path": "wiki/ai-ml/prompt-engineering.md",
+      "mtime": 1778743255683.1118,
+      "contentHash": "17c2ea4e221d2365",
       "lastSynced": "2026-05-14"
     },
     "wiki/ai-ml/rag-query-optimization.md": {
@@ -636,6 +684,18 @@
       "contentHash": "d3f3e06cd845c542",
       "lastSynced": "2026-05-14"
     },
+    "wiki/meta/wiki-purpose.md": {
+      "path": "wiki/meta/wiki-purpose.md",
+      "mtime": 1778743173322.4463,
+      "contentHash": "737b50829afea706",
+      "lastSynced": "2026-05-14"
+    },
+    "wiki/meta/wiki-schema.md": {
+      "path": "wiki/meta/wiki-schema.md",
+      "mtime": 1778743179991.859,
+      "contentHash": "f8564457d523cfb4",
+      "lastSynced": "2026-05-14"
+    },
     "wiki/platform/index.md": {
       "path": "wiki/platform/index.md",
       "mtime": 1778652905157.3464,
@@ -644,8 +704,8 @@
     },
     "wiki/product/index.md": {
       "path": "wiki/product/index.md",
-      "mtime": 1778652908363.1316,
-      "contentHash": "3a86ff0bcbadf07b",
+      "mtime": 1778743270194.722,
+      "contentHash": "70394516ce503581",
       "lastSynced": "2026-05-14"
     },
     "wiki/product/netease-tasted-interview.md": {

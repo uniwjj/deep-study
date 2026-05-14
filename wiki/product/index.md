@@ -14,6 +14,11 @@ updated: 2026-05-10
 
 - [[silicon-valley-pm-methodology]] — 硅谷顶级PM的方法论（Lenny's Newsletter 提炼）
 
+## 人才观与方法论
+
+- [[netease-tasted-model]] — 网易 TASTED 六力人才观模型
+- [[netease-tasted-interview]] — TASTED 六力的 SBO 行为面试实战方法
+
 ## 相关页面
 
 - [[homepage]]
