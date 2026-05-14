@@ -2,6 +2,7 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-05-14] ingest | 创建 dataagent-semantic-layer（DataAgent 语义层分析）
 ## [2026-05-13] lint --fix | 知识库深度检查与优化
 - fixed 11 页面 status: draft → tags draft（agent-architecture-patterns/agent-harness/agent-mcp-protocol/agent-multi-agent-collaboration/agent-skills-system/agent-tdd-workflow/claude-code/llm-wiki/token-consumption-economics/learning-path/tech-radar）
 - fixed 9 索引页补 content-type tag: summary（ai-agent/ai-ml/architecture/backend/big-data/distributed/fullstack/platform/product index）

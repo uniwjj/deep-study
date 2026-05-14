@@ -612,10 +612,16 @@
       "contentHash": "125a24f5730b1401",
       "lastSynced": "2026-05-14"
     },
+    "wiki/big-data/dataagent-semantic-layer.md": {
+      "path": "wiki/big-data/dataagent-semantic-layer.md",
+      "mtime": 1778750052785.2234,
+      "contentHash": "42c557425fd234d2",
+      "lastSynced": "2026-05-14"
+    },
     "wiki/big-data/dataworks-data-agent.md": {
       "path": "wiki/big-data/dataworks-data-agent.md",
-      "mtime": 1778566027144.9045,
-      "contentHash": "f44a57be161c01eb",
+      "mtime": 1778750075033.1555,
+      "contentHash": "d5702ff3ee557eed",
       "lastSynced": "2026-05-14"
     },
     "wiki/big-data/dataworks-stock-case.md": {
@@ -1294,6 +1300,12 @@
       "path": "sources/2026/05/12/DataWorks DataAgent分享录音.md",
       "mtime": 1778561973135.7234,
       "contentHash": "21679b13b7b08b8d",
+      "lastSynced": "2026-05-14"
+    },
+    "sources/2026/05/14/DataAgent语义层分析.md": {
+      "path": "sources/2026/05/14/DataAgent语义层分析.md",
+      "mtime": 1778750133229.6067,
+      "contentHash": "63b6a8218b078846",
       "lastSynced": "2026-05-14"
     },
     "sources/2026/05/14/网易人才观.md": {
