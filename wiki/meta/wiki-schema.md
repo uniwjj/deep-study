@@ -3,7 +3,7 @@ title: 知识库组织规则
 description: Deep Study 知识库的组织规则、页面类型、命名约定与标签体系（来自根目录 wiki-schema.md）
 aliases: [wiki-schema, Wiki Schema]
 tags: [meta, concept]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

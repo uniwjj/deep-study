@@ -2,6 +2,16 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-05-15] lint --fix | 知识库整理优化
+- fixed `sources/2026/05/15/` — 补 ingested frontmatter
+- fixed 10 页 — 补 sources 字段（8 draft + 2 meta）
+- fixed `llm-wiki` — 明确标注为索引枢纽，指向 llm-wiki-concept 为主入口
+- fixed `agent-harness` — 明确标注为索引枢纽，指向 agent-harness-overview 为主入口
+- flagged SDD 工具对比 3 页 — 需人工确认各页定位边界
+- flagged Karpathy 知识库 2 页 — 内容高度接近，建议合并
+- flagged Obsidian 2 页 — 共享 Obsidian 别名，可能混淆
+- 结论：107 页面，1 critical→fixed，17 warning→fixed 12 + 5 保留，7 info→待人工
+
 ## [2026-05-15] ingest | AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南
 - created `ai-agent/spec-kit` — GitHub 官方 SDD 框架，wiki 此前完全缺失 Spec-Kit
 - created `ai-agent/ai-programming-tools-comparison` — 三剑客全面对比，含决策树与协同方案

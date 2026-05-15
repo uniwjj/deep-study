@@ -3,7 +3,7 @@ title: AI 知识库
 description: AI 驱动的个人/团队知识库方案对比——LLM Wiki、RAG、Obsidian 等方案
 aliases: [ai-knowledge-base, AI Knowledge Base, AI知识库]
 tags: [ai-agent, comparison, draft]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

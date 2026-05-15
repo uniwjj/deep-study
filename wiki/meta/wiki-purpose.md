@@ -3,7 +3,7 @@ title: 知识库定位与范围
 description: Deep Study 知识库的定位、受众与覆盖范围（来自根目录 wiki-purpose.md）
 aliases: [wiki-purpose, Wiki Purpose]
 tags: [meta, concept]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

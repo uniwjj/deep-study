@@ -3,7 +3,7 @@ title: 数字员工
 description: AI Agent 作为数字员工的概念、生态与演进趋势
 aliases: [digital-employee, Digital Employee, 数字员工]
 tags: [ai-agent, concept, draft]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

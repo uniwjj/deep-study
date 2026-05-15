@@ -3,7 +3,7 @@ title: Agent 自主规划
 description: AI Agent 的自主规划能力——目标分解、路径搜索、动态调整
 aliases: [agent-autonomous-planning, Autonomous Planning, 自主规划]
 tags: [ai-agent, concept, draft]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

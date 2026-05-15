@@ -3,7 +3,7 @@ title: GLM-5 模型系列
 description: 智谱 GLM-5 大语言模型系列——架构特性、能力基准与 Harness 适配
 aliases: [glm5-model, GLM-5, GLM5]
 tags: [ai-ml, concept, tool, draft]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

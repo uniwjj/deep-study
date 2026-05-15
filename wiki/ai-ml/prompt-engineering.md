@@ -3,7 +3,7 @@ title: Prompt 工程
 description: 提示词工程的核心技术与最佳实践——结构化 Prompt、Few-shot、Chain-of-Thought
 aliases: [prompt-engineering, Prompt Engineering, 提示词工程]
 tags: [ai-ml, practice, draft]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

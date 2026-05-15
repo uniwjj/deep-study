@@ -1,26 +1,107 @@
-date: 2026-05-13
+date: 2026-05-15
 summary:
-  pages: 109
-  sources: 95
-  issues: {critical: 0, warning: 0, info: 12}
+  pages: 107
+  sources: 120
+  issues: {critical: 1, warning: 17, info: 7}
 issues:
-  - type: broken_wikilinks
+  # Critical
+  - type: uningested_source
+    severity: critical
+    file: sources/2026/05/15/AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南.html
+    detail: "Missing ingested frontmatter"
+    fix: add_ingested_frontmatter
+
+  # Warning: missing sources
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-agent/agent-autonomous-planning.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-agent/ai-agent-security.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-agent/ai-governance.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-agent/ai-knowledge-base.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-agent/digital-employee.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-ml/glm5-model.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-ml/llm-cost-optimization.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/ai-ml/prompt-engineering.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/meta/wiki-purpose.md
+    detail: "sources field empty"
+  - type: missing_sources_frontmatter
+    severity: warning
+    page: wiki/meta/wiki-schema.md
+    detail: "sources field empty"
+
+  # Warning: shallow pages
+  - type: shallow_page
+    severity: warning
+    page: wiki/learning-path.md
+    detail: "~1 prose sentence, needs expansion or merge"
+  - type: shallow_page
+    severity: warning
+    page: wiki/tech-radar.md
+    detail: "~1 prose sentence, needs expansion or merge"
+  - type: shallow_page
+    severity: warning
+    page: wiki/meta/wiki-schema.md
+    detail: "~1 prose sentence, mirrors root config"
+  - type: shallow_page
+    severity: warning
+    page: wiki/ai-agent/digital-employee.md
+    detail: "~2 prose sentences + bullet lists"
+  - type: shallow_page
+    severity: warning
+    page: wiki/ai-agent/ai-agent-security.md
+    detail: "~2 prose sentences + bullet lists"
+
+  # Warning: redundant hub pages
+  - type: redundant_hub
+    severity: warning
+    page: wiki/ai-agent/llm-wiki.md
+    detail: "No unique content, just links to llm-wiki-concept/implementations/applications/six-layer"
+  - type: redundant_hub
+    severity: warning
+    page: wiki/ai-agent/agent-harness.md
+    detail: "No unique content, just links to agent-harness-overview and related"
+
+  # Info: potential duplicates
+  - type: duplicate_topic_cluster
     severity: info
-    count: 10
-    detail: "10 个 wanted-page 超前引用（glm5-model, agent-autonomous-planning, ai-governance, digital-employee, ai-agent-security, llm-cost-optimization, prompt-engineering, ai-knowledge-base），保留作为未来页面发现机制"
-  - type: root_config_links
+    pages:
+      - wiki/ai-agent/superpowers-vs-openspec.md
+      - wiki/ai-agent/ai-programming-tools-comparison.md
+      - wiki/ai-agent/sdd-openspec-superpowers.md
+    detail: "3 pages compare SDD tools—need clear distinction (philosophy vs. practical vs. operational)"
+  - type: duplicate_topic_cluster
     severity: info
-    count: 2
-    detail: "[[wiki-purpose]] 和 [[wiki-schema]] 指向根目录配置页，在 Obsidian 中可正常解析，不算断链"
-  - type: shallow_pages
+    pages:
+      - wiki/ai-agent/knowledge-base-karpathy-guide.md
+      - wiki/ai-agent/knowledge-base-karpathy-practice.md
+    detail: "Nearly identical content (both cover Karpathy LLM Wiki setup)—consider merge"
+  - type: duplicate_topic_cluster
     severity: info
-    count: 12
-    detail: "12 个 stub/索引页面内容较少（< 5行），是结构性占位页面，需在后续摄入中逐步填充"
-  - type: binary_sources
-    severity: info
-    count: 15
-    detail: "9 个 PDF + 6 个 PNG 二进制源文件无法添加 YAML frontmatter，摄入记录已通过 wiki-log 和 wiki 页面 sources frontmatter 可追溯"
-fixes:
-  - "11 页面修复 invalid status: draft — 移除 status 字段，将 draft 加入 tags"
-  - "9 index 页面补 content-type tag: summary"
-  - "1 HTML 源文件补 ingested frontmatter"
+    pages:
+      - wiki/ai-agent/obsidian-second-brain.md
+      - wiki/ai-agent/obsidian-claudian.md
+    detail: "Both use 'Obsidian' alias—ambiguous cross-referencing"

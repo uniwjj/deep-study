@@ -3,7 +3,7 @@ title: AI Agent 安全
 description: AI Agent 面临的安全风险与防护策略——指令注入、权限控制、数据隔离
 aliases: [ai-agent-security, AI Agent Security, Agent安全]
 tags: [ai-agent, concept, draft]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft

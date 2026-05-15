@@ -26,8 +26,8 @@
     },
     "wiki/ai-agent/agent-autonomous-planning.md": {
       "path": "wiki/ai-agent/agent-autonomous-planning.md",
-      "mtime": 1778743190369.948,
-      "contentHash": "f56e8508ade9fa0b",
+      "mtime": 1778832312057.238,
+      "contentHash": "92fd1295a48484d7",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/agent-design-paradigms.md": {
@@ -44,8 +44,8 @@
     },
     "wiki/ai-agent/agent-harness.md": {
       "path": "wiki/ai-agent/agent-harness.md",
-      "mtime": 1778652820013.4849,
-      "contentHash": "f1cebff7f0241fd6",
+      "mtime": 1778832381462.7197,
+      "contentHash": "b736a829240503b7",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/agent-mcp-protocol.md": {
@@ -98,8 +98,8 @@
     },
     "wiki/ai-agent/ai-agent-security.md": {
       "path": "wiki/ai-agent/ai-agent-security.md",
-      "mtime": 1778743200312.597,
-      "contentHash": "7ab6257471916fd4",
+      "mtime": 1778832314779.1233,
+      "contentHash": "d9c14cfac7fc789d",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/ai-career-trends.md": {
@@ -110,14 +110,14 @@
     },
     "wiki/ai-agent/ai-governance.md": {
       "path": "wiki/ai-agent/ai-governance.md",
-      "mtime": 1778743218038.512,
-      "contentHash": "4ae1bc526171d937",
+      "mtime": 1778832317924.285,
+      "contentHash": "82df33fa872474fe",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/ai-knowledge-base.md": {
       "path": "wiki/ai-agent/ai-knowledge-base.md",
-      "mtime": 1778743230186.211,
-      "contentHash": "01179818d0ad5067",
+      "mtime": 1778832320898.4258,
+      "contentHash": "6ce8fb585d0e5209",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/ai-programming-tools-comparison.md": {
@@ -350,8 +350,8 @@
     },
     "wiki/ai-agent/digital-employee.md": {
       "path": "wiki/ai-agent/digital-employee.md",
-      "mtime": 1778743209410.9106,
-      "contentHash": "bb9e2b31f492e70d",
+      "mtime": 1778832324031.8235,
+      "contentHash": "6dfe7ee10897e839",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/dive-into-claude-code.md": {
@@ -464,8 +464,8 @@
     },
     "wiki/ai-agent/llm-wiki.md": {
       "path": "wiki/ai-agent/llm-wiki.md",
-      "mtime": 1778652842876.3955,
-      "contentHash": "08dd2c679f3c71ff",
+      "mtime": 1778832370017.4895,
+      "contentHash": "4b5801449de1bc5a",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/log-diagnosis-skill.md": {
@@ -572,8 +572,8 @@
     },
     "wiki/ai-ml/glm5-model.md": {
       "path": "wiki/ai-ml/glm5-model.md",
-      "mtime": 1778743238928.4468,
-      "contentHash": "080a0041b1bedb47",
+      "mtime": 1778832326722.9114,
+      "contentHash": "1e27bebc075e607d",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-ml/index.md": {
@@ -584,14 +584,14 @@
     },
     "wiki/ai-ml/llm-cost-optimization.md": {
       "path": "wiki/ai-ml/llm-cost-optimization.md",
-      "mtime": 1778743247527.2258,
-      "contentHash": "b5a9c1e3fe051ff7",
+      "mtime": 1778832329841.39,
+      "contentHash": "991ecbbcbbbf62fa",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-ml/prompt-engineering.md": {
       "path": "wiki/ai-ml/prompt-engineering.md",
-      "mtime": 1778743255683.1118,
-      "contentHash": "17c2ea4e221d2365",
+      "mtime": 1778832332886.879,
+      "contentHash": "5d436336b4a4c208",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-ml/rag-query-optimization.md": {
@@ -710,14 +710,14 @@
     },
     "wiki/meta/wiki-purpose.md": {
       "path": "wiki/meta/wiki-purpose.md",
-      "mtime": 1778743173322.4463,
-      "contentHash": "737b50829afea706",
+      "mtime": 1778832335838.7085,
+      "contentHash": "e7a62633fe183302",
       "lastSynced": "2026-05-15"
     },
     "wiki/meta/wiki-schema.md": {
       "path": "wiki/meta/wiki-schema.md",
-      "mtime": 1778743179991.859,
-      "contentHash": "f8564457d523cfb4",
+      "mtime": 1778832337972.6406,
+      "contentHash": "b03482f591eaa31d",
       "lastSynced": "2026-05-15"
     },
     "wiki/platform/index.md": {

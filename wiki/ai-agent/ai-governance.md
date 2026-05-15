@@ -3,7 +3,7 @@ title: AI 治理
 description: AI 系统的治理框架——模型管理、记忆主权、合规与安全保障
 aliases: [ai-governance, AI Governance, AI治理]
 tags: [ai-agent, concept, draft]
-sources: []
+sources: [2026/05/10/lint-stub.md]
 created: 2026-05-14
 updated: 2026-05-14
 status: draft
