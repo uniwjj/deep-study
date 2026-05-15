@@ -3,9 +3,9 @@ title: Superpowers 框架
 description: AI 编程 Agent 的工程纪律框架——四步工作流（需求澄清→任务拆分→子Agent驱动→强制TDD），覆盖从需求到交付的完整链路
 aliases: [Superpowers, AI编程纪律框架, Superpowers Skills]
 tags: [ai-agent, tool, practice]
-sources: [2026/04/02/Superpowers框架.md]
+sources: [2026/04/02/Superpowers框架.md, 2026/05/15/AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南.html]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-15
 ---
 
 # Superpowers 框架
@@ -58,8 +58,63 @@ RED-GREEN-REFACTOR 是工作流的一部分而非建议：
 
 ## 安装
 
-- Claude Code：`/plugin marketplace add obra/superpowers-marketplace` → `/plugin install superpowers@superpowers-marketplace`
-- Codex / OpenCode：按 INSTALL.md 接入
+### Claude Code（推荐方式）
+
+```bash
+# 在 Claude Code 中执行
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+```
+
+验证：看到 `brainstorm`、`write-plan`、`execute-plan` 三个命令即成功。
+
+### OpenCode
+
+```bash
+git clone https://github.com/obra/superpowers.git ~/.config/opencode/superpowers
+mkdir -p ~/.config/opencode/plugins ~/.config/opencode/skills
+ln -s ~/.config/opencode/superpowers/.opencode/plugins/superpowers.js ~/.config/opencode/plugins/superpowers.js
+ln -s ~/.config/opencode/superpowers/skills ~/.config/opencode/skills/superpowers
+```
+
+### Codex
+
+```bash
+git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
+mkdir -p ~/.agents/skills
+ln -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+```
+
+### 更新
+
+```bash
+cd ~/.config/opencode/superpowers && git pull
+# 或
+cd ~/.codex/superpowers && git pull
+```
+
+## 技能触发机制
+
+Superpowers 的技能根据上下文**自动触发**，无需手动指定技能名称：
+
+```
+说出需求 → 分析请求类型 → 自动加载对应技能
+    ├─ 新想法/需求 → brainstorming
+    ├─ 有计划/要实施 → subagent-driven-development
+    └─ 要审查代码 → requesting-code-review
+```
+
+## 自定义技能
+
+### 技能优先级
+1. **项目级技能**（`.opencode/skills/`）— 最高优先级
+2. **个人级技能**（`~/.config/opencode/skills/`）— 中优先级
+3. **Superpowers 技能**（内置）— 默认技能
+
+### 团队技能示例
+可在 `.opencode/skills/` 下创建 SKILL.md，定义团队专属规则（如数据库规范、API 设计约定），整个团队自动遵守。
+
+详见 [[agent-skills-system]]。
 
 ## 局限
 
@@ -71,10 +126,12 @@ RED-GREEN-REFACTOR 是工作流的一部分而非建议：
 
 ## 适用场景
 
-Superpowers 强调**个体赋能**，适合快速原型、个人项目和探索性开发。在需要团队一致性的场景中，需搭配 [[openspec-sdd-practice]] 或参考 [[superpowers-vs-openspec]] 选择框架。
+Superpowers 强调**个体赋能**，适合快速原型、个人项目和探索性开发。在需要团队一致性的场景中，需搭配 [[openspec-sdd-practice]] 或 [[spec-kit]]（SDD 工具二选一），参考 [[ai-programming-tools-comparison]] 全面对比。
 
 ## 相关页面
 
+- [[ai-programming-tools-comparison]] — Spec-Kit、OpenSpec、Superpowers 三剑客全面对比
+- [[spec-kit]] — GitHub 官方 SDD 框架（与 Superpowers 互补）
 - [[superpowers-vs-openspec]] — Superpowers vs OpenSpec 哲学对比
 - [[agent-tdd-workflow]] — Agent TDD 开发流程
 - [[sdd-openspec-superpowers]] — SDD 规范驱动开发

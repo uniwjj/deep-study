@@ -120,6 +120,12 @@
       "contentHash": "01179818d0ad5067",
       "lastSynced": "2026-05-15"
     },
+    "wiki/ai-agent/ai-programming-tools-comparison.md": {
+      "path": "wiki/ai-agent/ai-programming-tools-comparison.md",
+      "mtime": 1778830443606.1538,
+      "contentHash": "fca584331701ca96",
+      "lastSynced": "2026-05-15"
+    },
     "wiki/ai-agent/anthropic-cookbook.md": {
       "path": "wiki/ai-agent/anthropic-cookbook.md",
       "mtime": 1778316386791.1792,
@@ -530,8 +536,14 @@
     },
     "wiki/ai-agent/sdd-openspec-superpowers.md": {
       "path": "wiki/ai-agent/sdd-openspec-superpowers.md",
-      "mtime": 1778824815147.2415,
-      "contentHash": "4eebe19dbe4ef664",
+      "mtime": 1778830572774.2114,
+      "contentHash": "6cec3be04fe1db1f",
+      "lastSynced": "2026-05-15"
+    },
+    "wiki/ai-agent/spec-kit.md": {
+      "path": "wiki/ai-agent/spec-kit.md",
+      "mtime": 1778830381770.602,
+      "contentHash": "061afb0d8e6afa62",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/sub-agent-vs-team.md": {
@@ -542,14 +554,14 @@
     },
     "wiki/ai-agent/superpowers-framework.md": {
       "path": "wiki/ai-agent/superpowers-framework.md",
-      "mtime": 1778824823711.8628,
-      "contentHash": "2996892838ec2f58",
+      "mtime": 1778830515960.6646,
+      "contentHash": "09674e6f294310b9",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-agent/superpowers-vs-openspec.md": {
       "path": "wiki/ai-agent/superpowers-vs-openspec.md",
-      "mtime": 1778824807393.178,
-      "contentHash": "4cc46d8cd6631343",
+      "mtime": 1778830618320.357,
+      "contentHash": "775f1c3d7256ed70",
       "lastSynced": "2026-05-15"
     },
     "wiki/ai-ml/bookrag.md": {

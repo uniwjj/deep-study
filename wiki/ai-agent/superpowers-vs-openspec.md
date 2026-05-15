@@ -1,14 +1,16 @@
 ---
 title: Superpowers vs OpenSpec 哲学对决
-description: 两种 AI 编程工具路径的深度对比——个体效率优先 vs 团队一致性优先，探索自由 vs 治理秩序
+description: 两种 AI 编程工具路径的深度对比——个体效率优先 vs 团队一致性优先，探索自由 vs 治理秩序。含 Spec-Kit 第三极视角
 aliases: [Superpowers vs OpenSpec, 个体效率与团队一致性, AI编程工具对比]
 tags: [ai-agent, comparison, concept]
-sources: [2026/01/19/开源AI编程工具对决：Superpowers技能库与OpenSpec规范驱动，谁更胜一筹？.md]
+sources: [2026/01/19/开源AI编程工具对决：Superpowers技能库与OpenSpec规范驱动，谁更胜一筹？.md, 2026/05/15/AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南.html]
 created: 2026-05-15
 updated: 2026-05-15
 ---
 
 # Superpowers vs OpenSpec
+
+> **2026.05 更新**：GitHub 官方推出 [[spec-kit]]，形成 SDD 领域的"三极格局"。Spec-Kit 在 OpenSpec 的灵活之上提供了"严格阶段门控"的第三种路径。本页聚焦哲学层面，操作层面对比见 [[ai-programming-tools-comparison]]。
 
 ## 核心分歧
 
@@ -79,17 +81,22 @@ OpenSpec 将"规范"本身变为驱动 AI 工作的"源代码"。在写第一行
 - **需要严格规范的团队协作**：规范成为"单一事实来源（Single Source of Truth）"
 - **长期项目的知识留存**：`changes/` 目录归档每次迭代的完整决策链路
 
-## 最佳实践：双语切换
+## 最佳实践：多模式切换
 
-最高效的现代开发者不是二选一，而是在两种模式间自如切换：
+最高效的现代开发者不是二选一，而是在多种模式间自如切换：
 
 - **探索与试错阶段** → 用 Superpowers 快速开拓，讲求速度
 - **稳定与协作阶段** → 用 OpenSpec 建立秩序，保障传承
+- **从零建设阶段** → 用 [[spec-kit]] 严格阶段门控，保证设计完整性
 
-关键判断标准：**你的下一个任务，是开拓平原，还是治理城池？**
+关键判断标准：**你的下一个任务，是开拓平原，还是治理城池，还是建设新城？**
+
+详细场景选择见 [[ai-programming-tools-comparison]]。
 
 ## 相关页面
 
+- [[ai-programming-tools-comparison]] — Spec-Kit、OpenSpec、Superpowers 三剑客全面对比
+- [[spec-kit]] — GitHub 官方 SDD 框架
 - [[sdd-openspec-superpowers]] — SDD 双框架操作层面对比
 - [[superpowers-framework]] — Superpowers 框架的工程纪律与工作流
 - [[openspec-sdd-practice]] — OpenSpec SDD 实战经验

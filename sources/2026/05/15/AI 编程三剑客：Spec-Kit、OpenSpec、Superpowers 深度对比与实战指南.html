@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px; line-height: 1.8; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;
+    }
+    article { margin-bottom: 40px; }
+    article .article-meta h1 { font-size: 24px; margin-bottom: 8px; }
+    article .article-meta .meta-info { font-size: 13px; color: #999; }
+    article .article-meta .meta-info span { margin-right: 16px; }
+    article .article-meta .meta-info a { color: #666; }
+    article hr { margin: 20px 0; border: none; border-top: 1px solid #eee; }
+    article .article-body img { max-width: 100%; height: auto; }
+    article .article-body pre {
+      background: #f5f5f5; border-radius: 4px; padding: 16px; overflow-x: auto;
+      font-size: 14px; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word;
+    }
+    article .article-body code {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      background: #f5f5f5; border-radius: 2px; padding: 2px 4px; font-size: 0.9em;
+    }
+    article .article-body pre code { background: transparent; padding: 0; }
+    article .article-body blockquote {
+      margin: 16px 0; padding: 8px 16px; border-left: 3px solid #ccc; background: #fafafa; color: #555;
+    }
+    article .article-body table {
+      border-collapse: collapse; width: 100%; margin: 16px 0;
+    }
+    article .article-body th, article .article-body td {
+      border: 1px solid #ddd; padding: 8px 12px; text-align: left;
+    }
+    article .article-body th { background: #f0f0f0; font-weight: 600; }
+    article .article-body ul, article .article-body ol { padding-left: 24px; }
+    article .article-body a { color: #1a73e8; }
+  </style>
+  <style>.markdown-body{word-break:break-word;line-height:1.75;font-weight:400;font-size:16px;overflow-x:hidden;color:#252b3a}.markdown-body ::selection{color:#fff;background-color:#ed7373}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{line-height:1.5;margin-bottom:.6em;margin-top:1.5em;padding-bottom:4px;color:#ed7373}.markdown-body h1{font-size:24px}.markdown-body h2{font-size:20px;padding-bottom:12px;border-bottom:1px solid #dfe1e6}.markdown-body h3{font-size:18px}.markdown-body h4{font-size:16px}.markdown-body h5,.markdown-body h6{font-size:14px}.markdown-body p{line-height:inherit;margin-bottom:22px}.markdown-body img{max-width:100%}.markdown-body hr{border-top:1px solid #dfe1e6;margin:33px 0}.markdown-body code{word-break:break-word;overflow-x:auto;background-color:rgba(239,198,221,.2666666667);color:#7b164f;font-size:.87em;padding:.065em .4em}.markdown-body code,.markdown-body pre{font-family:Menlo,Monaco,Consolas,Courier New,monospace;border-radius:2px}.markdown-body pre{overflow:auto;position:relative;line-height:1.75}.markdown-body pre:before{content:"";display:block;height:30px;width:100%;margin-bottom:-7px;background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAdCAYAAABcz8ldAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAhgSURBVGhD7Zp7bBTHHcdn33t7vvOdzy+ITVKDU0xIKG2ABCPTRCCaUiEVKWoqRJuASAhCitRCVKSoalFUKZBiSmmFRRJKRUnUtIpo+aNqGgwoOCmuFUIRzxjwE4zte+97drYzztji8HPvtkit/PnH+n1397Tz+83vN/PbMZhmmmmm+d+BoX8n5diihcGqgFQf5vk6BMAskWUlw3GyFnIvtqWSf91w7mKC3npfOLX7wYeiIa6BBWCOLLFRF2NB0JvIOP/80YG+k2ev6S699b/OzOfKBW5l5KsgyC4DCFQDnpEAdE1goc/dlNPc/Up7P711UiYNSMuyxeUzZPnHgGHWh5XADEkSAcdiN+AnEXIBhBComgFU0/xQR+jnj51sOUMf9Z0NKyL8S9+JPBEN8zuCMrsqGOA5QWAAyzLAxe53HBeYFgJp1c5Cx33nyIfpV3e+22/Sx32nev/sMCgVnmM4bjOniAtZWQAsz315EfsGQQc4hgWcjHkCmOj1rheuNn95cXwmDMiVp5etC/D8m5FwUWVQUYYGPh6mZYFUOgsGVa1pXvOZzVT2jRuH54RM230jEuI3RcIiL4l4UkxAJmuD/riVsqD7ct2m9nep7BtVTbVfZ0uE/UIk+CQflAHDjf8+Lg6MldYATGpH3c/Ul7p3dWXppVGM6eElJSHmnQWPbSlRlN1lJcUBjqNRnwJZVQO3B5P/uq5rK1d90pakckFcaKp5UJHY92JR8YlwkUDVySEZfGfQdO7E7Z8s2HL9TSoXTPXRud9nA8IBqSwcZgWeqpPj6BYw7yTbXBN9q2v9lQEq5zBmWA8vWLCptCi4tzwW8RQMQlFQATPLSh6vCSh/plJBkMyQBHZfWYnkKRgEktEVpTJXERN2Xzo4ex2VC6K6qXYpF5b3ypVRT8EgcAERSJXRbwCBOTFzXblM5RxGBaRt+ZPYA+LO0mgxz5K1Ig+UgAzKIuGnz39z6S+olDeaibaXRsU1RUFvgx+GwTWgPCaDgMw2XXpr9gwq50XV0bkxJiYeEiNF5cwE5XsiOEkAUkXkUW51SSOVchjl8WKef604XFSRbzCGCYeCoESStv/p8QU1VPIM3knNDynctnBRfsEYhgSlNCIGgQv2UCkvGIHZgteMh1nBW9W4F16RAM6yDVV7amZTaYQcr59cuuhhWRTWBvAMLxQGeyFSHOLnh0MvUskz5RF+fbRYDEy0mZgqQYUHOLhr//b6rGoqeaLqQG0pw3PrBbyA+4EQUkRmhvgqNUfICUipKK4OKUqIJVPKB0jpEhjmWWp64jdbKmVZZNYogcJm493gsifOqhDyeh9GYR/FM7sW+DA5CKR0MSK3tvKZkpwB5gRE4tjFEr7RL0iWBGV51vHFCyupNGWWPqLgnoer9mtyEGSJAzwLllDTGzyznDjRN/CwOFkoFb4bm0eVIXICgpvdGoEvrF7fC89zfLkkeV5HbOhWiTwTpKYvCAJLGshRdXtKMKAWlyxq+MPQLk1h66g5RE5ABJYNFrqY3wvJklJRUKg5ZWLFXIA86yek2uDOPkBNb3CM5Pf7DL2QyIrUGiLH+xC5Bmmm/ARnHUhC6PnzxWDK0RH5HuIjZGy27erU9AZ0dTIWXyG+NpBBrSFySxZw220IqeUPFoS6jVAPNadM7yDsgNB1qOkLuAziMYIb1PQGA75wIaKGPyAb+9oF16g5RE5ALIQ+tSyLWoWDEAK6aXW3JlK9VJoyx1oyvVkNdvo5KXXDAVkdnaKmNwx0xjH98w3JNmTCm+Bc9hKVhsgJSI9pvp9Vdd++jmq6AXB2/HHrhcs5aTkVDv0DFzoHvKdq/mQsKX/4t7KJLDpOJW+IbAvMGoMkxfwAWZB8DT7W1diTE+WcgKz6pK1bs6z3daPwmJDsSKt6ZsCyjlLJMz0DsDGZ8SdlDROBjOb8YeWOjptU8kTXusuaazu7oJrfEnQvdkpVcUn6PTVHyAkIIW7br/Unklni0EJIZ1WgGsauZR+fvUglz6zY0dGfVp09ybRNlfwgi3k8YSbvJJ29VMoLt9v6rZVQL7hOYUubndHJGclBtzn1byqNMCogi09/2nFb01/oj+f/5TyjauBOKtPcZ1r7qZQ3f2lRfxZPWi2anp8TSDAGExZMa2jr8u03L1M5L7q3Xc+iAeuHRl/ScvPcjSLDBnZS/cjtNHd2v3171Ewbs9N5q7Pn4otVMx3btBsCsoRbk1FxG5dMVgMDqfTpXl1/tuFMa5zKefPROdX59qLQBwLnNog8Wy1OcjB1N+QEsW/QsFNZuO35Xb1v98QLX4/Sx+O3wqujrQ6013ABUWI8+AaqBjAH01+ghL22+5X2PirnMG7r+esbnae/V1neauvGSoHjigTcVU7UGFm2DeK4ttxKpQ+mLPvl+o/PjnkAkw9HTqSMmVHhyAMx9iFcSh/BHTfLceO/C8mKjApBf9zszGhoY92m9sN+BGOY9AeD7eGniv8OTaOB4dgyTsQd9wS+IQu4lciYdkI7CLrNH3Rvbb9FL41i0tbzVP2iWJkobpN5fmM4IJfJskTP1Bk8A9HQmbpmGDBrWqdVCN/Yd7PjxKGOXn+bmbto3feVVcVB9qehIL8EJy8nChwgr0O2xxBnhGU5eP2CfYbl/m4gBRsbtneMORP9oGpjpcCsiKzHHfdOPiQ/wMniyFEu2dbiTQCAeN/vavC466BGYLttXc9fmXBXMGlAhiHHur+sq6uPiUI9z7CVHMPwBnLSuuN8FuC48/Oaz1ylt94XfrW5ouyprwWfYRkwNyCyYYjwkBHows1fa+tV/fzGxlv39b9gqvfPmQ+i/HK8KlcBjhHwfl8HEHyOd1JnuzZd66S3TTPNNNP8/wDAfwDG7G0m9LKBpwAAAABJRU5ErkJggg==") 10px 10px no-repeat;background-size:40px;background-color:#fdf8f8}.markdown-body pre>code{font-size:12px;padding:15px 12px;margin:0;word-break:normal;display:block;overflow-x:auto;color:#252b3a;background:#fdf8f8}.markdown-body a{position:relative;text-decoration:underline;text-decoration-color:#ffd4d4;color:#ed7373;padding-right:18px;padding-bottom:4px}.markdown-body a[href^=http]:after{position:absolute;display:inline-block;width:16px;height:16px;margin-left:2px;margin-top:6px;content:"";background:url("data:image/png;base64,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");background-size:100%}.markdown-body a:active,.markdown-body a:hover{opacity:.66}.markdown-body table{display:inline-block!important;font-size:12px;width:auto;max-width:100%;overflow:auto;border:1px solid #ed7373;border-spacing:0}.markdown-body thead{color:#fff;text-align:left}.markdown-body thead tr{background:#ed7373}.markdown-body thead th{border-bottom:1px solid #dfe1e6}.markdown-body tr{background-color:#fff}.markdown-body tr:nth-child(2n){background-color:#fdf2f2}.markdown-body td,.markdown-body th{padding:12px 7px;line-height:24px}.markdown-body td{min-width:120px}.markdown-body blockquote{color:#252b3a;padding:1px 23px;margin:22px 0;border-left:4px solid #ed7373;background-color:#fdf2f2}.markdown-body blockquote:after{display:block;content:""}.markdown-body blockquote>p{margin:10px 0}.markdown-body ol,.markdown-body ul{padding-left:28px}.markdown-body ol li,.markdown-body ul li{padding-left:10px;margin-bottom:0;list-style:inherit}.markdown-body ol li .task-list-item,.markdown-body ul li .task-list-item{list-style:none}.markdown-body ol li .task-list-item ol,.markdown-body ol li .task-list-item ul,.markdown-body ul li .task-list-item ol,.markdown-body ul li .task-list-item ul{margin-top:0}.markdown-body ol li::marker,.markdown-body ul li::marker{color:#ed7373}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:3px}.markdown-body ol li{padding-left:6px}.markdown-body .contains-task-list{padding-left:0}.markdown-body .task-list-item{list-style:none}.markdown-body input[type=checkbox]{appearance:none;-webkit-appearance:none;-moz-appearance:none;outline:none;width:16px;height:16px;border-radius:2px;background-color:transparent;box-shadow:inset 0 0 0 1px rgba(28,31,35,.3490196078);vertical-align:middle;margin:0;transform:translateY(-2px)}.markdown-body input[type=checkbox]:checked{background-color:#ed7373;background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjFlbSIgaGVpZ2h0PSIxZW0iIGFyaWEtaGlkZGVuPSJ0cnVlIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE3LjQxMSA3LjMwOGExLjUgMS41IDAgMDEuMjggMi4xMDNsLTYuNSA4LjVhMS41IDEuNSAwIDAxLTIuMzc1LjAxbC0zLjUtNC41YTEuNSAxLjUgMCAxMTIuMzY4LTEuODQybDIuMzA2IDIuOTY1IDUuMzE4LTYuOTU1YTEuNSAxLjUgMCAwMTIuMTAzLS4yOHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");box-shadow:inset 0 0 0 1px #ed7373}@media (max-width:720px){.markdown-body h1{font-size:24px}.markdown-body h2{font-size:20px}.markdown-body h3{font-size:18px}}</style>
+<style data-highlight data-highlight-key="an-old-hope">.hljs-comment,.hljs-quote{color:#b6b18b}.hljs-deletion,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#eb3c54}.hljs-built_in,.hljs-builtin-name,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-type{color:#e7ce56}.hljs-attribute{color:#ee7c2b}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#4fb4d7}.hljs-section,.hljs-title{color:#78bb65}.hljs-keyword,.hljs-selector-tag{color:#b45ea4}.markdown-body pre,.markdown-body pre>code.hljs{background:#1c1d21;color:#c0c5ce}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}</style>
+</head>
+<body>
+<article>
+  <header class="article-meta">
+    <h1>AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南</h1>
+    <div class="meta-info">
+      <span>作者：小碗细面</span>
+      <span>发表：2026-02-12</span>
+      <span>来源：<a href="https://juejin.cn/post/7605494530017165352" target="_blank">https://juejin.cn/post/7605494530017165352</a></span>
+      <span>下载：2026-05-15</span>
+    </div>
+  </header>
+  <hr>
+  <div class="article-body">
+    <h2 data-id="heading-0">AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南</h2>
+<blockquote>
+<p>本文将深入介绍 GitHub 官方的 Spec-Kit、社区热门的 OpenSpec 以及跨平台方法论工具 Superpowers 三个 AI 编程辅助工具，从安装配置到实战使用，再到三者协同的最佳实践，带你全面掌握 AI 驱动的规范化开发新范式。</p>
+</blockquote>
+<h3 data-id="heading-1">前言：为什么需要这些工具？</h3>
+<p>2024-2026 年，AI 编程工具经历了爆发式增长。从最初的代码补全，到如今的 AI Agent 自主编程，开发者面临一个核心问题：<strong>如何让 AI 真正理解我们的意图，并按照预期的方式工作？</strong></p>
+<p>三个工具应运而生，它们从不同角度解决这个问题：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>工具</th><th>核心问题</th><th>类比</th></tr></thead><tbody><tr><td><strong>Spec-Kit</strong></td><td>"按什么规矩干"</td><td>建筑规范手册</td></tr><tr><td><strong>OpenSpec</strong></td><td>"改了什么"</td><td>施工变更单</td></tr><tr><td><strong>Superpowers</strong></td><td>"怎么干"</td><td>施工队工作手册</td></tr></tbody></table>
+<p>接下来，让我们逐一深入了解。</p>
+<hr>
+<h3 data-id="heading-2">一、Spec-Kit：GitHub 官方的规范驱动开发框架</h3>
+<h4 data-id="heading-3">1.1 简介</h4>
+<p><strong>Spec-Kit</strong> 是 GitHub 官方在 2025 年初推出的开源工具包，专为"规范驱动开发"（Spec-Driven Development）设计。它的核心理念是：<strong>先写规范，再写代码</strong>。</p>
+<ul>
+<li><strong>GitHub 仓库</strong>：<a href="https://github.com/github/spec-kit" target="_blank" title="https://github.com/github/spec-kit">github.com/github/spec…</a></li>
+<li><strong>Stars</strong>：69.1k ⭐</li>
+<li><strong>技术栈</strong>：Python (uv 包管理器)</li>
+<li><strong>适用 AI</strong>：Claude Code、Copilot Agent 等</li>
+</ul>
+<h4 data-id="heading-4">1.2 核心概念</h4>
+<p>Spec-Kit 引入了<strong>分阶段的规范驱动开发流程</strong>，通过 5 个斜杠命令实现：</p>
+<pre><code class="hljs language-bash" lang="bash">┌─────────────────────────────────────────────────────────┐
+│           /speckit.constitution                          │
+│         (项目宪法：全局约束、开发准则)                    │
+└─────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│              /speckit.specify                            │
+│           (功能规范：描述 what 和 why)                    │
+└─────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│               /speckit.plan                              │
+│          (技术计划：技术栈和架构选择)                     │
+└─────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│               /speckit.tasks                             │
+│            (任务分解：可执行的任务清单)                   │
+└─────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│             /speckit.implement                           │
+│               (执行实现：构建功能)                        │
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>constitution.md</strong>（宪法）：定义项目级别的治理原则</p>
+<ul>
+<li>代码质量标准</li>
+<li>测试规范</li>
+<li>用户体验一致性要求</li>
+<li>性能要求</li>
+</ul>
+<p><strong>spec.md</strong>（规范）：描述具体功能的需求</p>
+<ul>
+<li>用户故事</li>
+<li>功能需求</li>
+<li>不涉及技术栈（关注 what 和 why）</li>
+</ul>
+<p><strong>plan.md</strong>（计划）：技术实现方案</p>
+<ul>
+<li>技术栈选择</li>
+<li>架构设计</li>
+<li>API 契约</li>
+</ul>
+<p><strong>tasks.md</strong>（任务）：可执行的任务清单</p>
+<ul>
+<li>从计划中提取的具体任务</li>
+<li>实现步骤</li>
+</ul>
+<h4 data-id="heading-5">1.3 安装教程</h4>
+<h5 data-id="heading-6">前置条件</h5>
+<ul>
+<li>Python 3.11+</li>
+<li><a href="https://github.com/astral-sh/uv" target="_blank" title="https://github.com/astral-sh/uv">uv</a> 包管理器</li>
+<li>Git</li>
+<li>支持的 AI 编码助手（Claude Code、Copilot、Cursor 等）</li>
+</ul>
+<h5 data-id="heading-7">安装步骤</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 1. 安装 uv（如果还没有）</span>
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+<span class="hljs-comment"># 2. 安装 Specify CLI（持久安装，推荐）</span>
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+
+<span class="hljs-comment"># 3. 验证安装</span>
+specify check
+</code></pre>
+<h5 data-id="heading-8">一次性使用（无需安装）</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 使用 uvx 直接运行</span>
+uvx --from git+https://github.com/github/spec-kit.git specify init &#x3C;PROJECT_NAME>
+</code></pre>
+<h5 data-id="heading-9">初始化项目</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 创建新项目</span>
+specify init my-project --ai claude
+
+<span class="hljs-comment"># 在当前目录初始化</span>
+specify init . --ai claude
+<span class="hljs-comment"># 或使用 --here 标志</span>
+specify init --here --ai claude
+
+<span class="hljs-comment"># 强制初始化（跳过确认）</span>
+specify init . --force --ai claude
+</code></pre>
+<p><strong>支持的 AI 助手：</strong></p>
+<ul>
+<li><code>claude</code> - Claude Code</li>
+<li><code>copilot</code> - GitHub Copilot</li>
+<li><code>cursor-agent</code> - Cursor</li>
+<li><code>gemini</code> - Gemini CLI</li>
+<li><code>windsurf</code> - Windsurf</li>
+<li><code>codex</code> - Codex CLI</li>
+<li><code>opencode</code> - opencode</li>
+<li><code>qoder</code> - Qoder CLI</li>
+<li>以及更多 20+ 工具</li>
+</ul>
+<p>初始化后的目录结构：</p>
+<pre><code class="hljs language-bash" lang="bash">your-project/
+├── .specify/
+│   ├── memory/
+│   │   └── constitution.md    <span class="hljs-comment"># 项目宪法</span>
+│   ├── scripts/               <span class="hljs-comment"># 内置脚本</span>
+│   ├── specs/                 <span class="hljs-comment"># 功能规范目录</span>
+│   └── templates/             <span class="hljs-comment"># 模板文件</span>
+│       ├── plan-template.md
+│       ├── spec-template.md
+│       └── tasks-template.md
+└── CLAUDE.md                  <span class="hljs-comment"># AI 助手配置（根据选择的 AI 而定）</span>
+</code></pre>
+<h4 data-id="heading-10">1.4 使用教程</h4>
+<h5 data-id="heading-11">步骤一：建立项目宪法</h5>
+<p>在 AI 助手中使用 <code>/speckit.constitution</code> 命令：</p>
+<pre><code class="hljs language-sql" lang="sql"><span class="hljs-operator">/</span>speckit.constitution <span class="hljs-keyword">Create</span> principles focused <span class="hljs-keyword">on</span> code quality, testing standards, 
+<span class="hljs-keyword">user</span> experience consistency, <span class="hljs-keyword">and</span> performance requirements
+</code></pre>
+<p>这会在 <code>.specify/memory/constitution.md</code> 中创建项目的治理原则。</p>
+<h5 data-id="heading-12">步骤二：创建功能规范</h5>
+<p>使用 <code>/speckit.specify</code> 命令描述你想构建的内容（关注 what 和 why，不涉及技术栈）：</p>
+<pre><code class="hljs language-vbnet" lang="vbnet">/speckit.specify Build an application that can help <span class="hljs-keyword">me</span> organize my photos 
+<span class="hljs-keyword">in</span> separate photo albums. Albums are grouped <span class="hljs-keyword">by</span> <span class="hljs-type">date</span> <span class="hljs-built_in">and</span> can be re-organized 
+<span class="hljs-keyword">by</span> dragging <span class="hljs-built_in">and</span> dropping <span class="hljs-keyword">on</span> the main page.
+</code></pre>
+<h5 data-id="heading-13">步骤三：创建技术计划</h5>
+<p>使用 <code>/speckit.plan</code> 命令提供技术栈和架构选择：</p>
+<pre><code class="hljs language-sql" lang="sql"><span class="hljs-operator">/</span>speckit.plan The application uses Vite <span class="hljs-keyword">with</span> vanilla HTML, CSS, <span class="hljs-keyword">and</span> JavaScript. 
+Images <span class="hljs-keyword">are</span> <span class="hljs-keyword">not</span> uploaded anywhere <span class="hljs-keyword">and</span> metadata <span class="hljs-keyword">is</span> stored <span class="hljs-keyword">in</span> a <span class="hljs-keyword">local</span> SQLite database.
+</code></pre>
+<h5 data-id="heading-14">步骤四：分解任务</h5>
+<p>使用 <code>/speckit.tasks</code> 从实现计划创建可执行的任务清单：</p>
+<pre><code class="hljs language-bash" lang="bash">/speckit.tasks
+</code></pre>
+<h5 data-id="heading-15">步骤五：执行实现</h5>
+<p>使用 <code>/speckit.implement</code> 执行所有任务，按计划构建功能：</p>
+<pre><code class="hljs language-bash" lang="bash">/speckit.implement
+</code></pre>
+<h5 data-id="heading-16">可选命令</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>命令</th><th>描述</th></tr></thead><tbody><tr><td><code>/speckit.clarify</code></td><td>澄清规范中不明确的地方（推荐在 <code>/speckit.plan</code> 前使用）</td></tr><tr><td><code>/speckit.analyze</code></td><td>跨工件一致性和覆盖率分析（在 <code>/speckit.tasks</code> 后、<code>/speckit.implement</code> 前使用）</td></tr><tr><td><code>/speckit.checklist</code></td><td>生成自定义质量检查清单</td></tr></tbody></table>
+<h5 data-id="heading-17">示例：完整流程</h5>
+<p>假设要开发一个团队协作应用 Taskify：</p>
+<p><strong>1. 建立宪法</strong></p>
+<pre><code class="hljs language-bash" lang="bash">/speckit.constitution 建立代码质量、测试标准和用户体验一致性的原则
+</code></pre>
+<p><strong>2. 定义规范</strong></p>
+<pre><code class="hljs language-sql" lang="sql"><span class="hljs-operator">/</span>speckit.specify Develop Taskify, a team productivity platform. 
+It should allow users <span class="hljs-keyword">to</span> <span class="hljs-keyword">create</span> projects, <span class="hljs-keyword">add</span> team members,
+assign tasks, comment <span class="hljs-keyword">and</span> move tasks <span class="hljs-keyword">between</span> boards <span class="hljs-keyword">in</span> Kanban style.
+</code></pre>
+<p><strong>3. 技术计划</strong></p>
+<pre><code class="hljs language-csharp" lang="csharp">/speckit.plan We are going to generate <span class="hljs-keyword">this</span> <span class="hljs-keyword">using</span> .NET Aspire, 
+<span class="hljs-keyword">using</span> Postgres <span class="hljs-keyword">as</span> the database. The frontend should use Blazor server 
+<span class="hljs-keyword">with</span> drag-<span class="hljs-keyword">and</span>-drop task boards.
+</code></pre>
+<p><strong>4. 分解任务</strong></p>
+<pre><code class="hljs language-bash" lang="bash">/speckit.tasks
+</code></pre>
+<p><strong>5. 执行实现</strong></p>
+<pre><code class="hljs language-bash" lang="bash">/speckit.implement
+</code></pre>
+<p>生成的文件结构：</p>
+<pre><code class="hljs language-bash" lang="bash">.specify/
+├── memory/
+│   └── constitution.md
+├── specs/
+│   └── 001-create-taskify/
+│       ├── spec.md              <span class="hljs-comment"># 功能规范</span>
+│       ├── plan.md              <span class="hljs-comment"># 技术计划</span>
+│       ├── tasks.md             <span class="hljs-comment"># 任务清单</span>
+│       ├── research.md          <span class="hljs-comment"># 技术研究</span>
+│       ├── data-model.md        <span class="hljs-comment"># 数据模型</span>
+│       ├── quickstart.md        <span class="hljs-comment"># 快速开始指南</span>
+│       └── contracts/
+│           ├── api-spec.json    <span class="hljs-comment"># API 契约</span>
+│           └── signalr-spec.md  <span class="hljs-comment"># SignalR 规范</span>
+└── templates/
+    ├── plan-template.md
+    ├── spec-template.md
+    └── tasks-template.md
+</code></pre>
+<hr>
+<h3 data-id="heading-18">二、OpenSpec：轻量级规范驱动开发工具</h3>
+<h4 data-id="heading-19">2.1 简介</h4>
+<p><strong>OpenSpec</strong> 是由 Fission-AI 团队开发的规范驱动开发（SDD）工具，专注于<strong>灵活的、可自定义的工作流</strong>。最新版本使用 <strong>OPSX 工作流</strong>，支持 20+ AI 编码助手。</p>
+<ul>
+<li><strong>GitHub 仓库</strong>：<a href="https://github.com/Fission-AI/OpenSpec" target="_blank" title="https://github.com/Fission-AI/OpenSpec">github.com/Fission-AI/…</a></li>
+<li><strong>Stars</strong>：23.7k ⭐</li>
+<li><strong>技术栈</strong>：TypeScript (npm)</li>
+<li><strong>适用 AI</strong>：Claude Code、Cursor、Windsurf、OpenCode、Codex、Copilot 等 20+ 工具</li>
+</ul>
+<h4 data-id="heading-20">2.2 核心概念</h4>
+<p>OpenSpec 最新版本使用 <strong>OPSX 工作流</strong>，提供灵活的动作式工作方式，而非固定的阶段流程：</p>
+<pre><code class="hljs language-bash" lang="bash">┌─────────────────────────────────────────────────────────┐
+│                   OPSX Workflow                      │
+│               (灵活动作，迭代流动）                   │
+├─────────────────────────────────────────────────────────┤
+│  /opsx:new ───► /opsx:<span class="hljs-built_in">continue</span> ───► /opsx:apply ───► /opsx:archive │
+│      │               │               │              │              │
+│      └───────────────┴───────────────┴──────────────┘              │
+│       创建工件           逐步实施                归档            │
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>工作流程</strong>：</p>
+<ol>
+<li><code>/opsx:new</code> - 开始新的变更（创建 proposal）</li>
+<li><code>/opsx:continue</code> - 逐步创建工件（specs、design、tasks）</li>
+<li><code>/opsx:apply</code> - 实施工阶段，执行任务并更新工件</li>
+<li><code>/opsx:archive</code> - 归档完成的功能到知识库</li>
+<li><code>/opsx:explore</code> - 探索想法，思考问题（可选）</li>
+<li><code>/opsx:ff</code> - 快速前进，一次性创建所有规划工件</li>
+<li><code>/opsx:sync</code> - 同步到主分支（可选）</li>
+</ol>
+<h4 data-id="heading-21">2.3 安装教程</h4>
+<h5 data-id="heading-22">前置条件</h5>
+<ul>
+<li>Node.js 20.19.0 或更高版本</li>
+<li>npm 或 pnpm（也支持 bun、yarn）</li>
+</ul>
+<h5 data-id="heading-23">安装步骤</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 方式一：全局安装（推荐）</span>
+npm install -g @fission-ai/openspec@latest
+
+<span class="hljs-comment"># 方式二：项目级安装</span>
+npm install --save-dev @fission-ai/openspec
+
+<span class="hljs-comment"># 方式三：使用 npx 直接运行</span>
+npx @fission-ai/openspec init
+</code></pre>
+<h5 data-id="heading-24">初始化项目</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 在项目根目录运行</span>
+openspec init
+
+<span class="hljs-comment"># 这会创建以下结构：</span>
+<span class="hljs-comment"># your-project/</span>
+<span class="hljs-comment"># ├── .openspec/</span>
+<span class="hljs-comment"># │   ├── changes/            # 活跃变更（OPSX workflow）</span>
+<span class="hljs-comment"># │   ├── changes/archive/     # 归档的变更（知识库）</span>
+<span class="hljs-comment"># │   ├── config.yaml         # 项目配置（可选）</span>
+<span class="hljs-comment"># │   └── schemas/           # 自定义工作流模式（可选）</span>
+<span class="hljs-comment"># └── .claude/skills/openspec-*  # 自动生成的技能</span>
+</code></pre>
+<p><strong>提示</strong>：初始化时会提示创建 <code>openspec/config.yaml</code> 项目配置文件，这是可选但推荐的。</p>
+<h4 data-id="heading-25">2.4 使用教程</h4>
+<h5 data-id="heading-26">步骤一：创建配置文件（可选）</h5>
+<pre><code class="hljs language-yaml" lang="yaml"><span class="hljs-comment"># openspec/config.yaml</span>
+<span class="hljs-attr">schema:</span> <span class="hljs-string">spec-driven</span>
+
+<span class="hljs-attr">context:</span> <span class="hljs-string">|
+  Tech stack: TypeScript, React, Node.js
+  API conventions: RESTful, JSON responses
+  Testing: Vitest for unit tests, Playwright for e2e
+  Style: ESLint with Prettier, strict TypeScript
+</span>
+<span class="hljs-attr">rules:</span>
+  <span class="hljs-attr">proposal:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Include</span> <span class="hljs-string">rollback</span> <span class="hljs-string">plan</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Identify</span> <span class="hljs-string">affected</span> <span class="hljs-string">teams</span>
+  <span class="hljs-attr">specs:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Use</span> <span class="hljs-string">Given/When/Then</span> <span class="hljs-string">format</span> <span class="hljs-string">for</span> <span class="hljs-string">scenarios</span>
+  <span class="hljs-attr">design:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Include</span> <span class="hljs-string">sequence</span> <span class="hljs-string">diagrams</span> <span class="hljs-string">for</span> <span class="hljs-string">complex</span> <span class="hljs-string">flows</span>
+</code></pre>
+<p><strong>配置说明</strong>：</p>
+<ul>
+<li><code>schema</code>：默认工作流模式（当前为 <code>spec-driven</code>）</li>
+<li><code>context</code>：项目上下文，会注入到所有工件</li>
+<li><code>rules</code>：每个工件的具体规则</li>
+</ul>
+<h5 data-id="heading-27">步骤二：创建新变更</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 开始新的变更</span>
+/opsx:new Add user profile page
+</code></pre>
+<p>AI 会询问：</p>
+<ol>
+<li>你想构建什么？</li>
+<li>使用哪个工作流模式？</li>
+</ol>
+<p>生成的工件结构：</p>
+<pre><code class="hljs language-bash" lang="bash">openspec/changes/add-user-profile-page/
+├── proposal.md           <span class="hljs-comment"># 变更提案（为什么、范围、方法）</span>
+├── specs/                <span class="hljs-comment"># 功能规范</span>
+│   └── spec.md
+├── design.md             <span class="hljs-comment"># 技术设计</span>
+└── tasks.md              <span class="hljs-comment"># 实施任务清单</span>
+</code></pre>
+<h5 data-id="heading-28">步骤三：逐步创建工件</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 继续创建下一个工件（基于依赖关系）</span>
+/opsx:<span class="hljs-built_in">continue</span>
+</code></pre>
+<p>每次调用会：</p>
+<ol>
+<li>检查哪些工件已准备好</li>
+<li>创建一个工件</li>
+<li>显示解锁的下一个工件</li>
+</ol>
+<h5 data-id="heading-29">步骤四：快速前进</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 一次性创建所有规划工件</span>
+/opsx:ff add-user-profile-page
+</code></pre>
+<p>使用场景：当你已经清楚要构建什么，想要快速启动时。</p>
+<h5 data-id="heading-30">步骤五：实施</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 执行任务，并更新工件</span>
+/opsx:apply
+</code></pre>
+<p>AI 会：</p>
+<ol>
+<li>遍历 tasks.md 中的任务</li>
+<li>逐一实现</li>
+<li>实时更新任务状态</li>
+<li>如有问题，更新 specs/ 或 design/</li>
+</ol>
+<h5 data-id="heading-31">步骤六：归档</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 完成后归档</span>
+/opsx:archive add-user-profile-page
+</code></pre>
+<p>将变更移动到知识库：</p>
+<pre><code class="hljs language-sql" lang="sql">openspec<span class="hljs-operator">/</span>changes<span class="hljs-operator">/</span>archive<span class="hljs-operator">/</span><span class="hljs-number">2025</span><span class="hljs-number">-02</span><span class="hljs-number">-12</span><span class="hljs-operator">-</span><span class="hljs-keyword">add</span><span class="hljs-operator">-</span><span class="hljs-keyword">user</span><span class="hljs-operator">-</span>profile<span class="hljs-operator">-</span>page<span class="hljs-operator">/</span>
+</code></pre>
+<h5 data-id="heading-32">步骤七：探索想法</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 不确定要构建什么时，先探索</span>
+/opsx:explore
+</code></pre>
+<p>这是一个思考伙伴，帮助澄清想法、比较选项、明确需求。</p>
+<h5 data-id="heading-33">查看状态</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 查看当前变更状态</span>
+openspec status --change add-user-profile-page --json
+</code></pre>
+<p>返回：</p>
+<pre><code class="hljs language-json" lang="json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"artifacts"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span><span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"proposal"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"status"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"done"</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span><span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"specs"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"status"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ready"</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span><span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"design"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"status"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ready"</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span><span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"tasks"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"status"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"in_progress"</span><span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<hr>
+<h3 data-id="heading-34">三、Superpowers：Claude Code 的"施工队工作手册"</h3>
+<h4 data-id="heading-35">3.1 简介</h4>
+<p><strong>Superpowers</strong> 是由 Jesse Vincent（obra）开发的 AI 编程方法论工具包，专注于<strong>执行方法论</strong>。它不是文档管理工具，而是一套让 AI 更高效、更可靠地执行编码任务的最佳实践集合，通过"技能"（Skills）系统引导 AI 像高级工程师一样工作。</p>
+<ul>
+<li><strong>GitHub 仓库</strong>：<a href="https://github.com/obra/superpowers" target="_blank" title="https://github.com/obra/superpowers">github.com/obra/superp…</a></li>
+<li><strong>Stars</strong>：50k ⭐</li>
+<li><strong>技术栈</strong>：Markdown + JavaScript Plugin</li>
+<li><strong>适用 AI</strong>：Claude Code、OpenCode、Codex</li>
+</ul>
+<h4 data-id="heading-36">3.2 核心概念</h4>
+<p>Superpowers 的核心是 <strong>"让 AI 像高级工程师一样工作"</strong>：</p>
+<pre><code class="hljs language-css" lang="css">┌─────────────────────────────────────────────────────────┐
+│                    Superpowers 方法论                    │
+├─────────────────────────────────────────────────────────┤
+│  🧪 TDD-First      │ 强制 AI 先写测试，再写实现          │
+├─────────────────────────────────────────────────────────┤
+│  🤖 Sub-Agents     │ 拆分复杂任务给专门的子代理          │
+├─────────────────────────────────────────────────────────┤
+│  📝 <span class="hljs-selector-tag">Code</span> Review    │ 实现后自动触发代码审查              │
+├─────────────────────────────────────────────────────────┤
+│  🔍 Exploration    │ 实现前先充分探索代码库              │
+├─────────────────────────────────────────────────────────┤
+│  ✅ Verification   │ 每步都要验证，不盲目前进            │
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<h4 data-id="heading-37">3.3 安装教程</h4>
+<h5 data-id="heading-38">前置条件</h5>
+<ul>
+<li>Bash 或 Zsh shell (macOS/Linux)</li>
+<li>PowerShell 或 Command Prompt (Windows)</li>
+</ul>
+<h5 data-id="heading-39">Claude Code 用户（推荐方式）</h5>
+<p>Claude Code 有插件市场，安装最简单：</p>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 在 Claude Code 中执行</span>
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+
+<span class="hljs-comment"># 验证安装</span>
+/help
+</code></pre>
+<p>看到 <code>brainstorm</code>、<code>write-plan</code>、<code>execute-plan</code> 这 3 个命令就说明安装成功。</p>
+<h5 data-id="heading-40">OpenCode 用户</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 1. 克隆 Superpowers 仓库</span>
+git <span class="hljs-built_in">clone</span> https://github.com/obra/superpowers.git ~/.config/opencode/superpowers
+
+<span class="hljs-comment"># 2. 创建目录</span>
+<span class="hljs-built_in">mkdir</span> -p ~/.config/opencode/plugins ~/.config/opencode/skills
+
+<span class="hljs-comment"># 3. 创建符号链接（插件）</span>
+<span class="hljs-built_in">ln</span> -s ~/.config/opencode/superpowers/.opencode/plugins/superpowers.js ~/.config/opencode/plugins/superpowers.js
+
+<span class="hljs-comment"># 4. 创建符号链接（技能）</span>
+<span class="hljs-built_in">ln</span> -s ~/.config/opencode/superpowers/skills ~/.config/opencode/skills/superpowers
+
+<span class="hljs-comment"># 5. 重启 OpenCode</span>
+</code></pre>
+<h5 data-id="heading-41">Windows 用户（PowerShell）</h5>
+<pre><code class="hljs language-powershell" lang="powershell"># 1. 克隆仓库
+git clone https://github.com/obra/superpowers.git "$env:USERPROFILE\.config\opencode\superpowers"
+
+# 2. 创建目录
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\plugins"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\skills"
+
+# 3. 创建符号链接（插件，需要开发者模式或管理员权限）
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config\opencode\plugins\superpowers.js" -Target "$env:USERPROFILE\.config\opencode\superpowers\.opencode\plugins\superpowers.js"
+
+# 4. 创建符号链接（技能，无需特殊权限）
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.config\opencode\skills\superpowers" -Target "$env:USERPROFILE\.config\opencode\superpowers\skills"
+</code></pre>
+<h5 data-id="heading-42">Git Bash 用户</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># Git Bash 的 ln 命令会复制文件，需使用 cmd //c</span>
+<span class="hljs-built_in">mkdir</span> -p ~/.config/opencode/plugins ~/.config/opencode/skills
+
+cmd //c <span class="hljs-string">"mklink \"<span class="hljs-subst">$(cygpath -w ~/.config/opencode/plugins/superpowers.js)</span>\" \"<span class="hljs-subst">$(cygpath -w ~/.config/opencode/superpowers/.opencode/plugins/superpowers.js)</span>\""</span>
+
+cmd //c <span class="hljs-string">"mklink /J \"<span class="hljs-subst">$(cygpath -w ~/.config/opencode/skills/superpowers)</span>\" \"<span class="hljs-subst">$(cygpath -w ~/.config/opencode/superpowers/skills)</span>\""</span>
+</code></pre>
+<h5 data-id="heading-43">更新 Superpowers</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># OpenCode 用户</span>
+<span class="hljs-built_in">cd</span> ~/.config/opencode/superpowers
+git pull
+
+<span class="hljs-comment"># Claude Code 用户（如果有安装）</span>
+<span class="hljs-built_in">cd</span> ~/.claude/superpowers
+git pull
+</code></pre>
+<h5 data-id="heading-44">卸载</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># OpenCode 用户</span>
+<span class="hljs-built_in">rm</span> ~/.config/opencode/plugins/superpowers.js
+<span class="hljs-built_in">rm</span> -rf ~/.config/opencode/skills/superpowers
+
+<span class="hljs-comment"># 可选：删除源码</span>
+<span class="hljs-built_in">rm</span> -rf ~/.config/opencode/superpowers
+</code></pre>
+<p>看到 <code>brainstorm</code>、<code>write-plan</code>、<code>execute-plan</code> 这 3 个命令就说明安装成功。</p>
+<h5 data-id="heading-45">OpenCode 用户</h5>
+<p>OpenCode 需要手动配置：</p>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 1. 克隆 Superpowers 仓库</span>
+git <span class="hljs-built_in">clone</span> https://github.com/obra/superpowers.git ~/.config/opencode/superpowers
+
+<span class="hljs-comment"># 2. 创建目录</span>
+<span class="hljs-built_in">mkdir</span> -p ~/.config/opencode/plugins ~/.config/opencode/skills
+
+<span class="hljs-comment"># 3. 创建符号链接（插件）</span>
+<span class="hljs-built_in">ln</span> -s ~/.config/opencode/superpowers/.opencode/plugins/superpowers.js ~/.config/opencode/plugins/superpowers.js
+
+<span class="hljs-comment"># 4. 创建符号链接（技能）</span>
+<span class="hljs-built_in">ln</span> -s ~/.config/opencode/superpowers/skills ~/.config/opencode/skills/superpowers
+
+<span class="hljs-comment"># 5. 重启 OpenCode</span>
+
+<span class="hljs-comment"># 6. 验证安装</span>
+<span class="hljs-comment"># 在 OpenCode 中问："Do you have superpowers?"</span>
+</code></pre>
+<p><strong>Windows 用户（PowerShell）：</strong></p>
+<pre><code class="hljs language-powershell" lang="powershell"># 1. 克隆仓库
+git clone https://github.com/obra/superpowers.git "$env:USERPROFILE\.config\opencode\superpowers"
+
+# 2. 创建目录
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\plugins"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\skills"
+
+# 3. 创建插件符号链接（需要开发者模式或管理员权限）
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config\opencode\plugins\superpowers.js" -Target "$env:USERPROFILE\.config\opencode\superpowers\.opencode\plugins\superpowers.js"
+
+# 4. 创建技能目录链接（无需特殊权限）
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.config\opencode\skills\superpowers" -Target "$env:USERPROFILE\.config\opencode\superpowers\skills"
+
+# 5. 重启 OpenCode
+</code></pre>
+<h5 data-id="heading-46">Codex 用户</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 1. 克隆仓库</span>
+git <span class="hljs-built_in">clone</span> https://github.com/obra/superpowers.git ~/.codex/superpowers
+
+<span class="hljs-comment"># 2. 创建符号链接</span>
+<span class="hljs-built_in">mkdir</span> -p ~/.agents/skills
+<span class="hljs-built_in">ln</span> -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+
+<span class="hljs-comment"># 3. 重启 Codex</span>
+</code></pre>
+<p><strong>Windows 用户（PowerShell）：</strong></p>
+<pre><code class="hljs language-powershell" lang="powershell"># 1. 克隆仓库
+git clone https://github.com/obra/superpowers.git "$env:USERPROFILE\.codex\superpowers"
+
+# 2. 创建符号链接
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.agents\skills\superpowers" -Target "$env:USERPROFILE\.codex\superpowers\skills"
+
+# 3. 重启 Codex
+</code></pre>
+<h5 data-id="heading-47">更新 Superpowers</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># OpenCode 用户</span>
+<span class="hljs-built_in">cd</span> ~/.config/opencode/superpowers &#x26;&#x26; git pull
+
+<span class="hljs-comment"># Codex 用户</span>
+<span class="hljs-built_in">cd</span> ~/.codex/superpowers &#x26;&#x26; git pull
+</code></pre>
+<h5 data-id="heading-48">卸载</h5>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># OpenCode 用户</span>
+<span class="hljs-built_in">rm</span> ~/.config/opencode/plugins/superpowers.js
+<span class="hljs-built_in">rm</span> -rf ~/.config/opencode/skills/superpowers
+<span class="hljs-comment"># 可选：删除源码</span>
+<span class="hljs-built_in">rm</span> -rf ~/.config/opencode/superpowers
+
+<span class="hljs-comment"># Codex 用户</span>
+<span class="hljs-built_in">rm</span> ~/.agents/skills/superpowers
+<span class="hljs-comment"># 可选：删除源码</span>
+<span class="hljs-built_in">rm</span> -rf ~/.codex/superpowers
+</code></pre>
+<h4 data-id="heading-49">3.4 使用教程</h4>
+<h5 data-id="heading-50">Superpowers 工作原理</h5>
+<p>Superpowers 提供两种工作方式：</p>
+<ol>
+<li>
+<p><strong>Commands（快捷命令）</strong>：3 个可用命令</p>
+<ul>
+<li><code>brainstorm</code> - 头脑风暴</li>
+<li><code>write-plan</code> - 编写计划</li>
+<li><code>execute-plan</code> - 执行计划</li>
+</ul>
+</li>
+<li>
+<p><strong>Skills（技能系统）</strong>：AI 根据上下文自动加载合适的技能，无需记忆命令名称</p>
+</li>
+</ol>
+<p><strong>推荐使用</strong>：自然语言描述需求，让 Superpowers 自动选择最合适的方式。</p>
+<h5 data-id="heading-51">核心技能列表</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>技能名称</th><th>用途</th></tr></thead><tbody><tr><td><strong>brainstorming</strong></td><td>在任何创造性工作前先头脑风暴，理解需求后再动手</td></tr><tr><td><strong>subagent-driven-development</strong></td><td>子代理驱动开发：为每个任务派发独立子代理 + 两阶段审查</td></tr><tr><td><strong>executing-plans</strong></td><td>执行已制定的实施计划</td></tr><tr><td><strong>finishing-a-development-branch</strong></td><td>完成开发分支：合并、创建 PR 或保留</td></tr><tr><td><strong>requesting-code-review</strong></td><td>请求代码审查</td></tr><tr><td><strong>receiving-code-review</strong></td><td>接收并处理代码审查反馈</td></tr><tr><td><strong>systematic-debugging</strong></td><td>系统化调试：解决 bug 时使用</td></tr><tr><td><strong>test-driven-development</strong></td><td>TDD 工作流：测试驱动开发</td></tr><tr><td><strong>using-git-worktrees</strong></td><td>使用 Git Worktree 创建隔离的工作空间</td></tr><tr><td><strong>verification-before-completion</strong></td><td>完成前验证：每步都要验证</td></tr><tr><td><strong>writing-plans</strong></td><td>编写实施计划</td></tr><tr><td><strong>writing-skills</strong></td><td>编写自定义技能</td></tr></tbody></table>
+<h5 data-id="heading-52">技能触发机制</h5>
+<pre><code class="hljs language-markdown" lang="markdown">┌─────────────────────────────────────────────────┐
+│              说出你的需求                              │
+└─────────────────────────────────────────────────┘
+<span class="hljs-code">                        │
+                        ▼
+            ┌────────────────────────┐
+            │  分析请求类型          │
+            └────────────────────────┘
+                        │
+         ┌───────────────┼───────────────┐
+         ▼               ▼               ▼
+    ┌─────────┐    ┌─────────┐    ┌─────────┐
+    │ 新想法   │    │有计划    │    │要审查    │
+    │头脑风暴  │    │实施任务  │    │代码质量  │
+    └─────────┘    └─────────┘    └─────────┘
+         │               │               │
+         ▼               ▼               ▼
+    brainstorming  subagent-driven  requesting
+</span></code></pre>
+<p>你不需要记住所有技能名称，只需说出你的需求，Superpowers 会自动选择合适的技能。</p>
+<h5 data-id="heading-53">使用示例：完整工作流</h5>
+<p>假设你要给电商网站添加一个优惠券功能。</p>
+<p><strong>1. 开始头脑风暴</strong></p>
+<pre><code class="hljs language-arduino" lang="arduino"><span class="hljs-string">"我想添加用户优惠券功能"</span>
+</code></pre>
+<p>Superpowers 的 brainstorming 技能会自动启动：</p>
+<ul>
+<li>
+<p><strong>Step 1: 理解项目上下文</strong></p>
+<ul>
+<li>读取 CONSTITUTION.md</li>
+<li>扫描现有代码库</li>
+<li>查看相关文档</li>
+</ul>
+</li>
+<li>
+<p><strong>Step 2: 逐个问题澄清</strong></p>
+<ul>
+<li>"优惠券类型有哪些？百分比折扣还是固定金额？"</li>
+<li>"优惠券可以叠加使用吗？"</li>
+<li>"有使用次数限制吗？"</li>
+</ul>
+</li>
+<li>
+<p><strong>Step 3: 提出方案</strong></p>
+<ul>
+<li>"我建议采用以下方案..."</li>
+<li>"或者另一种方案是..."</li>
+<li>"我的推荐是...，因为..."</li>
+</ul>
+</li>
+<li>
+<p><strong>Step 4: 逐步确认设计</strong></p>
+<ul>
+<li>分节展示设计（每节 200-300 字）</li>
+<li>每节确认是否正确</li>
+<li>不对则回溯修改</li>
+</ul>
+</li>
+<li>
+<p><strong>Step 5: 生成设计文档</strong></p>
+<ul>
+<li>保存到 docs/plans/YYYY-MM-DD-coupon-design.md</li>
+<li>提交到 git</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 子代理驱动开发</strong></p>
+<p>当有明确的实现计划后：</p>
+<pre><code class="hljs language-arduino" lang="arduino"><span class="hljs-string">"帮我实施优惠券功能，按照上面的设计文档"</span>
+</code></pre>
+<p>Superpowers 的 subagent-driven-development 技能会启动：</p>
+<ul>
+<li><strong>提取所有任务到 TodoWrite</strong></li>
+<li><strong>为每个独立任务派发子代理</strong></li>
+</ul>
+<pre><code class="hljs language-markdown" lang="markdown">🤖 Sub-Agent 1: 实现优惠券模型
+<span class="hljs-bullet">   -</span> 编写测试（TDD）
+<span class="hljs-bullet">   -</span> 实现代码
+<span class="hljs-bullet">   -</span> 提交并自审查
+
+🤖 Sub-Agent 2: 实现认证服务
+<span class="hljs-bullet">   -</span> 编写测试（TDD）
+<span class="hljs-bullet">   -</span> 实现代码
+<span class="hljs-bullet">   -</span> 提交并自审查
+
+🤖 Sub-Agent 3: 实现 API 端点
+<span class="hljs-bullet">   -</span> 编写测试（TDD）
+<span class="hljs-bullet">   -</span> 实现代码
+<span class="hljs-bullet">   -</span> 提交并自审查
+
+🤖 Spec Reviewer: 验证是否符合规范
+<span class="hljs-bullet">   -</span> 检查代码是否匹配设计文档
+
+🤖 Code Quality Reviewer: 代码质量审查
+<span class="hljs-bullet">   -</span> 检查代码质量、安全性、性能
+
+📋 标记任务完成
+</code></pre>
+<p><strong>3. 请求代码审查</strong></p>
+<pre><code class="hljs language-arduino" lang="arduino"><span class="hljs-string">"请帮我审查一下这段代码"</span>
+</code></pre>
+<p>Superpowers 的 requesting-code-review 技能会：</p>
+<ul>
+<li>分析代码变更</li>
+<li>从多个角度审查：
+<ul>
+<li>代码质量</li>
+<li>安全性</li>
+<li>性能</li>
+<li>测试覆盖率</li>
+<li>文档完整性</li>
+</ul>
+</li>
+<li>提供具体建议</li>
+<li>使用友好的、建设性的语气</li>
+</ul>
+<p><strong>4. 系统化调试</strong></p>
+<pre><code class="hljs language-arduino" lang="arduino"><span class="hljs-string">"用户登录时出现 500 错误"</span>
+</code></pre>
+<p>Superpowers 的 systematic-debugging 技能会：</p>
+<ul>
+<li>复现问题</li>
+<li>分析相关代码</li>
+<li>定位根本原因</li>
+<li>提出修复方案</li>
+<li>验证修复</li>
+</ul>
+<h6 data-id="heading-54">示例 2：子代理驱动开发</h6>
+<p>当有明确的实现计划后：</p>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 说出：</span>
+<span class="hljs-string">"帮我实施优惠券功能，按照上面的设计文档"</span>
+
+<span class="hljs-comment"># Superpowers 的 subagent-driven-development 技能会启动：</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 📋 Step 1: 读取计划，提取任务</span>
+<span class="hljs-comment"># - 读取设计文档</span>
+<span class="hljs-comment"># - 提取所有任务</span>
+<span class="hljs-comment"># - 创建 TodoWrite 任务列表</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 🤖 Step 2: 对每个任务执行以下循环：</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#    a) 派发实现者子代理</span>
+<span class="hljs-comment">#       "实现优惠券模型"</span>
+<span class="hljs-comment">#       子代理独立工作：实现 + 测试 + 提交 + 自审查</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#    b) 派发规范审查子代理</span>
+<span class="hljs-comment">#       "检查代码是否符合设计文档"</span>
+<span class="hljs-comment">#       如果不符合 -> 返回 a) 修复</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#    c) 派发代码质量审查子代理</span>
+<span class="hljs-comment">#       "检查代码质量、安全性、性能"</span>
+<span class="hljs-comment">#       如果有问题 -> 返回 a) 修复</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#    d) 标记任务完成</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 🔍 Step 3: 重复直到所有任务完成</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># ✅ Step 4: 最终整体审查</span>
+<span class="hljs-comment"># 派发最终代码审查子代理</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 🌳 Step 5: 完成分支</span>
+<span class="hljs-comment"># 使用 finishing-a-development-branch 技能</span>
+</code></pre>
+<h6 data-id="heading-55">示例 3：请求代码审查</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 在提交代码前：</span>
+<span class="hljs-string">"请帮我审查一下这段代码"</span>
+
+<span class="hljs-comment"># Superpowers 的 requesting-code-review 技能会：</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 1. 分析代码变更</span>
+<span class="hljs-comment"># 2. 从多个角度审查：</span>
+<span class="hljs-comment">#    - 代码质量</span>
+<span class="hljs-comment">#    - 安全性</span>
+<span class="hljs-comment">#    - 性能</span>
+<span class="hljs-comment">#    - 测试覆盖率</span>
+<span class="hljs-comment">#    - 文档完整性</span>
+<span class="hljs-comment"># 3. 提供具体建议</span>
+<span class="hljs-comment"># 4. 使用友好的、建设性的语气</span>
+</code></pre>
+<h6 data-id="heading-56">示例 4：使用 Git Worktree 隔离开发</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 在开始新功能开发前：</span>
+<span class="hljs-string">"我要开发优惠券功能，帮我创建一个隔离的工作空间"</span>
+
+<span class="hljs-comment"># Superpowers 的 using-git-worktrees 技能会：</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 1. 检查当前 git 状态</span>
+<span class="hljs-comment"># 2. 创建新分支：feature/coupon-system</span>
+<span class="hljs-comment"># 3. 创建 Git Worktree: .worktrees/feature-coupon-system/</span>
+<span class="hljs-comment"># 4. 更新项目配置（如果需要）</span>
+<span class="hljs-comment"># 5. 切换到新工作空间</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 这样可以：</span>
+<span class="hljs-comment"># - 保持主分支干净</span>
+<span class="hljs-comment"># - 多个功能并行开发互不干扰</span>
+<span class="hljs-comment"># - 快速切换上下文</span>
+</code></pre>
+<h5 data-id="heading-57">技能触发机制</h5>
+<p>Superpowers 的技能会根据上下文自动触发：</p>
+<pre><code class="hljs language-css" lang="css">┌─────────────────────────────────────────────────────────┐
+│              说出你的需求                              │
+└─────────────────────────────────────────────────────────┘
+                        │
+                        ▼
+           ┌────────────────────────┐
+           │  分析请求类型          │
+           └────────────────────────┘
+                        │
+        ┌───────────────┼───────────────┐
+        ▼               ▼               ▼
+   ┌─────────┐    ┌─────────┐    ┌─────────┐
+   │ 新想法   │    │有计划    │    │要审查    │
+   │头脑风暴  │    │实施任务  │    │代码质量  │
+   └─────────┘    └─────────┘    └─────────┘
+        │               │               │
+        ▼               ▼               ▼
+   brainstorming  subagent-driven  requesting
+                  development      <span class="hljs-selector-tag">code</span>-review
+</code></pre>
+<p>你不需要记住所有技能名称，只需说出你的需求，Superpowers 会自动选择合适的技能。</p>
+<h4 data-id="heading-58">3.5 自定义技能</h4>
+<p>你可以创建自己的技能来扩展 Superpowers 的能力。</p>
+<h5 data-id="heading-59">项目级技能</h5>
+<p>在项目的 <code>.opencode/skills/</code> 目录下创建自定义技能：</p>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 创建技能目录</span>
+<span class="hljs-built_in">mkdir</span> -p .opencode/skills/my-custom-skill
+
+<span class="hljs-comment"># 创建技能文件</span>
+<span class="hljs-built_in">cat</span> > .opencode/skills/my-custom-skill/SKILL.md &#x3C;&#x3C; <span class="hljs-string">'EOF'</span>
+---
+name: my-custom-skill
+description: <span class="hljs-string">"Use when [condition] - [what it does]"</span>
+---
+
+<span class="hljs-comment"># My Custom Skill</span>
+
+<span class="hljs-comment">## When to Use</span>
+
+Use this skill when...
+
+<span class="hljs-comment">## The Process</span>
+
+1. First step...
+2. Second step...
+3. Third step...
+
+<span class="hljs-comment">## Key Principles</span>
+
+- Principle 1
+- Principle 2
+EOF
+</code></pre>
+<h5 data-id="heading-60">个人级技能（OpenCode）</h5>
+<p>在 <code>~/.config/opencode/skills/</code> 目录下创建：</p>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-built_in">mkdir</span> -p ~/.config/opencode/skills/my-personal-skill
+
+<span class="hljs-comment"># 创建技能文件</span>
+<span class="hljs-built_in">cat</span> > ~/.config/opencode/skills/my-personal-skill/SKILL.md &#x3C;&#x3C; <span class="hljs-string">'EOF'</span>
+---
+name: my-personal-skill
+description: <span class="hljs-string">"My personal coding preferences"</span>
+---
+
+<span class="hljs-comment"># My Personal Coding Preferences</span>
+
+<span class="hljs-comment">## Code Style</span>
+- Use functional components only (no class components)
+- Prefer `const` over `<span class="hljs-built_in">let</span>`
+- Use named exports, not default exports
+
+<span class="hljs-comment">## Testing</span>
+- Minimum 80% coverage <span class="hljs-keyword">for</span> new code
+- Use React Testing Library, not Enzyme
+- Mock external APIs <span class="hljs-keyword">in</span> tests
+
+<span class="hljs-comment">## Git</span>
+- Use conventional commits
+- Squash before merge
+- No force push to main
+EOF
+</code></pre>
+<h5 data-id="heading-61">技能优先级</h5>
+<p>Superpowers 会按以下优先级加载技能：</p>
+<ol>
+<li><strong>项目级技能</strong>（<code>.opencode/skills/</code>）- 最高优先级</li>
+<li><strong>个人级技能</strong>（<code>~/.config/opencode/skills/</code>）- 中优先级</li>
+<li><strong>Superpowers 技能</strong>（<code>~/.config/opencode/skills/superpowers/</code>）- 默认技能</li>
+</ol>
+<p>这意味着你可以：</p>
+<ul>
+<li>在项目中覆盖默认行为</li>
+<li>为不同项目定制不同的规则</li>
+<li>保持个人编码偏好的一致性</li>
+</ul>
+<h5 data-id="heading-62">实战示例：创建团队技能</h5>
+<p>假设你的团队有特定的数据库规范：</p>
+<pre><code class="hljs language-markdown" lang="markdown">---
+name: team-database-rules
+<span class="hljs-section">description: "Must use for all database operations"
+---</span>
+
+<span class="hljs-section"># Team Database Rules</span>
+
+<span class="hljs-section">## When to Use</span>
+
+Use this skill when:
+<span class="hljs-bullet">-</span> Creating new database models
+<span class="hljs-bullet">-</span> Writing SQL queries
+<span class="hljs-bullet">-</span> Designing database schemas
+<span class="hljs-bullet">-</span> Writing migrations
+
+<span class="hljs-section">## The Process</span>
+
+<span class="hljs-section">### 1. Schema Design</span>
+<span class="hljs-bullet">-</span> Always use snake<span class="hljs-emphasis">_case for column names
+- Include `created_</span>at<span class="hljs-code">` and `</span>updated<span class="hljs-emphasis">_at` timestamps
+- Add appropriate indexes for foreign keys
+
+### 2. Query Writing
+- Use parameterized queries only
+- Never concatenate strings for SQL
+- Add `EXPLAIN` analysis for complex queries
+
+### 3. Migrations
+- Always write rollback migration
+- Test migration on staging first
+- Back up production schema before deploying
+
+## Key Principles
+
+- Performance first: optimize for query speed
+- Safety second: prevent SQL injection
+- Maintainability third: clear naming and documentation
+</span></code></pre>
+<p>将此技能放在 <code>.opencode/skills/team-database-rules/SKILL.md</code>，整个团队都会自动遵守这些规则。</p>
+<hr>
+<h3 data-id="heading-63">四、三者对比分析</h3>
+<h4 data-id="heading-64">4.1 核心对比表</h4>
+<blockquote>
+<p>⚠️ <strong>重要提示</strong>：Spec-Kit 和 OpenSpec 都是"规范驱动开发"（SDD）工具，解决的是<strong>同一个问题</strong>——防止 AI "vibe coding" 导致的实现漂移。两者是<strong>竞争关系</strong>，应该二选一，而不是同时使用。Superpowers 则是<strong>执行方法论</strong>工具，与两者互补。</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度</th><th>Spec-Kit</th><th>OpenSpec</th><th>Superpowers</th></tr></thead><tbody><tr><td><strong>维护方</strong></td><td>GitHub 官方</td><td>Fission-AI</td><td>obra (社区)</td></tr><tr><td><strong>Stars</strong></td><td>69.1k</td><td>23.7k</td><td>50k</td></tr><tr><td><strong>技术栈</strong></td><td>Python (uv)</td><td>TypeScript (npm)</td><td>Markdown + JS Plugin</td></tr><tr><td><strong>工具类型</strong></td><td>🔵 规范管理（SDD）</td><td>🔵 规范管理（SDD）</td><td>🟢 执行方法论</td></tr><tr><td><strong>核心理念</strong></td><td>分阶段规范驱动</td><td>统一真相源 + 增量变更</td><td>TDD + 代码审查</td></tr><tr><td><strong>规范结构</strong></td><td>分散式（每功能独立文件）</td><td>统一式（单一文档）</td><td>无规范管理</td></tr><tr><td><strong>迭代速度</strong></td><td>较慢（严格阶段流程）</td><td>较快（轻量级循环）</td><td>N/A</td></tr><tr><td><strong>适用项目</strong></td><td>新项目 / 复杂系统</td><td>存量项目 / 快速迭代</td><td>所有项目</td></tr><tr><td><strong>与其他工具关系</strong></td><td>⚔️ 与 OpenSpec 竞争</td><td>⚔️ 与 Spec-Kit 竞争</td><td>✅ 与两者互补</td></tr></tbody></table>
+<h4 data-id="heading-65">4.2 工作流对比</h4>
+<blockquote>
+<p>⚠️ <strong>重要提示</strong>：Spec-Kit 和 OpenSpec 的工作流<strong>功能高度重叠</strong>，都是从"意图捕获"到"任务分解"再到"实现"的完整链路。选择其一即可，不建议同时使用。</p>
+</blockquote>
+<pre><code class="hljs language-bash" lang="bash">┌─────────────────────────────────────────────────────────────────────────┐
+│                    SDD 规范管理工具对比（二选一）                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  Spec-Kit 工作流（分阶段、规范驱动、适合新项目）：                        │
+│  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐
+│  │ /specify:  │->│ /specify:  │->│ /specify:  │->│ /specify:  │->│ /specify:  │
+│  │constitution│  │  specify   │  │    plan    │  │   tasks    │  │ implement  │
+│  └────────────┘  └────────────┘  └────────────┘  └────────────┘  └────────────┘
+│       │               │               │               │               │
+│       ▼               ▼               ▼               ▼               ▼
+│   全局宪法        功能规范        技术方案        任务清单        代码实现
+│   (一次性)        (What/Why)      (How/Tech)     (可执行)        (增量)
+│                                                                         │
+│  📁 产出物：.specify/memory/constitution.md + .specify/功能名/           │
+│  🎯 特点：严格阶段流程，每阶段必须完成才能进入下一阶段                     │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  OpenSpec 工作流（灵活循环、存量项目友好）：                              │
+│  ┌────────────┐  ┌────────────┐  ┌────────────┐                        │
+│  │ /opsx:new  │->│/opsx:      │->│ /opsx:apply│                        │
+│  │            │  │  <span class="hljs-built_in">continue</span>  │  │            │                        │
+│  └────────────┘  └────────────┘  └────────────┘                        │
+│       │               │               │                                 │
+│       ▼               ▼               ▼                                 │
+│   创建提案        迭代细化        应用到代码                             │
+│       │                               │                                 │
+│       └───────────────────────────────┼────────> /opsx:archive (归档)  │
+│                                                                         │
+│  📁 产出物：spec.md (统一规范文件) + archived/ (历史归档)               │
+│  🎯 特点：可随时跳转，灵活迭代，单一真相源                               │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    执行方法论工具（与上述任一搭配）                        │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  Superpowers 工作流（TDD 螺旋、AI 执行最佳实践）：                        │
+│                                                                         │
+│            ┌─────────────────────────────────┐                          │
+│            │                                 │                          │
+│            ▼                                 │                          │
+│     ┌─────────┐    ┌─────────┐    ┌─────────┐                          │
+│     │  探索   │ -> │写测试   │ -> │  实现   │                          │
+│     └─────────┘    └─────────┘    └─────────┘                          │
+│                         │              │                                │
+│                         ▼              │                                │
+│                    ┌─────────┐         │                                │
+│                    │运行测试 │ ────────┘                                │
+│                    └─────────┘   失败则迭代                              │
+│                         │                                               │
+│                         ▼ 通过                                          │
+│                    ┌─────────┐                                          │
+│                    │代码审查 │                                          │
+│                    └─────────┘                                          │
+│                                                                         │
+│  🎯 特点：与 SDD 工具正交，专注<span class="hljs-string">"怎么高质量实现"</span>，而非<span class="hljs-string">"实现什么"</span>           │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>关键区别总结</strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度</th><th>Spec-Kit</th><th>OpenSpec</th></tr></thead><tbody><tr><td><strong>规范结构</strong></td><td>分散式（每功能独立目录）</td><td>统一式（单一 spec.md）</td></tr><tr><td><strong>阶段控制</strong></td><td>严格顺序（必须逐阶段推进）</td><td>灵活跳转（可随时切换）</td></tr><tr><td><strong>适合场景</strong></td><td>Greenfield（从零开始）</td><td>Brownfield（存量改造）</td></tr><tr><td><strong>迭代速度</strong></td><td>较慢（完整流程保障质量）</td><td>较快（轻量级快速循环）</td></tr><tr><td><strong>团队规模</strong></td><td>大团队（需要流程规范）</td><td>小团队/个人（灵活优先）</td></tr></tbody></table>
+<h4 data-id="heading-66">4.3 适用场景对比（取舍指南）</h4>
+<blockquote>
+<p>💡 <strong>核心原则</strong>：Spec-Kit 和 OpenSpec <strong>二选一</strong>，再搭配 Superpowers 作为执行方法论。</p>
+</blockquote>
+<h5 data-id="heading-67">选择 Spec-Kit 的场景</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>场景</th><th>为什么选 Spec-Kit</th></tr></thead><tbody><tr><td>🏗️ 新项目从零开始</td><td>分阶段流程确保基础设计不被跳过</td></tr><tr><td>🏦 金融/医疗/合规项目</td><td>严格的阶段文档满足审计要求</td></tr><tr><td>👥 大型团队协作</td><td>阶段门控防止不同成员各自为战</td></tr><tr><td>📋 复杂系统架构</td><td>constitution.md 保证全局一致性</td></tr><tr><td>🎯 需要完整设计文档</td><td>自动生成 specify/plan/tasks 文档链</td></tr></tbody></table>
+<h5 data-id="heading-68">选择 OpenSpec 的场景</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>场景</th><th>为什么选 OpenSpec</th></tr></thead><tbody><tr><td>🔧 存量项目改造</td><td>无需从头建立完整规范体系</td></tr><tr><td>🚀 初创公司快速迭代</td><td>轻量级循环不拖慢开发节奏</td></tr><tr><td>🧪 原型/MVP 开发</td><td>快速验证想法，规范可后补</td></tr><tr><td>👤 个人/小团队项目</td><td>单一 spec.md 便于维护</td></tr><tr><td>🔄 频繁需求变更</td><td>灵活跳转适应变化</td></tr></tbody></table>
+<h5 data-id="heading-69">Superpowers：无论选哪个都要用</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>组合方案</th><th>效果</th></tr></thead><tbody><tr><td><strong>Spec-Kit + Superpowers</strong></td><td>严格规范 + TDD 执行 = 企业级质量保障</td></tr><tr><td><strong>OpenSpec + Superpowers</strong></td><td>灵活规范 + TDD 执行 = 敏捷高质量交付</td></tr><tr><td><strong>仅 Superpowers</strong></td><td>无规范管理，但 AI 执行质量有保障（适合简单任务）</td></tr></tbody></table>
+<h5 data-id="heading-70">❌ 不推荐的组合</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>组合</th><th>为什么不推荐</th></tr></thead><tbody><tr><td>Spec-Kit + OpenSpec</td><td>功能重叠，两套规范系统会造成混乱</td></tr><tr><td>仅 Spec-Kit 或仅 OpenSpec</td><td>缺少执行方法论，AI 可能"乱写代码"</td></tr><tr><td>三者都不用</td><td>"Vibe Coding" 模式，小项目可行，复杂项目必翻车</td></tr></tbody></table>
+<hr>
+<h3 data-id="heading-71">五、协同方案：两种最佳实践路径</h3>
+<blockquote>
+<p>⚠️ <strong>重要</strong>：由于 Spec-Kit 和 OpenSpec 功能重叠，本章提供<strong>两个独立方案</strong>，根据项目情况选择其一。</p>
+</blockquote>
+<h4 data-id="heading-72">5.1 协同架构（二选一）</h4>
+<pre><code class="hljs language-bash" lang="bash">┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   方案 A：Spec-Kit + Superpowers（推荐：新项目、复杂系统、大团队）         │
+│                                                                         │
+│   ┌─────────────────────────────────────────────────────────────────┐   │
+│   │                        规范管理层                                │   │
+│   │                                                                 │   │
+│   │   /specify:constitution  ──────>  .specify/memory/constitution.md│
+│   │          │                                                      │   │
+│   │          ▼                                                      │   │
+│   │   /specify:specify  ────────────>  .specify/功能名/specify.md   │   │
+│   │          │                                                      │   │
+│   │          ▼                                                      │   │
+│   │   /specify:plan  ───────────────>  .specify/功能名/plan.md      │   │
+│   │          │                                                      │   │
+│   │          ▼                                                      │   │
+│   │   /specify:tasks  ──────────────>  .specify/功能名/tasks.md     │   │
+│   │                                                                 │   │
+│   └──────────────────────────────┬──────────────────────────────────┘   │
+│                                  │                                      │
+│                                  ▼                                      │
+│   ┌─────────────────────────────────────────────────────────────────┐   │
+│   │                        执行方法层                                │   │
+│   │                                                                 │   │
+│   │   /specify:implement  ──>  Superpowers TDD Loop                 │   │
+│   │                            │                                    │   │
+│   │                            ├── brainstorm（探索阶段）            │   │
+│   │                            ├── write-tests（先写测试）           │   │
+│   │                            ├── implement（最小实现）             │   │
+│   │                            ├── run-tests（验证通过）             │   │
+│   │                            └── code-review（代码审查）           │   │
+│   │                                                                 │   │
+│   └─────────────────────────────────────────────────────────────────┘   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   方案 B：OpenSpec + Superpowers（推荐：存量项目、快速迭代、小团队）       │
+│                                                                         │
+│   ┌─────────────────────────────────────────────────────────────────┐   │
+│   │                        规范管理层                                │   │
+│   │                                                                 │   │
+│   │   /opsx:new  ─────────────────>  spec.md (创建规范提案)          │   │
+│   │       │                                                         │   │
+│   │       ▼                                                         │   │
+│   │   /opsx:<span class="hljs-built_in">continue</span>  ────────────>  spec.md (迭代细化)              │   │
+│   │       │               ▲                                         │   │
+│   │       │               │ (可多次循环)                             │   │
+│   │       ▼               │                                         │   │
+│   │   /opsx:apply  ───────┴───────>  应用到代码                      │   │
+│   │       │                                                         │   │
+│   │       ▼                                                         │   │
+│   │   /opsx:archive  ─────────────>  archived/xxx.md (归档)          │   │
+│   │                                                                 │   │
+│   └──────────────────────────────┬──────────────────────────────────┘   │
+│                                  │                                      │
+│                                  ▼                                      │
+│   ┌─────────────────────────────────────────────────────────────────┐   │
+│   │                        执行方法层                                │   │
+│   │                                                                 │   │
+│   │   /opsx:apply  ─────────>  Superpowers TDD Loop                 │   │
+│   │                            │                                    │   │
+│   │                            ├── brainstorm（探索阶段）            │   │
+│   │                            ├── write-tests（先写测试）           │   │
+│   │                            ├── implement（最小实现）             │   │
+│   │                            ├── run-tests（验证通过）             │   │
+│   │                            └── code-review（代码审查）           │   │
+│   │                                                                 │   │
+│   └─────────────────────────────────────────────────────────────────┘   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>方案对比</strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度</th><th>方案 A (Spec-Kit + Superpowers)</th><th>方案 B (OpenSpec + Superpowers)</th></tr></thead><tbody><tr><td><strong>启动成本</strong></td><td>较高（需建立 constitution）</td><td>较低（直接 /opsx:new）</td></tr><tr><td><strong>规范严格度</strong></td><td>高（阶段门控）</td><td>中（灵活循环）</td></tr><tr><td><strong>迭代速度</strong></td><td>较慢（完整流程）</td><td>较快（轻量级）</td></tr><tr><td><strong>文档产出</strong></td><td>丰富（多层文档）</td><td>精简（单一 spec.md）</td></tr><tr><td><strong>适合团队</strong></td><td>大团队、跨职能协作</td><td>小团队、个人开发</td></tr><tr><td><strong>适合项目</strong></td><td>新项目、复杂系统</td><td>存量项目、快速验证</td></tr></tbody></table>
+<h4 data-id="heading-73">5.2 实战工作流</h4>
+<p>假设我们要为一个电商项目添加"优惠券系统"。下面分别演示两种方案的完整工作流。</p>
+<hr>
+<h5 data-id="heading-74">🅰️ 方案 A：Spec-Kit + Superpowers（新项目/复杂系统）</h5>
+<p><strong>适用场景</strong>：从零开始的电商项目，需要完整设计文档和严格流程控制。</p>
+<h6 data-id="heading-75">Step 1：建立项目宪法</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 创建项目治理原则（只需执行一次，全项目共享）</span>
+/specify:constitution
+
+<span class="hljs-comment"># AI 会引导你定义：</span>
+<span class="hljs-comment"># - 代码质量标准</span>
+<span class="hljs-comment"># - 测试覆盖要求</span>
+<span class="hljs-comment"># - 安全约束</span>
+<span class="hljs-comment"># - 性能要求</span>
+</code></pre>
+<p>生成的 <code>.specify/memory/constitution.md</code>：</p>
+<pre><code class="hljs language-markdown" lang="markdown"><span class="hljs-section">## Project Constitution</span>
+
+<span class="hljs-section">### Code Quality</span>
+<span class="hljs-bullet">-</span> TypeScript strict mode required
+<span class="hljs-bullet">-</span> No <span class="hljs-code">`any`</span> types allowed
+<span class="hljs-bullet">-</span> 80% test coverage minimum
+
+<span class="hljs-section">### Security</span>
+<span class="hljs-bullet">-</span> All user inputs must be validated
+<span class="hljs-bullet">-</span> Coupon codes case-insensitive, prevent timing attacks
+<span class="hljs-bullet">-</span> Rate limiting on validation endpoints
+
+<span class="hljs-section">### Performance</span>
+<span class="hljs-bullet">-</span> Coupon validation &#x3C; 50ms
+<span class="hljs-bullet">-</span> Use Redis caching for hot paths
+</code></pre>
+<h6 data-id="heading-76">Step 2：定义功能规范</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 定义"做什么"和"为什么"</span>
+/specify:specify Implement a coupon system with creation, validation, 
+and application <span class="hljs-keyword">for</span> the e-commerce platform.
+</code></pre>
+<p>生成的 <code>.specify/coupon-system/specify.md</code>：</p>
+<pre><code class="hljs language-markdown" lang="markdown"><span class="hljs-section">## Coupon System Specification</span>
+
+<span class="hljs-section">### Goal</span>
+Enable promotional discounts through a flexible coupon system.
+
+<span class="hljs-section">### Requirements</span>
+<span class="hljs-bullet">-</span> Create, read, update, delete coupons
+<span class="hljs-bullet">-</span> Validate coupon applicability
+<span class="hljs-bullet">-</span> Apply discount to orders
+<span class="hljs-bullet">-</span> Track usage statistics
+
+<span class="hljs-section">### Constraints</span>
+<span class="hljs-bullet">-</span> Must comply with constitution.md security requirements
+<span class="hljs-bullet">-</span> Coupons cannot be combined unless explicitly allowed
+</code></pre>
+<h6 data-id="heading-77">Step 3：制定技术方案</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 定义"怎么做"</span>
+/specify:plan Use PostgreSQL <span class="hljs-keyword">for</span> storage, Redis <span class="hljs-keyword">for</span> caching.
+REST API with TypeScript/Express.
+</code></pre>
+<p>生成的 <code>.specify/coupon-system/plan.md</code>：</p>
+<pre><code class="hljs language-markdown" lang="markdown"><span class="hljs-section">## Technical Plan</span>
+
+<span class="hljs-section">### Architecture</span>
+<span class="hljs-bullet">-</span> CouponService: Core business logic
+<span class="hljs-bullet">-</span> CouponRepository: PostgreSQL persistence
+<span class="hljs-bullet">-</span> CouponCache: Redis caching layer
+<span class="hljs-bullet">-</span> CouponController: REST API endpoints
+
+<span class="hljs-section">### Data Model</span>
+<span class="hljs-bullet">-</span> coupons table: id, code, discount<span class="hljs-emphasis">_type, value, valid_</span>from, valid<span class="hljs-emphasis">_until
+- coupon_</span>usages table: id, coupon<span class="hljs-emphasis">_id, order_</span>id, used<span class="hljs-emphasis">_at
+</span></code></pre>
+<h6 data-id="heading-78">Step 4：分解任务</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 生成可执行任务清单</span>
+/specify:tasks
+</code></pre>
+<p>生成的 <code>.specify/coupon-system/tasks.md</code>：</p>
+<pre><code class="hljs language-markdown" lang="markdown"><span class="hljs-section">## Implementation Tasks</span>
+
+<span class="hljs-bullet">-</span> [ ] Create Coupon entity and migration
+<span class="hljs-bullet">-</span> [ ] Implement CouponRepository
+<span class="hljs-bullet">-</span> [ ] Implement CouponCache with Redis
+<span class="hljs-bullet">-</span> [ ] Implement CouponService with validation logic
+<span class="hljs-bullet">-</span> [ ] Create REST API endpoints
+<span class="hljs-bullet">-</span> [ ] Add integration tests
+<span class="hljs-bullet">-</span> [ ] Add E2E tests
+</code></pre>
+<h6 data-id="heading-79">Step 5：执行实现（+ Superpowers TDD）</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 开始实现（自动触发 Superpowers TDD 循环）</span>
+/specify:implement
+</code></pre>
+<p><strong>Superpowers 自动介入</strong>：</p>
+<ol>
+<li>
+<p><strong>探索阶段</strong>（brainstorming）</p>
+<ul>
+<li>确认技术方案细节</li>
+<li>识别潜在风险</li>
+</ul>
+</li>
+<li>
+<p><strong>TDD 循环</strong>（每个任务）</p>
+<pre><code class="hljs language-typescript" lang="typescript"><span class="hljs-comment">// 先写测试</span>
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">'CouponService'</span>, <span class="hljs-function">() =></span> {
+  <span class="hljs-title function_">it</span>(<span class="hljs-string">'should validate active coupon'</span>, <span class="hljs-keyword">async</span> () => {
+    <span class="hljs-keyword">const</span> coupon = <span class="hljs-keyword">await</span> <span class="hljs-title function_">createTestCoupon</span>({ <span class="hljs-attr">code</span>: <span class="hljs-string">'TEST20'</span> });
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> couponService.<span class="hljs-title function_">validate</span>(<span class="hljs-string">'TEST20'</span>);
+    <span class="hljs-title function_">expect</span>(result.<span class="hljs-property">valid</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>);
+  });
+
+  <span class="hljs-title function_">it</span>(<span class="hljs-string">'should reject expired coupon'</span>, <span class="hljs-keyword">async</span> () => {
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> couponService.<span class="hljs-title function_">validate</span>(<span class="hljs-string">'EXPIRED'</span>);
+    <span class="hljs-title function_">expect</span>(result.<span class="hljs-property">valid</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">false</span>);
+    <span class="hljs-title function_">expect</span>(result.<span class="hljs-property">reason</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-string">'COUPON_EXPIRED'</span>);
+  });
+});
+
+<span class="hljs-comment">// 再写实现</span>
+<span class="hljs-comment">// 运行测试验证</span>
+</code></pre>
+</li>
+<li>
+<p><strong>代码审查</strong>（code-review）</p>
+<ul>
+<li>检查是否符合 constitution.md 约束</li>
+<li>验证测试覆盖率</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h5 data-id="heading-80">🅱️ 方案 B：OpenSpec + Superpowers（存量项目/快速迭代）</h5>
+<p><strong>适用场景</strong>：已有电商项目，需要快速添加优惠券功能，不需要完整设计文档。</p>
+<h6 data-id="heading-81">Step 1：创建规范提案</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 快速创建功能提案</span>
+/opsx:new Add coupon system with percentage and fixed discounts
+</code></pre>
+<p>生成的 <code>spec.md</code>：</p>
+<pre><code class="hljs language-markdown" lang="markdown"><span class="hljs-section"># Coupon System Proposal</span>
+
+<span class="hljs-section">## Summary</span>
+Add promotional coupon functionality to existing e-commerce platform.
+
+<span class="hljs-section">## Scope</span>
+<span class="hljs-bullet">-</span> Coupon CRUD operations
+<span class="hljs-bullet">-</span> Validation logic
+<span class="hljs-bullet">-</span> Order integration
+
+<span class="hljs-section">## Out of Scope</span>
+<span class="hljs-bullet">-</span> Complex stacking rules (future iteration)
+<span class="hljs-bullet">-</span> A/B testing integration
+</code></pre>
+<h6 data-id="heading-82">Step 2：迭代细化</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 根据反馈迭代规范</span>
+/opsx:<span class="hljs-built_in">continue</span> Add Redis caching requirement and rate limiting
+</code></pre>
+<p>更新后的 <code>spec.md</code>：</p>
+<pre><code class="hljs language-markdown" lang="markdown"><span class="hljs-section"># Coupon System Proposal</span>
+
+<span class="hljs-section">## Summary</span>
+Add promotional coupon functionality to existing e-commerce platform.
+
+<span class="hljs-section">## Technical Decisions</span>
+<span class="hljs-bullet">-</span> Use existing PostgreSQL for storage
+<span class="hljs-bullet">-</span> Add Redis caching for validation performance
+<span class="hljs-bullet">-</span> Rate limit: 10 validations/minute per user
+
+<span class="hljs-section">## Implementation Notes</span>
+<span class="hljs-bullet">-</span> Reuse existing validation middleware
+<span class="hljs-bullet">-</span> Follow current API conventions (REST, JSON responses)
+</code></pre>
+<h6 data-id="heading-83">Step 3：应用到代码（+ Superpowers TDD）</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 开始实现</span>
+/opsx:apply
+</code></pre>
+<p><strong>Superpowers 自动介入</strong>（与方案 A 相同的 TDD 循环）：</p>
+<ol>
+<li><strong>探索阶段</strong> → 确认现有代码结构</li>
+<li><strong>TDD 循环</strong> → 先写测试，再实现</li>
+<li><strong>代码审查</strong> → 确保符合现有代码风格</li>
+</ol>
+<h6 data-id="heading-84">Step 4：归档</h6>
+<pre><code class="hljs language-bash" lang="bash"><span class="hljs-comment"># 功能完成后归档</span>
+/opsx:archive
+</code></pre>
+<p><code>spec.md</code> 移动到 <code>archived/coupon-system-2024-01.md</code>。</p>
+<hr>
+<h5 data-id="heading-85">两种方案对比总结</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>步骤</th><th>方案 A (Spec-Kit)</th><th>方案 B (OpenSpec)</th></tr></thead><tbody><tr><td>建立全局规范</td><td>✅ constitution</td><td>❌ 跳过</td></tr><tr><td>功能定义</td><td>specify (详细)</td><td>new (简洁)</td></tr><tr><td>技术方案</td><td>plan (独立文档)</td><td>continue (迭代到同一文件)</td></tr><tr><td>任务分解</td><td>tasks (自动生成)</td><td>apply 时自动分解</td></tr><tr><td>执行实现</td><td>implement + Superpowers</td><td>apply + Superpowers</td></tr><tr><td>归档</td><td>文档保留在 .specify/</td><td>archive 到历史目录</td></tr><tr><td><strong>总耗时</strong></td><td>较长（完整流程）</td><td>较短（快速循环）</td></tr><tr><td><strong>文档质量</strong></td><td>高（多层结构化文档）</td><td>中（单一迭代文档）</td></tr></tbody></table>
+<h4 data-id="heading-86">5.3 配置集成</h4>
+<p>根据你选择的方案，配置相应的 Claude Rules 文件：</p>
+<h5 data-id="heading-87">方案 A 配置：Spec-Kit + Superpowers</h5>
+<pre><code class="hljs language-markdown" lang="markdown">&#x3C;!-- ~/.claude/rules/spec-kit-integration.md -->
+
+<span class="hljs-section"># Spec-Kit + Superpowers Integration</span>
+
+<span class="hljs-section">## Before Any Implementation Work</span>
+
+<span class="hljs-bullet">1.</span> ALWAYS check <span class="hljs-code">`.specify/memory/constitution.md`</span> for global constraints
+<span class="hljs-bullet">2.</span> Read the current feature's spec files in <span class="hljs-code">`.specify/&#x3C;feature>/`</span>
+<span class="hljs-bullet">3.</span> Verify all tasks in <span class="hljs-code">`tasks.md`</span> before starting
+
+<span class="hljs-section">## During Implementation</span>
+
+<span class="hljs-bullet">1.</span> Follow Superpowers TDD workflow for each task:
+<span class="hljs-bullet">   -</span> brainstorm → write-tests → implement → run-tests → code-review
+<span class="hljs-bullet">2.</span> Ensure all CONSTITUTION constraints are met
+<span class="hljs-bullet">3.</span> Update implementation notes in relevant spec files
+
+<span class="hljs-section">## After Implementation</span>
+
+<span class="hljs-bullet">1.</span> Run Superpowers code review
+<span class="hljs-bullet">2.</span> Verify against spec acceptance criteria
+<span class="hljs-bullet">3.</span> Mark completed tasks in <span class="hljs-code">`.specify/&#x3C;feature>/tasks.md`</span>
+
+<span class="hljs-section">## ⚠️ Do NOT</span>
+
+<span class="hljs-bullet">-</span> Skip the specification phase
+<span class="hljs-bullet">-</span> Implement without checking constitution.md
+<span class="hljs-bullet">-</span> Merge code that violates defined constraints
+</code></pre>
+<h5 data-id="heading-88">方案 B 配置：OpenSpec + Superpowers</h5>
+<pre><code class="hljs language-markdown" lang="markdown">&#x3C;!-- ~/.claude/rules/openspec-integration.md -->
+
+<span class="hljs-section"># OpenSpec + Superpowers Integration</span>
+
+<span class="hljs-section">## Before Any Implementation Work</span>
+
+<span class="hljs-bullet">1.</span> Check if active <span class="hljs-code">`spec.md`</span> exists
+<span class="hljs-bullet">2.</span> If not, create one with <span class="hljs-code">`/opsx:new`</span>
+<span class="hljs-bullet">3.</span> Review <span class="hljs-code">`archived/`</span> for similar past implementations
+
+<span class="hljs-section">## During Implementation</span>
+
+<span class="hljs-bullet">1.</span> Follow Superpowers TDD workflow:
+<span class="hljs-bullet">   -</span> brainstorm → write-tests → implement → run-tests → code-review
+<span class="hljs-bullet">2.</span> Update <span class="hljs-code">`spec.md`</span> with implementation decisions using <span class="hljs-code">`/opsx:continue`</span>
+<span class="hljs-bullet">3.</span> Keep spec in sync with actual implementation
+
+<span class="hljs-section">## After Implementation</span>
+
+<span class="hljs-bullet">1.</span> Run Superpowers code review
+<span class="hljs-bullet">2.</span> Archive completed spec with <span class="hljs-code">`/opsx:archive`</span>
+<span class="hljs-bullet">3.</span> Document learnings for future reference
+
+<span class="hljs-section">## ⚠️ Do NOT</span>
+
+<span class="hljs-bullet">-</span> Implement without a spec.md
+<span class="hljs-bullet">-</span> Let spec.md drift from actual implementation
+<span class="hljs-bullet">-</span> Skip the archive step after completion
+</code></pre>
+<h5 data-id="heading-89">Superpowers 通用配置（两种方案都需要）</h5>
+<pre><code class="hljs language-markdown" lang="markdown">&#x3C;!-- ~/.claude/rules/superpowers-config.md -->
+
+<span class="hljs-section"># Superpowers TDD Configuration</span>
+
+<span class="hljs-section">## Mandatory Workflow</span>
+
+For EVERY implementation task:
+
+<span class="hljs-bullet">1.</span> <span class="hljs-strong">**Exploration First**</span>
+<span class="hljs-bullet">   -</span> Run brainstorming skill before coding
+<span class="hljs-bullet">   -</span> Understand existing codebase patterns
+<span class="hljs-bullet">   -</span> Identify potential conflicts
+
+<span class="hljs-bullet">2.</span> <span class="hljs-strong">**TDD Cycle**</span>
+<span class="hljs-bullet">   -</span> Write failing test FIRST
+<span class="hljs-bullet">   -</span> Implement minimum code to pass
+<span class="hljs-bullet">   -</span> Refactor if needed
+<span class="hljs-bullet">   -</span> Target 80%+ coverage
+
+<span class="hljs-bullet">3.</span> <span class="hljs-strong">**Code Review**</span>
+<span class="hljs-bullet">   -</span> Run code-review skill after implementation
+<span class="hljs-bullet">   -</span> Address all CRITICAL and HIGH issues
+<span class="hljs-bullet">   -</span> Document any accepted MEDIUM issues
+
+<span class="hljs-section">## Quality Gates</span>
+
+<span class="hljs-bullet">-</span> [ ] All tests passing
+<span class="hljs-bullet">-</span> [ ] No TypeScript errors
+<span class="hljs-bullet">-</span> [ ] Code review completed
+<span class="hljs-bullet">-</span> [ ] Spec/spec.md updated
+</code></pre>
+<hr>
+<h3 data-id="heading-90">六、总结与建议</h3>
+<h4 data-id="heading-91">6.1 工具选择指南（决策树）</h4>
+<pre><code class="hljs language-erlang" lang="erlang">┌─────────────────────────────────────────────────────────────────────────┐
+│                          选择你的工具组合                                │
+└─────────────────────────────────────────────────────────────────────────┘
+
+你的项目是...
+
+├─ 🆕 新项目（Greenfield）
+│   │
+│   ├─ 大型/复杂系统？
+│   │   └─ ✅ Spec-Kit + Superpowers
+│   │      • 完整阶段流程保障设计质量
+│   │      • constitution.md 确保全局一致性
+│   │      • 适合：企业应用、金融系统、医疗软件
+│   │
+│   └─ 小型/简单项目？
+│       └─ ✅ OpenSpec + Superpowers
+│          • 快速启动，无需复杂前置工作
+│          • 单一 spec.md 够用
+│          • 适合：MVP、原型、个人项目
+│
+├─ 🔧 存量项目（Brownfield）
+│   └─ ✅ OpenSpec + Superpowers
+│      • 无需重建规范体系
+│      • 灵活迭代适应现有架构
+│      • 适合：功能迭代、重构、bug 修复
+│
+├─ ⚡ 简单任务/一次性脚本
+│   └─ ✅ 仅 Superpowers
+│      • 零配置，即插即用
+│      • TDD 保证代码质量
+│      • 适合：工具脚本、简单自动化
+│
+└─ ❌ 不推荐的选择
+    ├─ Spec-Kit + OpenSpec（功能重叠，两套规范会混乱）
+    ├─ 仅 Spec-Kit/OpenSpec（缺少执行方法论）
+    └─ 三者都不用（<span class="hljs-string">"Vibe Coding"</span>，复杂项目必翻车）
+</code></pre>
+<h4 data-id="heading-92">6.2 核心洞察：理解工具定位</h4>
+<pre><code class="hljs language-arduino" lang="arduino">┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   ❓ 解决什么问题？                                                      │
+│                                                                         │
+│   ┌───────────────────────────────────────────────────────────────┐    │
+│   │  Spec-Kit / OpenSpec                                          │    │
+│   │  ────────────────────                                         │    │
+│   │  解决：<span class="hljs-string">"实现什么"</span>（WHAT）                                      │    │
+│   │  • 防止 AI <span class="hljs-string">"Vibe Coding"</span>（凭感觉乱写）                         │    │
+│   │  • 确保实现符合设计意图                                        │    │
+│   │  • 提供可追溯的决策文档                                        │    │
+│   │                                                               │    │
+│   │  ⚠️ 两者是竞争关系，解决同一个问题，选其一即可                  │    │
+│   └───────────────────────────────────────────────────────────────┘    │
+│                                                                         │
+│   ┌───────────────────────────────────────────────────────────────┐    │
+│   │  Superpowers                                                  │    │
+│   │  ───────────                                                  │    │
+│   │  解决：<span class="hljs-string">"怎么高质量实现"</span>（HOW）                                  │    │
+│   │  • 强制 TDD 确保代码可测试                                     │    │
+│   │  • 代码审查防止低级错误                                        │    │
+│   │  • 子代理分解复杂任务                                          │    │
+│   │                                                               │    │
+│   │  ✅ 与 Spec-Kit/OpenSpec 正交，互补而非竞争                    │    │
+│   └───────────────────────────────────────────────────────────────┘    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h4 data-id="heading-93">6.3 学习路径建议</h4>
+<pre><code class="hljs language-sql" lang="sql">阶段 <span class="hljs-number">1</span>：立即提升（<span class="hljs-keyword">Day</span> <span class="hljs-number">1</span>）
+─────────────────────
+└─ 安装 Superpowers
+   • 零配置，<span class="hljs-number">5</span> 分钟上手
+   • 立即体验 TDD 和代码审查
+   • 即使不用规范工具也能提升 AI 输出质量
+
+阶段 <span class="hljs-number">2</span>：规范入门（Week <span class="hljs-number">1</span>）
+─────────────────────
+└─ 选择并学习一个 SDD 工具
+   ├─ 新项目<span class="hljs-operator">/</span>严格要求 → Spec<span class="hljs-operator">-</span>Kit
+   └─ 存量项目<span class="hljs-operator">/</span>灵活迭代 → OpenSpec
+   
+   • 在一个真实项目中完整走一遍流程
+   • 理解"规范先行"的价值
+
+阶段 <span class="hljs-number">3</span>：形成习惯（<span class="hljs-keyword">Month</span> <span class="hljs-number">1</span>）
+─────────────────────
+└─ 建立个人<span class="hljs-operator">/</span>团队工作流
+   • 配置 Claude Rules 自动化流程
+   • 积累项目特定的 constitution<span class="hljs-operator">/</span>spec 模板
+   • 从被动使用到主动依赖
+</code></pre>
+<h4 data-id="heading-94">6.4 常见误区</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>误区</th><th>正确认识</th></tr></thead><tbody><tr><td>"三个工具一起用效果最好"</td><td>❌ Spec-Kit 和 OpenSpec 功能重叠，同时用会造成混乱</td></tr><tr><td>"规范工具会拖慢开发速度"</td><td>✅ 前期投入换来后期少返工，复杂项目 ROI 极高</td></tr><tr><td>"简单项目不需要规范"</td><td>⚠️ 取决于"简单"的定义，Superpowers 单独用也行</td></tr><tr><td>"AI 够聪明不需要约束"</td><td>❌ AI 会"Vibe Coding"，规范是防止漂移的护栏</td></tr></tbody></table>
+<h4 data-id="heading-95">6.5 未来展望</h4>
+<p>AI 编程工具正在从"代码补全"向"自主工程"演进。</p>
+<p><strong>当前阶段</strong>：我们需要 Spec-Kit/OpenSpec 这样的规范工具来"约束" AI，防止它凭感觉乱写代码。Superpowers 这样的方法论工具确保 AI 按照工程最佳实践执行。</p>
+<p><strong>未来趋势</strong>：</p>
+<ul>
+<li><strong>规范工具会趋同</strong>：Spec-Kit 和 OpenSpec 解决同一问题，未来可能合并或出现更优方案</li>
+<li><strong>执行方法论会内化</strong>：TDD、代码审查等实践可能被 AI 原生支持</li>
+<li><strong>人机协作会深化</strong>：从"人写规范，AI 执行"到"人审批，AI 全程"</li>
+</ul>
+<p><strong>现在开始的意义</strong>：</p>
+<ul>
+<li>培养"规范驱动"的思维习惯</li>
+<li>积累与 AI 高效协作的经验</li>
+<li>为更自主的 AI 工程时代做准备</li>
+</ul>
+<blockquote>
+<p>💡 <strong>核心理念</strong>：让 AI 成为可靠的工程伙伴，而非需要时刻看管的实习生。</p>
+</blockquote>
+<h3 data-id="heading-96">参考资源</h3>
+<h4 data-id="heading-97">官方资源</h4>
+<ul>
+<li><a href="https://github.com/github/spec-kit" target="_blank" title="https://github.com/github/spec-kit">Spec-Kit GitHub</a></li>
+<li><a href="https://github.com/Fission-AI/OpenSpec" target="_blank" title="https://github.com/Fission-AI/OpenSpec">OpenSpec GitHub</a></li>
+<li><a href="https://github.com/obra/superpowers" target="_blank" title="https://github.com/obra/superpowers">Superpowers GitHub</a></li>
+<li><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" target="_blank" title="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Blog: Spec-Driven Development</a></li>
+</ul>
+<h4 data-id="heading-98">深度对比分析</h4>
+<ul>
+<li><a href="https://intent-driven.dev/knowledge/spec-kit-vs-openspec/" target="_blank" title="https://intent-driven.dev/knowledge/spec-kit-vs-openspec/">Spec-Kit vs OpenSpec 深度对比</a> - 🌟 推荐阅读，本文核心观点来源</li>
+<li><a href="https://hashrocket.com/blog/posts/openspec-vs-spec-kit-choosing-the-right-ai-driven-development-workflow-for-your-team" target="_blank" title="https://hashrocket.com/blog/posts/openspec-vs-spec-kit-choosing-the-right-ai-driven-development-workflow-for-your-team">OpenSpec vs Spec Kit: Hashrocket 对比</a></li>
+</ul>
+<h4 data-id="heading-99">入门教程</h4>
+<ul>
+<li><a href="https://rexai.top/posts/claude-code-superpowers-beginner-guide/" target="_blank" title="https://rexai.top/posts/claude-code-superpowers-beginner-guide/">Superpowers 入门指南</a></li>
+<li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/opsx.md" target="_blank" title="https://github.com/Fission-AI/OpenSpec/blob/main/docs/opsx.md">OpenSpec OPSX 工作流文档</a></li>
+<li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/cli.md" target="_blank" title="https://github.com/Fission-AI/OpenSpec/blob/main/docs/cli.md">OpenSpec CLI 文档</a></li>
+<li><a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/supported-tools.md" target="_blank" title="https://github.com/Fission-AI/OpenSpec/blob/main/docs/supported-tools.md">OpenSpec Supported Tools 文档</a></li>
+<li><a href="https://github.com/obra/superpowers/blob/main/.opencode/INSTALL.md" target="_blank" title="https://github.com/obra/superpowers/blob/main/.opencode/INSTALL.md">Superpowers OpenCode 安装文档</a></li>
+</ul>
+<blockquote>
+<p>如果这篇文章对你有帮助，欢迎点赞、收藏、关注！有问题欢迎在评论区讨论 🚀</p>
+</blockquote>
+  </div>
+</article>
+</body>
+</html>

@@ -2,6 +2,13 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-05-15] ingest | AI 编程三剑客：Spec-Kit、OpenSpec、Superpowers 深度对比与实战指南
+- created `ai-agent/spec-kit` — GitHub 官方 SDD 框架，wiki 此前完全缺失 Spec-Kit
+- created `ai-agent/ai-programming-tools-comparison` — 三剑客全面对比，含决策树与协同方案
+- updated `ai-agent/superpowers-framework` — 补充安装步骤、技能触发机制、自定义技能、Spec-Kit 交叉引用
+- updated `ai-agent/sdd-openspec-superpowers` — 纳入 Spec-Kit 三维视角，更新交叉引用
+- updated `ai-agent/superpowers-vs-openspec` — 从"双语切换"升级为"多模式切换"，新增 Spec-Kit 维度
+
 ## [2026-05-15] ingest | 开源AI编程工具对决——Superpowers技能库与OpenSpec规范驱动
 - created `ai-agent/superpowers-vs-openspec` — 个体效率 vs 团队一致性的哲学层面对比
 - updated `ai-agent/sdd-openspec-superpowers` — 增加哲学层面分析和场景选择指南
