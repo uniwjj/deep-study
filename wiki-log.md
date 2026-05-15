@@ -2,6 +2,12 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-05-15] ingest | 开源AI编程工具对决——Superpowers技能库与OpenSpec规范驱动
+- created `ai-agent/superpowers-vs-openspec` — 个体效率 vs 团队一致性的哲学层面对比
+- updated `ai-agent/sdd-openspec-superpowers` — 增加哲学层面分析和场景选择指南
+- updated `ai-agent/superpowers-framework` — 补充适用场景说明和交叉引用
+- updated `ai-agent/openspec-sdd-practice` — 补充适用场景说明和交叉引用
+
 ## [2026-05-14] ingest | 创建 dataagent-semantic-layer（DataAgent 语义层分析）
 ## [2026-05-13] lint --fix | 知识库深度检查与优化
 - fixed 11 页面 status: draft → tags draft（agent-architecture-patterns/agent-harness/agent-mcp-protocol/agent-multi-agent-collaboration/agent-skills-system/agent-tdd-workflow/claude-code/llm-wiki/token-consumption-economics/learning-path/tech-radar）

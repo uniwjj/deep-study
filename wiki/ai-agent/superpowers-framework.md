@@ -69,8 +69,13 @@ RED-GREEN-REFACTOR 是工作流的一部分而非建议：
 
 > "Superpowers 不是让 AI 更炫，而是让 AI 更像一个能长期合作的工程师。"
 
+## 适用场景
+
+Superpowers 强调**个体赋能**，适合快速原型、个人项目和探索性开发。在需要团队一致性的场景中，需搭配 [[openspec-sdd-practice]] 或参考 [[superpowers-vs-openspec]] 选择框架。
+
 ## 相关页面
 
+- [[superpowers-vs-openspec]] — Superpowers vs OpenSpec 哲学对比
 - [[agent-tdd-workflow]] — Agent TDD 开发流程
 - [[sdd-openspec-superpowers]] — SDD 规范驱动开发
 - [[agent-skills-system]] — Agent Skills 能力体系

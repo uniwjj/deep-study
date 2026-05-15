@@ -57,8 +57,13 @@ THEN workflow is saved AND audit log created
 
 SDD 本质是 **Harness Engineering**：让 AI 跑在正确的马路上，并由人牵着这匹马。
 
+## 适用场景
+
+OpenSpec 强调**团队治理**，适合 Brownfield 项目、多人协作和需要严格审计的场景。探索性项目可先参考 [[superpowers-vs-openspec]] 对比选择。
+
 ## 相关页面
 
+- [[superpowers-vs-openspec]] — Superpowers vs OpenSpec 哲学对比
 - [[progressive-spec-methodology]] — 渐进式 Spec 方法论
 - [[superpowers-framework]] — Superpowers 框架
 - [[agent-tdd-workflow]] — TDD 工作流
