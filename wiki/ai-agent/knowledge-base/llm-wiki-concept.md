@@ -3,9 +3,9 @@ title: LLM Wiki 概念
 description: Andrej Karpathy 的 LLM Wiki 方案——三层架构（Raw→Wiki→Schema）、三操作（Ingest/Query/Lint），从检索到积累的范式转移
 aliases: [LLM Wiki, Karpathy LLM Wiki, 编译式知识库]
 tags: [ai-agent, concept, architecture]
-sources: [2026/04/06/Karpathy LLM Wiki颠覆RAG.md]
+sources: [2026/04/06/Karpathy LLM Wiki颠覆RAG.md, 2026/07/03/三代知识检索范式-RAG-GraphRAG-LLM-Wiki.html]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-03
 ---
 
 # LLM Wiki 概念
@@ -39,6 +39,13 @@ LLM 搜索页面 → 阅读 → 综合答案。**关键**：好答案可回填�
 ### Lint（检查）
 定期体检：页面矛盾、过时声明、孤儿页面、缺失交叉引用、数据空白。
 
+## Adaptive RAG：按查询类型路由
+
+LLM Wiki 支持根据查询类型动态决定回答方式（来自 [[knowledge-retrieval-paradigms|三代范式]]文章）：
+- **事实型查询**（"某模型参数量是多少"）：直接查 Wiki 页面
+- **推理型查询**（"为什么 MoE 比 Dense 更适合超大参数模型"）：读多个相关 Wiki 页，让 LLM 在页面内容基础上推理综合
+- **探索型查询**（"梳理当前 RAG 主要流派"）：先扩充 Wiki，再基于丰富内容回答
+
 ## 两个特殊文件
 
 - **index.md**：目录索引，每页链接+摘要+元数据。中等规模（~100 来源、几百页）下不需要 embedding RAG
@@ -65,6 +72,7 @@ AGENTS.md、MEMORY.md、memory/ 目录本质上就是 LLM Wiki 模式的雏形�
 
 - [[knowledge-base-karpathy-practice]] — Karpathy 知识库实操指南
 - [[knowledge-base-karpathy-guide]] — 四步法教程
+- [[knowledge-retrieval-paradigms]] — 三代范式对比（RAG/GraphRAG/LLM Wiki）
 - [[obsidian-second-brain]] — Obsidian 第二大脑
 - [[obsidian-claudian]] — Obsidian + Claude Code
 - [[bookrag]] — BookRAG

@@ -886,3 +886,14 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - **特例**：经用户批准，在原文 .md frontmatter 加 `zh_cn_summary` 字段指向中文总结——违反 sources 不可变规则（CLAUDE.md 规则 2），此篇为唯一例外，不作为先例
 - 中文总结 frontmatter 标 `type: zh-cn-summary`、`source:` 指回原文，避免被 CLI 误当待摄取来源
 - 已跑 `llm-wiki sync`：Added 1 / Modified 1，状态干净
+
+## [2026-07-03] ingest | 三代知识检索范式：RAG/GraphRAG/LLM Wiki（今日头条）
+- 来源：今日头条文章《三代知识检索范式：RAG/GraphRAG/LLM Wiki，检索解决不了理解的问题》，作者「科技风向标」，2026-07-02；原始 HTML 存 `sources/2026/07/03/三代知识检索范式-RAG-GraphRAG-LLM-Wiki.html` + .md sidecar
+- 下载流程：web_fetch 遭反爬拦截 → Chrome headless 渲染成功 → 剥离外壳、修正 6 张图、还原跳转链 → 自包含 HTML
+- created `knowledge-retrieval-paradigms` — 三代范式对比（解释器/图谱/编译器），含核心差异表、成本参考、选型建议、幻觉回写/信息丢失风险
+- created `graphrag` — 第二代 GraphRAG/LightRAG/nano-graphrag 概念页（实体抽取、多跳推理、LightRAG 延迟降 10-100x）
+- created `storm` — STORM 主动研究模式（stanford-oval/storm）
+- created `mem0` — 记忆层（mem0ai/mem0），管"关于你的知识"
+- updated `llm-wiki-concept` — 补充 Adaptive RAG 查询路由（事实/推理/探索三类）
+- updated `rag-vs-llm-wiki` — 加交叉引用到新对比页与 GraphRAG
+- updated `index.md` — 重排为范式总览/LLM Wiki/GraphRAG与记忆，页数 12→16

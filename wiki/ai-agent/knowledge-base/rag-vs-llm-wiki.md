@@ -3,9 +3,9 @@ title: RAG vs LLM Wiki
 description: Karpathy 用 LLM Wiki 终结 RAG——将原始数据视为源代码，LLM 充当编译器，Wiki 是可执行产物。三个极简组件替代复杂 RAG 架构
 aliases: [RAG对比, LLM Wiki vs RAG]
 tags: [ai-agent, concept, comparison]
-sources: [2026/04/07/Karpathy终结RAG草莽时代.md]
+sources: [2026/04/07/Karpathy终结RAG草莽时代.md, 2026/07/03/三代知识检索范式-RAG-GraphRAG-LLM-Wiki.html]
 created: 2026-05-09
-updated: 2026-05-18
+updated: 2026-07-03
 ---
 
 # RAG vs LLM Wiki
@@ -61,5 +61,7 @@ updated: 2026-05-18
 
 ## 相关页面
 
+- [[knowledge-retrieval-paradigms]] — 三代范式对比（RAG/GraphRAG/LLM Wiki，含选型与成本）
 - [[llm-wiki-concept]] — LLM Wiki 核心概念
+- [[graphrag]] — 第二代 GraphRAG / LightRAG
 - [[bookrag]] — 结构感知 RAG 方案

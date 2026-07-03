@@ -5,12 +5,17 @@ aliases: [knowledge-base, 知识库索引]
 tags: [ai-agent, meta, summary]
 sources: [2026/05/10/lint-stub.md]
 created: 2026-05-18
-updated: 2026-05-18
+updated: 2026-07-03
 ---
 
 # 知识库与 RAG
 
-AI 驱动的知识库方案与 RAG 技术，共 12 篇。
+AI 驱动的知识库方案与 RAG 技术，共 16 篇。
+
+## 范式总览
+
+- [[knowledge-retrieval-paradigms]] — 知识检索三代范式（RAG/GraphRAG/LLM Wiki）
+- [[rag-vs-llm-wiki]] — RAG vs LLM Wiki 对比（Karpathy 五代演进视角）
 
 ## LLM Wiki 体系
 
@@ -19,7 +24,12 @@ AI 驱动的知识库方案与 RAG 技术，共 12 篇。
 - [[llm-wiki-implementations]] — 开源实现对比
 - [[llm-wiki-applications]] — 应用场景
 - [[llm-wiki]] — LLM Wiki 总览
-- [[rag-vs-llm-wiki]] — RAG vs LLM Wiki 对比
+
+## GraphRAG 与记忆
+
+- [[graphrag]] — 第二代 GraphRAG / LightRAG
+- [[storm]] — STORM 主动研究模式
+- [[mem0]] — 记忆层
 
 ## Karpathy 实践
 
