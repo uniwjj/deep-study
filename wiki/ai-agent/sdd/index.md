@@ -5,7 +5,7 @@ aliases: [sdd, 规范驱动开发]
 tags: [ai-agent, meta, summary]
 sources: [2026/05/10/lint-stub.md]
 created: 2026-05-18
-updated: 2026-06-17
+updated: 2026-07-07
 ---
 
 # SDD 规范驱动开发
@@ -35,7 +35,14 @@ updated: 2026-06-17
 
 ## 自定义工作流
 
-- [[sdd-custom-workflow]] — 自定义 SDD 工作流
+- [[sdd-custom-workflow]] — 自定义 SDD 工作流（薄编排）
+
+## Comet 整合架构
+
+- [[comet-integration-architecture]] — Comet 双星整合架构总览
+- [[comet-gating-system]] — 三层门控体系（硬门控/阶段守卫/软门控）
+- [[comet-workflow-phases]] — 五阶段工作流与 8 个 SKILL 详解
+- [[comet-codegraph-integration]] — CodeGraph MCP 代码智能引擎
 
 ## OpenSpec Schema 深度拆解
 

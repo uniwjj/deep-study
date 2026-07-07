@@ -2,6 +2,16 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-07-07] ingest | Comet整合OpenSpec与Superpowers详解
+
+- created `comet-integration-architecture.md` — Comet 双星整合架构总览：五维整合、.comet.yaml 状态机、预设路径、SDD 设计启示
+- created `comet-gating-system.md` — 三层门控体系：硬门控（PreToolUse Hook）、阶段守卫（comet-guard.sh）、软门控（Rule 注入）
+- created `comet-workflow-phases.md` — 五阶段工作流：8 个 SKILL.md 详解、审查模式三级、衔接协议
+- created `comet-codegraph-integration.md` — CodeGraph MCP 在 design/build/verify 阶段的代码智能引擎角色
+- updated `index.md` — 新增 Comet 整合架构章节
+- updated `sdd-custom-workflow.md` — 添加 Comet 交叉引用（替代/互补方案）
+- saved `sources/2026/07/07/Comet整合OpenSpec与Superpowers详解.md` — 原始 Markdown（85KB）
+
 ## [2026-06-29] ingest | OceanBase 湖库一体 AI 数据库正式发布 + 页面优化
 
 - created `big-data/oceanbase-ai-database.md` — OceanBase 2026-06-29 发布会：湖库一体架构、Lakebase/DataStudio/DataPilot 三大产品、多模表+AI列、Agent友好上下文工程、四条工程底线、三大落地场景

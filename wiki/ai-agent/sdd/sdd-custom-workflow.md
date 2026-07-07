@@ -5,7 +5,7 @@ aliases: [sdd-workflow, SDD 工作流, 薄编排, thin orchestration, Action Not
 tags: [ai-agent, practice, architecture]
 sources: [2026/05/17/SDD 实践：OpenSpec + Superpowers 整合创建自定义工作流.html]
 created: 2026-05-17
-updated: 2026-05-17
+updated: 2026-07-07
 ---
 
 # SDD 自定义工作流：OpenSpec + Superpowers 薄编排
@@ -204,3 +204,5 @@ sdd-propose → /clear → sdd-ff → /clear → sdd-plan → /clear → sdd-cod
 - [[superpowers-openspec-pitfalls]] — 双框架组合的 7 个坑及衔接 Skill
 - [[superpowers-openspec-legacy-workflow]] — 老旧项目四阶段实战
 - [[sdd-openspec-superpowers]] — SDD 双框架对比
+- [[comet-integration-architecture]] — Comet 状态机驱动整合（替代/互补方案）
+- [[comet-gating-system]] — Comet 三层门控体系
