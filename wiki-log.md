@@ -2,6 +2,15 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-07-10] ingest | TASTED 五份升级指南
+
+- updated `netease-tasted-model.md` — 补充五份升级指南摘要：审美力（三站）、洞察力（三站）、结构力（三站）、判断力（三站）、标准感（两项修炼），含内网课程链接与核心理念；解释为何 D（自驱力）无升级指南
+- saved `sources/2026/07/10/TASTED-审美力升级指南_265801.html` + sidecar
+- saved `sources/2026/07/10/TASTED-洞察力升级指南_266537.html` + sidecar
+- saved `sources/2026/07/10/TASTED-结构力升级指南_267757.html` + sidecar
+- saved `sources/2026/07/10/TASTED-判断力升级指南_268467.html` + sidecar
+- saved `sources/2026/07/10/TASTED-标准感升级指南_269906.html` + sidecar
+
 ## [2026-07-10] ingest | 从模型到Harness：WorkBuddy如何把Agent做成可用产品
 
 - created `workbuddy-agent-product-design.md` — WorkBuddy 完整产品设计：模型抽象、工具调用/MCP/Skill/Plugin 四概念、五类记忆模型、Harness 五层架构、Loop Engineering

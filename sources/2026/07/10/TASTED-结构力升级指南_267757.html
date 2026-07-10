@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【TASTED-结构力升级指南】结构力修炼，做AI时代的"架构师"</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #222; }
+img { max-width: 100%; height: auto; }
+blockquote { border-left: 4px solid #ddd; margin: 1em 0; padding: 0.5em 1em; color: #555; background: #f9f9f9; }
+h1 { font-size: 1.8em; border-bottom: 2px solid #eee; padding-bottom: 0.3em; }
+h2 { font-size: 1.4em; margin-top: 1.5em; }
+</style>
+</head>
+<body>
+<p data-align="center" style="text-align: center;" id="%F0%9F%90%94%E9%B8%A1%E5%8F%8B%E4%BB%AC%EF%BC%8C%E4%BD%A0%E6%98%AF%E4%B8%8D%E6%98%AF%E4%B9%9F%E8%BF%99%E6%A0%B7%EF%BC%9F_1769cdd7"><span style="color: rgb(34, 34, 34);">不知道朋友们有没有遇到过这种情况：</span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><em><span style="color: rgb(71, 83, 102);">打开AI，问了一个问题，它回了你三千字，但你看了三行就头晕</span></em></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><em><span style="color: rgb(71, 83, 102);">做个汇报PPT，40页，领导翻完问："所以结论是啥？"</span></em></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><em><span style="color: rgb(71, 83, 102);">你脑子里有一个超牛的想法，但一开口，别人听不懂</span></em></span></p>
+<p data-align="center" style="text-align: center;">......</p>
+<p data-align="center" style="text-align: center;"><span class="image-wrapper" align="center"><img class="" align="center" width="123" height="119" src="https://kmpvt.pfp.ps.netease.com/file/69f1783a1c93cab3933296eefj3WLA5U01?sign=nH4FM7t5SQAyWq6TyXyqzCNy5Is=&amp;expire=1777451578&amp;type=image/png" alt="" style="clear: both;display: block; margin-left: auto; margin-right: auto;" data-id="1c1e2ffb-e831-4e0d-b7b8-376cc4658c3f"></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><span style="color: rgb(34, 34, 34);">别sad！！不是你菜，是结构力在拖后腿！！</span></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><span style="color: rgb(34, 34, 34);">让我们来一起学习吧！！</span></span></p>
+<p data-align="center" style="text-align: center;">这时候你可能会说：</p>
+<p data-align="center" style="text-align: center;"><span style="color: rgb(250, 37, 44);">"不用了鸡</span><span data-font="16"><span style="color: rgb(250, 37, 44);">，别为我担心，我有AI</span></span><span style="color: rgb(250, 37, 44);">"</span><span data-font="16"><span style="color: rgb(34, 34, 34);"><br></span></span><span class="image-wrapper"><img class="" width="213" height="215" src="https://kmpvt.pfp.ps.netease.com/file/69f1887a2c52913a65005bed0ZrvhBPB01?sign=pzs9QnCDmNE9bbTbB-hyA8Zxbu0=&amp;expire=1777451578&amp;type=image/png" alt="" style="clear: both;" data-id="74d774c4-2da9-48ef-a968-be00c7ac9a3e"></span></p>
+<p>&nbsp;</p>
+<p data-align="center" style="text-align: center;"><span data-font="20"><strong><span style="color: rgb(250, 37, 44);">no！大no特no！</span></strong></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><span style="color: rgb(34, 34, 34);">当 AI 让获取答案变得廉价，</span></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><span style="color: rgb(34, 34, 34);">那种能清晰有序组织和表达思考过程的能力就变得更加！稀缺！</span></span></p>
+<p data-align="center" style="text-align: center;">也变得更加！重要！</p>
+<p>&nbsp;</p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">AI能瞬间给你很多"砖"，</span></span></strong></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">但"房子怎么盖"这件事，还得看你。</span></span></strong></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><span style="color: rgb(36, 41, 47);">而这个"怎么盖"的能力，</span></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="20"><strong><span style="color: rgb(36, 41, 47);">就是AI时代最值钱的能力之一</span></strong></span><span data-font="16"><span style="color: rgb(36, 41, 47);">——</span></span><span data-font="28"><strong><span style="color: rgb(250, 37, 44);">结构力</span></strong></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 style="line-height: 32px;" id="%F0%9F%A7%A0%E7%AD%89%E7%AD%89%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AF%E7%BB%93%E6%9E%84%E5%8A%9B%EF%BC%9F%E5%90%AC%E8%B5%B7%E6%9D%A5%E5%A5%BD%E9%AB%98%E5%A4%A7%E4%B8%8A_f9c55afd" data-key="f9c55afd"><strong><span style="color: rgb(0, 0, 0);">🧠等等，</span><span style="background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 0);">什么是结构力？听起来好高大上</span></span></strong></h1>
+<p>别被名字唬住好朋友们！本鸡翻译一下：</p>
+<blockquote>
+ <p><strong>结构力（Structuring） = 系统性思维 + 化繁为简 + 构建行动路径</strong></p>
+</blockquote>
+<p>说人话就是：</p>
+<p>👉面对一堆乱糟糟的信息→你能拎出重点</p>
+<p>👉面对一个复杂的问题→你能拆成小块</p>
+<p>👉面对一个模糊的目标→你能规划出路径</p>
+<p><span style="color: rgb(119, 128, 145);">（敲黑板！这玩意儿可不是脑子好使的人的专利嗷）</span></p>
+<p><span style="color: rgb(0, 0, 0);">本鸡观察过很多"看起来很牛"的同事</span></p>
+<p>你以为他们是天选打工人，其实他们只是把"<strong>结构力</strong>"这块肌肉练得贼壮！</p>
+<p>所以啊，为什么你的AI我的AI好像不一样，<strong>取决于你有没有结构力</strong>！</p>
+<p>&nbsp;</p>
+<h1 id="%F0%9F%9A%82%E5%BF%AB%E4%B8%8A%E8%BD%A6%EF%BC%81%E7%BB%93%E6%9E%84%E5%8A%9B3%E7%AB%99%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85%EF%BC%81_fe0565ba" data-key="fe0565ba">🚂快上车！结构力3站修炼之旅！</h1>
+<p><span data-font="16">光听鸡叨叨没用，还得练真功夫！鸡给你整理了一条<span style="color: rgb(36, 41, 47);">「三站式结构力修炼路线」，助你完成思维的重塑！</span></span></p>
+<h2 style="text-align: justify;line-height: 23px;" id="%F0%9F%9A%A9%E7%AC%AC%E4%B8%80%E7%AB%99%EF%BC%9A%E5%BB%BA%E7%AB%8B%E7%B3%BB%E7%BB%9F%E6%80%9D%E7%BB%B4%E2%80%94%E2%80%94%E4%BB%8E%E2%80%9C%E5%8F%AA%E8%A7%81%E6%A0%91%E6%9C%A8%E2%80%9D%E5%88%B0%E2%80%9C%E4%BF%AF%E7%9E%B0%E6%A3%AE%E6%9E%97%E2%80%9D_0ac5f7f2" data-key="0ac5f7f2"><strong>🚩第一站：<span style="color: rgb(0, 0, 0);">建立</span><span style="color: rgb(200, 30, 44);">系统思维</span><span style="color: rgb(0, 0, 0);">——从"只见树木"到"俯瞰森林"</span></strong></h2>
+<p>结构力的关键是对本质和全局的把握，但你们是不是也常陷入细节的泥潭，却看不清事情的全貌？</p>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1"><span style="color: rgb(119, 128, 145);">改了一个小bug，结果引发了三个新bug</span></p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1"><span style="color: rgb(119, 128, 145);">优化了A环节，B环节突然堵死了</span></p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1"><span style="color: rgb(119, 128, 145);">明明每个单目标都没问题，整体目标就是跑不通</span></p></span></li>
+</ul>
+<p>......<br>这并非你不努力，而是缺少系统性视角。<strong>系统性思维</strong>，就是让你跳出局部，像俯瞰地图一样洞察事物全貌和内部关联的关键。不要只盯着一片树叶死磕，先抬头看看整片森林长啥样！<br><strong>《系统思考：立足系统看问题本质》</strong><span data-font="16"><span style="color: rgb(15, 17, 21);">带你从看表象到看结构、从关注孤立事件到分析反馈回路，完成一次彻底的思维升级，看清要素之间的关联、抓住关键杠杆点，不再被表面问题牵着走。</span></span></p>
+<blockquote>
+ <p><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">快来点击这里学习吧</span></span></strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">：</span></span></span><a href="https://salon.netease.com/app/course-detail?id=3008296&amp;type=media" target="_blank"><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);">《系统思考：立足系统看问题本质》</span></strong></span></a><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">👈</span></span></strong></span></p>
+</blockquote>
+<p>&nbsp;</p>
+<h2 style="text-align: justify;line-height: 23px;" id="%F0%9F%9A%A9%E7%AC%AC%E4%BA%8C%E7%AB%99%EF%BC%9A%E5%AD%A6%E4%BC%9A%E5%8C%96%E7%B9%81%E4%B8%BA%E7%AE%80%E2%80%94%E2%80%94%E8%AE%A9%E5%A4%8D%E6%9D%82%E9%97%AE%E9%A2%98%E2%80%9C%E4%B9%96%E4%B9%96%E6%8A%95%E9%99%8D%E2%80%9D_a40ebc5c" data-key="a40ebc5c"><strong>🚩第二站：<span style="color: rgb(0, 0, 0);">学会</span><span style="color: rgb(200, 30, 44);">化繁为简</span><span style="color: rgb(0, 0, 0);">——让复杂问题"乖乖投降"</span></strong></h2>
+<p>面对一个庞大的、模糊的难题，是不是经常感到无从下手？</p>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1"><span style="color: rgb(119, 128, 145);">领导让"提升用户活跃度"，脑子里一片浆糊</span></p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1"><span style="color: rgb(119, 128, 145);">拿到一堆杂乱的业务数据，毫无头绪</span></p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1"><span style="color: rgb(119, 128, 145);">做个项目方案，永远差一点</span></p></span></li>
+</ul>
+<p>......<br>复杂问题之所以让人焦虑，很多时候不是你不会做，而是因为它太大、太糊、太乱，导致你不知道从哪里下手。这时候最需要的就是掌握拆解大法，能像庖丁解牛一样，把它按逻辑大卸八块，拆得清清楚楚、理得明明白白。</p>
+<p><strong>《结构思考：透过结构看清晰思考》</strong><span data-font="16"><span style="color: rgb(15, 17, 21);">带你解锁结构化思维底层逻辑，掌握金字塔原理、MECE等利器，将散乱的信息和问题，组成层次分明、逻辑严谨的框架结构。</span></span></p>
+<blockquote>
+ <p><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">快来点击这里学习吧</span></span></strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">：</span></span></span><a href="https://salon.netease.com/app/course-detail?id=3008292&amp;type=media" target="_blank"><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);">《结构思考：透过结构看清晰思考》</span></strong></span></a><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">👈</span></span></strong></span></p>
+</blockquote>
+<p>&nbsp;</p>
+<h2 style="text-align: justify;line-height: 23px;" id="%F0%9F%9A%A9%E7%AC%AC%E4%B8%89%E7%AB%99%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A1%8C%E5%8A%A8%E8%B7%AF%E5%BE%84%E2%80%94%E2%80%94%E4%BB%8E%E2%80%9C%E5%AE%8F%E4%BC%9F%E8%93%9D%E5%9B%BE%E2%80%9D%E5%88%B0%E2%80%9C%E6%96%BD%E5%B7%A5%E6%B8%85%E5%8D%95%E2%80%9D_e952b6b6" data-key="e952b6b6"><strong>🚩第三站：<span style="color: rgb(0, 0, 0);">构建</span><span style="color: rgb(200, 30, 44);">行动路径</span><span style="color: rgb(0, 0, 0);">——从"宏伟蓝图"到"施工清单"</span></strong></h2>
+<p>难题拆解清楚之后如何确保不走样的落地执行？"构建行动路径"就是你的项目导航与施工图，它能将清晰的思路，转化为目标明确、有节点、有资源、有责任人的落地步骤，确保从"想法"到"结果"的路径清晰可见，让协作人员利出一孔。</p>
+<p><strong>《行动路径：计划管理和项目管理思维》</strong>为你提供这套"施工方法论"，帮你将项目思维融入日常工作，把碎片任务穿成一条有时限、有里程碑、有明确交付物的行动路径，确保你步步为营，稳健落地。</p>
+<blockquote>
+ <p><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">快来点击这里学习吧</span></span></strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">：</span></span></span><a href="https://salon.netease.com/app/course-detail?id=3002356&amp;type=media" target="_blank"><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);">《行动路径：计划管理和项目管理思维》</span></strong></span></a><span data-font="18"><strong><span style="background-color: rgb(242, 217, 24);"><span style="color: rgb(0, 0, 0);">👈</span></span></strong></span></p>
+</blockquote>
+<p><span data-font="16"><span style="background-color: inherit;"><span style="color: rgb(0, 0, 0);"><br>在AI时代，知识获取越发容易，但系统思考、化繁为简、路径构建的能力，始终是人类的独特高地区域。AI可以模仿结构，但只有人可以创造新结构！<br>投资你的"结构力"，就是为未来所有可能性安装最强大的操作系统！</span></span></span></p>
+<p><span data-font="16"><span style="background-color: inherit;"><span style="color: rgb(0, 0, 0);"><br>以上！就是鸡给大家准备的全部干货，后续本鸡会持续更新更多资源，如果你们有好东西也欢迎反向推荐给学习鸡！</span></span></span></p>
+<p><span data-font="16"><span style="background-color: inherit;"><span style="color: rgb(0, 0, 0);">现在让我们即刻启程，一起修炼结构力吧~🐣</span></span></span></p>
+<p>&nbsp;</p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><strong><span style="background-color: inherit;"><span style="color: rgb(34, 34, 34);">欢迎大家评论区留言互动</span></span></strong></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><strong><span style="background-color: inherit;"><span style="color: rgb(250, 37, 44);">#你工作中哪个环节最需要结构力#</span></span></strong></span></p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><span style="background-color: inherit;"><span style="color: rgb(34, 34, 34);">学习鸡会抽选</span></span><strong><span style="background-color: inherit;"><span style="color: rgb(34, 34, 34);">5条精华评论</span></span></strong><span style="background-color: inherit;"><span style="color: rgb(34, 34, 34);">送出</span></span></span><span data-font="26"><strong><span style="background-color: inherit;"><span style="color: rgb(34, 34, 34);">【专属鸡位鼠标垫】</span></span></strong></span><span data-font="16"><span style="background-color: inherit;"><span style="color: rgb(34, 34, 34);">哦！！</span></span></span></p>
+<p>&nbsp;</p>
+<p data-align="center" style="text-align: center;"><span data-font="16"><span style="background-color: inherit;"><span style="color: rgb(34, 34, 34);">↓↓↓</span></span></span></p>
+<p><span class="image-wrapper" align="center"><img class="" align="center" width="317" height="317" src="https://kmpvt.pfp.ps.netease.com/file/69f1907c0767144f105989d2i0OquuqO01?sign=5-GSK3yZOxtpjPIsIc6_aa60URc=&amp;expire=1777451578&amp;type=image/png" alt="" style="clear: both;display: block; margin-left: auto; margin-right: auto;" data-id="6bf30b02-2855-454f-a88d-39dad3e27d91"></span></p>
+</body>
+</html>

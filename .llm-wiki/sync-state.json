@@ -188,8 +188,8 @@
     },
     "wiki/product/netease-tasted-model.md": {
       "path": "wiki/product/netease-tasted-model.md",
-      "mtime": 1781503422311.1414,
-      "contentHash": "e5363fa19c2ef4d3",
+      "mtime": 1783668390947.9282,
+      "contentHash": "31ab97923761d2bc",
       "lastSynced": "2026-07-10"
     },
     "wiki/product/silicon-valley-pm-methodology.md": {
@@ -2740,6 +2740,36 @@
       "path": "sources/2026/07/07/Comet整合OpenSpec与Superpowers详解.md",
       "mtime": 1783435044643.0598,
       "contentHash": "54cc0c8bf72fdbf7",
+      "lastSynced": "2026-07-10"
+    },
+    "sources/2026/07/10/TASTED-判断力升级指南_268467.md": {
+      "path": "sources/2026/07/10/TASTED-判断力升级指南_268467.md",
+      "mtime": 1783668361708.644,
+      "contentHash": "8729e56f72ceeaee",
+      "lastSynced": "2026-07-10"
+    },
+    "sources/2026/07/10/TASTED-审美力升级指南_265801.md": {
+      "path": "sources/2026/07/10/TASTED-审美力升级指南_265801.md",
+      "mtime": 1783668361715.3408,
+      "contentHash": "cb9c6c4cf807063c",
+      "lastSynced": "2026-07-10"
+    },
+    "sources/2026/07/10/TASTED-标准感升级指南_269906.md": {
+      "path": "sources/2026/07/10/TASTED-标准感升级指南_269906.md",
+      "mtime": 1783668361686.55,
+      "contentHash": "1f4e809f09f27eb7",
+      "lastSynced": "2026-07-10"
+    },
+    "sources/2026/07/10/TASTED-洞察力升级指南_266537.md": {
+      "path": "sources/2026/07/10/TASTED-洞察力升级指南_266537.md",
+      "mtime": 1783668361692.6995,
+      "contentHash": "638ffbe508eb41a6",
+      "lastSynced": "2026-07-10"
+    },
+    "sources/2026/07/10/TASTED-结构力升级指南_267757.md": {
+      "path": "sources/2026/07/10/TASTED-结构力升级指南_267757.md",
+      "mtime": 1783668361701.0486,
+      "contentHash": "d58fb7daa4761348",
       "lastSynced": "2026-07-10"
     },
     "sources/2026/07/10/从模型到Harness：WorkBuddy如何把Agent做成可用产品.md": {
