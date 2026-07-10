@@ -1,11 +1,11 @@
 ---
 title: Loop Engineering
-description: 把反馈循环放进工程现场——从手工提示到可自主运行的控制循环，六组件拆解、闭环vs开环、验证准入、预算约束、状态记忆与试点方案
+description: 把反馈循环放进工程现场——从手工提示到可自主运行的控制循环，六组件拆解、闭环vs开环、验证准入、预算约束、状态记忆与试点方案；补充 WorkBuddy 四层工程体系与 Goal≠Loop 区分
 aliases: [Loop Engineering, 循环工程, Agent Loop, 反馈循环]
 tags: [ai-agent, concept, practice]
-sources: [2026/06/15/loop-engineering详解.md]
+sources: [2026/06/15/loop-engineering详解.md, 2026/07/10/从模型到Harness：WorkBuddy如何把Agent做成可用产品.html]
 created: 2026-06-15
-updated: 2026-06-15
+updated: 2026-07-10
 ---
 
 # Loop Engineering
@@ -52,6 +52,23 @@ Loop 把这些来回动作变成一个有状态的系统：自动扫描→拆任
 2. **执行沙箱** — 哪个 worktree/分支/临时环境里跑，能不能回滚
 3. **验收出口** — 用哪些测试/日志/规则/人工复核判定结果
 4. **状态账本** — 本轮尝试、证据、失败原因、下一步写到哪里
+
+## 四层工程体系（WorkBuddy 视角）
+
+> 来源：[[workbuddy-agent-product-design|WorkBuddy Agent 产品设计]]
+
+WorkBuddy 将 Agent 工程分为四层，Loop Engineering 是最外层：
+
+| 层次 | 核心问题 | 简单例子 |
+|------|---------|---------|
+| Prompt Engineering | 本次请求应如何表达？ | 写清目标、格式和约束 |
+| Context Engineering | 这一次决策前，模型该看什么？ | 加载相关文件、工具、历史和记忆 |
+| Harness Engineering | Agent 如何被引导、约束、观测、验证和纠正？ | 规则、沙箱、审批、测试、日志、编排 |
+| Loop Engineering | 任务如何被触发、流转、验收、继续与停止？ | 定时任务、工作树、子 Agent、记忆、反馈闭环 |
+
+**Goal ≠ Loop**：Goal 只定义"要去哪里"和"还剩什么"；Loop 还需要触发器、执行环境、工具、验证信号和停止条件。一个只会保存目标的功能，是 Loop 的状态组件，不是完整循环。
+
+一个可用的 Loop 至少需要八个组件：**触发器、独立执行环境、Skills、Tools/Connectors/MCP、Sub-agents、Memory/Durable Artifacts、Sensors/Evals、Stop Conditions/Budget**。
 
 ## 与 Harness 的关系
 
@@ -234,3 +251,4 @@ Loop Engineering = OpenClaw 使用说明书里被省略的"何时用/何时停"�
 - [[harness-design-long-running]] — 长任务 Agent 的设计模式
 - [[agent-harness]] — Agent Harness 基础概念
 - [[agent-vs-framework-vs-harness]] — 三层抽象：Loop 在 Harness 之上再加一层
+- [[workbuddy-agent-product-design]] — WorkBuddy 四层工程体系与 Goal≠Loop 区分

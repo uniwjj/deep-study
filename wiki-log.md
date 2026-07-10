@@ -2,6 +2,16 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-07-10] ingest | 从模型到Harness：WorkBuddy如何把Agent做成可用产品
+
+- created `workbuddy-agent-product-design.md` — WorkBuddy 完整产品设计：模型抽象、工具调用/MCP/Skill/Plugin 四概念、五类记忆模型、Harness 五层架构、Loop Engineering
+- created `workbuddy-context-engineering.md` — WorkBuddy 上下文工程实践：五类动作（Write/Select/Retrieve/Compress/Isolate）、Prompt Cache 策略、渐进式加载、意图识别
+- updated `agent-memory-system.md` — 补充 WorkBuddy 五类长期记忆模型与陈述性/程序性记忆区分
+- updated `loop-engineering.md` — 补充 WorkBuddy 四层工程体系与 Goal≠Loop 区分
+- updated `agent-harness-overview.md` — 补充 WorkBuddy 五层 Harness 模型与驾驭/约束/整合三能力
+- saved `sources/2026/07/10/从模型到Harness：WorkBuddy如何把Agent做成可用产品.html` — 原始自包含 HTML（394KB，29 张图片）
+- saved `sources/2026/07/10/从模型到Harness：WorkBuddy如何把Agent做成可用产品.md` — sidecar（frontmatter 供 CLI 追踪）
+
 ## [2026-07-07] ingest | Comet整合OpenSpec与Superpowers详解
 
 - created `comet-integration-architecture.md` — Comet 双星整合架构总览：五维整合、.comet.yaml 状态机、预设路径、SDD 设计启示
