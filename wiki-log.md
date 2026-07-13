@@ -2,6 +2,13 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-07-13] ingest | Data Agent vs Ontology Agent 推理对比
+
+- created `data-agent-vs-ontology-agent` — 指标体系驱动的 Data Agent 与本体驱动的 AI Agent 在推理空间、路径、确定性来源上的范式差异对比，含融合交替方案
+- updated `ontological-semantic-layer` — 添加交叉引用
+- updated `data-agent/index` — 语义层与本体列表新增条目
+- saved `sources/2026/07/01/指标体系驱动的Data Agent与本体驱动的AI Agent，AI推理上有什么异同？.html` + sidecar
+
 ## [2026-07-10] ingest | TASTED 五份升级指南
 
 - updated `netease-tasted-model.md` — 补充五份升级指南摘要：审美力（三站）、洞察力（三站）、结构力（三站）、判断力（三站）、标准感（两项修炼），含内网课程链接与核心理念；解释为何 D（自驱力）无升级指南

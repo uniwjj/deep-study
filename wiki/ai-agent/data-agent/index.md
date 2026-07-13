@@ -27,6 +27,7 @@ AI Agent 在数据领域的应用——Data Agent 产品、AI 原生数据平台
 - [[ontological-semantic-layer]] — 本体化语义层：数仓到 Agent 架构补位
 - [[dataagent-semantic-layer]] — DataAgent 语义层的实物层面内容
 - [[code-agent-vs-data-agent]] — Code Agent 与 Data Agent 的根本差异
+- [[data-agent-vs-ontology-agent]] — Data Agent 与 Ontology Agent 推理范式对比
 
 ## 厂商 Skills 体系
 

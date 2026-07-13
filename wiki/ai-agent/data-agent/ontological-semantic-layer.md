@@ -178,4 +178,5 @@ AI 给出的答案必须可追溯到：数据事实、语义版本、解释路�
 - [[code-agent-vs-data-agent]] — Code Agent 与 Data Agent 的语义共享需求
 - [[openai-data-agent]] — OpenAI 内部 Data Agent 实践中的语义正确性问题
 - [[data-agent-practice-guide]] — 数据 Agent 实践指南
+- [[data-agent-vs-ontology-agent]] — Data Agent 与 Ontology Agent 推理范式对比，本体化语义层是 Ontology Agent 的推理空间
 - [[taobao-live-data-dev-paradigm]] — R2C 架构中本体论作为 Neuro-Symbolic 的符号锚点
