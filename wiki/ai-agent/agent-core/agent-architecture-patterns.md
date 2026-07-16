@@ -3,9 +3,9 @@ title: Agent 架构模式
 description: AI Agent 系统的 10 大设计模式——从 AsyncGenerator 循环到流式推测执行，Claude Code 源码提炼的通用架构原则
 aliases: [agent-architecture-patterns, Agent Architecture Patterns, 架构模式, 设计模式]
 tags: [ai-agent, concept, architecture]
-sources: [2026/05/10/Claude-Code-Source-Analysis.pdf]
+sources: [2026/05/10/Claude-Code-Source-Analysis.pdf, 2026/07/16/Agent 治理：用 Hook 堵住 LLM 的偷懒、越权与失忆.html]
 created: 2026-05-10
-updated: 2026-05-17
+updated: 2026-07-16
 ---
 
 # Agent 架构模式
@@ -32,7 +32,7 @@ updated: 2026-05-17
 - **生成器循环优于回调**：状态管理更自然，错误恢复更简单
 - **文件存储优于数据库**：Agent 状态以文件为原子单位，便于检查点和恢复
 - **工具自描述优于中央编排**：新增工具无需改动调度器
-- **Hook 优于插件**：生命周期拦截比组件加载更灵活
+- **Hook 优于插件**：生命周期拦截比组件加载更灵活。Hook 切面（beforeTool/afterTool/beforeModel/afterModel）可在不改业务循环、不动工具实现的前提下，挂载长文本 offload、HITL 门禁、上下文联动等横切逻辑。DECO 的实践在一套 Hook 链上挂了十余个 Hook，参见 [[agent-hook-governance]]
 
 ## 核心架构比例
 
@@ -45,3 +45,4 @@ Claude Code 中：98.4% 代码是操作基础设施，只有 1.6% 是 Agent 循�
 - [[agent-vs-framework-vs-harness]] — Agent vs Framework vs Harness 三层区分
 - [[dive-into-claude-code]] — 学术论文：13 条设计原则
 - [[agent-harness-overview]] — Harness 六承重层
+- [[agent-hook-governance]] — Hook 护栏治理：DECO 的框架层 Hook 实践（offload/HITL/上下文联动）

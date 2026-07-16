@@ -151,4 +151,4 @@ Data Agent 与 Coding Agent 的关键差异：
 - [[agent-evaluation-framework]] — Agent 评测框架
 - [[agent-multi-agent-collaboration]] — 多 Agent 协同模式
 - [[dataagent-semantic-layer|数据资产语义层]] — DataAgent 语义层（节点类型体系、FlowSpec 规范、调度与依赖语义）
-- [[xiaomi-dimi-data-agent]] — 小米 DiMi Text2SQL 全球第三，语义层 Harness 的量化验证
+- [[agent-hook-governance]] — DECO 的 Hook 护栏治理：框架层 offload/HITL/上下文联动的工程实践（腾讯数仓 Agent 的另一条企业路径）

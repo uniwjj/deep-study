@@ -2,6 +2,13 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-07-16] ingest | Agent 治理：用 Hook 堵住 LLM 的偷懒、越权与失忆
+- created `agent-hook-governance` — DECO Hook 护栏体系完整页面（长文本 offload/HITL 门禁/上下文联动闭环 + 行业对比）
+- updated `ai-governance` — 新增框架层治理（Hook 护栏）维度与交叉引用
+- updated `agent-architecture-patterns` — 扩展 Hook 优于插件的架构原则描述，新增交叉引用
+- updated `data-agent-enterprise-practice` — 新增 DECO Hook 治理实践交叉引用
+- saved source: `sources/2026/07/16/Agent 治理：用 Hook 堵住 LLM 的偷懒、越权与失忆.html` + sidecar
+
 ## [2026-07-13] ingest | Data Agent vs Ontology Agent 推理对比
 
 - created `data-agent-vs-ontology-agent` — 指标体系驱动的 Data Agent 与本体驱动的 AI Agent 在推理空间、路径、确定性来源上的范式差异对比，含融合交替方案
