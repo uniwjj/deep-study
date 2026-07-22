@@ -5,7 +5,7 @@ aliases: [LLM Wiki开源, sage-wiki, llm-wiki实现, LLM Wiki]
 tags: [ai-agent, tool, comparison]
 sources: [2026/04/06/LLM Wiki开源仓库.md]
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-07-22
 ---
 
 # LLM Wiki 开源实现
@@ -53,8 +53,20 @@ updated: 2026-05-09
 **支持**：人机协作的正经延伸，Lex Fridman 在用类似设置
 **反对**：幻觉污染风险，认知外包削弱洞察生成，规模上限于 100 篇文章
 
+## OpenViking（Agent 知识操作系统）
+
+字节跳动开源的工程级 LLM Wiki 实现，面向数千页规模和多 Agent 并发场景：
+
+- **L0/L1/L2 三级上下文**：每个目录自动生成 100 token 摘要 + 2k token 概览，Agent 按需逐层展开
+- **目录递归检索**：优先队列驱动并行递归搜索 + 分数传播 + 热度加权
+- **自我进化**：ReAct 式记忆提取，会话后自动更新知识库
+- **技术栈**：Python + Rust (AGFS) + C++（向量索引），多租户 ACL + OpenTelemetry
+
+详见 [[openviking]]。
+
 ## 相关页面
 
 - [[llm-wiki-concept]] — LLM Wiki 核心概念
+- [[openviking]] — OpenViking 详细分析
 - [[bookrag]] — BookRAG
 - [[rag-vs-llm-wiki]] — RAG vs Wiki 对比

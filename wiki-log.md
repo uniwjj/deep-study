@@ -2,6 +2,13 @@
 
 Append-only record of wiki operations. Format: `[date] verb | subject`
 
+## [2026-07-22] ingest | 深度分析：OpenViking 中关于 LLM wiki 的理念的工程级实践
+- created `openviking` — OpenViking 完整页面（L0/L1/L2 三级分层/目录递归检索/自迭代/范式对比/局限）
+- updated `llm-wiki-implementations` — 新增 OpenViking 作为第四种工程级实现
+- updated `index` — LLM Wiki 体系索引新增 openviking 条目
+- saved source: `sources/2026/07/22/深度分析：OpenViking 中关于 LLM wiki 的理念的工程级实践.html` + sidecar
+- article-download: `article-downloads/深度分析：OpenViking 中关于 LLM wiki 的理念的工程级实践.html`
+
 ## [2026-07-16] ingest | Agent 治理：用 Hook 堵住 LLM 的偷懒、越权与失忆
 - created `agent-hook-governance` — DECO Hook 护栏体系完整页面（长文本 offload/HITL 门禁/上下文联动闭环 + 行业对比）
 - updated `ai-governance` — 新增框架层治理（Hook 护栏）维度与交叉引用
@@ -940,3 +947,9 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - updated `llm-wiki-concept` — 补充 Adaptive RAG 查询路由（事实/推理/探索三类）
 - updated `rag-vs-llm-wiki` — 加交叉引用到新对比页与 GraphRAG
 - updated `index.md` — 重排为范式总览/LLM Wiki/GraphRAG与记忆，页数 12→16
+
+## [2026-07-21] ingest | AI代码生成率94%：我们用一个 Skill 跑通需求开发全流程
+- created `mailplugin-feature-dev-skill` — 企业微信团队基于 Claude Code 的邮件插件需求开发 Skill，8 阶段流水线，代码生成率 94%
+- created `code-knowledge-base-pyramid` — 三级金字塔代码知识库（L1总览/L2模块/L3语义桥）+ 五步定位法，300× token 压缩
+- created `requirement-semantic-translation` — 产品语言→代码指令的 5 个确定性翻译规则 + 红线机制
+
