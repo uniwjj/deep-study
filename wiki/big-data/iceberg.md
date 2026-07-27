@@ -3,9 +3,9 @@ title: Apache Iceberg
 description: 开放表格式——Netflix 三初衷、三层元数据架构、快照/Manifest 查询流程、分区与 Schema 演进、时间旅行、v1→v3 演进、与 Delta/Hudi/Paimon 定位对比
 aliases: [Iceberg, Apache Iceberg, Iceberg 表格式, 开放表格式]
 tags: [big-data, tool, concept]
-sources: [2026/07/01/iceberg-wikipedia.html, 2026/07/01/iceberg-architecture-design.html, 2026/07/01/iceberg-query-principle.html, 2026/07/01/iceberg-segmentfault-analysis.html, 2026/07/01/iceberg-principle-optimization.html, 2026/07/01/iceberg-aliyun-basics.html, 2026/07/01/iceberg-snowflake-docs.html, 2026/07/01/iceberg-v3-watershed.html, 2026/07/01/iceberg-tencent-batch-stream.html, 2026/07/01/iceberg-bytedance-feature-store.html, 2026/07/01/iceberg-tencent-governance.html, 2026/07/01/iceberg-xiaomi-practice.html]
+sources: [2026/07/01/iceberg-wikipedia.html, 2026/07/01/iceberg-architecture-design.html, 2026/07/01/iceberg-query-principle.html, 2026/07/01/iceberg-segmentfault-analysis.html, 2026/07/01/iceberg-principle-optimization.html, 2026/07/01/iceberg-aliyun-basics.html, 2026/07/01/iceberg-snowflake-docs.html, 2026/07/01/iceberg-v3-watershed.html, 2026/07/01/iceberg-tencent-batch-stream.html, 2026/07/01/iceberg-bytedance-feature-store.html, 2026/07/01/iceberg-tencent-governance.html, 2026/07/01/iceberg-xiaomi-practice.html, 2026/07/26/从 Arrow 到 Iceberg 到 Polaris 到 Ossie：语义标准化的最后一块拼图.html]
 created: 2026-06-15
-updated: 2026-07-01
+updated: 2026-07-27
 ---
 
 # Apache Iceberg
@@ -129,6 +129,11 @@ Iceberg 写入通过**原子切换 catalog 指针**实现事务：写入产生�
 
 ## 相关页面
 
+- [[open-data-stack-evolution]] — Iceberg 在五层开放数据标准栈中的位置（表格式层）
+- [[apache-polaris]] — 目录层，Iceberg 的上层标准（基于 Iceberg REST Catalog）
+- [[apache-ossie]] — 语义层，Iceberg 的再上层（为 Iceberg 表附加业务语义）
+- [[apache-arrow]] — 内存格式层，Iceberg 的下层依赖
+- [[apache-parquet]] — 文件格式层，Iceberg 的数据文件基础
 - [[agentic-data-cloud]] — Google 跨云 Lakehouse 战略依赖 Iceberg 开放标准
 - [[apache-flink]] — Flink 常作为 Iceberg 的写入引擎（Flink CDC → Iceberg）
 - [[flink-cdc]] — CDC 数据常写入 Iceberg 湖

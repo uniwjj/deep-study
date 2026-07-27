@@ -953,3 +953,11 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - created `code-knowledge-base-pyramid` — 三级金字塔代码知识库（L1总览/L2模块/L3语义桥）+ 五步定位法，300× token 压缩
 - created `requirement-semantic-translation` — 产品语言→代码指令的 5 个确定性翻译规则 + 红线机制
 
+
+## [2026-07-27] ingest | 从 Arrow 到 Iceberg 到 Polaris 到 Ossie：语义标准化的最后一块拼图
+- created `apache-ossie` — Apache Ossie 语义层，五层开放数据栈最新一块
+- created `apache-polaris` — Apache Polaris 开放目录，Snowflake 开源、Snowflake+Databricks 联手推进
+- created `apache-arrow` — Apache Arrow 跨语言列式内存格式
+- created `apache-parquet` — Apache Parquet 列式文件格式，五层栈最底层基石
+- created `open-data-stack-evolution` — 五层开放数据标准栈十年演进全景
+- updated `iceberg` — 新增五层栈页面引用，补充 Polaris/Ossie/Arrow/Parquet 关联
