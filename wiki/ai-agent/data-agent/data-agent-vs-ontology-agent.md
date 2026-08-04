@@ -3,9 +3,9 @@ title: Data Agent vs Ontology Agent 推理对比
 description: 指标体系驱动的 Data Agent 与本体驱动的 AI Agent 在推理空间、推理路径、确定性来源上的范式差异，以及融合互补方案
 aliases: [Data Agent vs Ontology Agent, data-agent-vs-ontology-agent, 数据智能体与本体智能体, 指标驱动与本体驱动]
 tags: [ai-agent, big-data, comparison]
-sources: [2026/07/01/指标体系驱动的Data Agent与本体驱动的AI Agent，AI推理上有什么异同？.html]
+sources: [2026/07/01/指标体系驱动的Data Agent与本体驱动的AI Agent，AI推理上有什么异同？.html, 2026/08/04/Data Agent的8层语义栈技术构建解决方案详解.html]
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-08-04
 ---
 
 # Data Agent vs Ontology Agent 推理对比
@@ -92,6 +92,16 @@ Data Agent 和 Ontology Agent 虽然共享同一个 Agent 循环外壳（感知�
 
 > 地图指路，仪表读数。推理才算完整。
 
+## 融合方案的工程化落地：8 层语义栈
+
+上述融合方案在 [[data-agent-semantic-stack]]（Data Agent 8 层语义栈，2026-08 摄取）中得到了完整的技术化拆解——8 层中的四层恰好对应融合链路的四个环节：
+
+- **指标层（Data Agent 侧）**：指标身份证（公式/聚合规则/维度树/过滤器）+ SemQL 接口，是下钻定位与量化回捞的执行底座
+- **本体层（Ontology Agent 侧）**：实体/关系/公理 + SPARQL + MCP，是"以锚点向外多跳"的关系地图
+- **事件层 + 锚定层（外部因素闭环）**：锚定层把铜价上涨、竞品补贴等非结构化外部事件挂载到本体实体，事件层以时序因果图谱（时间延迟/因果强度/因果类型）支撑"外部因素对毛利率的影响有多大"的因果追问
+
+即：8 层语义栈把"交替上场"的推理融合范式落地为逐层可独立建设、可治理的工程架构。
+
 ## 与 Code Agent vs Data Agent 的区别
 
 本文聚焦的是 **Data Agent 内部** 的两种推理范式对比，与 [[code-agent-vs-data-agent|Code Agent vs Data Agent]]（软件工程 vs 数据分析的目标函数分叉）是两个不同维度：
@@ -102,6 +112,7 @@ Data Agent 和 Ontology Agent 虽然共享同一个 Agent 循环外壳（感知�
 ## 相关页面
 
 - [[code-agent-vs-data-agent]] — Code Agent 与 Data Agent 的目标函数差异（外部对比维度）
+- [[data-agent-semantic-stack]] — Data Agent 8 层语义栈，本文融合方案的完整工程化落地
 - [[ontological-semantic-layer]] — 本体化语义层的六类核心能力，Ontology Agent 推理空间的工程实现
 - [[dataagent-semantic-layer]] — DataAgent 语义层的实物层面，Data Agent 推理原料（指标+维度）的载体
 - [[agent-design-paradigms]] — Agent 设计范式（ReAct/Plan-and-Execute/Reflection），两者共享的宏观循环基础

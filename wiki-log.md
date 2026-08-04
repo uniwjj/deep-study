@@ -961,3 +961,56 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - created `apache-parquet` — Apache Parquet 列式文件格式，五层栈最底层基石
 - created `open-data-stack-evolution` — 五层开放数据标准栈十年演进全景
 - updated `iceberg` — 新增五层栈页面引用，补充 Polaris/Ossie/Arrow/Parquet 关联
+
+## [2026-08-03] query | 学习 Iceberg 的资料整理
+- 用户请求学习 Iceberg 的相关资料
+- 检索命中：`iceberg`（主页面）、`table-format-selection`（四格式对比）、`open-data-stack-evolution`（五层标准栈定位）等
+- 未新建页面——学习路径由已有页面聚合而成，无新增知识点
+
+## [2026-08-03] export | Iceberg 学习笔记导出到桌面
+- 基于 wiki 聚合生成自学文档 `~/Desktop/Apache Iceberg 学习笔记.md`（12 章节：是什么/三层元数据/查询流程/关键特性/v1-v3/Compaction/Catalog/五层标准栈/四格式对比/国内落地/术语表/资源索引）
+- 来源页面：`iceberg`、`table-format-selection`、`open-data-stack-evolution`、`apache-polaris`、`paimon`
+- 未新建 wiki 页面——导出文档放桌面，不污染 wiki
+
+## [2026-08-03] export | Iceberg 专家学习指南导出到桌面
+- 用户反馈上一版学习笔记"太简单"，要求达到专家级深度
+- 三线并行深度挖掘：① 精读官方 Table Spec 全文（2142 行，curl 下载 /tmp 精读）；② subagent 精读《Iceberg: The Definitive Guide》344 页 PDF + IJSAT 2024 论文；③ subagent 提取 12 份 HTML 实践文章细节
+- 额外调研：REST Catalog OpenAPI 24 端点、源码模块结构（settings.gradle）、Spark 配置文档、表属性全表、Flink 配置、维护/演进/分区/写模式官方文档
+- 产出 `~/Desktop/Apache Iceberg 专家学习指南.md`（1277 行，87K，15 章 + 附录）：规范级元数据字段全拆解、写入/读取路径、序列号与继承机制、删除向量 Roaring Bitmap、行级血缘算法、v1-v4 版本细节、六种 Catalog、四大维护操作、性能优化（写分布/文件大小/对象存储/Bloom Filter/Z-Order）、引擎集成（Spark/Flink/Trino/Dremio/StarRocks/Kafka Connect）、10 种元数据表、国内实践（腾讯 TC-Iceberg/治理/小米/字节/微信）、选型生态、术语表
+- 未新建 wiki 页面——导出文档放桌面，不污染 wiki
+
+## [2026-08-03] export | Iceberg 专家指南补充实操章节
+- 用户反馈学习笔记"全是是什么，没有怎么做的"，要求补齐实操
+- 抓取官方实操文档：spark-getting-started、spark-ddl、spark-procedures（1107 行全参数）、flink.md、java-api-quickstart、pyiceberg quickstart
+- 更新 `~/Desktop/Apache Iceberg 专家学习指南.md`：1277 → 1895 行，新增"第 15 章 从零开始的实操手册"
+  - 15.1 环境搭建三路径（Spark SQL / pyiceberg / Flink SQL 完整启动命令）
+  - 15.2 pyiceberg 端到端（建表/写入/schema 演进/分区表/时间旅行/维护）
+  - 15.3 Spark SQL 手册（DDL/DML/元数据表/演进 SQL/全部存储过程含参数默认值/迁移过程/CDC 视图）
+  - 15.4 Flink SQL（catalog/批流读/upsert/元数据表）
+  - 15.5 Java Table API（catalog 初始化/schema 构建/写入/演进/SparkActions）
+  - 15.6 元数据文件手工解剖（fastavro 读 manifest list/manifest 代码）
+  - 15.7 端到端演练：月→天分区演进复现（含 output-spec-id 重写）
+  - 15.8 常见问题排障表
+- 原第 15 章术语表顺延为第 16 章
+- 未新建 wiki 页面
+
+## [2026-08-03] export | 学习笔记升级为"是什么+为什么+怎么做"三合一
+- 用户反馈第一版《Apache Iceberg 学习笔记.md》4.3/4.4 仍是"是什么"概述，要求逐章检查补齐"为什么"与"怎么做"
+- 逐章检查结论：第 1-7 章缺机制与操作；第 8-10 章为概念/事实性内容完整保留
+- 重写 `~/Desktop/Apache Iceberg 学习笔记.md`（439 → 671 行）：
+  - 每节统一为三层结构：是什么（What）→ 为什么（Why 机制与设计动机）→ 怎么做（How 可运行命令）
+  - 4.2 分区演进补实现机制（manifest 绑 spec / split planning / inclusive projection / 双层裁剪）+ REPLACE PARTITION FIELD 演练 + output-spec-id 重写
+  - 4.3 Schema 演进补字段 ID 锚点机制（ID 嵌入文件/投影规则/bounds 推断/正确性四条推导）+ 演进 SQL
+  - 4.4 原地迁移补"目录树→manifest 树"编译过程 + name mapping + identity 分区元组恢复 + 双读兼容 + 四种迁移命令
+  - 4.1/4.5/4.6 时间旅行/MVCC/原子提交、第 5 章版本动机、第 6 章放大机制、第 7 章 CAS 原理均补为什么+怎么做
+  - 术语表扩充（序列号/字段 ID/Name Mapping）；第 12 章指向专家指南实操手册
+- 未新建 wiki 页面
+
+## [2026-08-04] ingest | Data Agent的8层语义栈技术构建解决方案详解
+- 来源：微信公众号「数据思考」（作者 2K），article-download 技能下载为自包含 HTML（Chrome headless 渲染，绕过反爬）
+- 质量评估：论点成立（核心主张"Data Agent 的聪明不来自模型参数而来自语义栈"与行业趋势一致；全部技术选型均为真实成熟方案——dbt MetricFlow/Cube/LookML、OWL/SKOS、Neo4j/Neptune、PC/NOTEARS/Granger、AEVS、OPA、RBAC/ABAC 等）；作者诚实声明"8层是观点框架非行业标准"；与 wiki 已有页面高度互补
+- 新增来源：sources/2026/08/04/Data Agent的8层语义栈技术构建解决方案详解.html（+ .md sidecar）
+- created `data-agent-semantic-stack` — Data Agent 8 层语义栈完整架构：指标/本体/事件/锚定/意图/规则/权限/会话 8 层 + 横切治理总线，含三阶段落地优先级
+- updated `data-agent-vs-ontology-agent` — 新增"融合方案的工程化落地"小节：8 层语义栈的指标层/本体层/事件+锚定层对应"Data Agent 归因 + Ontology Agent 多跳 + 外部因素闭环"交替上场链路的四环节
+- updated `ontological-semantic-layer` — 相关页面补充 data-agent-semantic-stack（本体化语义层 = 8 层中的本体语义层）
+- updated `dataagent-semantic-layer` — 相关页面补充 data-agent-semantic-stack（SemQL/指标身份证的业界方案对照）

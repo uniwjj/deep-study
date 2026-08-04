@@ -3,9 +3,9 @@ title: DataAgent 语义层
 description: DataWorks DataAgent 语义层的具体内容——从分享录音和数据开发 SKILL 中提取的结构化领域知识，包括节点类型体系、连接器参数、FlowSpec 规范、调度与依赖语义、运行时约束等。同时涵盖业界 NL2Semantic2SQL 语义层范式演进。
 aliases: [语义层, semantic layer, 数据语义层]
 tags: [big-data, ai-agent, concept]
-sources: [2026/05/12/DataWorks DataAgent分享录音.md, 2026/05/14/DataAgent语义层分析.md, 2026/06/26/小米 Data Agent 获 Text2SQL 全球榜单第三名.html]
+sources: [2026/05/12/DataWorks DataAgent分享录音.md, 2026/05/14/DataAgent语义层分析.md, 2026/06/26/小米 Data Agent 获 Text2SQL 全球榜单第三名.html, 2026/08/04/Data Agent的8层语义栈技术构建解决方案详解.html]
 created: 2026-05-14
-updated: 2026-06-26
+updated: 2026-08-04
 ---
 
 # DataAgent 语义层
@@ -126,6 +126,7 @@ SKILL 示例 SQL 中使用但未显式定义的写法：
 
 ## 相关页面
 
+- [[data-agent-semantic-stack]] — Data Agent 8 层语义栈，本文"指标身份证/SemQL"的业界方案对照（dbt MetricFlow/Cube/LookML）
 - [[dataworks-data-agent]] — DataWorks Data Agent 产品
 - [[maxcompute-skills]] — MaxCompute MCMCP 与 Skills
 - [[hologres-skills]] — Hologres CLI 与 Skills

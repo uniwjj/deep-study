@@ -3,9 +3,9 @@ title: 本体化语义层
 description: 大数据基建向 AI Infra 演进的核心补位——在数仓/OLAP 之上建立可被 Agent 理解、验证、治理的业务语义控制面
 aliases: [Ontological Semantic Layer, 业务语义层, 本体语义层, AI 语义底座]
 tags: [big-data, ai-agent, architecture, concept]
-sources: [2026/06/15/大数据基建如何迈向 AI Infra？（上）.html, 2026/06/15/大数据基建如何迈向 AI Infra？（下）.html]
+sources: [2026/06/15/大数据基建如何迈向 AI Infra？（上）.html, 2026/06/15/大数据基建如何迈向 AI Infra？（下）.html, 2026/08/04/Data Agent的8层语义栈技术构建解决方案详解.html]
 created: 2026-06-15
-updated: 2026-06-15
+updated: 2026-08-04
 ---
 
 # 本体化语义层
@@ -172,6 +172,7 @@ AI 给出的答案必须可追溯到：数据事实、语义版本、解释路�
 
 ## 相关页面
 
+- [[data-agent-semantic-stack]] — Data Agent 8 层语义栈，本体化语义层在其中的位置是"本体语义层"（OWL/SKOS + 图数据库 + SPARQL/MCP）
 - [[ontology]] — 本体论的五要素框架与哲学基础，本体化语义层的理论源头
 - [[dataagent-semantic-layer]] — DataWorks DataAgent 的语义层实现，本体化语义层在具体产品中的实例
 - [[agentic-data-cloud]] — Google Agentic Data Cloud，语义层成为核心基础设施的云厂商实践
