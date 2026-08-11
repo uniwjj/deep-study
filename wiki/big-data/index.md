@@ -49,6 +49,17 @@ updated: 2026-07-27
 ## 平台与产品
 
 - [[maxcompute-data-ai]] — MaxCompute Data+AI 演进
+- [[odps-multimodal-agentic-upgrade]] — 下一代 ODPS：全模态引擎和 Agentic 全面升级（2026-08 Agent 大会）
+
+## Agent 时代数据基础设施（2026-08 Agent 大会）
+
+- [[ai-native-data-platform-vision]] — AI 时代的数据基础设施展望（腾讯云专场）
+- [[tencent-ai-dlc]] — 腾讯云智能数据湖计算 AI DLC 发布（腾讯云专场）
+- [[tencent-ai-dlc-engines]] — AI DLC 三大核心引擎解读（腾讯云专场）
+- [[bosch-ray-hybrid-computing]] — 博世 Ray 混合计算实践（腾讯云专场）
+- [[bosch-lance-ray-data-production]] — Bosch 自动驾驶数据生产：Lance 与 Ray（腾讯云专场）
+- [[selectdb-agent-native-infra]] — SelectDB Agent Native 数据基础设施：让数据库成为 Agent 的第一等公民（2026-08 论坛）
+- [[agentic-olap-architecture]] — 微信面向 Agentic 的 OLAP 架构探索：可观测改造与记忆底座（2026-08 论坛）
 
 ## 相关页面
 

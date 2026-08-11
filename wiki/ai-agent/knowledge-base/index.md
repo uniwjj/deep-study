@@ -10,12 +10,17 @@ updated: 2026-07-22
 
 # 知识库与 RAG
 
-AI 驱动的知识库方案与 RAG 技术，共 16 篇。
+AI 驱动的知识库方案与 RAG 技术，共 18 篇。
 
 ## 范式总览
 
 - [[knowledge-retrieval-paradigms]] — 知识检索三代范式（RAG/GraphRAG/LLM Wiki）
 - [[rag-vs-llm-wiki]] — RAG vs LLM Wiki 对比（Karpathy 五代演进视角）
+
+## 本体与语义层
+
+- [[open-semantic-interchange]] — OSI 开放指标标准：语义层作为 Agent 契约语言（2026-08 论坛）
+- [[ontology-driven-knowledge-engineering]] — 本体驱动知识工程：企业智能办公 Agent 的地基（2026-08 论坛）
 
 ## LLM Wiki 体系
 
@@ -31,6 +36,7 @@ AI 驱动的知识库方案与 RAG 技术，共 16 篇。
 - [[graphrag]] — 第二代 GraphRAG / LightRAG
 - [[storm]] — STORM 主动研究模式
 - [[mem0]] — 记忆层
+- [[paozi-ai-knowledge-memory]] — 狍子AI 记忆工程与知识工程：结构化数仓四步流水线与图谱治理（2026-08 论坛）
 
 ## Karpathy 实践
 

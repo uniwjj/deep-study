@@ -10,7 +10,7 @@ updated: 2026-06-30
 
 # Harness 编排体系
 
-Agent 编排系统的设计模式与工程实践，共 8 篇。
+Agent 编排系统的设计模式与工程实践，共 16 篇。
 
 ## 核心概念
 
@@ -27,7 +27,11 @@ Agent 编排系统的设计模式与工程实践，共 8 篇。
 ## 工程实践
 
 - [[harness-engineering-practice]] — Harness 工程实践
+- [[harness-engineering-evolution]] — Harness 工程演进与落地：八大工程难题、小闭环路线与 AgentOS 下沉
+- [[harness-evolution-practice]] — 从单 Agent 翻车到多 Agent 协作：一次真实重构的 Harness 七阶段演进（2026-08 论坛）
 - [[harness-as-backend]] — Harness 作为新后端
+- [[distributed-agent-hosting]] — 腾讯云 Agent Runtime：从单体自管到分布式托管
+- [[mobile-gui-agent-harness]] — OPPO 移动端 GUI Agent Harness：受控运行时与数据飞轮
 - [[glm5-harness-practice]] — GLM5 Harness 实战
 - [[dw-harness-practice]] — 得物数仓 Harness 落地：五层防御 + 8 步 SKILL 工作流
 - [[omnigent-meta-harness]] — Databricks Omnigent 元编排层（meta-harness），开源跨框架 Agent 调度

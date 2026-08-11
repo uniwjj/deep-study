@@ -21,6 +21,16 @@ AI Agent 在数据领域的应用——Data Agent 产品、AI 原生数据平台
 - [[infinisynapse]] — InfiniSynapse（InfiniAgent + InfiniSQL + InfiniRAG）
 - [[cloud-village-data-agent-platform]] — 网易云村 DAS Agent Platform 五层架构
 - [[xiaomi-dimi-data-agent]] — 小米 DiMi Text2SQL 全球第三
+- [[hologres-agentic-platform]] — Hologres 一站式 Agentic 多模态检索分析平台（2026-08 Agent 大会）
+- [[zhupu-agentic-analytics-api]] — 舟谱数据 Agentic 数据分析与 API 生产实践（2026-08 Agent 大会）
+- [[xifei-data-agent-multicountry]] — 信飞科技 Data Agent 多国展业实践（2026-08 Agent 大会）
+- [[tencent-data-agent-practice]] — 腾讯 Data Agent 生态：库表知识体系、SQL+Python 混合计算、LLM as Judge 评测（2026-08 论坛）
+- [[vivo-dataagent-practice]] — vivo BDSP 数据研发治理平台 DataAgent 实践（2026-08 论坛）
+- [[mip-data-agent-platform]] — 镜舟 MIP 智能数据平台：L1 MirrorData / L2 MirrorMind / L3 MirrorPilot 三层联动（2026-08 论坛）
+- [[streaming-interactive-data-agent]] — 流式交互与实时洞察：Agent 架构提升数据产品实用性（2026-08 论坛）
+- [[agentic-bi-third-gen-platform]] — 安克创新从 BI 到 Agentic BI 第三代数据平台建设（2026-08 论坛）
+- [[agentscope-financial-data-agent]] — 瓴岳科技 AgentScope 金融数据平台：六层架构与三支柱（2026-08 论坛）
+- [[workbuddy-data-practice]] — 腾讯 WorkBuddy 数据实践（2026-08 论坛）
 
 ## 语义层与本体
 

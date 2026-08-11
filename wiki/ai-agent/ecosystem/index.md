@@ -39,6 +39,16 @@ AI Agent 工具生态与趋势分析，共 15 篇。
 - [[ai-agent-ecommerce-content]] — AI Agent 电商内容应用
 - [[digital-employee]] — 数字员工概念
 - [[agentic-analytics-anthropic]] — Anthropic 自服务数据分析：四层架构实现 95% 查询自动化
+- [[honor-yoyo-agent]] — 荣耀 YOYO 智能体：AgenticOS 跨端协同与主动服务（2026-08 论坛）
+- [[ai-native-robot-development]] — 地瓜机器人 AI-Native 机器人开发新范式：Moss AgentEngine 云-PC-板端闭环（2026-08 论坛）
+- [[high-certainty-agent-practices]] — 运满满找货 AI：高确定性商业场景 Agent 工程实践（事件驱动/WatchPlan/L0-L4 授权，2026-08 论坛）
+- [[zhiniao-ai-financial-talent]] — 平安知鸟 AI 金融人才发展体系（2026-08 论坛）
+- [[pingan-ai-financial-digitalization]] — 平安"平安脑"金融数字化：PingAnGPT-32B 与智能体群（2026-08 论坛）
+- [[ficc-strategy-lifecycle-agents]] — 华泰 FICC AURORA：Agents 重构策略全生命周期管理（2026-08 论坛）
+- [[financial-marketing-ai-compliance]] — 腾讯金融营销 AI 合规审核智能体（2026-08 论坛）
+- [[fz-agent-os-supply-chain]] — 顺丰系 FZ Agent OS：供应链 Agent 操作系统（2026-08 论坛）
+- [[cosmo-claw-ontology-agent]] — 卡奥斯 COSMO-Claw：工业本体×大模型×多智能体可信落地（2026-08 论坛）
+- [[shokz-ai-first-step]] — 韶音科技 AI 建设第一步：五层技术栈与 AI Gateway 治理（2026-08 论坛）
 
 ## 职业与趋势
 

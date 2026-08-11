@@ -1014,3 +1014,34 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - updated `data-agent-vs-ontology-agent` — 新增"融合方案的工程化落地"小节：8 层语义栈的指标层/本体层/事件+锚定层对应"Data Agent 归因 + Ontology Agent 多跳 + 外部因素闭环"交替上场链路的四环节
 - updated `ontological-semantic-layer` — 相关页面补充 data-agent-semantic-stack（本体化语义层 = 8 层中的本体语义层）
 - updated `dataagent-semantic-layer` — 相关页面补充 data-agent-semantic-stack（SemQL/指标身份证的业界方案对照）
+
+## [2026-08-03] export | 误删的 Iceberg 学习资料恢复
+- 用户误删桌面两份 Iceberg 学习文档，从会话上下文完整重建
+- 恢复 `~/Desktop/Apache Iceberg 学习笔记.md`（670 行，是什么+为什么+怎么做三合一）
+- 恢复 `~/Desktop/Apache Iceberg 专家学习指南.md`（1884 行，16 章 + 附录 A，含第 15 章实操手册）
+- 采用"分片写入 /tmp + cat 合并"方案避免单次输出过大中断（API 曾报 upstream stream error）
+- 已验证：专家指南 16 章 + 附录完整、学习笔记 12 章完整
+
+## [2026-08-11] ingest | 2026 Agent 大会分享资料批量摄取（58 PDF / 18 论坛）
+- 来源：POPO 云空间分享文件夹 https://docs.popo.netease.com/drive/folder/304e203f86af49438165c6997b20b0dc（18 个论坛子目录，全部 PDF，递归下载）
+- 原始文件保留在 sources/2026/08/11/<论坛名>/（PDF 原件不可变，58 个同名 .md sidecar 已建）
+- 摄取方式：16 个并行代理按论坛分组，pdftotext 文本层 + tesseract/Swift Vision OCR 双通道交叉复核，逐页核对；无法辨认内容标记不确定未摄取
+- 质量备注：3 个 PDF 文件名与内容不符（「Agent驱动旅游B2B」实为瓴岳 AgentScope 金融平台、「02-顺丰供应链」实为卡奥斯 COSMO-Claw、另一顺丰同名 PDF 为 FZ Agent OS），页面按正文实际内容撰写并在页面与 sidecar 中注明
+- 新增来源 58 个；新建 wiki 页面 58 个：
+  - created `agent-self-evolution`、`openjiuwen-agent-os`、`bigdata-ops-agent-practice` — 主论坛 Keynote 与自进化论坛（肖仰华/金雪锋/熊伟）
+  - created `document-ai-benchmark`、`expert-in-the-loop-evaluation`、`agent-auto-evaluation-practice` — Agent 评测与治理（阿里/一面千识/1688）
+  - created `agent-sandbox-infrastructure`、`foundation-protocol`、`harness-evolution-practice` — 多 Agent 协作与研发效能（阿里云/FP/钱亮）
+  - created `next-gen-agent-form`、`zhen-ai-unified-runtime`、`embodied-world-model-3d-perception`、`ai-agent-builder-workflow` — 前沿探索与超级 Agent
+  - created `zhiniao-ai-financial-talent`、`pingan-ai-financial-digitalization`、`ficc-strategy-lifecycle-agents`、`financial-marketing-ai-compliance` — 金融场景 Agent 实践
+  - created `mobile-agent-gui-family`、`llm-cost-optimization`、`kimi-long-horizon-agentic` — Foundation Model 2.0（Mobile-Agent/成本控制/Kimi K3）
+  - created `vivo-dataagent-practice`、`selectdb-agent-native-infra`、`agentic-bi-third-gen-platform`、`agentic-olap-architecture`、`streaming-interactive-data-agent` — 面向 Agent 的数据架构
+  - created `high-certainty-agent-practices`、`ai-native-robot-development`、`honor-yoyo-agent` — 消费场景 Agent 实践
+  - created `fz-agent-os-supply-chain`、`cosmo-claw-ontology-agent`、`shokz-ai-first-step` — 工业场景 Agent 实践
+  - created `odps-multimodal-agentic-upgrade`、`hologres-agentic-platform`、`zhupu-agentic-analytics-api`、`xifei-data-agent-multicountry` — 阿里云专场
+  - created `tencent-data-agent-practice`、`mip-data-agent-platform`、`agentscope-financial-data-agent` — Data Agent 到 Data Engineer
+  - created `dynamic-workflow-agent-paradigm`、`elastic-mcp-agentic-search`、`vibops-spec-first-toolchain` — 企业级 Agent 工具链
+  - created `oppo-multimodal-agent-memory`、`lycheememory-memory-scaling`、`paozi-ai-knowledge-memory`、`evomembench` — Agent 记忆工程
+  - created `open-semantic-interchange`、`ontology-driven-knowledge-engineering` — 知识工程与本体语义
+  - created `distributed-agent-hosting`、`harness-engineering-evolution`、`mobile-gui-agent-harness` — Harness Engineering
+  - created `ai-native-data-platform-vision`、`tencent-ai-dlc`、`tencent-ai-dlc-engines`、`bosch-ray-hybrid-computing`、`bosch-lance-ray-data-production`、`workbuddy-data-practice` — 腾讯云专场
+- updated `dataworks-data-agent` — 合并「碳硅协同」范式章节（阿里云 04）；updated `xiaomi-dimi-data-agent` — 合并 BIRD 榜单与五类不确定性解法；updated `llm-cost-optimization` — 合并企业 AI 编程成本控制实践；updated `apache-ossie` — 补充 OSI 关联；updated 8 个 index 索引页

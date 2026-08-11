@@ -32,6 +32,7 @@ updated: 2026-07-07
 - [[sdd-openspec-superpowers]] — OpenSpec+Superpowers 双框架
 - [[superpowers-openspec-pitfalls]] — 组合踩坑实录（7 坑）
 - [[superpowers-openspec-legacy-workflow]] — 老旧项目 4 阶段实战
+- [[vibops-spec-first-toolchain]] — 从 BizDevOps 到 VibOps：spec-first 企业级 AI CodingAgent 工具链（2026-08 论坛）
 
 ## 自定义工作流
 

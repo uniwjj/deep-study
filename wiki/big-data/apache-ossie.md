@@ -64,5 +64,6 @@ Ossie 目前已有 50+ 家公司签署支持，但**尚未进入大规模生产�
 - [[open-data-stack-evolution]] — 五层开放数据标准栈的十年演进全景
 - [[apache-polaris]] — 目录 & 治理层，Ossie 的下层依赖
 - [[iceberg]] — 表格式层，Ossie 的底层基础
+- [[open-semantic-interchange]] — OSI 开放指标标准（2026-08 论坛演讲），Ossie 0.2.0 Ontology Preview 与 OSI 规范的 Agent 视角
 - [[agentic-data-cloud]] — Google 跨云 Lakehouse 中语义层的角色
 - [[databricks-2026-summit]] — Databricks 2026 峰会对语义层的布局
