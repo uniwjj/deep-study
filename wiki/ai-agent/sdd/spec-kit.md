@@ -54,6 +54,10 @@ SDD 的精髓：**先想清楚「做什么」和「为什么做」，再动手�
 /speckit.constitution → /speckit.specify → /speckit.clarify → /speckit.plan → /speckit.analyze → /speckit.tasks → /speckit.implement
 ```
 
+官方配图将流程概括为三个阶段：**Initialize**（`specify init`）→ **Setup Project Guidelines**（constitution）→ **Create Spec and Tasks**（specify→clarify→plan→tasks→implement），参与者为 Project Owner 与 Developer 双方。
+
+> ⚠️ **analyze 的时序在两来源间存在矛盾**：知乎文章正文把 `/speckit.analyze` 列为第 5 步（plan 后、tasks 前，"分派任务前沙盘推演"），但其配图流程图未含 analyze；而官方 `specify init` 输出与 [[ai-programming-tools-comparison]] 来源均说明 analyze 在 **tasks 后、implement 前**。以官方 init 输出为准，文章顺序存疑。
+
 ### 1. constitution（项目宪法）
 定义全项目级别的治理原则，一次性建立，所有功能共享：
 - 代码质量标准
@@ -71,7 +75,9 @@ SDD 的精髓：**先想清楚「做什么」和「为什么做」，再动手�
 - 功能需求
 - 验收标准
 
-产出：`.specify/specs/功能名/spec.md`
+产出：`specs/功能名/spec.md`（顶层目录；见下方目录结构说明）
+
+spec.md 的典型结构（2026-08 实战示例）：用户场景（按优先级 P1/P2）、功能需求、成功标准（可衡量指标）、边界情况处理、验证结果（质量检查通过徽章）、下一步建议。
 
 实践贴士：把自己当成产品经理，描述越具体越好。例如「用户点击完成按钮后，任务项应变为灰色，并移动到列表底部」，而不是「用户可以完成任务」。
 
@@ -89,7 +95,14 @@ AI 从「产品经理」切换为「架构师」角色，基于 spec.md 和 cons
 - API 契约
 - 数据模型
 
-产出：`.specify/功能名/plan.md`、`data-model.md` 等设计文档
+产出（`specs/功能名/` 下的一组文档）：
+- `plan.md` — 实施计划
+- `research.md` — 研究文档（技术选型决策与替代方案分析、性能/安全/部署策略、风险评估——体现「研究驱动的背景」原则）
+- `data-model.md` — 数据模型（Prisma schema、验证规则、业务逻辑）
+- `contracts/api.yaml` — API 契约（OpenAPI 规范）
+- `quickstart.md` — 快速开始指南
+
+功能目录按分支命名，如 `001-todo-manager`。
 
 实践贴士：AI 方案不符合预期可以直接让它修改——你始终拥有最终决策权。
 
@@ -105,7 +118,7 @@ AI 从「产品经理」切换为「架构师」角色，基于 spec.md 和 cons
 - 具体实现步骤
 - 任务依赖关系
 
-产出：`.specify/功能名/tasks.md`
+产出：`specs/功能名/tasks.md`，任务格式模板：`- [ ] T[ID] [P?] [Story?] Description`（任务编号+优先级+用户故事标识）。
 
 实践贴士：`tasks.md` 是与 AI 协作的核心界面——可随时介入调整任务优先级，或标记某些任务为自己完成。
 
@@ -145,18 +158,36 @@ specify init my-project --ai claude
 specify init --here
 ```
 
-初始化后目录结构：
+`specify init` 会完成：检查依赖 → 选择 AI 助手（claude 等）→ 选择脚本类型（ps/sh）→ 下载模板（`spec-kit-template-claude-ps-v0.0.90.zip` 等）→ 解压 → 初始化 git → 完成。
+
+⚠️ **Agent Folder Security**：init 输出会提示——代理可能在项目内的 agent 文件夹（`.claude/`）中存储凭据、auth token 等私密工件，**建议将 `.claude/`（或其中部分）加入 `.gitignore` 防止意外泄露凭据**。
+
+初始化后目录结构（v0.0.90 claude-ps 模板，据 2026-08 实战截图）：
 
 ```
-your-project/
+claude-todo-app/
+├── .claude/          # AI 助手配置（可能含凭据，建议 gitignore）
 ├── .specify/
-│   ├── memory/
-│   │   └── constitution.md    # 项目宪法
-│   ├── scripts/               # 内置脚本
-│   ├── specs/                 # 功能规范目录
-│   └── templates/             # 模板文件
-└── CLAUDE.md                  # AI 助手配置
+│   └── memory/
+│       └── constitution.md    # 项目宪法
+├── specs/            # 功能规范目录（顶层）
+│   └── 001-todo-manager/      # 每功能一个编号目录
+│       ├── spec.md
+│       ├── plan.md
+│       ├── research.md
+│       ├── data-model.md
+│       ├── contracts/api.yaml
+│       ├── quickstart.md
+│       └── tasks.md
+├── scripts/          # 内置脚本
+├── backend/          # 后端代码（实战示例）
+├── frontend/         # 前端代码（实战示例）
+├── docs/             # 文档
+├── CLAUDE.md         # AI 助手配置
+└── package.json
 ```
+
+> 注：2026-05 的早期来源把 scripts/specs/templates 描述为集中在 `.specify/` 下；2026-08 截图显示 specs/、scripts/、docs/ 为顶层目录——疑似模板版本差异（截图基于 v0.0.90），以顶层结构为准。
 
 ## Claude Code 实战示例（任务管理器）
 
@@ -174,6 +205,14 @@ your-project/
 - **`/speckit.clarify` 在 plan 之前运行**：让 Claude 主动提问，把需求细节弄清楚，避免返工
 - **检查 Review Checklist**：每个 spec.md 里都有 `Review Checklist`，用来检查 AI 交付物是否满足预期
 - **随时中断并调整**：Claude 不会一次性跑完所有任务，过程中可随时介入修正方向
+
+### 增强命令（可选，来自 `specify init` 输出）
+
+| 命令 | 用途 | 建议时机 |
+|------|------|----------|
+| `/speckit.clarify` | 结构化提问，消除规划前的模糊风险 | plan 之前（若使用） |
+| `/speckit.analyze` | 跨工件一致性与对齐报告 | tasks 之后、implement 之前 |
+| `/speckit.checklist` | 生成质量检查清单，验证需求完整性/清晰度/一致性 | plan 之后 |
 
 ### 核心要点
 

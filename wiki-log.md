@@ -1051,3 +1051,11 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - added `sources/2026/08/12/从零理解 GitHub Spec Kit 开发者必看的入门指南.md`（正文 + frontmatter）
 - added `sources/2026/08/12/spec-kit-zhihu-imgs/`（9 张文章配图：七步流程图 + Claude Code 实战截图）
 - updated `spec-kit` — 合并 SDD 四大关键词、六大核心原则、7 阶段工作流（clarify/analyze 并入主流程）、Claude Code 实战示例（任务管理器）、实用技巧、适用/不适用场景；标注"微软开发"说法的来源
+
+## [2026-08-12] ingest | Spec Kit 知乎文章配图视觉复核补正
+- 9 张配图经识图代理 OCR 交叉复核，与正文提取核对后补正 `spec-kit`：
+  - 标注 analyze 时序矛盾（文章正文在 plan 后 / 官方 init 输出在 tasks 后、implement 前；文章配图流程图中无 analyze）
+  - 补回 `/speckit.checklist` 增强命令（init 输出证据，附三个可选命令建议时机表）
+  - 目录结构更新为顶层 `specs/<功能名>/`（含 spec.md/plan.md/research.md/data-model.md/contracts/api.yaml/quickstart.md），标注与 2026-05 旧来源 `.specify/` 集中式描述的版本差异（v0.0.90）
+  - 新增 Agent Folder Security 提醒（`.claude/` 应加入 .gitignore 防凭据泄露）
+  - 补充 spec.md 典型结构、任务格式模板 `- [ ] T[ID] [P?] [Story?] Description`、分支命名 `001-todo-manager`
