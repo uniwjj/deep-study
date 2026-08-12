@@ -1045,3 +1045,9 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
   - created `distributed-agent-hosting`、`harness-engineering-evolution`、`mobile-gui-agent-harness` — Harness Engineering
   - created `ai-native-data-platform-vision`、`tencent-ai-dlc`、`tencent-ai-dlc-engines`、`bosch-ray-hybrid-computing`、`bosch-lance-ray-data-production`、`workbuddy-data-practice` — 腾讯云专场
 - updated `dataworks-data-agent` — 合并「碳硅协同」范式章节（阿里云 04）；updated `xiaomi-dimi-data-agent` — 合并 BIRD 榜单与五类不确定性解法；updated `llm-cost-optimization` — 合并企业 AI 编程成本控制实践；updated `apache-ossie` — 补充 OSI 关联；updated 8 个 index 索引页
+
+## [2026-08-12] ingest | 从零理解 GitHub Spec Kit：开发者必看的入门指南（知乎文章）
+- 来源：https://zhuanlan.zhihu.com/p/1981659360842249886（知乎 403 反爬，经 r.jina.ai 渲染抓取正文；9 张配图已下载保存）
+- added `sources/2026/08/12/从零理解 GitHub Spec Kit 开发者必看的入门指南.md`（正文 + frontmatter）
+- added `sources/2026/08/12/spec-kit-zhihu-imgs/`（9 张文章配图：七步流程图 + Claude Code 实战截图）
+- updated `spec-kit` — 合并 SDD 四大关键词、六大核心原则、7 阶段工作流（clarify/analyze 并入主流程）、Claude Code 实战示例（任务管理器）、实用技巧、适用/不适用场景；标注"微软开发"说法的来源
