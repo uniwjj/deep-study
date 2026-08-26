@@ -31,6 +31,7 @@ AI Agent 在数据领域的应用——Data Agent 产品、AI 原生数据平台
 - [[agentic-bi-third-gen-platform]] — 安克创新从 BI 到 Agentic BI 第三代数据平台建设（2026-08 论坛）
 - [[agentscope-financial-data-agent]] — 瓴岳科技 AgentScope 金融数据平台：六层架构与三支柱（2026-08 论坛）
 - [[workbuddy-data-practice]] — 腾讯 WorkBuddy 数据实践（2026-08 论坛）
+- [[daishu-cloud-data-agent]] — 袋鼠云 Data Agent：IDC 2026 主要厂商、Data+AI 智能飞轮、一体两翼、灵瞳 Data Agent（2026-08）
 
 ## 语义层与本体
 
@@ -60,6 +61,10 @@ AI Agent 在数据领域的应用——Data Agent 产品、AI 原生数据平台
 - [[agent-infra-vendor-strategies]] — Agent 基础设施厂商战略对照
 - [[enterprise-agi-framework]] — 企业级 AGI 框架：SoI 四层堆栈 + 本体成熟度模型
 - [[genie-ontology]] — Databricks Genie Ontology（位于 ai-ml/）
+
+## 演进方向
+
+- [[data-agent-next-stage]] — Data Agent 下一步综合：语义层基础设施化、能力 Skills 化、从问数到受控行动、反馈闭环与成熟度爬坡
 
 ## 实践案例
 

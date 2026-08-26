@@ -1059,3 +1059,15 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
   - 目录结构更新为顶层 `specs/<功能名>/`（含 spec.md/plan.md/research.md/data-model.md/contracts/api.yaml/quickstart.md），标注与 2026-05 旧来源 `.specify/` 集中式描述的版本差异（v0.0.90）
   - 新增 Agent Folder Security 提醒（`.claude/` 应加入 .gitignore 防凭据泄露）
   - 补充 spec.md 典型结构、任务格式模板 `- [ ] T[ID] [P?] [Story?] Description`、分支命名 `001-todo-manager`
+
+## [2026-08-26] ingest | Data Agent的下一阶段，究竟在竞争什么？（微信公众号）
+- 来源：https://mp.weixin.qq.com/s/fpoFf_K0Yqf6A8wQHpQLIg（web_fetch 反爬 → Chrome headless 渲染抓取；20 张配图 data-src 已修正）
+- added `sources/2026/08/26/Data Agent的下一阶段，究竟在竞争什么？.html`（原始正文，不可变）+ 同名 `.md` sidecar
+- created `daishu-cloud-data-agent` — IDC MarketScape 中国 Data Agent 2026（袋鼠云入 Major Players；2028 年 60% 中国 500 强预测）；Data Agent 作为 Data 与 AI 之间"运转机制"；Data+AI 智能飞轮/一体两翼；灵瞳 Data Agent 四场景与提效 40%；下一阶段竞争（Skills/统一语义/主动数据管理）；5000+ 客户行业落地
+- updated `ai-agent/data-agent/index` — 产品与生态列表新增袋鼠云页
+- run `llm-wiki sync`
+
+## [2026-08-26] query | Data Agent 的下一步是什么？
+- created `data-agent-next-stage` — query-synthesis：综合 IDC/Databricks/CCSA/火山引擎/安克等 10 个页面的演进信号（上下文与语义成主战场、受控行动交付物、Skills 化、反馈闭环、DAMM 成熟度爬坡），此前无单页覆盖
+- updated `ai-agent/data-agent/index` — 新增「演进方向」小节
+- run `llm-wiki sync`
