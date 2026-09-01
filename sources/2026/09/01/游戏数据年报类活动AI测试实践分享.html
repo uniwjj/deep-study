@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>游戏数据年报类活动AI测试实践分享</title>
+<style>
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 860px; margin: 0 auto; padding: 24px 16px; line-height: 1.75; color: #222; }
+h1, h2, h3, h4 { line-height: 1.4; }
+img { max-width: 100%; height: auto; }
+video { max-width: 100%; }
+pre, code { background: #f5f5f5; border-radius: 4px; }
+pre { padding: 12px; overflow-x: auto; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #ccc; padding: 6px 10px; }
+.meta { color: #888; font-size: 13px; border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 16px; }
+blockquote { border-left: 3px solid #ddd; margin-left: 0; padding-left: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="meta">作者: 张启 · 发布: 2026-08-31 · 来源: KM (https://km.netease.com/v4/detail/blog/278455)</div>
+<h1 id="%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80_edfa4758" data-key="edfa4758">一、前言</h1>
+<p>游戏年报是游戏在年末/周年节点给玩家生成的个人数据总结活动，类似"支付宝年度账单""网易云音乐年度听歌报告"的游戏版——玩家登录后，系统按这一年（或统计周期内）的真实游玩数据，生成一份专属于这个玩家的可视化总结页面，通常包含：</p>
+<ul class="rock-editor-ul">
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>数据总结类页面：创角时间、累计登录天数/时长、段位/排名、常玩模式、本命英雄/武器、开箱记录、好友榜等——这些都是"千人千面"，每个玩家看到的都是自己的真实数据。</p></span></li>
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>结果/总结页：给玩家生成一个年度称号/关键词，配合海报，可以分享出去。</p></span></li>
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>任务与分享环节：引导玩家完成"查看/分享/查看他人年报"之类的任务换奖励，起到拉新/传播的作用。</p></span></li>
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>他人年报：可以通过分享链接查看好友的年报（只读视角，不能操作对方的任务）。</p></span></li>
+</ul>
+<p>从业务目的看，年报是一个情感向 + 传播向的运营活动：让玩家感受到"游戏记得我这一年的经历"，同时通过美观的总结页和分享机制带来自然传播（类似朋友圈刷屏的年度账单）。</p>
+<p>从测试角度看，年报的特殊性就是：<strong>所有账号走的产品流程完全一样，但因为每个玩家的真实数据不同，导致同一套页面会呈现出成百上千种不同的数据展示分支。测年报这类"多模块×有无数据×字段取值"组合驱动的活动，QA能用的手段很有限</strong>，基本可以归成四类：</p>
+<ul class="rock-editor-ul">
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>受限于登录问题，测试角色池只有那几个，每个数据字段反复改；</p></span></li>
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>真数据凑不齐，只能造数据，造出来的东西又不是真数据；</p></span></li>
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>数据分支量大，很难靠人工覆盖全，例如本次测试需要遍历配表一共85个分支，数据库要改138个字段，每个字段还要对长度、异常值逐一遍历修改测试；</p></span></li>
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>配表的分支/文案一改，又要重新手动造数据回归；</p></span></li>
+</ul>
+<p>总体而言：QA缺乏工具精确测算"85个分支的实际覆盖程度"，仅能依赖固定角色反复验证、构造数据粗略估算，覆盖率既无法量化也难以复现；每次配表变更，前期构建的测试数据即告作废。人工实现"配表分支基本全覆盖"成本高昂，且难以评估投入产出比。即便想走自动化，也要先搭框架写脚本，而游戏媒体活动测试时间紧、窗口短，QA 没有足够人力去建设传统自动化体系。</p>
+<p>针对上述痛点，目标是构建一套不逐字段手动改数、不改库嫁接、不伪造数据、直接输出可验收年报数据结果的完整方案。简单设想测试流程大概是"根据ux玩家真实数据分析出配表需要测试的内容 → 配表计算最少账号 → 匹配真实典型数据角色 → 自动生成Cookie登录 → 自动执行UI断言 → 自动发布报告"的全链路自动化。</p>
+<p>年报测试的本质并非主流程验证，而是数据展示分支的专项测试。</p>
+<p>若需AI实现端到端全流程覆盖，除核心的年报数据模块外，页面框架层（含首页→翻页→结果页→任务→分享体系等功能）及接口层均需纳入AI测试范畴。实施过程中，设想串联复用自行完成沉淀的接口AI测试（ccc-qa-api-test-skill），UI自动化测试能力（ ccc-qa-playwright-mcp-testing）与海外多语言测试框架（ccc-qa-i18n-testing）等多项核心资产，驱动AI全自动完成永劫无间年报中文版、英文版、繁体版的多页面测试执行，实现全链路AI测试。</p>
+<p>以下为 skill 的设计思路与执行细节。</p>
+<h1 id="%E4%BA%8C%E3%80%81%E5%B9%B4%E6%8A%A5Skill%EF%BC%88ccc-qa-annual-report%EF%BC%89%E8%AE%BE%E8%AE%A1%EF%BC%9A%E9%85%8D%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%9A%84%E4%BA%94%E9%98%B6%E6%AE%B5%E6%B5%81%E6%B0%B4%E7%BA%BF_50524319" data-key="50524319">二、年报Skill（ccc-qa-annual-report）设计：配表驱动的五阶段流水线</h1>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li start="1" data-level="2" data-indent="0" style="counter-reset: none; counter-set: none; counter-increment: ol0 1;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>核心流水线：一条 condition，驱动全流程</p></span></li>
+</ol>
+<p>年报的测试难点在于：同一个页面，不同玩家看到的内容完全不同。 段位高的看到"无量梵天"，段位低的看到"青铜"；开箱多的看到"获得 N 件外观"，没开过的看到另一套文案。常规测试那种"写一个预期、所有账号通用"的方式在这里行不通，每个玩家看到的都是自己的数据，预期跟着数据走。为了解决这个问题，产品和开发维护了一份配表。</p>
+<p>每一行就两个核心字段：条件（UX数值提供）和文案（产品和策划确认）</p>
+<p><span class="image-wrapper"><img class="" width="1159" height="433" src="游戏数据年报类活动AI测试实践分享-images/img-01.png" alt="" style="clear: both;" data-id="0350870d-1a58-4394-aff2-4c638238e7bc"></span></p>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">condition：命中条件。比如max_level_id &gt;= 7500 &amp;&amp; max_level_id &lt;= 999999999，意思是"段位 ID 落在哪一个区间的玩家，展示哪一行文案"。</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">text：展示文案，命中后页面上该显示什么文字。</p></span></li>
+</ul>
+<p>同一页面下各行 condition 互斥，一个玩家只命中一行；不同页面之间独立，可以合并到同一个测试账号。</p>
+<p>到这里，自动化测试的输入就已经齐了。 condition 定义了"谁该看到这一行"，text 定义了"该看到什么"——两者合在一起就是一个完整的预期结果。不需要人手给 85 个分支写测试用例，配表本身就是可机器执行的验收标准。</p>
+<p>核心思路只有一句话：预期不用人工写，配表就是预期——每个 configId 的 condition（数据层判断）+ text（渲染层文案）本身就是断言标准，用例只需要给"通用执行场景怎么走"，数据差异由配表驱动自动判断对错。</p>
+<div class="callout-node" id="2f4ccb4e" data-background="y40">
+ <p>skill 要做的事也就清楚了，对应五步 + 一条支线。</p>
+ <p>简单记：<strong>算 → 验 →</strong> 定 → 跑 → 报（+ 审）</p>
+</div>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li start="1" data-level="3" data-indent="0" style="counter-reset: none; counter-set: none; counter-increment: ol0 1;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>算阶段：配表 condition → 集合覆盖算最少账号</p></span></li>
+</ol>
+<p>把配表每一行的 condition（如 max_level_id &gt;= 7500 &amp;&amp; ... &lt;= 999999999）翻译成"字段→典型值"的造数补丁。同一页面内的分支通常互斥（段位11档必须分给不同账号），不同页面的分支正交（段位 vs 开箱 vs 镖客可以塞进同一账号）——这是个经典的集合覆盖问题，账号数收敛到"分支最多的那个驱动页的分支数"做到用最少的账号全覆盖每一行condition。</p>
+<p>增加自检：①覆盖率→②造数命中率（condition-eval 反查每条分支是否真的被满足）都是脱离浏览器的纯计算，跑得快、可反复迭代。</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="3" data-indent="0" style="counter-increment: ol0 2;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>验阶段：反向校验配表本身有没有漏配（正向流程测不到的盲区）</p></span></li>
+</ol>
+<p>正向流程有个隐含假设——配表是完整的。但真实情况是：产品设计配表可能本身漏配了枚举。比如段位字段 DB 里真实玩家分布在 11 个档，配表只配了 7 档；漏掉的 4 档，正向流程永远测不到，因为配表里根本没有对应的行，自检①也全绿。</p>
+<p>解法：拿 DB 里字段的真实枚举/区间分布，去减配表覆盖集，差集就是疑似漏配。离散枚举用 SELECT DISTINCT 对比；连续字段（段位/战力等）按声明的 bands 分桶计数对比。每条疑似漏配都会带上真实玩家计数和一个可复现的样本 role_id，方便直接生 cookie 注入页面坐实是不是真的漏了。只报告不阻断，最终是否要补配表由需求方决定。</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="3" data-indent="0" style="counter-increment: ol0 3;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>定阶段：定位典型角色，直生 cookie 注入（不改库、不改归属）</p></span></li>
+</ol>
+<p>年报的典型数据挂在正式角色名下，不是造测试数据。核心做法是拿到"有这份典型数据"的那个角色的 role_id，直接生成 cookie 注入（ role_id → JWT → 注入浏览器）页面即可登录展示——彻底告别"改 ux 归属嫁接给测试账号"的老路线。</p>
+<p>两条取角色路径，殊途同归都是拿 role_id 生 cookie：</p>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">新玩家（宣发有角/无角）：读提前设定好的固定账号清单，一次设定长期复用；</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">老玩家（活跃/回流）：运行时按分支 condition 只读查 ux 表，SELECT 满足该分支且命中真实玩家过滤（正则白名单+黑名单排除 QA 造数前缀）的现成角色。</p></span></li>
+</ul>
+<p>关键铁律：只采真实玩家，禁采造数据——配表分支要的是真实玩家的复杂多维数据，不是"刚好满足单分支的最简造数"；找不到满足分支的真实角色时如实标"⚠️无法覆盖"并写明原因，绝不回退去改库凑数据。</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="3" data-indent="0" style="counter-increment: ol0 4;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>跑阶段：跑 UI（委托 playwright-mcp-testing 执行）</p></span></li>
+</ol>
+<p>本环节不重造浏览器执行引擎，年报专属的是"逐账号循环 + 数据展示断言"这层包装：每个账号一种典型数据，注入 cookie → 校验登录门禁 → 按主流程逐页翻页截图 → 四层断言判定该页展示是否正确。</p>
+<p>四层断言：</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li start="1" data-indent="1" style="counter-reset: none; counter-set: none; counter-increment: ol0 4 ol1 1;">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">接口层：调数据接口拿字段，用配表 condition 反查是否命中对应分支；</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">文案层：取页面渲染文本，和配表该分支的 text 比对关键词；</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">数值准确性：抽数据齐全的账号，页面展示值与角色真实游戏数据逐字段精校（口径/区间/派生逻辑对不对）；</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">显示完整性：图片裁切/变形/模糊、内容越界、异常留白错位检测——年报图多是高发区，量化指标+局部截图肉眼复核定级。</p></span></li>
+</ol>
+<p>实际测试中踩过一个高频坑：翻页后页面还没渲染完就截图，拿到空白页或动画中间态。根因是年报每页加载的数据量差异巨大——有的页面数据稀疏瞬间完成，有的页面几十个字段+多张图片+入场动画需要数秒。固定 sleep 永远对不齐：设短了数据重的页面截到白屏，设长了数据轻的页面纯白等。</p>
+<p>解决方式是：用渲染就绪信号取代固定等待。翻页后不数秒，而是持续检测五个信号：网络请求全部完成、图片全部解码、关键区域 canvas 已有像素内容、页面动画执行完毕（animationend / transitionend）、页面文本和布局连续两次快照一致。五个信号全部就绪才触发截图——数据量大时自然多等，数据小时不等，动画没播完就继续等，保证截到的永远是真正的完成态。</p>
+<p>跑完还有一道闭环对账：配表有 N 条分支，实际跑完覆盖了 M 条。M &lt; N 时必须补跑或给出说明，不允许静默漏测，覆盖率缺口必须显式可见，不能靠AI"感觉测完了"。</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="3" data-indent="0" style="counter-increment: ol0 5;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>报阶段：报告 + 每账号汇总图 + 回归脚本</p></span></li>
+</ol>
+<p>三件产物顺序固定：</p>
+<p>① 测试报告（核心交付物）→ ②每账号截图汇总图（grid 平铺，报告里点链接直达）→ ③自包含 UI 回归脚本（固化账号+cookie+每页预期，下次直接复跑，不用再走配表/查表/找角色）。</p>
+<p>看板式美化报告和截图画廊是①之上的可选增强，不能替代①。</p>
+<p>审阶段（独立诊断）：后端代码审查，补上"配表+DB查不出来"的缺陷</p>
+<p>前四阶段能验证"配表要求展示的，页面有没有展示对"，但有一个它验不出来的盲区：后端接口本身有没有把数据传全。</p>
+<p>具体来说，如果后端代码里某个字段定义了、数据库也有值，但 service 层漏写了赋值语句，接口就会永远返回零值——配表对应的分支永远命不中，由于配表有兜底方案，页面上看起来一切正常，但实际该展示的内容被跳过了。又或者两个同类接口方法，一个做了校验一个没做，就是越权隐患。这类问题只看 UI 和数据库是发现不了的，因为页面不会报错、数据库也有值，问题出在"数据库到接口返回"这一段映射上——必须拉后端源码。</p>
+<p>做这三件事：</p>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">字段映射比对：entity → model → service 三层字段做差集，找"定义了、取到了、但没赋值"的漏映射字段；</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">配表引用交叉验证：配表 condition 引用的每个字段，确认后端代码里确实有赋值路径；</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">同类方法一致性检查：结构相同的接口方法，校验逻辑是否一致，揪出漏校验。</p></span></li>
+</ul>
+<p>先全量扫出可疑点，再拿真实 sample role_id 注入页面确认是否真的是 bug。这一步独立于前四阶段，不阻塞主流程，随时单独触发。</p>
+<p>后端源码除了做审查之外还在"一次性初始化"中，把字段名、段位档位、模式枚举、DB 列映射、计算口径这些信息手写到 field-mapping.yjwj.mjs 里。后续阶段1~3 不需要再碰后端代码，直接读这个文件（说明书）就行，作用：</p>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">阶段1 算最少账号：需知每个字段的值域和分档规则，才能判断哪些分支互斥、需拆到不同账号。field-mapping 提供这些信息，否则连"这个字段有几档"都不知道，集合覆盖无从算起。</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">阶段2 查库找角色：condition 引用的字段，很多在 DB 里不是直接存的一列，而是后端算出来的（取最大、求和、计数等）。field-mapping 规定 DB 侧的等效查法，才能生成正确采样 SQL，查出真正满足 condition 的真实角色。</p></span></li>
+ <li data-indent="1">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p data-indent="1">阶段3 跑 UI 断言：接口返回了一个值，需要知道它落到哪个区间、对应什么文案，才能判断页面展示是否正确。field-mapping 提供值域区间和含义映射，否则拿到一个数字也不知道期望是什么。</p></span></li>
+</ul>
+<div class="callout-node" id="8b7e573e" data-background="b60">
+ <p>年报看起来是 UI 测试，但真正决定测试质量的不是"点页面"，核心是数据分析能力。</p>
+ <p>解析配表 condition、查 DB 枚举反查漏配、从真实玩家数据里采样定位角色。UI 只是最后验证结论的那一层。</p>
+ <p>后端代码在这里做了两件事：一是提前把字段名、段位档位、DB 列映射、计算口径反推出来写成 field-mapping，让阶段1~3 有据可依；二是阶段5 直接扫源码找漏映射和校验不一致，补上纯 UI 视角看不到的盲区。</p>
+</div>
+<h1 id="%E4%B8%89%E3%80%81%E6%95%B4%E4%BD%93AI%E6%B5%8B%E8%AF%95%E9%93%BE%E8%B7%AFskill%E6%94%B9%E9%80%A0%26%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87_363402e2" data-key="363402e2">三、整体AI测试链路skill改造&amp;前置准备</h1>
+<p>以上是年报测试 skill 的设计思路——配表怎么驱动、五阶段怎么分工。下面进入AI测试链路关联skill改造，分层推进：</p>
+<p><span class="image-wrapper"><img class="" width="1849" height="621" src="游戏数据年报类活动AI测试实践分享-images/img-02.png" alt="" style="clear: both;" data-id="2b156b49-f709-474d-ab9e-61500c1055b9"></span></p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li start="1" data-level="2" data-indent="0" style="counter-reset: none; counter-set: none; counter-increment: ol0 1;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>知识库沉淀：</p></span></li>
+</ol>
+<p>增加年报数据总结，把年报专属的易错模式（三态混淆 AR-003、混合分支 AR-002、极值排版等）沉淀进知识库，后续写用例和 skill 断言时直接引用，不用每次从零讲。年报测试不为每条数据单独写用例——用例只描述通用执行场景（主流程怎么走），数据层面的对错完全由配表驱动的四层断言自动判断，省去人工为每个 configId 写预期的成本。</p>
+<p><span class="image-wrapper"><img class="" width="1440" height="917" src="游戏数据年报类活动AI测试实践分享-images/img-03.png" alt="" style="clear: both;" data-id="07a72723-ed3a-466e-b904-94ca8fa23d88"></span></p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="2" data-indent="0" style="counter-increment: ol0 2;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>编写接口和 UI 用例（ccc-qa-testcase-create）：</p></span></li>
+</ol>
+<p>产出2份不同用例</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li start="1" data-indent="0" style="counter-reset: none; counter-set: none; counter-increment: ol0 1;">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>UI 用例（AUTO 通用操作 + BIZ 业务场景 + DATA 配表分支数据断言），覆盖首页进入、翻页切换、任务领取、分享、他人年报、兜底页等全部页面功能；</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>接口用例（多玩家类型串联链路 + 异常路径），覆盖看年报→标记看完→领奖、分享→他人年报→帮领奖励等完整调用链。</p></span></li>
+</ol>
+<p>&nbsp;</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="2" data-indent="0" style="counter-increment: ol0 3;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>测试报告改造：</p></span></li>
+</ol>
+<p>统一走 ccc-qa-html-report-publish-skill 一键发布在线测试报告。</p>
+<p>其中年报测试额外产出每账号汇总图（grid 平铺）和截图画廊（按用例分组 + lightbox）。发布前过 publish_precheck.py 自检，0 断链才放行；截图压 JPEG q75、文件名纯 ASCII、链接正斜杠等改造完成。</p>
+<p>以上一套为年报skill流程测试和关联skill改造全部完成。</p>
+<p><span class="image-wrapper"><img class="" width="824" height="161" src="游戏数据年报类活动AI测试实践分享-images/img-04.png" alt="" style="clear: both;" data-id="a99e72a3-1920-4ff2-878d-5eae7793cde7"></span></p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="2" data-align="left" data-indent="0" style="counter-increment: ol0 4;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p data-align="left" style="text-align: left;">四条执行线简介（详见第四章实践成果）</p></span></li>
+ <li start="1" data-level="3" data-indent="0" style="counter-reset: none; counter-set: none; counter-increment: ol0 -3;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>接口自动化测试</p></span></li>
+</ol>
+<p>委托 ccc-qa-api-test-skill 模式 B（用例驱动执行），按接口用例（多玩家类型串联链路 + 异常路径）逐条执行。</p>
+<p><span class="image-wrapper"><img class="" width="666" height="261" src="游戏数据年报类活动AI测试实践分享-images/img-05.png" alt="" style="clear: both;" data-id="bb84d920-6e08-4f8a-84c6-b68a7dbdd3a4"></span></p>
+<p><strong>接口自动化测试实现原理</strong>：</p>
+<p><span class="image-wrapper"><img class="" width="1400" height="1456" src="游戏数据年报类活动AI测试实践分享-images/img-06.png" alt="" style="clear: both;" data-id="d7e9908b-cbce-4214-8c50-fc234fe5409d"></span></p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="3" data-indent="0" style="counter-increment: ol0 2;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>UI自动化测试</p></span></li>
+</ol>
+<p>翻页切换、任务领取、分享链路、他人年报查看，这些是所有账号一致的通用水路，不涉数据分支。直接按 UI 用例（AUTO + BIZ）走标准 playwright-mcp-testing 流程执行，铁律同等生效：100% 覆盖不抽样、严格校验杜绝假通过、翻页依赖渲染就绪信号不固定 sleep、双端适配。</p>
+<p><span class="image-wrapper"><img class="" width="941" height="329" src="游戏数据年报类活动AI测试实践分享-images/img-07.png" alt="" style="clear: both;" data-id="1ab8d4e5-892d-41d5-90fe-94424325f0ba"></span></p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="3" data-indent="0" style="counter-increment: ol0 3;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>年报数据测试</p></span></li>
+</ol>
+<p>按五阶段完整执行：算配表 → 验漏配 → 定角色 → 跑 UI → 出报告。</p>
+<p>UI 执行完全委托给 ccc-qa-playwright-mcp-testing，年报侧不重造浏览器引擎，只包一层"逐账号循环 + 数据展示断言"。年报只专注"配表怎么翻译成造数""角色怎么找""数据展示对不对"三件事，UI 通用能力全部继承——100% 覆盖不抽样、严格校验杜绝假通过、显示完整性检测、双端适配、失败自愈——不重复建设也不和通用规范打架。</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="3" data-indent="0" style="counter-increment: ol0 4;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 20px; font-weight: bold;"></div><span style="font-size: 20px; font-weight: bold;"><p>海外多语言测试</p></span></li>
+</ol>
+<p>基准语言功能测透后，繁体和英文年报语言只做文案层校对，委托 ccc-qa-i18n-testing 执行。</p>
+<p>介绍一下海外多语言测试skill实现方式：</p>
+<p><strong>多语言测试最容易被浪费的时间是"同样的功能流程，每个语言都重新点一遍"。</strong>ccc-qa-i18n-testing技能的核心思路是把功能测试和文案测试彻底分离：功能测试（点击流程、交互逻辑、接口）只在基准语言（通常英文或中文）做一次，其他语言只做文案层的四件事——文案匹配（页面实际文案vs配表该语言列逐条核对）、溢出截断检测（翻译变长后是否撑破容器）、翻译完整性校验（缺译漏译、占位符丢失）、跨语言逐key对比（同一文案key各语言并排，一眼看出哪个语言有问题）。</p>
+<p>能这样做的关键前提是：同代码换文案，DOM选择器跨语言不变。所以基准语言跑测试时生成的交互场景脚本（scenes.json，记录弹窗、Tab等真实触发成功的选择器）可以直接复用到所有其他语言，不需要重新探索页面结构。执行时只需要一条命令加减参数：单语言用--lang，多语言批量用--langs一次跑完并输出跨语言对比表；页面需要登录态，账号就按语言分别通过account-mcp服务生成Cookie注入页面。批量多语言模式还额外做了时区/时间检测，通过基准比对法核对海外版本的时区转换是否正确等。</p>
+<p>翻译文案的来源是一份可动态扩展语言列的配表（popo在线文档），技能能自动识别任意列(text 中文/text_en 英文 / text_cht 繁体.....）并推导出对应语言，新增一个语言不需要改代码。测试结束后还会把每条文案的测试结果（通过/失败原因/未测试原因）回填到本地Excel副本，方便QA和开发跟进，同时严格遵守"在线原文档只读，永不覆盖"的边界。这套分离思路把多语言测试的边际成本从"再来一遍完整功能测试"降到了"跑一遍文案比对脚本"。</p>
+<div class="callout-node" id="13d545cd" data-background="b60">
+ <p>年报同理：先用年报 skill 跑完中文版年报，产出的自动化脚本直接复用到海外年报，一次跑完繁体和英文版。</p>
+</div>
+<h1 id="%E5%9B%9B%E3%80%81%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5%E4%B8%8E%E6%88%90%E6%9E%9C%EF%BC%88%E4%BB%A5%E6%B0%B8%E5%8A%AB%E6%97%A0%E9%97%B4%E4%BA%94%E5%91%A8%E5%B9%B4%E5%B9%B4%E6%8A%A5%E4%B8%BA%E4%BE%8B%EF%BC%89_35e19e4b" data-key="35e19e4b">四、测试实践与成果（以永劫无间五周年年报为例）</h1>
+<p>以上是测试执行的AI分工和流程。下面以永劫无间 D90 五周年年报为例，按照执行线展示完整跑完一轮的真实结果——从UI测试、接口测试、年报数据规模、覆盖率、测试报告、截图画廊到回归脚本。</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li start="1" data-level="2" data-indent="0" style="counter-reset: none; counter-set: none; counter-increment: ol0 1;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>接口自动化测试：</p></span></li>
+</ol>
+<p>ccc-qa-api-test-skill，模式B（按照用例驱动执行）接口自动化测试，产物接口回归脚本。</p>
+<p><strong>接口自动化测试报告：</strong></p>
+<p><span class="image-wrapper"><img class="" width="1630" height="902" src="游戏数据年报类活动AI测试实践分享-images/img-08.png" alt="" style="clear: both;" data-id="c121e8d9-0c62-4a6a-9ce4-16be300c7ce6"></span></p>
+<p><span class="image-wrapper"><img class="" width="935" height="592" src="游戏数据年报类活动AI测试实践分享-images/img-09.png" alt="" style="clear: both;" data-id="b4214969-5896-4779-a136-ab6a8d936240"></span></p>
+<p><strong>成果：ccc-qa-api-test-skill</strong></p>
+<div class="table-wrapper" style="max-width: 100%">
+ <table style="width: 800px">
+  <tbody>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>严重度</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>类型</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>用例位置/影响链</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>现象</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>建议</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>错误码优先级</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>CHAIN-004, CHAIN-006</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>非活跃玩家(finish_games=0)调用 self-report-award / report-award 返回 30010(对局数不足) 而非预期的 30009(未看年报)。对局数门禁优先级高于前置任务检查。<strong>存留上个版本的游戏对局代码代码。</strong></p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>确认产品意图：对局数门禁是否应最优先；确保两个错误码都可达</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>前置校验缺失</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>CHAIN-006 step1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>secondary 未执行 report-view，直接调用 POST /report-share 返回 code=0 成功，与预期 code=30009 不一致</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>确认意图：如必须先看完才能分享则补校验；否则更新用例预期</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P0</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>分享码校验</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>CHAIN-008 step3</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>roleId 可作为 share_code 使用（后端同时支持 roleId 和 UUID），<strong>用他人 roleId 可查看其年报</strong></p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>确认产品意图：如不允许 roleId 作分享码，后端应拒绝非 UUID 格式</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P2</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>参数校验缺失</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>CHAIN-011 step2</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>GET /other-report?share_code=不存在的code， 返回 code=0 而非预期 20002(参数非法)，空字符串被当作合法查询参数。<strong>导致前端页面处理未提示分享码不存在，直接展示数据空白页</strong></p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>增加 share_code 为空的参数校验，返回 20002</p></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p><span class="image-wrapper"><img class="" width="1112" height="657" src="游戏数据年报类活动AI测试实践分享-images/img-10.png" alt="" style="clear: both;" data-id="82609bd0-aa01-4721-b2d0-ff3f6aa903bd"></span></p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="2" data-indent="0" style="counter-increment: ol0 2;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>UI自动化测试</p></span></li>
+</ol>
+<p>ccc-qa-playwright-mcp-testing skill，模式B（按照用例驱动执行）UI自动化测试，产物UI自动化回归脚本。</p>
+<p><strong>UI通用测试报告：</strong></p>
+<h3 id="_f93cfc35" data-key="f93cfc35"><span class="image-wrapper"><img class="" width="1269" height="879" src="游戏数据年报类活动AI测试实践分享-images/img-11.png" alt="" style="clear: both;" data-id="c7baba9c-f47f-467c-9d93-e75afa02ba1d"></span></h3>
+<p><span class="image-wrapper"><img class="" width="1022" height="907" src="游戏数据年报类活动AI测试实践分享-images/img-12.png" alt="" style="clear: both;" data-id="a445ad8c-597e-4c8d-8526-efe0646e219a"></span></p>
+<p><span class="image-wrapper"><img class="" width="1148" height="830" src="游戏数据年报类活动AI测试实践分享-images/img-13.png" alt="" style="clear: both;" data-id="b05103ad-726b-4fa4-bb8b-49009f330db6"></span></p>
+<p>&nbsp;</p>
+<p><span class="image-wrapper"><img class="" width="1201" height="456" src="游戏数据年报类活动AI测试实践分享-images/img-14.png" alt="" style="clear: both;" data-id="d3c50bc6-0c8d-45dd-9003-addadf8c7590"></span><strong>成果：ccc-qa-playwright-mcp-testing</strong></p>
+<div class="table-wrapper" style="max-width: 100%">
+ <table style="width: 640px">
+  <tbody>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>严重度</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>类型</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>位置</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>现象</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>拦截遗漏</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>BIZ-004 宣发用户拦截</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>&nbsp;</p><p>pt4 宣发用户访问好友分享链接未被拦截，展示了好友年报内容，应跳首页</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>配表/文案</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>AUTO-004 规则弹窗</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>规则弹窗正文全是文案占位符，未配置实际规则</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>路由</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>AUTO-009 回看年报</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>回看年报跳转 #/ 首页而非 #/report 年报页</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>路由</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>AUTO-011 阅读我的年报</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>阅读我的年报跳分享子路径，无鉴权致内容空白</p></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>&nbsp;</p>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="2" data-indent="0" style="counter-increment: ol0 3;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>年报数据测试</p></span></li>
+</ol>
+<p>ccc-qa-annual-report-testing skill执行，产物年报全量数据回归脚本（把账号 roleId/cookie/预期分支固化进自包含 UI 脚本，后续回归直接复跑，不再走配表/查表/找角色）。</p>
+<p>测试报告：测试概览、账号×数据展示矩阵、缺陷清单、未覆盖原因、结论</p>
+<p><span class="image-wrapper"><img class="" width="1889" height="906" src="游戏数据年报类活动AI测试实践分享-images/img-15.png" alt="" style="clear: both;" data-id="25bd9634-15e4-495a-9d9b-8329a24efaff"></span></p>
+<p><span class="image-wrapper"><img class="" width="1323" height="883" src="游戏数据年报类活动AI测试实践分享-images/img-16.png" alt="" style="clear: both;" data-id="0a3e3ac8-7278-411d-b1be-ec39c248cf2c"></span></p>
+<p>每账号汇总图：每个账号一张 grid 平铺汇总图（按 PAGE_SORT 排列），供报告矩阵每行链接跳转。</p>
+<p>每账号汇总：标注该账号的典型数据特点（如活跃、回流、新玩家）</p>
+<p><span class="image-wrapper"><img class="" width="1887" height="892" src="游戏数据年报类活动AI测试实践分享-images/img-17.png" alt="" style="clear: both;" data-id="173a5d4c-3273-46ee-b836-d82bec9d957c"></span></p>
+<p>账号详情页：覆盖的哪一个condition、数据特点摘要总结，一目了然。</p>
+<p><span class="image-wrapper"><img class="" width="1902" height="634" src="游戏数据年报类活动AI测试实践分享-images/img-18.png" alt="" style="clear: both;" data-id="ded151ad-cc9e-42cd-b865-1063ef33fb64"></span></p>
+<p>画廊：每账号跑完 UI 后，把所有截图按页面分组平铺成 HTML 画廊（点击放大、← → 键盘切换）。对 QA 自己来说，一轮跑完 85 个分支，不用逐张翻文件夹，一眼扫过去就能快速复核渲染结果、发现自动化断言漏掉的视觉瑕疵；回测时新旧两版画廊对比，改动影响一目了然。对前端、产品、设计同样直接可用，过去想走查"所有段位档位的展示效果"，得找 QA 一个个登账号截屏，几乎不可能看完 85 个分支；现在画廊一页平铺，几分钟扫完。</p>
+<p><span class="image-wrapper"><img class="" width="1461" height="892" src="游戏数据年报类活动AI测试实践分享-images/img-19.png" alt="" style="clear: both;" data-id="acbe01ea-619d-4fb9-be69-6cf9770ac598"></span></p>
+<p><span class="image-wrapper"><img class="" width="1894" height="890" src="游戏数据年报类活动AI测试实践分享-images/img-20.png" alt="" style="clear: both;" data-id="6eb2bd94-2f48-438e-a05b-e2d55fd624a8"></span></p>
+<p><strong>成果：ccc-qa-annual-report-testing：</strong></p>
+<div class="table-wrapper" style="max-width: 100%">
+ <table style="width: 640px">
+  <tbody>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>严重度</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>类型</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>位置</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>现象</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>变量绑定</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>回流总结页 2012</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>段位模式【】+段位名两变量均未填充</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>管道未生效</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>回流创角页 2001</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>season_name 管道不生效，显示原始日期而非赛季名（全回流账号复现）</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>渲染缺失</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>回流社交页 2010</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>friend_list=null 但有 top_friend 时，社交页整页漏渲染</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>配表/文案</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>宣发兜底 promo3/4</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>宣传页 3/4 文案为占位 11、22（配表 report_ad 未配置）</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>渲染缺失</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>娱乐页 1019/1020</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>四煞(sishajie)娱乐面板完全空白——接口有数据但前端无渲染模板</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P0</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>字段映射遗漏</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>report_service.go</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>ent_liumangjie_win_rate 漏赋值，API 永远返回 0；</p><p>六芒劫 2 条分支（1021 胜率≥50% / 1022 胜率小于50%）恒走错</p></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h4 id="_a268cded" data-key="a268cded"></h4>
+<ol data-ordrered-type="char" class="rock-editor-ol">
+ <li data-level="2" data-indent="0" style="counter-increment: ol0 4;">
+  <div class="ProseMirror-li-placeholder" style="font-size: 24px; font-weight: bold;"></div><span style="font-size: 24px; font-weight: bold;"><p>海外多语言测试</p></span></li>
+</ol>
+<p>ccc-qa-annual-report-testing（年报测试）和ccc-qa-playwright-mcp-testing（UI测试）生成的自动化脚本，给ccc-qa-i18n-testing执行，输出海外对应语言的测试报告。</p>
+<p><span class="image-wrapper"><img class="" width="1636" height="842" src="游戏数据年报类活动AI测试实践分享-images/img-21.png" alt="" style="clear: both;" data-id="2741494b-c70e-4a67-a891-9c799022656a"></span></p>
+<p><span class="image-wrapper"><img class="" width="1778" height="836" src="游戏数据年报类活动AI测试实践分享-images/img-22.png" alt="" style="clear: both;" data-id="9826f7c4-f881-4e67-bff0-3bd128c88e56"></span></p>
+<p><span class="image-wrapper"><img class="" width="1785" height="885" src="游戏数据年报类活动AI测试实践分享-images/img-23.png" alt="" style="clear: both;" data-id="fdcab27a-7d63-4bdd-ac16-45beb0c992d7"></span></p>
+<p><strong>成果：ccc-qa-i18n-testing skill发现：</strong></p>
+<div class="table-wrapper" style="max-width: 100%">
+ <table style="width: 640px">
+  <tbody>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>严重度</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>类型</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>位置</p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p>现象</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P2</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>i18n</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>翻页按钮</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>显示 key report.viewMore（应为查看更多）</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P2</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>i18n</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>组队页</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>显示 key report.rankUp</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>P1</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>i18n</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>产品翻译未填写</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>繁体 宣发账号配表文案都不对</p></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="%E4%BA%94%E3%80%81%E6%B5%8B%E8%AF%95%E6%8F%90%E6%95%88%E6%94%B6%E7%9B%8A_437dc301" data-key="437dc301">五<strong>、测试提效收益</strong></h1>
+<p>单从年报测试统计：人工测试 vs skill 自动化（按流程对齐）</p>
+<div class="table-wrapper" style="max-width: 100%">
+ <table style="width: 717px">
+  <tbody>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p><strong>环节</strong></p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p><strong>人工测试</strong></p></td>
+    <td data-colwidth="160" style="width: 160px;background: rgb(194, 226, 255);"><p><strong>skill 自动化</strong></p></td>
+    <td data-colwidth="237" style="width: 237px;background: rgb(194, 226, 255);"><p><strong>差距 / 说明</strong></p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>配表分支解析</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>读 85 行 ，每行 4 分钟 ≈5.7 小时(85×4=340min)</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>解析配表 + 集合覆盖算法算账号覆盖 85 分支文案 ≈1 秒</p></td>
+    <td data-colwidth="237" style="width: 237px;"><p><strong>人工无此手段</strong>，人工肉眼逐行读；算法直接算最少账号数并给出可量化覆盖率</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>构造测试账号</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>138 个数据库字段人工构造,每个字段 5 分钟 ≈11.5 小时(138×5=690min)</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>定位角色 + 生成 cookie，账号自动查库 ≈几分钟</p></td>
+    <td data-colwidth="237" style="width: 237px;"><p>人工缺点：靠手写 SQL + 人脑换算有限；</p><p>自动化直接批量查库出结果</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>逐页核对 / 交互 / 图片扫查</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>&nbsp;每个账号都有16 页逐页核对，图片扫查 ≈ 15小时</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>并行多开浏览器执行测试和截图 + 四层断言 ≈15~40 分钟</p></td>
+    <td data-colwidth="237" style="width: 237px;"><p>人工肉眼易漏 0/null 混淆、单位换算错、图片轻微裁切；自动化四层断言</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>报告产出</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>无独立步骤，人工靠笔记 / 截图手动整理</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>报告 + 汇总图自动拼接 ≈数十秒</p></td>
+    <td data-colwidth="237" style="width: 237px;"><p><strong>人工无此手段</strong>，自动化多一份可复用产出：画廊 / 截图汇总</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>配表数据检查</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>人工做不到（人工测试没有做这步）</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>反查真实数据分布 ≈数十秒 ~ 几分钟</p></td>
+    <td data-colwidth="237" style="width: 237px;"><p><strong>人工无此手段</strong>，skill 可以</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>代码审查</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>138 个字段逐个核对 ≈3.3 小时（多数人工无此视角 / 权限）</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>拉代码扫 138 字段映射 ≈数十秒</p></td>
+    <td data-colwidth="237" style="width: 237px;"><p><strong>人工无此视角</strong>，skill 可以</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="160" style="width: 160px;"><p>合计</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>前4项 ≈29.9 小时 + 代码审查 ≈3.3 小时=共 ≈33.2 小时(≈4 天)</p></td>
+    <td data-colwidth="160" style="width: 160px;"><p>全流程 5 阶段首次跑完 ≈30~60 分钟，可量化验证</p></td>
+    <td data-colwidth="237" style="width: 237px;"><p>测试时间提效33~66 倍</p></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h1 id="%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93_f07da428" data-key="f07da428">六、总结</h1>
+<p>核心思路回顾：不再为每个数据分支写用例，而是用配表condition驱动全流程——算最少账号→定位真实角色→注入Cookie→跑UI→自动断言→出报告。五个Skill各司其职（用例编写→接口→UI→年报→多语言），层层委托复用，不重复造轮子。</p>
+<p>边界与下一步规划：</p>
+<p>① 动画效果、视觉细节仍需人工把关，AI和人工各司其职。</p>
+<p>② 接入 CI/CD 流水线：当前 Skill 仍需手动触发，后续可将配表变更事件挂钩自动触发回归，配表 MR 合入时自动 diff 变更的 condition、定位角色、跑 UI、产出增量报告。</p>
+<p>③ 可后续到其他游戏年报或非年报类的"数据驱动展示"活动（如战报、赛季总结），skill架构可直接复用。</p>
+<p>&nbsp;</p>
+</body>
+</html>

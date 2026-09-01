@@ -70,3 +70,4 @@ Skill 放在 `.cursor/skills/` 随仓库提交，新技能经 PR review。
 - [[log-diagnosis-skill]] — 日志诊断 Skill（得物实战）
 - [[superpowers-framework]] — Superpowers 框架
 - [[agent-tdd-workflow]] — Agent TDD 流程
+- [[ai-test-cross-team-review]] — AI 测试自动化跨部门实践（用例工程化落地）

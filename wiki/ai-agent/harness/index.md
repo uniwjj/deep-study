@@ -40,4 +40,5 @@ Agent 编排系统的设计模式与工程实践，共 16 篇。
 
 - [[ai-agent/index]]
 - [[ai-agent/sdd/index]]
+- [[ai-agent/test-agent/index]] — AI 测试自动化（测试 Harness：AI 概率 / Harness 确定性）
 - [[claude-code]]

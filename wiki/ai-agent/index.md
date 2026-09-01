@@ -22,6 +22,7 @@ Agent 开发领域的技术积累索引，按子领域分目录管理。
 | [[ai-agent/sdd/index]] | 13 | OpenSpec、Superpowers、Spec-Kit 三剑客 |
 | [[ai-agent/knowledge-base/index]] | 12 | LLM Wiki 概念、实现、Karpathy 实践 |
 | [[ai-agent/harness/index]] | 8 | Agent Harness 模式、工程实践 |
+| [[ai-agent/test-agent/index]] | 10 | AI 测试自动化：Test Agent、测试 Harness、Mara/Etest 平台、配表驱动数据测试 |
 | [[ai-agent/context-eng/index]] | 3 | Google/Manus 上下文工程、CLAUDE.md |
 | [[ai-agent/ecosystem/index]] | 15 | OpenCode、Claw、Hermes 等工具及职业趋势 |
 

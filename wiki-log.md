@@ -1071,3 +1071,25 @@ Append-only record of wiki operations. Format: `[date] verb | subject`
 - created `data-agent-next-stage` — query-synthesis：综合 IDC/Databricks/CCSA/火山引擎/安克等 10 个页面的演进信号（上下文与语义成主战场、受控行动交付物、Skills 化、反馈闭环、DAMM 成熟度爬坡），此前无单页覆盖
 - updated `ai-agent/data-agent/index` — 新增「演进方向」小节
 - run `llm-wiki sync`
+
+## [2026-09-01] ingest | AI 测试自动化三篇（KM 跨部门交流会 + KM 雷火年报 + POPO tm599 云音乐）
+- 来源 1：https://km.netease.com/v4/topic/5522/item/128511 《【AI测试自动化】跨部门交流会实录（文字稿）》林琳 2026-08-28（popo-cli km resource_outline/resource_section URL 模式 + km resource_detail 获取元数据；正文无内容配图，仅 1 张表情 gif 已保留）
+- 来源 2：https://km.netease.com/v4/detail/blog/278455 《游戏数据年报类活动AI测试实践分享》张启 2026-08-31（resource_section 内容中签名 URL 已过期 → 改用 km resource_detail 重新签名后下载 23 张配图）
+- 来源 3：https://docs.popo.netease.com/team/pc/technology_center/pageDetail/7d33fe476b514fb3a2de00f7e640b5a3 《【tm599】云音乐自动化测试阶段性同步》果然(王维恒) 2026-08-15（团队空间：doc_get_folder_path 取 teamSpaceId → doc_get_doc_detail → doc_get_file_download_url 下载 32 图 + 1 视频；视频 ffmpeg 抽 6 帧识别）
+- added `sources/2026/09/01/`：3 个自包含 HTML（图片相对路径本地化，双击可读）+ 3 个同名 .md sidecar + 2 个图片目录（23 张 + 34 资源）；全部 56 图片/视频帧经多模态视觉识别，内容已融入 wiki 页面
+- created `ai-agent/test-agent/` 子目录（新主题子领域，10 页）：
+  - `index` — 子领域索引
+  - `ai-test-cross-team-review` — 五团队路径对比、关键数据、三大焦点议题（指标口径/端到端难点/测新落地）、四条共识
+  - `test-agent-harness-paradigm` — 共建复利运营、测试左移、L1~L4 分层、Test Agent 工程化四问题、Harness 概率/确定性分工、客户端/服务端两套方案
+  - `mara-test-platform` — Mara QA WebUI 五阶段/服务端三阶段、文本用例即脚本、AI 断言/多图对比/视频断言、抓包故障注入、运行数据
+  - `config-driven-data-testing` — 配表 condition+text 即预期、算→验→定→跑→报（+审）五阶段、四层断言、渲染就绪信号、D90 实践成果、提效 33~66 倍
+  - `cc-qa-skill-suite` — ccc-qa 五 skill 串联、接口测试模式A/B（9 类参数分类、6 层断言、Post-check 17 项、错误码一致性矩阵）、playwright 铁律、i18n 功能/文案分离、报告发布自检
+  - `etest-quality-platform` — 效工 Etest 五层架构、跨域全链路串联、效率 +40%、三支成功率来源、脚本沉淀路线判断
+  - `yanxuan-api-test-agent` — 三阶段流水线、数据构造四级策略、双卡片打分、自愈、只让 AI 做语义判断的确定性原则
+  - `youdao-codex-testing` — 17 天三端内测、四步协作法、3750 翻译组合全覆盖、四类质量资产、63.31 亿 token
+  - `ai-test-industry-practices` — Meta JiT/字节 Midscene/美团 KuiTest/快手/小红书/阿里速卖通/去哪儿七家对比 + 三大方向 + 普遍流程
+- updated `ai-agent/index` — 子领域表新增 test-agent 行
+- updated `ai-agent/harness/index` — 相关页面新增 test-agent 入口
+- updated `meta-jit-testing` — 相关页面新增业界对比互链
+- updated `agent-skill-test-case` — 相关页面新增跨部门实践互链
+- run `llm-wiki sync`

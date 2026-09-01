@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【AI测试自动化】跨部门交流会实录（文字稿）</title>
+<style>
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 860px; margin: 0 auto; padding: 24px 16px; line-height: 1.75; color: #222; }
+h1, h2, h3, h4 { line-height: 1.4; }
+img { max-width: 100%; height: auto; }
+video { max-width: 100%; }
+pre, code { background: #f5f5f5; border-radius: 4px; }
+pre { padding: 12px; overflow-x: auto; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #ccc; padding: 6px 10px; }
+.meta { color: #888; font-size: 13px; border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 16px; }
+blockquote { border-left: 3px solid #ddd; margin-left: 0; padding-left: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="meta">作者: 林琳 · 发布: 2026-08-28 · 来源: KM (https://km.netease.com/v4/topic/5522/item/128511)</div>
+<p>随着AI技术不断发展，应用AI进行测试自动化正逐渐改变传统的测试作业模式。公司内部有多个团队均在进行AI测试自动化实践，在本次跨部门内部研讨会上，来自<strong><span style="color: rgb(35, 128, 242);">音乐、效工、严选、雷火、有道</span></strong>等业务部门的同事，分享了各自在AI测试自动化领域的最新实践成果、技术路径与面临的挑战，<strong><span style="color: rgb(35, 128, 242);">智企、元气、传媒、智邮</span></strong>等团队也参与了讨论交流。</p>
+<p>会上各团队同学不仅分享了实践经验，同时也基于分享内容进行了焦点问题的研讨和共创。</p>
+<p>&nbsp;</p>
+<p>现将现场部分资料整理如下，供大家学习交流~</p>
+<hr style="">
+<h2 id="%E4%B8%80%E3%80%81%E5%90%84%E4%B8%9A%E5%8A%A1%E7%9A%84AI%E6%B5%8B%E8%AF%95%E5%AE%9E%E8%B7%B5%E5%88%86%E4%BA%AB_2476c32a" data-key="2476c32a">一、各业务的AI测试实践分享</h2>
+<p>AI技术正从概念走向大规模业务落地，在不同场景下展现出差异化的能力与价值。网易内部测试自动化领域也呈现差异化应用路径：</p>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>云音乐</strong>：深耕于SDD流程中的分层测试自动化体系</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>效率工程部</strong>：侧重于平台化、系统化的质量工程建设</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>严选</strong>：聚焦于单服务接口自动化的工程化落地</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>雷火</strong>：专注游戏运营活动的全链路数据测试</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>有道</strong>：探索小团队人机协作的跨端质量实践</p></span></li>
+</ul>
+<hr style="">
+<h3 id="1.%20%E4%BA%91%E9%9F%B3%E4%B9%90%EF%BC%9ASDD%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E6%B5%8B%E8%AF%95%E6%8F%90%E6%95%88%E5%AE%9E%E8%B7%B5_d78d4bb6" data-key="d78d4bb6"><strong>1. 云音乐：SDD场景下的测试提效实践</strong></h3>
+<p>云音乐由王维恒、余成章分享了在SDD研发流程中以测试分层为核心的自动化测试实践，总体思路是<strong>让AI负责理解与生成，让Harness负责确定性，让人负责风险和关键判断</strong>。</p>
+<h4 id="AI%E7%BB%99%E6%B5%8B%E8%AF%95%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88%E5%8F%98%E5%8C%96%EF%BC%9F_d031cfce" data-key="d031cfce"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">AI给测试带来了什么变化？</h4>
+<p>在调研了某大型互联网公司资讯类APP的传统自动化测试体系之后，云音乐总结：<strong>没有AI之前，自动化测试大概走三个方向</strong>——<span style="color: rgb(255, 121, 37);">共建</span>（研发写单测/组件测试/提供原子能力，测试基于这些能力做e2e编排）、<span style="color: rgb(255, 121, 37);">复利</span>（沉淀大量脚本、测试数据、checkpoint作为资产，支撑用例稳定生成）、<span style="color: rgb(255, 121, 37);">运营</span>（投入一旦中断，在没有AI时就很难拉齐）。</p>
+<p>AI介入后，模型、资产、维护与生成变得更自动化，让传统自动化发挥得更高效。业界方向也趋同：不只生码，还要对执行结果做校验、把失败闭环起来；测新由agent动态探测后固化为回归资产；<span style="background-color: rgb(255, 255, 255);">现在的壁垒不在生码，而在业务知识、环境数据、可信断言和工程闭环。</span></p>
+<p>&nbsp;</p>
+<h4 id="%E6%B5%8B%E8%AF%95%E5%B7%A6%E7%A7%BB%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E7%BC%A9%E7%9F%AD%E4%BA%A4%E4%BB%98%E8%B7%AF%E5%BE%84_bcdcda69" data-key="bcdcda69"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">测试左移的目的是缩短交付路径</h4>
+<p>传统模式下<strong>开发提测→QA启动测试→问题退回</strong>，中间摩擦和沟通成本很高。</p>
+<p>左移之后：开发借助test agent完成基础低层次测试，带着测试证据交给QA；QA更多做系统性稳定和结果确认。</p>
+<p>按需求难易与开发/QA角色进一步分工：低风险、单模块需求倾向于让开发基于test agent自测；高风险需求个体上下文有限，需要整体测试方案，由QA负责系统性验证。</p>
+<p>&nbsp;</p>
+<h4 id="%20%E6%B5%8B%E8%AF%95%E5%88%86%E5%B1%82%EF%BC%8C%E8%AE%A9%E5%BC%80%E5%8F%91%E5%92%8C%E6%B5%8B%E8%AF%95%E5%90%84%E5%BE%97%E5%85%B6%E6%89%80_15c1bd47" data-key="15c1bd47"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node"> 测试分层，让开发和测试各得其所</h4>
+<p>把自动化测试分成L1到L4：</p>
+<div class="table-wrapper" style="max-width: 100%">
+ <table style="width: 865px">
+  <tbody>
+   <tr>
+    <th data-colwidth="184" style="width: 184px;background: rgb(245, 245, 245);text-align: center;"><p><strong>层级</strong></p></th>
+    <th data-colwidth="201" style="width: 201px;background: rgb(245, 245, 245);text-align: center;"><p><strong>验证对象</strong></p></th>
+    <th data-colwidth="160" style="width: 160px;background: rgb(245, 245, 245);text-align: center;"><p><strong>主要负责人</strong></p></th>
+    <th data-colwidth="160" style="width: 160px;background: rgb(245, 245, 245);text-align: center;"><p><strong>执行时机</strong></p></th>
+    <th data-colwidth="160" style="width: 160px;background: rgb(245, 245, 245);text-align: center;"><p><strong>主要目标</strong></p></th>
+   </tr>
+   <tr>
+    <td data-colwidth="184" style="width: 184px;text-align: center;"><p>L1：单测+Mock</p></td>
+    <td data-colwidth="201" style="width: 201px;text-align: center;"><p>方法、函数、逻辑分支</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>开发</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>编码时、冒烟前</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>验证基础逻辑</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="184" style="width: 184px;text-align: center;"><p>L2：组件测试+Mock</p></td>
+    <td data-colwidth="201" style="width: 201px;text-align: center;"><p>模块、UI组件</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>开发</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>编码时、冒烟前</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>验证局部模块</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="184" style="width: 184px;text-align: center;"><p>L3：面向变更的自动化/</p><p>半自动测试</p></td>
+    <td data-colwidth="201" style="width: 201px;text-align: center;"><p>本次需求涉及的业务链路</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>开发为主，测试"盖章"</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>正式提测前</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>证明本次变更可交付</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="184" style="width: 184px;text-align: center;"><p>L4：冒烟、回归、E2E</p></td>
+    <td data-colwidth="201" style="width: 201px;text-align: center;"><p>跨模块、跨系统、完整链路</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>测试为主</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>提测后、发布前</p></td>
+    <td data-colwidth="160" style="width: 160px;text-align: center;"><p>识别系统和回归风险</p></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>层次越低，反馈越快、成本越低、开发责任感越强；越高，场景越复杂、判断越重要，L4基本交给QA。</p>
+<p><strong>好处：</strong><span style="background-color: rgb(255, 255, 255);">避免所有风险都堆到最后的e2e和回归环节；不同层次的问题由不同同学负责发现和解决。</span></p>
+<p>&nbsp;</p>
+<h4 id="Test%20Agent%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98_cd004f0e" data-key="cd004f0e"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">Test Agent工程化遇到的四个关键问题</h4>
+<div class="table-wrapper" style="max-width: 100%">
+ <table style="width: 868px">
+  <tbody>
+   <tr>
+    <th data-colwidth="210" style="width: 210px;background: rgb(245, 245, 245);text-align: center;"><p><strong>现象</strong></p></th>
+    <th data-colwidth="294" style="width: 294px;background: rgb(245, 245, 245);text-align: center;"><p><strong>技术本质</strong></p></th>
+    <th data-colwidth="364" style="width: 364px;background: rgb(245, 245, 245);text-align: center;"><p><strong>应对方式</strong></p></th>
+   </tr>
+   <tr>
+    <td data-colwidth="210" style="width: 210px;text-align: center;"><p>Agent跳步骤、流程中断</p></td>
+    <td data-colwidth="294" style="width: 294px;text-align: center;"><p>上下文过大，流程只依赖自然语言约束</p></td>
+    <td data-colwidth="364" style="width: 364px;text-align: center;"><p>隔离Test Agent，确定性步骤脚本化、Tool化</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="210" style="width: 210px;text-align: center;"><p>Token消耗接近开发流程</p></td>
+    <td data-colwidth="294" style="width: 294px;text-align: center;"><p>每个环节重复携带大量上下文</p></td>
+    <td data-colwidth="364" style="width: 364px;text-align: center;"><p>Skill瘦身、阶段化上下文、稳定后使用低成本模型</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="210" style="width: 210px;text-align: center;"><p>生成代码不符合规则</p></td>
+    <td data-colwidth="294" style="width: 294px;text-align: center;"><p>测试规范只是会话中的弱约束</p></td>
+    <td data-colwidth="364" style="width: 364px;text-align: center;"><p>Spec First，把测试设计和生码规范变成正式输入</p></td>
+   </tr>
+   <tr>
+    <td data-colwidth="210" style="width: 210px;text-align: center;"><p>用例生成后无法执行</p></td>
+    <td data-colwidth="294" style="width: 294px;text-align: center;"><p>缺少账号、环境、数据和Mock能力；脚本语法缺少自检</p></td>
+    <td data-colwidth="364" style="width: 364px;text-align: center;"><p>建设造数、环境准备和运行时适配能力；脚本预编译</p></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p><strong>让AI负责理解与生成，让Harness负责确定性，让人负责风险和关键判断。</strong></p>
+<p>客户端与服务端是两套方案：<strong>客户端</strong>在QA流程单独起pipeline、与开发流程分开但保留少量依赖节点并行，QA流程All in WebUI，按测试方案驱动生码；<strong>服务端</strong>串行模式，开发完需求后自动远程部署、生成测试用例并评审、生成脚本并远端执行。</p>
+<p>&nbsp;</p>
+<h4 id="%E4%B8%8B%E9%98%B6%E6%AE%B5%E7%9A%84%E8%AE%A1%E5%88%92%E4%B8%8E%E8%AE%A4%E7%9F%A5%E8%BD%AC%E5%8F%98_5b6c605c" data-key="5b6c605c"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">下阶段的计划与认知转变</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>「贴近研发loop」</strong>：自测工作与开发工作融入在L1-L3，接下来要让开发把测试职能作为开发的一部分，与SDD结合，让agent闭环排查问题、调试、解决。</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>「复利工程」</strong>：很多业务知识和数据需要业务自己沉淀，单靠小技术团队推不动，需要组织自上而下认可这套规范与数据沉淀方案。</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>「分层次e2e」</strong>：不再追求全面的e2e自动化（e2e的脚本与断言生成有严重幻觉），改为分层+半自动化：让开发快速读报告判断结果是否正常。因为只做步骤生成时成功率很高，难在让AI「评价对还是不对」。</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="%E6%95%B0%E6%8D%AE_68d73b11" data-key="68d73b11"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">数据</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>客户端L1-L2：7个需求约500多个用例（试点团队）</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>L3：用例较少，自动化通过率约20%出头</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>L4：定点推进，每端稳定有500个回归用例在跑，每月成本约4000元</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>服务端：人不介入的首轮通过率约55%，有人与AI沟通后基本可到90%+（服务端比较纯粹、能力成熟度高）</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="QA%E8%A7%86%E8%A7%92%EF%BC%9A%E6%96%87%E6%9C%AC%E7%94%A8%E4%BE%8B%E5%8F%8A%E8%84%9A%E6%9C%AC%E8%83%BD%E5%8A%9B_35228302" data-key="35228302"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">QA视角：文本用例及脚本能力</h4>
+<p><span style="background-color: rgb(255, 255, 255);">QA核心验证依赖「文本用例及脚本」能力</span>。以SVIP用户打开歌单听歌、看播放列表为例：一份文本用例可转换成配置型脚本，含智能点击动作，选设备运行后每一步都有截图，截图背后是断言的结果。</p>
+<p>其特点是视觉方案：<strong>一份配置可多端运行、支持任意APP，因此能在提测前基于需求与交互生成核心自动化用例，门槛较低。</strong>回归场景单端500个用例、每天运行、成功率90%多。</p>
+<p>智能步骤分几类：主流是<strong>单步骤推理（准确率较高）</strong>；也可让<strong>部分动作智能执行</strong>，把大任务智能体与云音乐特有的造数、登录能力结合；更高阶还能看步骤背后请求的出入参、注入异常看表现，支撑性能任务、视频断言任务、多数据源驱动、多设备协同等。</p>
+<p>测新场景上，<strong>QA聚焦大项目（往往涉及多角色联调协作），澄清后自动生成用例</strong>，QA做自动化设计与可测性需求识别，提测前做核心确认，提测后自动触发自动化与扫描，从而实现<strong>部分周期缩短、人力优于原方式。</strong></p>
+<p>&nbsp;</p>
+<div class="callout-node" id="7e6b6b35" data-background="n40">
+ <p><span data-font="18"><strong><span style="color: rgb(29, 99, 203);">分享讨论摘要：</span></strong></span></p>
+ <p><strong>Q：客户端的code runtime是怎么解决的？造数怎么解决？</strong></p>
+ <p>A：iPhone用原生XCUITest，安卓用Espresso；iPhone因为跨进程特殊性，做了类似RPC的桥接，举例播放业务对外暴露播放状态、进度等接口。造数是把造数原子能力做成可基于自然语言映射并组合，详细方案链接已放文档评论。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：账号怎么和数据绑定登录？比如用VIP怎么找到对应账号？</strong></p>
+ <p>A：账号是数据库提前维护、由后端源码生成，按特征匹配（SVIP有几十个账号）；打开歌单这类操作输入ID即可定位。页面知识靠知识库维护——500个稳定运行的回归用例本身就是知识点，AI能从中找到具体页面。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：视觉改版后用例维护成本高吗？</strong></p>
+ <p>A：如果是整体大改版，任何自动化都存在问题；视觉方案的好处是：用例描述尽量语义化（如「点击歌单列表第一条」「右上角某按钮」），不受样式变化影响；每天运行可高频隔离变更；失败后做文字微调立即生效。这也是几个月来准入率稳定在90%多的原因。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：五六百个用例的录入成本？</strong></p>
+ <p>A：不是纯人工录入，基于原有审核用例+其他代码自动生成，先粗调到八九成再人工微调；原子能力也通过CLI开放，可用自然语言自动生成。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：怎么提升harness工程能力？</strong></p>
+ <p>A：没有最佳实践，都是踩坑解决。核心教训：不要一开始追求完全方案（全无人值守），按分层落地、用低成本人力介入——L4兜底回归资产，L1L2生成原子/单元测试覆盖边界。路线想好能省很多成本。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：开发过程中AI生成的代码用例怎么管理？</strong></p>
+ <p>A：「用例即代码」，但还没成为可loop的资产；难点在先解决生码的准确率和召回率。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：AI生成用例的准确率/召回率怎么评估？</strong></p>
+ <p>A：客户端只算e2e只有约20%（缺大量业务上下文支持），服务端接近100%。召回口径：执行失败后重复执行同用例成功即有效召回。另有专业测试同学生成完备用例作正确样本集与AI生成比对，样本集本身持续迭代。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：脚本可以分级吗？大任务智能体怎么用？</strong></p>
+ <p>A：三类：主流是单步骤智能执行（单步骤推理准确率高）；大任务智能体（类似豆包手机）实验下来有局限；中间方案是前两步做确定性（登录、造数）、第三步用模糊文字描述智能执行、第四步回到确定性。第一种用于回归，第二种在特性产品里混合应用。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：L4记住坐标后二次执行能加速吗？</strong></p>
+ <p>A：能力有——执行完会知道坐标，再跑更快；但收益不高（智能步骤占比有限、页面有等待时间），且前提是相同机型设备。目前整体可接受，未专门做。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：Mac/Windows等新端怎么办？</strong></p>
+ <p>A：此前用playwright类方案已跑通回归用例（前端生态比客户端强很多）；愿景是用Playwright协议统一几端代码——现在三端分别生码有gap，同一份JS脚本经协议翻译到不同端，对稳定性帮助很大。另：视觉方案同样适用。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：开发拿UI自动化驱动冒烟自测可行吗？</strong></p>
+ <p>A：L1L2偏单测、较敏捷；L3较重、依赖设备驱动，各端实现质量不统一时要停下来修再跑，开发会觉得不如手动点。接下来与SDD loop结合——开发带着自身上下文（内存里的值应怎样、单测为何没过）反哺给AI自己loop。瓶颈在客户端调试效率低（纯native编译成本高），正探索AI接管调试、改完立即重载生效。</p>
+</div>
+<p>&nbsp;</p>
+<div class="callout-node" id="b34ef9e8" data-background="o40">
+ <p>具体介绍资料：<a href="https://docs.popo.netease.com/team/pc/technology_center/pageDetail/7d33fe476b514fb3a2de00f7e640b5a3" target="_blank">云音乐自动化测试阶段性分享</a></p>
+ <p>进一步交流联系：<span data-email="wangweiheng@corp.netease.com" data-name="果然(王维恒)" id="editor-popo-2085aa" class="popo-link-node"><span>果然(王维恒)</span><span class="popo-link-node-icon"></span></span><span data-email="yuchengzhang@corp.netease.com" data-name="余成章" id="editor-popo-15ee30" class="popo-link-node"><span>余成章</span><span class="popo-link-node-icon"></span></span></p>
+</div>
+<p>&nbsp;</p>
+<h3 id="2.%20%E6%95%88%E7%8E%87%E5%B7%A5%E7%A8%8B%E9%83%A8%EF%BC%9A%E4%BB%A5Etest%E4%B8%BA%E5%BA%95%E5%BA%A7%E7%9A%84%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E4%BD%93%E7%B3%BB%E5%BB%BA%E8%AE%BE_d78d4bb6" data-key="d78d4bb6"><strong>2. 效率工程部：以Etest为底座的质量保障体系建设</strong></h3>
+<p>作为会前调研中唯一进入「规模化应用」阶段的团队，效率工程部由秦龙分享了以Etest平台为底座、本地Agent+Skill的测试体系建设实践。</p>
+<p>&nbsp;</p>
+<h4 id="%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E4%B8%8E%E5%B7%A5%E5%85%B7_bc1bdc1b" data-key="bc1bdc1b"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">核心业务与工具</h4>
+<p>部门服务员工端（POPO云协作、点餐）、职能线（HR）与营销业务，<strong>系统多、技术栈杂</strong>。技术质量中心下设效能组+三个业务测试组，已将测试资产中心化沉淀到Etest平台并开放CLI能力供agent调用。</p>
+<p>Etest采用五层架构：统一质量工作台（用例/执行/脚本维护）→ Agent接入与运行时治理层 → Etest Skills+CLI连接桥梁层 → 工具执行层（接口/链路/流程编排）→ 统一数据资产层。<strong>10+个etest skill产出</strong>，覆盖需求提测到准出、测试报告生成全阶段，支持一键安装。</p>
+<p>&nbsp;</p>
+<h4 id="%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%8E%E4%BA%AE%E7%82%B9_c07e464f" data-key="c07e464f"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">应用场景与亮点</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点1：测试范式升级</span></strong>——测试资产从「用例+报告」扩展到「自动化脚本+知识库」，知识库沉淀组件库与历史问题，Web端UI自动化执行准确率较高</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点2：跨域全链路串联</span></strong>——订单→采购→财经（费控→核算→资金）长链路场景，一个场景调用其他域用例，实现本地agent全链路一致性验证</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点3：知识库维护</span></strong>——各个域均沉淀了本地知识库，对于准确率的提升有较大帮助，并且正在做知识库的在线化，自动筛查冲突逻辑与历史错误逻辑</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="%E6%95%88%E8%83%BD%E4%B8%8E%E6%94%B6%E7%9B%8A_6f2a4317" data-key="6f2a4317"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">效能与收益</h4>
+<p>整体测试效率提升约<strong>40%</strong>；新场景Web端UI自动化覆盖率约<strong>80%</strong>；外包规模从70+人优化至40人（8月份组织调整又合并入10人到50人），平台工具由正职+外包共同使用。</p>
+<p>&nbsp;</p>
+<h4 id="%E7%97%9B%E7%82%B9%E4%B8%8E%E6%8C%91%E6%88%98_bf28dcab" data-key="bf28dcab"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">痛点与挑战</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>客户端自动化仍停留在回归阶段，<strong>脚本生成需人工大量介入</strong>（OCR+视觉）</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>外包基础能力偏弱，AI完成80-90%后「接下一步」的能力不足，<strong>复杂能力需正职先沉淀稳定再下放</strong></p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong>存在上下文压缩和幻觉等问题</strong>，比如PRD长上下文过长压缩导致专业名词丢失，需检测+脚本固定拆章节+责任拆分处理，类似的问题需要不断识别和调整</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<div class="callout-node" id="ef55006f" data-background="n40">
+ <h4 id="%E5%88%86%E4%BA%AB%E8%AE%A8%E8%AE%BA%E6%91%98%E8%A6%81%EF%BC%9A_a9cec331" data-key="a9cec331"><span style="color: rgb(35, 128, 242);">分享讨论摘要：</span></h4>
+ <p><strong>Q：Web UI用例的规模和使用情况怎么样？</strong></p>
+ <p>A：UI用例基于纯自然语言描述执行（Deepseek模型），但配套完备的组件库、页面导航与知识库（系统访问地址、可用账号、菜单层级、核心元素、组件定位操作）帮助定位。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：大规模应用时人力替代的挑战和定位？</strong></p>
+ <p>A：平台工具强推外包+正职一起用（测新场景）；知识库等复杂能力由正职先探索沉淀、稳定后再交外包；badcase仍靠人工逐个解。Web端UI自动化覆盖率约80%，但是基于自然语言执行效率偏慢，且过程和最终结果需要人工校验。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：数据/资金类滞后反馈场景的断言怎么设计？</strong></p>
+ <p>A：可用自然语言描述，但可指定调用etest的某接口、查某类订单，或调外部脚本访问数据库；确定性查询能力需独立提供，复杂数据逻辑建议走脚本。接口参数组装方面，OA提供标准化能力，接口加prompt描述，生成时明确输入输出（金额5、税率1%，断言0.05），断言在用例生成时全部生成好。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：表单必填数据从哪获取？</strong></p>
+ <p>A：生成时可参考历史单据，拉历史代码库（本地agent甚至能直接访问数据库拿真实数据），再按本次需求约束调整；没有现成数据、纯新场景就看PRD本身的描述。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：用例生成成功率90%+的来源是什么？</strong></p>
+ <p>A：三个来源：本地harness知识库全不全、历史知识够不够、本期PRD描述是否清晰有无冲突遗漏——三支漏一个就是风险。为此做了大量SPEC工作，并每周复盘用例生成未达标原因。纯新场景用能频繁反问、遍历分支的skill（如grillme、wayfinder），质量会高很多。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：数据怎么注入？脚本要不要沉淀？两条路线怎么选？</strong></p>
+ <p>A：数据注入作为用例的前置步骤写进去、执行时调用，校验可放最后或中间。脚本沉淀此前因定位不准没使用；云月「固定脚本+偏AI理解」的混合思路更好——纯AI语义执行性能差（推荐并行晚上跑）、token消耗多，能转成脚本最理想（知识更新导致的脚本更新交给AI改，成本低）。判断：浏览器端基本都能用脚本，canvas与编码暴露节点有关；Web执行视觉用得不多，配组件库+OCR基本够；纯视觉点位问题难做、回归效率低。建议新项目用自然语言方案，持续维护项目用「沉淀+脚本」。UI回归应该做脚本，否则成本高。</p>
+</div>
+<p>&nbsp;</p>
+<div class="callout-node" id="aad214d2" data-background="o40">
+ <p><strong>进一步交流联系：</strong><span data-email="qinlong02@corp.netease.com" data-name="Eason(秦龙)" id="editor-popo-d745ce" class="popo-link-node"><span>Eason(秦龙)</span><span class="popo-link-node-icon"></span></span></p>
+</div>
+<p>&nbsp;</p>
+<h3 id="3.%20%E4%B8%A5%E9%80%89%EF%BC%9AAI%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%90%BD%E5%9C%B0_4e62ec02" data-key="4e62ec02">3. 严选：AI驱动的接口自动化测试落地</h3>
+<p>严选由葛琳琳分享了聚焦单服务、单接口的AI接口自动化实践，整套流程融入SDD研发流程，通过自研skill实现「<strong>用例生成→脚本生成→测试执行</strong>」完整流水线。</p>
+<p>&nbsp;</p>
+<h4 id="%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%8E%E4%BA%AE%E7%82%B9_d7e021ae" data-key="d7e021ae"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">应用场景与亮点</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点1：三阶段流水线</span></strong>——分析PRD/DESIGN/SPEC生成全量用例脑图（人读）+P0用例文件（AI读）；深度扫描源码提取接口信息同时为数据策略提供证据，每个P0用例输出声明式yaml脚本；本地自动执行并生成测试报告</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点2：数据构造四级策略</span></strong>——db_query数据库捞数（处理约80%+字段）→固定值→数据工厂→用户兜底，分层解决「没有正确数据脚本跑不起来」的瓶颈</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点3：双卡片打分映射</span></strong>——为Case与接口入口各建结构化卡片多维度交叉打分，解决业务语言与技术语言的语义鸿沟，准确率约80%，剩余人工兜底</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点4：自愈能力</span></strong>——脚本执行失败时AI先自我修订再重执；断言字段用「探索」方式（先执行拿准确响应结构再修正断言路径）</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点5：核心设计原则</span></strong>——只让AI做语义分析和判断，其余全交确定性代码：变更入口追溯AI只裁决约5%歧义、gate文件物理门禁硬阻断、auto-fix静默修复+terminate物理阻断两轮兜底（AI编造SQL表名会被比对真实表结构直接终止）</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="%E6%95%88%E8%83%BD%E4%B8%8E%E6%94%B6%E7%9B%8A_0015a33a" data-key="0015a33a"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">效能与收益</h4>
+<p>已在<strong>30+个需求</strong>落地；数据在本服务DB、入参结构简单、单接口调用的场景一次性成功率约<strong>50%</strong>。</p>
+<p>&nbsp;</p>
+<h4 id="%E7%97%9B%E7%82%B9%E4%B8%8E%E6%8C%91%E6%88%98_49193f58" data-key="49193f58"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">痛点与挑战</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>跨服务链路、数据不在本地（数仓来源/纯RPC编排）时结构性退化，<strong>用户侧造数负担</strong>成为真正瓶颈</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>3月组织架构调整后大规模测试资产快速腐化且不可逆，当前开发本地agent约50%需求可无干预自主完成，剩余难在<strong>数据依赖上游链路</strong></p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>skill更新可能影响他人需求，需以「回归集」<strong>迭代重跑验证效果</strong></p></span></li>
+</ul>
+<p>&nbsp;</p>
+<div class="callout-node" id="027c2f12" data-background="n40">
+ <h4 id="%E5%88%86%E4%BA%AB%E8%AE%A8%E8%AE%BA%E6%91%98%E8%A6%81%EF%BC%9A_85696ede" data-key="85696ede"><span style="color: rgb(35, 128, 242);">分享讨论摘要：</span></h4>
+ <p><strong>Q：生成的脚本质量怎么评价？怎么确定达到了测试目的？</strong></p>
+ <p>A：脚本与用例步骤一一对应，结构上包含前置/执行/断言/后置等步骤，且断言和测试用例保持一致，即认为质量达标；目前还没有专门指标统计最终的接口边界覆盖效果。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：设计文档里的表格、流程图怎么处理？遗漏怎么检查？</strong></p>
+ <p>A：接口类信息偏代码结构化，操作类偏语言+流程图，流程图由AI+skill处理。遗漏检查靠交叉验证——PRD核心流程做主体用例框架，再用用例逐点与核心场景逐条匹配，两份文档必须完全核对上；匹配不上的分歧抛出来交人判断。后续会对设计文档做约束性审计。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：skill更新的影响范围怎么控制？</strong></p>
+ <p>A：AI会帮更新skill，但一次更新可能影响他人需求。对策是「回归集」——初始设计时约定一批需求，每次build迭代重跑验证效果；因AI每次跑有偏差，迭代中会重新判断，现阶段再加熟悉业务域的人为经验判断。</p>
+</div>
+<div class="callout-node" id="7d538980" data-background="o40">
+ <p>具体分享材料：<a href="https://docs.popo.netease.com/docs/e2d88f769b2a4e878ff50389ea9404b7" target="_blank">严选AI接口自动化</a></p>
+ <p><strong>进一步交流联系：</strong><span data-email="hzgelinlin@corp.netease.com" data-name="满天星(葛琳琳)" id="editor-popo-7e90b8" class="popo-link-node"><span>满天星(葛琳琳)</span><span class="popo-link-node-icon"></span></span><span data-email="hzzhangweijie@corp.netease.com" data-name="伟杰(张伟杰)" id="editor-popo-52daad" class="popo-link-node"><span>伟杰(张伟杰)</span><span class="popo-link-node-icon"></span></span></p>
+</div>
+<p>&nbsp;</p>
+<h3 id="4.%20%E9%9B%B7%E7%81%AB%EF%BC%9A%E5%B9%B4%E6%8A%A5%E6%B4%BB%E5%8A%A8%E6%95%B0%E6%8D%AE%E5%85%A8%E9%93%BE%E8%B7%AFAI%E6%B5%8B%E8%AF%95_0507ddc0" data-key="0507ddc0">4. 雷火：年报活动数据全链路AI测试</h3>
+<p>雷火平台创新中心支撑全部游戏的线上运营活动，以每年重复消耗大量测试人力的年报活动为例，由张启分享了从需求到报告的全链路AI测试方案。</p>
+<p>&nbsp;</p>
+<h4 id="%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E4%B8%8E%E7%97%9B%E7%82%B9_291beeaa" data-key="291beeaa"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">核心业务与痛点</h4>
+<p>年报是典型的端外数据总结活动：无间端游年报有<strong>85个配表分支、138个数据库字段</strong>，人工无法全覆盖、覆盖率难量化；且活动高频迭代、窗口期短、每年数据不同，测试资产难以复用。</p>
+<p>&nbsp;</p>
+<h4 id="%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%8E%E4%BA%AE%E7%82%B9_ecb61965" data-key="ecb61965"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">应用场景与亮点</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点1：年报拆分测试</span></strong>——通用链路（官网固定部分、分享链路、他人年报等）交给已有AI基础能力（用例skill+接口测试+Playwright UI测试），千人千面的数据总结页新建「年报测试」skill</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点2：五阶段全链路</span></strong>——<strong>算配表</strong>（配表条件翻译成造数补丁与SQL）→<strong>验漏配</strong>（配表与数据库枚举反查，发现需求漏配）→<strong>定角色</strong>（确定测试账号走account MCP生成cookie）→<strong>跑UI</strong>（数据总结页执行委托Playwright，年报侧只包一层逐账号循环+数据展示断言）→<strong>出报告</strong></p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点3：用例三类输出</span></strong>——功能用例、UI用例（AUTO通用操作+BIZ多用户协同场景）、接口用例（多玩家类型串联链路+异常路径）</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点4：多语言测试分离</span></strong>——功能在一个语言基准完成，利用沉淀的回归脚本，多语言只做文案层检查（文案匹配、溢出截断、翻译完整性）</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点5：报告画廊</span></strong>——截图按页面分组平铺HTML画廊，85个分支一眼扫过快速复核；回测时新旧画廊对比，改动影响一目了然</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="%E6%95%88%E8%83%BD%E4%B8%8E%E6%94%B6%E7%9B%8A_7f12cb1f" data-key="7f12cb1f"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">效能与收益</h4>
+<p>人工无法遍历的数值组合与分支实现全量覆盖，测试报告可直观看到每账号每分支的数据覆盖情况；表面是UI点点点，核心价值在数据分析与造数过程。</p>
+<p>&nbsp;</p>
+<h4 id="%E7%97%9B%E7%82%B9%E4%B8%8E%E6%8C%91%E6%88%98_ce20142c" data-key="ce20142c"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">痛点与挑战</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>QA团队外包占比高，用例生成准确性高度依赖需求文档质量，人力投入最大环节，且需要正职投入精力把关用例质量</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>数值过长无单位、配表少百分号、文案重叠等视觉体验问题AI识别不出，仍需人工看画廊把关</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<div class="callout-node" id="1a05dd8e" data-background="n40">
+ <h4 id="%E5%88%86%E4%BA%AB%E8%AE%A8%E8%AE%BA%E6%91%98%E8%A6%81%EF%BC%9A_aac29a37" data-key="aac29a37"><span style="color: rgb(35, 128, 242);">分享讨论摘要：</span></h4>
+ <p><strong>Q：自动化用例谁来写/生成？谁来评审结果？</strong></p>
+ <p>A：雷火QA团队外包占比高，每个UI测试执行由各自负责。UI用例分通用部分（官网固定）与串联场景（知识库+需求文档链路分析）；account MCP定义了大量游戏账号（主账号拉人、人拉人组队等交互）。用例准确性有一步「测试专家agent审查」执行结果，但用例部分仍是人力投入最大的一环——生成准确性依托需求文档，而需求文档很难写完整。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：生成的代码怎么审查？是只看结果不看代码吗？</strong></p>
+ <p>A：用例由对应需求的执行QA产出，UI用例的断言结果需严格依据PRD文档。具体而言，是由AI将PRD中的预期结果“读”出来并代为判断（例如：拉人进队后，队伍列表必须出现该人信息；被拉方界面必须显示队长是谁，这些固定的页面元素均已在PRD中写明）。即，Playwright仅负责执行动作，而断言逻辑完全交由用例及需求文档判定，不再让AI自由发挥，以此实现断言结果的固定化。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：有没有指标或评测办法？</strong></p>
+ <p>A：目前没有打分层级，依托测试报告（截图画廊、每步执行有截图），以最终结果和人审为主；也还没有LM打分这类标准评测动作。</p>
+</div>
+<div class="callout-node" id="db28f750" data-background="o40">
+ <p>具体分享材料：<a href="https://km.netease.com/v4/detail/blog/278455" target="_blank">雷火游戏数据年报类活动AI测试实践分享</a></p>
+ <p><strong>进一步交流联系：</strong><span data-email="zhangqi07@corp.netease.com" data-name="小启(张启)" id="editor-popo-1ccfac" class="popo-link-node"><span>小启(张启)</span><span class="popo-link-node-icon"></span></span><span data-email="guanwenhao@corp.netease.com" data-name="文浩(关文浩)" id="editor-popo-46d423" class="popo-link-node"><span>文浩(关文浩)</span><span class="popo-link-node-icon"></span></span></p>
+</div>
+<p>&nbsp;</p>
+<h3 id="5.%20%E6%9C%89%E9%81%93%EF%BC%9A%E7%BD%91%E6%98%93%E5%8F%AD%E5%93%A5%E8%AF%B4%C3%97Codex%E8%B7%A8%E7%AB%AF%E8%B4%A8%E9%87%8F%E5%AE%9E%E8%B7%B5_f544aabc" data-key="f544aabc">5. 有道：网易叭哥说×Codex跨端质量实践</h3>
+<p>有道以桌面端AI语音输入产品「网易叭哥说」为例，由刘哲分享了1名测试与Codex协作完成跨端质量验证的完整实践——人定义任务给判断依据，Codex补充复述验证执行，人做决策。</p>
+<p>&nbsp;</p>
+<h4 id="%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E4%B8%8E%E5%B7%A5%E5%85%B7_f9a85bc0" data-key="f9a85bc0"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">核心业务与工具</h4>
+<p>极小团队快速交付：1名客户端研发+不到1人服务端+1名测试（一半精力+1实习生），从拿到第一个版本到三端推内测仅<strong>17天</strong>（11个工作日），期间收到<strong>42个安装包</strong>（Mac M/Intel/Universal+Windows x64）。按基础兼容回归口径仅此一项就需约<strong>210人时</strong>，于是用<strong>3个Codex Pro账号+Computer Use</strong>换时间和人力。</p>
+<p>&nbsp;</p>
+<h4 id="%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%8E%E4%BA%AE%E7%82%B9_59e8de65" data-key="59e8de65"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">应用场景与亮点</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点1：四步协作法</span></strong>——人先测一遍示范定规则（约30条用例经skill扩充至<strong>240条</strong>）→Codex持续扩充验证并留证（区分产品问题/条件不足/脚本失败）→新包回归老问题（当前电脑上n个版本持续自动化测试）→多机批量复制（统一下发规则与安装包，实现m台设备×n个版本）</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点2：把可判断的交给AI</span></strong>——30种输入语言×125种输出语言=<strong>3750个翻译组合</strong>，人工遍历不现实，Codex约<strong>6小时</strong>全覆盖</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p><strong><span style="color: rgb(255, 121, 37);">亮点3：沉淀四类可复用质量资产</span></strong>——语音自动化闭环（文本生成音频→虚拟声卡定向回环→客户端收音→ASR/润色/翻译每步可监控）、跨端兼容档案（系统版本/构建号/设备信息统一采集）、多语言质量基线（监控模型与prompt迭代影响）、可审计报告工厂（HTML/CSV/JSON证据一一对应）</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="%E6%95%88%E8%83%BD%E4%B8%8E%E6%94%B6%E7%9B%8A_b53c477a" data-key="b53c477a"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">效能与收益</h4>
+<p>规则越定越准后Codex报的bug基本都是真问题、很少漏报；项目期间消耗约<strong>63.31亿去重Token</strong>，换来了基础回归需210人时的跨端验证规模。</p>
+<p>&nbsp;</p>
+<h4 id="%E7%97%9B%E7%82%B9%E4%B8%8E%E6%8C%91%E6%88%98_35ffdb76" data-key="35ffdb76"><img emoji-tag="Idea" src="【AI测试自动化】跨部门交流会实录（文字稿）-images/img-01.gif" title="Idea" alt="Idea" class="emoji emoji-node">痛点与挑战</h4>
+<ul class="rock-editor-ul">
+ <li start="1" data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>视觉方案执行慢（人半小时、AI约两小时），读图对token消耗影响大</p></span></li>
+ <li data-indent="0">
+  <div class="ProseMirror-li-placeholder" style=""></div><span style=""><p>单账号额度扛不住高频发包（一天要盯两三个安装包），需多账号并行</p></span></li>
+</ul>
+<p>&nbsp;</p>
+<div class="callout-node" id="2658cdf3" data-background="n40">
+ <h4 id="%E5%88%86%E4%BA%AB%E8%AE%A8%E8%AE%BA%E6%91%98%E8%A6%81%EF%BC%9A_d9bcee5c" data-key="d9bcee5c"><span style="color: rgb(35, 128, 242);">分享讨论摘要：</span></h4>
+ <p><strong>Q：客户端上Codex具体怎么实现的？session怎么管理？</strong></p>
+ <p>A：每个项目有独立session做一件具体的事；Codex现已支持跨session对话，项目里遇到问题可「圈」报bug的那个session让它去报。每版本独立session避免上下文过长——测试用例、报bug流程、软件版本下载安装分别放不同session，单线上下文完整流程基本不失真。每次测试生成报告由人审，前几次要说明为什么（行就确认，不行要讲清规则），让它逐渐学会你要什么——把不同职责拆到不同对话session，共同汇成一个流程。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：支持直接调用native吗？我们是纯客户端native的。</strong></p>
+ <p>A：可以，它是视觉方案；但需考虑慢——人是半小时，它可能要两小时；能读到界面内容就不读图、读不到才读图，读图对token消耗影响大。</p>
+ <p>&nbsp;</p>
+ <p><strong>Q：token消耗和费用怎么样？</strong></p>
+ <p>A：三个号是因为需要测试十余台不同环境设备，一个号扛不住，每账号每月的消耗是200美金；项目跑了11-12个工作日，消耗约60多亿去重token。</p>
+</div>
+<div class="callout-node" id="d6e8c030" data-background="o40">
+ <p><strong>进一步交流联系：</strong><span data-email="liuzhe@corp.netease.com" data-name="刘哲" id="editor-popo-a20d88" class="popo-link-node"><span>刘哲</span><span class="popo-link-node-icon"></span></span></p>
+</div>
+<p>&nbsp;</p>
+<h2 id="%E4%BA%8C%E3%80%81%E7%84%A6%E7%82%B9%E8%AE%AE%E9%A2%98%E8%AE%A8%E8%AE%BA_da5ed108" data-key="da5ed108">二、焦点议题讨论</h2>
+<h3 id="%E5%85%B3%E4%BA%8E%E6%8F%90%E6%95%88%E6%8C%87%E6%A0%87%E7%9A%84%E5%8F%A3%E5%BE%84_1b428e0a" data-key="1b428e0a"><span style="background-color: rgb(255, 255, 255);"><span style="color: rgb(35, 128, 242);">关于提效指标的口径</span></span></h3>
+<p><strong>Q：AI测试提效到底看什么指标？</strong></p>
+<p>各团队口径不同——效率工程部重点看<strong>「开发比测试的比例」与「测试等待时长」</strong>（提测后到测试接入的时间差）；智企考核<strong>需求吞吐率</strong>（需做粒度归一化），同时看基于CR复杂度的测试工作周期下降，并把用例自动化规模、L1-L4各层自动化比例、代码覆盖率等过程指标拆到三级部门考核，准确率/召回率考核横向团队。</p>
+<p><strong>补充共识</strong>：提测后到上线交付的整体周期也要看；等待短不代表提效，执行特别长同样有害。</p>
+<p>&nbsp;</p>
+<h3 id="%E5%85%B3%E4%BA%8E%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%8F%90%E6%95%88%E7%9A%84%E9%9A%BE%E7%82%B9_2ea3d7ba" data-key="2ea3d7ba"><span style="color: rgb(35, 128, 242);">关于端到端提效的难点</span></h3>
+<p><strong>Q：跨端产品端到端提效最难克服的是什么？</strong></p>
+<p>智企云信（IM UIKit，16套代码/49个仓库）：<strong>逻辑测试一个平台能覆盖其他端问题，但UI交互问题每端各不相同</strong>；UI自动化用例每端覆盖60%-66%的情况下，单版本多平台仍出现200-300个bug，质量提升始终在走下游。API自动化已完全左移几乎无瓶颈（出接口说明即生成、提测前直接跑），UI侧则是痛点。</p>
+<p>云音乐：<strong>多端差异可前置</strong>——以某一端为基准其他端对照，或同时跑多个模拟器本地对比产出报告（类似投票，多数一致的端正常、不一致的端有问题）；上游PRD语义识别、页面跳转逻辑、组件库补全后，UI自动化准确率与效率会有较大提升。</p>
+<p>&nbsp;</p>
+<h3 id="%E5%85%B3%E4%BA%8E%E6%B5%8B%E6%96%B0%E5%9C%BA%E6%99%AF%E7%9A%84AI%E8%90%BD%E5%9C%B0_8a991d8c" data-key="8a991d8c"><span style="color: rgb(35, 128, 242);">关于测新场景的AI落地</span></h3>
+<p><strong>Q：测新场景下AI怎么落地？性价比如何？</strong></p>
+<p>云音乐：最终愿景是<strong>测试作为监督者只做用例与产物监督、不再手工执行</strong>，但目前测新覆盖仅约25%——部分用例生成调试成本不经济；开发对测试生码常有「第一次就100%跑通」的不切实际期待，需要组织绩效指引与目标拆解，本质是「CTO工程」，头部技术1号位不关心、仅靠横向约束很难推进。</p>
+<p>测新要找ROI正向的项目范围——小项目收益有限，一定规模体量的项目适合「自动化工具+整体测试架构设计」结合；中间的确定性环节（异常场景、表现是否符合预期、性能验证）可优先确定性交付。<strong>终极理想：把测试提炼的用例当「真理」，与它对不上一定是研发错。</strong></p>
+<p>&nbsp;</p>
+<hr style="">
+<h2 id="%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E_255202fb" data-key="255202fb">写在最后</h2>
+<p>从云音乐的分层自动化体系，到效率工程部的平台化建设，严选的接口自动化工程化落地，雷火的专有场景全链路测试，再到有道在人机协作上的极致实践——各团队的探索证明，AI测试自动化已不再是「锦上添花」，而是质量效能提升的<strong>核心引擎</strong>。</p>
+<p>尽管各团队在落地路径上各有侧重，但一些共识已经浮现：</p>
+<p data-indent="1">1. <strong>AI负责理解与生成，确定性交给工程，人负责风险判断</strong>——这是多个团队不约而同达成的协作范式</p>
+<p data-indent="1">2. <strong>数据和业务知识是真正的壁垒</strong>——生码能力趋同后，造数能力、知识库质量、环境适配成为决定性因素</p>
+<p data-indent="1">3. <strong>分层比全覆盖重要</strong>——不追求全自动e2e，而是让不同层次的测试由最合适的角色负责</p>
+<p data-indent="1">4. <strong>从「人做事」到「人定规则、AI做事、人审结果」</strong>——这一范式迁移正在加速</p>
+<p>&nbsp;</p>
+<p>我们期望这次研讨不止于信息共享，更能推动后续的实质合作——无论是度量口径的对齐、harness工程的共建，还是测试资产的跨团队复用，都值得持续投入。也欢迎更多团队参与到后续的交流中来，带着你的问题和经验，一起把「点上的成功」变成「面上的常态」。如有建议主题，也欢迎在评论区留言～</p>
+</body>
+</html>

@@ -37,5 +37,6 @@ AI 生成代码速度超过人类维护测试的能力，传统静态测试脆�
 
 ## 相关页面
 
+- [[ai-test-industry-practices]] — 业界 AI 测试实践对比（含 JiTTesting 横向定位）
 - [[superpowers-framework]] — Superpowers 工程纪律
 - [[agent-tdd-workflow]] — TDD 工作流
